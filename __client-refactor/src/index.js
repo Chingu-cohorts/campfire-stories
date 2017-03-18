@@ -37,7 +37,7 @@ const renderRoutes = Routes => {
     <Provider store={store}>
       <Routes key={Math.random()}/>
     </Provider>,
-    document.getElementById("app")
+    document.getElementById("root")
   )
 }
 
