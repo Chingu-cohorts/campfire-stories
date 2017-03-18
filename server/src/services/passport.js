@@ -10,7 +10,6 @@ import LocalStrategy from 'passport-local'
  * Local imports
  */
 import User from '../models/UserModel'
-import config from 'config'
 
 /*
  * Local Strategy (For validating login)
@@ -43,7 +42,7 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
 // JWT options
 const opts = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: config.secret
+  secretOrKey: process.env.SECRET
 }
 // payload is decoded token, use it to check if it is a valid token
 const jwtLogin = new Strategy(opts, (payload, done) => {

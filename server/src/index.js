@@ -1,27 +1,23 @@
 /** Dependencies */
 import express from "express"
 import path from "path"
-import favicon from "serve-favicon"
 import logger from "morgan"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
 import compression from 'compression'
-import webpack from 'webpack'
 
 /** Local imports, connect db, and start server */
-import config from 'config'
 import { auth, admin, content } from './routes'
 
 const app = express() // start server
-app.listen(process.env.PORT || config.port) // server listen on 3000 by default
+app.listen(process.env.PORT) // server listen on 3000 by default
 
-const env = process.env.NODE_ENV;
-const mongodb = env === "prod" ? `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${config.db}`: config.mongodb;
+const mongodb = process.env.DB;
 
 mongoose.connect(mongodb) // connect to db
 
 // get a little feedback
-console.log(`${config.name} config running on port ${config.port}`)
+console.log(`running on port ${process.env.PORT}`)
 
 /** Middleware */
 if (process.env.NODE_ENV !== 'test'){

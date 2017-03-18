@@ -3,7 +3,6 @@
  */
 import jwt from 'jwt-simple'
 import Story from '../models/PostModel'
-import config from 'config'
 import moment from 'moment'
 
 /*

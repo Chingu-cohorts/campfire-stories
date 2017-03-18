@@ -3,7 +3,6 @@
  */
 import jwt from 'jwt-simple'
 import User from '../models/UserModel'
-import config from 'config'
 
 /*
  * Helper functions
@@ -26,7 +25,7 @@ function tokenForUser(user) {
   const timestamp = new Date().getTime();
   // iat = issued at time
   // sub = identifying characteristic
-  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret)
+  return jwt.encode({ sub: user.id, iat: timestamp }, process.env.SECRET)
 }
 
 
