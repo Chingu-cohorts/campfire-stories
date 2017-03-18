@@ -52,7 +52,7 @@
   "scripts": {
     "start": "env-cmd development nodemon --watch src/ --exec babel-node -- src/",
     "build": "babel src -d dist",
-    "serve": "env-cmd production node dist",
+    "serve": "env-cmd production node dist/server",
     "test": "env-cmd test mocha --compilers js:babel-core/register --recursive ./test"
   }
 }
