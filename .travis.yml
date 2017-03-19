@@ -14,7 +14,6 @@ branches:
 script:
 - sleep 5
 before_deploy:
-- mkdir dist
 - echo "Building client distribution."
 - cd client
 - npm i
@@ -29,29 +28,34 @@ before_deploy:
 - cd ..
 - echo "Finished building server distribution."
 deploy:
-  - provider: s3
-    access_key_id: AKIAIVBBZFN7NFRWONSQ
-    secret_access_key: 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
-    bucket: campfire-stories
-    skip_cleanup: true
-    region: us-east-1
-    local_dir: client/build
-    on:
-      branch: master
-  - provider: elasticbeanstalk
-    skip_cleanup: true
-    zip_file: server/server.zip
-    access_key_id:
-    secret_access_key: ZbQ1R+4j6XXBfqZIrZDWEhKMF/Xs5gw8kkJX2p54
-    region: us-east-1
-    app: campfire-stories
-    env: projects
-    bucket_name: elasticbeanstalk-us-east-1-812452178264
-    on:
-      branch: master
+- provider: s3
+  access_key_id: AKIAIVBBZFN7NFRWONSQ
+  secret_access_key:
+    secure: dFXDLJC8DWUFclbN9oLZVsayROkI6jCQQjZ8VSr5DFWwKEdhuj/sSfv9IKX+1n6Ayod/02xefsorodBWhHSCPT6iURDtzV81DizxfF14KbcFG2PcpQNVO7QWMiH1wP5VLYtIOiODFptl82cj2xFuWgqCN//iV4g9vLbWanE1wOJS75/RFY1oJTlluxjLl7RVeEGXghlbkjAsWQXo+hE5G068pax0zDX6DNg3ffW+d7/HQf2zSCbsNDm7kNV1x0FVxVOgL1byfNL7bAKtyGZ3aQ8B8qZk3FDznDeK8TrpB0C9EbK/bwte0TEq4UVxwdEr2hr11+69x4W33A2OLQu2wfpW/NKfNPhfp4j2FCkEDkD22R/IvoErkEuvvUtuZdLLGK0Edk2992rceVDjBXuhvtAFk/o46d19o+Iyf67LKdMpr3+HLbd5XykSg5WvtBz2eSJoCmkywzI/th7DHhegbYMlPUgl+Eql12lcnei5Q3CGvbZ3eAP90CMfo/YZBhuunH8C7ODP4BjS1PVJG9rb9H/KlJBDr5EMRtjFE4PxV2Wqd3PyZ1WwXJayCWsDR8cE8z71kvW8S1dV5TPt3ret9sS0kTzTcjXCZY7DpclTMO0v5+Q2TLUEEs+UrIgMB/VXJAJBPpf+2jBE6ex1vr/r19zRgLUROacJRSe6e1Wxhe8=
+  bucket: campfire-stories
+  skip_cleanup: true
+  region: us-east-1
+  local_dir: client/build
+  on:
+    branch: master
+- provider: elasticbeanstalk
+  skip_cleanup: true
+  zip_file: server/server.zip
+  access_key_id:
+  secret_access_key:
+    secure: dFXDLJC8DWUFclbN9oLZVsayROkI6jCQQjZ8VSr5DFWwKEdhuj/sSfv9IKX+1n6Ayod/02xefsorodBWhHSCPT6iURDtzV81DizxfF14KbcFG2PcpQNVO7QWMiH1wP5VLYtIOiODFptl82cj2xFuWgqCN//iV4g9vLbWanE1wOJS75/RFY1oJTlluxjLl7RVeEGXghlbkjAsWQXo+hE5G068pax0zDX6DNg3ffW+d7/HQf2zSCbsNDm7kNV1x0FVxVOgL1byfNL7bAKtyGZ3aQ8B8qZk3FDznDeK8TrpB0C9EbK/bwte0TEq4UVxwdEr2hr11+69x4W33A2OLQu2wfpW/NKfNPhfp4j2FCkEDkD22R/IvoErkEuvvUtuZdLLGK0Edk2992rceVDjBXuhvtAFk/o46d19o+Iyf67LKdMpr3+HLbd5XykSg5WvtBz2eSJoCmkywzI/th7DHhegbYMlPUgl+Eql12lcnei5Q3CGvbZ3eAP90CMfo/YZBhuunH8C7ODP4BjS1PVJG9rb9H/KlJBDr5EMRtjFE4PxV2Wqd3PyZ1WwXJayCWsDR8cE8z71kvW8S1dV5TPt3ret9sS0kTzTcjXCZY7DpclTMO0v5+Q2TLUEEs+UrIgMB/VXJAJBPpf+2jBE6ex1vr/r19zRgLUROacJRSe6e1Wxhe8=
+  region: us-east-1
+  app: campfire-stories
+  env: projects
+  bucket_name: elasticbeanstalk-us-east-1-812452178264
+  on:
+    branch: master
 notifications:
   email:
     recipients:
     - hansen.mmb@gmail.com
     on_success: always
     on_failure: always
+env:
+  global:
+    secure: dFXDLJC8DWUFclbN9oLZVsayROkI6jCQQjZ8VSr5DFWwKEdhuj/sSfv9IKX+1n6Ayod/02xefsorodBWhHSCPT6iURDtzV81DizxfF14KbcFG2PcpQNVO7QWMiH1wP5VLYtIOiODFptl82cj2xFuWgqCN//iV4g9vLbWanE1wOJS75/RFY1oJTlluxjLl7RVeEGXghlbkjAsWQXo+hE5G068pax0zDX6DNg3ffW+d7/HQf2zSCbsNDm7kNV1x0FVxVOgL1byfNL7bAKtyGZ3aQ8B8qZk3FDznDeK8TrpB0C9EbK/bwte0TEq4UVxwdEr2hr11+69x4W33A2OLQu2wfpW/NKfNPhfp4j2FCkEDkD22R/IvoErkEuvvUtuZdLLGK0Edk2992rceVDjBXuhvtAFk/o46d19o+Iyf67LKdMpr3+HLbd5XykSg5WvtBz2eSJoCmkywzI/th7DHhegbYMlPUgl+Eql12lcnei5Q3CGvbZ3eAP90CMfo/YZBhuunH8C7ODP4BjS1PVJG9rb9H/KlJBDr5EMRtjFE4PxV2Wqd3PyZ1WwXJayCWsDR8cE8z71kvW8S1dV5TPt3ret9sS0kTzTcjXCZY7DpclTMO0v5+Q2TLUEEs+UrIgMB/VXJAJBPpf+2jBE6ex1vr/r19zRgLUROacJRSe6e1Wxhe8=
