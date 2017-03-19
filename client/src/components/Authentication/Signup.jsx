@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 
 import { renderField, renderAlert } from '../utils/formFields'
 import * as actions from '../../actions/authentication-actions'

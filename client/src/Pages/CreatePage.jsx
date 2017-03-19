@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CreateForm from '../components/CreateOrEdit/CreateForm'
-import Tips from '../components/CreateOrEdit/Tips'
+// import Tips from '../components/CreateOrEdit/Tips'
 import { updatePath, emptyBody } from '../actions/story-actions'
  /*
   * Component
   */
 class CreateOrEditPage extends Component {
-  componentWillMount(){
+  componentWillMount () {
     // empty body form Field
     this.props.emptyBody()
   }

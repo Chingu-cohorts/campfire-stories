@@ -8,7 +8,7 @@ exports.renderTextarea = (field) => {
         <label className="control-label " htmlFor="text">{ field.label }</label>
         <textarea
           {...field.input} className="form-control" name={field.name} placeholder={field.placeholder} type={field.type}
-          className="form-control" cols="40" id="textarea" rows="10"></textarea>
+          cols="40" id="textarea" rows="10"></textarea>
         {field.meta.touched && field.meta.error && <div className="text-danger"> {field.meta.error} </div>}
     </div>
   )

@@ -17,7 +17,7 @@ const img14 = require('../../../public/img/people-slide/14.jpg');
 const img15 = require('../../../public/img/people-slide/15.jpg');
 
 // preserve original slide order
-const picSrcNumber = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1, 2, 3, 4, 5];
+// const picSrcNumber = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1, 2, 3, 4, 5];
 const images = [ img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img1, img2, img3, img4, img5 ]
 
 const Carousel = () => {

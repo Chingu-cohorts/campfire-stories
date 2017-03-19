@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import moment from 'moment'
+// import moment from 'moment'
 import Hero from '../components/Hero.jsx'
 import Masonry from '../components/Masonry.jsx'
 import * as actions from '../actions/story-actions'
@@ -8,19 +8,18 @@ import * as actions from '../actions/story-actions'
  /** Component */
 class HomePage extends Component {
 /** Get Stuff when this page loads */
-  componentWillMount(){
+  componentWillMount () {
     // get the stories to display
     this.props.getContent()
     // get the count
     this.props.getCount()
     // get my submitted stories
-    //this.props.getMyStories()
+    // this.props.getMyStories()
   }
 /***/
 
   /** Render */
   render () {
-
     return (
       <div className="clearfix">
         <div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Masonry from 'react-masonry-component'
+// import Masonry from 'react-masonry-component'
 import { connect } from 'react-redux'
-import moment from 'moment'
+// import moment from 'moment'
 import { Link } from 'react-router'
 import * as actions from '../actions/story-actions'
 import classnames from 'classnames'

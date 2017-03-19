@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { Link, IndexLink } from 'react-router';
+import { Link } from 'react-router';
 
 /*
  * Navbar Component
@@ -17,7 +17,7 @@ const NavbarLinks = ({ role, authenticated }) => {
     <li key={7} role="presentation">
       <Link activeClassName="active" to="/about">About Us</Link>
     </li>)
-    
+
   if ( role === 'Guest' ) {
     links.push(
       <li key={1} role="presentation">

@@ -30,7 +30,7 @@ class HomePage extends Component {
     // content
     let { stories, users, view } = this.props
     // actions
-    let {  approveStory, deleteStory, switchView, switchRoles, deleteUser  } = this.props
+    let { switchView, switchRoles, deleteUser  } = this.props
     // Change the child element format based on if it loads Stories or Users
     let childElements;
     if (view === 'users') {
@@ -87,7 +87,7 @@ class HomePage extends Component {
                     <div className='tabs-x tabs-below'>
                         <ul className="nav nav-tabs nav-justified" role="tablist">
                             <li className="active">
-                              <a onClick={() => switchView('stories') } href="#stories" role="tab-kv" data-toggle="tab">STORIES</a>
+                              <a onClick={() => switchView('stories') } href="#stories" data-toggle="tab">STORIES</a>
                             </li>
                             <li>
                               <a onClick={() => switchView('users') } href="#users" role="tab" data-toggle="tab">USERS</a>

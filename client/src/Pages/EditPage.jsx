@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import EditForm from '../components/CreateOrEdit/EditForm'
-import Tips from '../components/CreateOrEdit/Tips'
+// import Tips from '../components/CreateOrEdit/Tips'
 import { updatePath, emptyBody } from '../actions/story-actions'
  /*
   * Component

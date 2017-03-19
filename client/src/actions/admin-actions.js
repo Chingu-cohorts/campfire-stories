@@ -13,13 +13,12 @@ import cookie from 'react-cookie'
 /*
  * Helper
  */
-const getContent = (res) => {
+export const getContent = (res) => {
   return {
     type: GET_CONTENT,
     payload: res.data.payload
   }
 }
-
 
 /*
  * Content Control
@@ -42,7 +41,6 @@ export function handleNotAdmin(errorMessage) {
  */
 const token = cookie.load('token');
 axios.defaults.headers.common['authorization'] = token;
-
 
 export function approveStory(id) {
   return dispatch => {

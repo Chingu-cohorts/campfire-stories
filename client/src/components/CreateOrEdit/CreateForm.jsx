@@ -2,15 +2,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import moment from 'moment'
-import classnames from 'classnames'
+// import moment from 'moment'
+// import classnames from 'classnames'
 // locals
 import * as adminActions from '../../actions/admin-actions'
 import * as storyActions from '../../actions/story-actions'
 import { renderField } from '../utils/formFields'
 import { renderTextarea } from '../utils/textareaField'
 import { validatePost as validate } from '../../utils/validation'
-
 
 /*
  * Component
@@ -19,13 +18,13 @@ let CreateForm = ({ role, path, name, body, errorMessage, handleSubmit, addNewSt
   /*
    * Handle Story Body Change
    */
-  const onSubmit = ({ image, title, body  }) => {
+  const onSubmit = ({ image, title, body }) => {
     addNewStory({ body, image, title })
   }
   /*
    * Render
    */
-  let time = moment().format('LL')
+  // let time = moment().format('LL')
 
   return (
     <div className="col-md-8 col-sm-8 col-xs-12">
@@ -37,7 +36,7 @@ let CreateForm = ({ role, path, name, body, errorMessage, handleSubmit, addNewSt
 
           <Field
             id="text1" name="title" placeholder="Title" type="text"
-            type="text" label="Title" component={renderField}  />
+            label="Title" component={renderField}  />
 
           <Field
             cols="40" id="textarea" name="body" rows="10"

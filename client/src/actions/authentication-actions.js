@@ -50,7 +50,7 @@ export function loginUser(data) {
 export function logoutUser() {
   const token = cookie.load('token')
   if (token) {
-    const user = cookie.load('user')
+    // const user = cookie.load('user')
     return dispatch => {
       cookie.remove('token', { path: '/' })
       cookie.remove('user', { path: '/' })

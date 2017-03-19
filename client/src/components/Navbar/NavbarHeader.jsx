@@ -15,7 +15,7 @@ const NavbarHeader = () => {
         </button>
         {/* Home Link */}
         <IndexLink to="/" activeClassName="active" id="home" className="navbar-brand" rel="home" href="#">
-          <img style={{"maxHeight":"50px"}}
+          <img alt="logo" style={{"maxHeight":"50px"}}
           src="/img/cs-logo.svg" />
         </IndexLink>
     </div>

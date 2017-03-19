@@ -14,9 +14,9 @@ class FullStoryPage extends Component {
     if (!this.props.currentStory) {
       return <div>loading :)...</div>
     }
-    let { image, title, body, created_at, postedBy: { firstName, lastName } } = this.props.currentStory
+    let { image, body, created_at, postedBy: { firstName, lastName } } = this.props.currentStory
     let time = moment(created_at, "YYYY-MM-DD").format('LL');
-    const url= `${window.location.host}${this.props.location.pathname}`
+    // const url= `${window.location.host}${this.props.location.pathname}`
     return (
       <div id="full-story">
         <div className="section bg-white padding-top">
@@ -30,7 +30,7 @@ class FullStoryPage extends Component {
                     <p className="post-date">Published on {time}</p>
                   </div>
                   <div className="post-image">
-                    <img src={image} className="img-responsive" />
+                    <img alt="body" src={image} className="img-responsive" />
                   </div>
                 </div>
 

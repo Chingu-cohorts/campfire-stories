@@ -2,8 +2,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
-import moment from 'moment'
-import classnames from 'classnames'
+// import moment from 'moment'
+// import classnames from 'classnames'
 // locals
 import * as adminActions from '../../actions/admin-actions'
 import * as storyActions from '../../actions/story-actions'
@@ -26,7 +26,7 @@ let EditForm = ({ role, path, name, body, errorMessage, handleSubmit, updateStor
     let id = path.match(pattern)
     updateStory({ body, image, title }, id)
   }
-  let time = moment().format('LL')
+  // let time = moment().format('LL')
   // Buttons
   let childButtons = [ <button key="1" type="submit" className="btn btn-primary cs-btn-green">Update</button> ]
   if (role === 'Admin') {
@@ -46,7 +46,7 @@ let EditForm = ({ role, path, name, body, errorMessage, handleSubmit, updateStor
 
           <Field key={2}
             id="text1" name="title" placeholder="Title" type="text"
-            type="text" label="Title" component={renderField}  />
+            label="Title" component={renderField}  />
 
           <Field key={3}
             cols="40" id="textarea" name="body" rows="10"

@@ -34,7 +34,7 @@ const Routes = () => {
         // Sign Up
         <Route path="register" component={ AuthPage } />
         // Full Story
-        <Route path="full/:story_id" component= { FullStoryPage } />
+        <Route path="full/:story_id" component={ FullStoryPage } />
         // Make Story
         <Route path="story" component={ RequireAuth(CreatePage) } />
         // Edit Story
