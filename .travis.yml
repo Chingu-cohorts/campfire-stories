@@ -38,17 +38,17 @@ deploy:
     local_dir: client/build
     on:
       branch: master
-- provider: elasticbeanstalk
-  skip_cleanup: true
-  zip_file: server/server.zip
-  access_key_id: AKIAIVBBZFN7NFRWONSQ
-  secret_access_key: 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
-  region: us-east-1
-  app: campfire-stories
-  env: projects
-  bucket_name: elasticbeanstalk-us-east-1-812452178264
-  on:
-    branch: master
+  - provider: elasticbeanstalk
+    skip_cleanup: true
+    zip_file: server/server.zip
+    access_key_id:
+    secret_access_key: ZbQ1R+4j6XXBfqZIrZDWEhKMF/Xs5gw8kkJX2p54
+    region: us-east-1
+    app: campfire-stories
+    env: projects
+    bucket_name: elasticbeanstalk-us-east-1-812452178264
+    on:
+      branch: master
 notifications:
   email:
     recipients:
