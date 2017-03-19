@@ -31,6 +31,7 @@ if (token) {
 import React from 'react';
 import  { render } from 'react-dom';
 import Routes from './routes';
+require('./stylesheets/compiled/style.css')
 
 const renderRoutes = Routes => {
   render(

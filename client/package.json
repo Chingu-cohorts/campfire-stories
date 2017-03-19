@@ -30,8 +30,10 @@
   },
   "proxy": "http://localhost:3001",
   "scripts": {
-    "build-css": "node-sass src/stylesheets -o src/styles",
-    "start": "react-scripts start",
+    "build-css": "node-sass src/stylesheets/style.scss -o src/stylesheets/compiled",
+    "watch-css": "npm run build-css && node-sass src/stylesheets/style.scss -o src/stylesheets/compiled --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
