@@ -25,7 +25,7 @@ before_deploy:
 - cd server
 - npm i
 - npm run build
-- zip server.zip dist package.json .env-cmdrc .ebextensions
+- zip -r server.zip dist package.json .env-cmdrc .ebextensions
 - cd ..
 - echo "Finished building server distribution."
 deploy:
