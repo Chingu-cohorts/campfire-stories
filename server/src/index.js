@@ -5,11 +5,19 @@ import logger from "morgan"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
 import compression from 'compression'
-
+import cors from 'cors'
 /** Local imports, connect db, and start server */
 import { auth, admin, content } from './routes'
 
 const app = express() // start server
+
+app.use(cors({
+  origin: process.env.ORIGIN,
+  credentials: true,
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  methods: ['GET', 'PUT', 'POST', 'DELETE']
+}))
+
 app.listen(process.env.PORT) // server listen on 3000 by default
 
 const mongodb = process.env.DB;
