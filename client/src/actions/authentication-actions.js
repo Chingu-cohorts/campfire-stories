@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../utils/axios'
 import cookie from "react-cookie"
 import { browserHistory } from "react-router"
 

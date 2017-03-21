@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../utils/axios'
 import { browserHistory } from 'react-router'
 import {
   AUTH_ERROR,
@@ -8,7 +8,7 @@ import {
   REMOVE,
   UPADTE_USER
 } from './types'
-import cookie from 'react-cookie'
+// import cookie from 'react-cookie'
 
 /*
  * Helper
@@ -39,8 +39,7 @@ export function handleNotAdmin(errorMessage) {
 /*
  * Approving and Deleting Stories
  */
-const token = cookie.load('token');
-axios.defaults.headers.common['authorization'] = token;
+
 
 export function approveStory(id) {
   return dispatch => {
