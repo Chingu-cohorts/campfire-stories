@@ -50,8 +50,7 @@ export function register (req, res, next) {
       if (err) { return next(err); }
       // return user with their token
       res.status(201).json({
-        token: tokenForUser(user),
-        user: setUserInfo(user)
+        done: true
       })
     })
   })

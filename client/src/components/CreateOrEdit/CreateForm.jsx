@@ -40,7 +40,6 @@ let CreateForm = ({ role, path, name, body, errorMessage, handleSubmit, addNewSt
 
           <Field
             cols="40" id="textarea" name="body" rows="10"
-            placeholder="Tell people about yourself, how you got started with FCC, and what you hope to achieve. Or something."
             type="text" label="Story" component={renderTextarea}  />
 
             <div className="form-group">

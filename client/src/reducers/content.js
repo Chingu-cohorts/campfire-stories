@@ -1,8 +1,8 @@
 import * as actions from '../actions/types'
-import mockData from '../mockData'
+//import mockData from '../mockData'
 
 let initialState = {
-  current: mockData,
+  current: [],
   submitted: [],
   adminUsers: [],
   adminStories: [],
@@ -21,8 +21,8 @@ export default function stories_reducer(state = initialState, action) {
     case actions.FETCH_STORIES:
       return {
         ...state,
-        page: action.page
-        // current: action.payload
+        page: action.page,
+        current: action.payload
       }
     case actions.GET_COUNT:
       return {

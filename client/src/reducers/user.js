@@ -4,7 +4,8 @@ let initialState = {
   authenticated: false,
   name: null,
   role: 'Guest',
-  error: null
+  error: null,
+  await: false
 }
 
 // role = Member, Admin, Guest
@@ -35,6 +36,16 @@ export default function auth_reducer(state = initialState, action) {
         ...state,
         name: action.fullName,
         role: action.role
+      }
+    case actions.USER_CREATE_AWAIT:
+      return {
+        ...state,
+        await: true
+      }
+    case actions.USER_CREATED:
+      return {
+        ...state,
+        await: false
       }
     default:
       return state

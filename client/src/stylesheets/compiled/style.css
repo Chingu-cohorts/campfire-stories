@@ -69,6 +69,9 @@ p {
 .about-me {
   padding-bottom: 100px; }
 
+.size {
+  font-size: 20em; }
+
 /*navbar styles*/
 .navbar-fixed-top {
   min-height: 80px;

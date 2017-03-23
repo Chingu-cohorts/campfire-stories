@@ -101,6 +101,9 @@ class HomePage extends Component {
                                 <div className="row">
                                   { childElements }
                                 </div>
+                                {view === 'users' &&
+                                  <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
+                                }
                             </div>
 
                         </div>

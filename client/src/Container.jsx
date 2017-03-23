@@ -5,7 +5,7 @@ require('./stylesheets/style.scss')
 
 const Container = ({ children }) => {
   return (
-    <div clasName="layout">
+    <div>
       {/* Navbar */}
       <Nav />
       {/* Content */}

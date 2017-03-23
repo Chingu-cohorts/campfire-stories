@@ -20,7 +20,7 @@ class CreateOrEditPage extends Component {
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    <h2 className="h2">Tell Us Your Story</h2>
+                    <h2 className="h2">Write a Story</h2>
                 </div>
                 <CreateForm path={path} />
             </div>
