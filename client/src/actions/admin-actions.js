@@ -1,4 +1,4 @@
-import axios from '../utils/axios'
+import { getInstance } from '../utils/axios'
 import { browserHistory } from 'react-router'
 import {
   AUTH_ERROR,
@@ -8,7 +8,8 @@ import {
   REMOVE,
   UPADTE_USER
 } from './types'
-// import cookie from 'react-cookie'
+
+const axios = getInstance();
 
 /*
  * Helper
@@ -52,7 +53,7 @@ export function deleteStory(id) {
 
 export function getUsers(page=1) {
   return dispatch => {
-    return axios.get(`/api/admin/users?page=${page}`)
+    return axios.get(`/api/admin/users?page=${page}`, )
       .then( res => {
         dispatch({
           type: GET_ALL_USERS,
