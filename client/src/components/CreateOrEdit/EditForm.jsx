@@ -31,7 +31,6 @@ let EditForm = ({ role, path, name, body, errorMessage, handleSubmit, updateStor
   let childButtons = [ <button key="1" type="submit" className="btn btn-primary cs-btn-green">Update</button> ]
   if (role === 'Admin') {
     childButtons = childButtons.concat([
-      <button key="2" onClick={() => approveStory(path.match(pattern)) } className="btn btn-primary cs-btn-blue admin-btn">Approve</button>,
       <button key="3" onClick={() => deleteStory(path.match(pattern)) } className="btn btn-primary cs-btn-green admin-btn">Delete</button>
     ])
   }

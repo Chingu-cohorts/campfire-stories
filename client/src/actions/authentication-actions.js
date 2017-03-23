@@ -3,7 +3,7 @@ import cookie from "react-cookie"
 import { browserHistory } from "react-router"
 
 import { errorHandler } from './utils'
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SET_USER, USER_CREATED, USER_CREATE_AWAIT } from './types'
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SET_USER } from './types'
 
 function authenticateAndSetRole(response, dispatch) {
   cookie.save('token', response.data.token, { path: '/' })
@@ -17,25 +17,12 @@ function authenticateAndSetRole(response, dispatch) {
   browserHistory.push('/')
 }
 
-export function userCreateAwait() {
-  return {
-    type: USER_CREATE_AWAIT
-  }
-}
-
-export function userCreated() {
-  return {
-    type: USER_CREATED
-  }
-}
-
 export function registerUser(userData) {
   return dispatch => {
-    dispatch(userCreateAwait())
     return axios.post('/api/auth/register', userData)
     .then((resp) => {
       //  this only gets called with 200 codes
-      dispatch(userCreated())
+      browserHistory.push('/admin')
     })
     .catch((err) => {
       errorHandler(dispatch, err, AUTH_ERROR)

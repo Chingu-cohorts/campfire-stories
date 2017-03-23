@@ -7,8 +7,6 @@ export const AUTH_ERROR = 'auth_error'
 export const SET_USER_ROLE = 'set_user_role'
 export const SET_USER = 'set_user'
 export const GET_ALL_USERS = 'get_all_users'
-export const USER_CREATE_AWAIT = 'user_create_await'
-export const USER_CREATED = 'user_created'
 
 // Story management actions
 export const APPROVE_STORY = 'approve_story'

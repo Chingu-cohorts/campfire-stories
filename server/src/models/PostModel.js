@@ -21,11 +21,6 @@ const StorySchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  status: {
-    type: String,
-    enum: ['Pending', 'Approved'],
-    default: 'Pending'
-  },
   created_at: {
     type: Date,
     default: new Date()

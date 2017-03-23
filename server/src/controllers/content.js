@@ -34,7 +34,7 @@ export function getContent (req, res, next){
   let status = req.query.status || "Approved"
 
   Story
-    .find({ status })
+    .find()
     .sort('-date')
     .skip(limit * (page-1))
     .limit(limit)
@@ -78,23 +78,6 @@ export function getContent (req, res, next){
      })
    })
  }
-
-
-/*
- * Approve Story
- */
-export function approveContent (req, res, next){
-  let story = req.query.id;
-  // approve story with given ID
-  Story.update({ _id: story }, { $set: { status: 'Approved' }}, { new: true }, (err, updatedStory) => {
-    if (err) { return next(err); }
-    else {
-      res.status(200).json({
-        update: 'success'
-      })
-    }
-  })
-}
 
 /*
  * Remove Story

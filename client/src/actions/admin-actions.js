@@ -36,20 +36,6 @@ export function handleNotAdmin(errorMessage) {
   }
 }
 
-/*
- * Approving and Deleting Stories
- */
-
-
-export function approveStory(id) {
-  return dispatch => {
-    return axios.put(`/api/admin?id=${id}`)
-      .then( () => {
-        browserHistory.push('/admin')
-      })
-  }
-}
-
 export function deleteStory(id) {
   return dispatch => {
     return axios.delete(`/api/admin?id=${id}`)
