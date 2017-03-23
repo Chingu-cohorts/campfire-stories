@@ -1,8 +1,13 @@
 /* Vars */
 /*declaring basic style*/
+html {
+  height: 100%; }
+
 body {
+  position: relative;
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  min-height: 100%; }
 
 h1,
 h2,
@@ -431,9 +436,9 @@ p {
 
 /*footer styles*/
 footer {
+  position: absolute;
   bottom: 0;
-  width: 100%;
-  height: 60px; }
+  width: 100%; }
 
 footer p {
   line-height: 60px;

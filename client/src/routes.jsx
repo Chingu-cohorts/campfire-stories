@@ -15,7 +15,8 @@ import CreatePage from './Pages/CreatePage'
 import EditPage from './Pages/EditPage'
 import HomePage from './Pages/HomePage'
 import MyStoriesPage from './Pages/MyStoriesPage'
-import AuthPage from './Pages/AuthPage'
+import Register from './Pages/Register'
+import Login from './Pages/Login'
 import FullStoryPage from './Pages/FullStoryPage'
 import AboutUs from './Pages/AboutUs'
 //
@@ -30,9 +31,9 @@ const Routes = () => {
         // Home Page
         <IndexRoute component={ HomePage } />
         // Sign In
-        <Route path="login" component={ AuthPage } />
+        <Route path="login" component={ Login } />
         // Sign Up
-        <Route path="register" component={ AuthPage } />
+        <Route path="register" component={ RequireAdmin(Register) } />
         // Full Story
         <Route path="full/:story_id" component={ FullStoryPage } />
         // Make Story

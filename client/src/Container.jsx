@@ -5,13 +5,13 @@ require('./stylesheets/style.scss')
 
 const Container = ({ children }) => {
   return (
-    <div>
+    <div clasName="layout">
       {/* Navbar */}
       <Nav />
       {/* Content */}
       { children }
       {/* Footer */}
-      <Footer /> 
+      <Footer className='layout-bottom'/>
     </div>
   )
 }

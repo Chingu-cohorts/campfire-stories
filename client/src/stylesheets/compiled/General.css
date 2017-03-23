@@ -1,0 +1,69 @@
+/*declaring basic style*/
+html {
+  height: 100%; }
+
+body {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  min-height: 100%; }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Rubik", sans-serif; }
+
+h1 {
+  font-size: 3.142em; }
+
+h2 {
+  font-size: 1.942em; }
+
+.h2 {
+  font-family: "Rubik", sans-serif;
+  padding-bottom: 30px;
+  margin-top: 0;
+  color: #4e5166; }
+
+p {
+  line-height: 1.7;
+  padding-bottom: 40px; }
+
+/*end of declaring basic style*/
+/*helper classes*/
+.bg-white {
+  background: #fff; }
+
+.bg-blue {
+  background: #4E5166;
+  color: #fff; }
+
+.bg-pale-blue {
+  background: #EDEEF0; }
+
+.no-padding-picture {
+  padding: 0;
+  margin: 0; }
+
+.img-responsive {
+  width: 100%; }
+
+/*end of helper classes*/
+/*offset for fixed nav and hero section post etc*/
+.top-offset {
+  /*to fix fixed top style of navbar*/
+  margin-top: 140px; }
+
+.padding-top {
+  padding-top: 60px; }
+
+.padding-bottom {
+  padding-bottom: 60px; }
+
+/*end of offset for fixed nav and hero section*/
+.bottom-space {
+  margin-bottom: 70px; }
+
+.about-me {
+  padding-bottom: 100px; }

@@ -116,7 +116,7 @@ export function roleControl (req, res, next) {
     .findOne({ _id })
     .exec((err, doc) => {
       if (err) { return next(err); }
-      let newRole = (doc.role === 'Admin') ? 'Member': 'Admin';
+      let newRole = (doc.role === 'Admin') ? 'Writer': 'Admin';
 
       User.findOneAndUpdate(
         { _id },

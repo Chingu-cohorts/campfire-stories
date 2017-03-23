@@ -15,16 +15,6 @@ const AuthHeader = ({ location }) => {
                  id="login-link">
                  Login </IndexLink>
              </div>
-             {/* Regiser */}
-             <div className="col-xs-6">
-               <Link
-                 to="/register"
-                 className={classnames({ "active" : (location === '/register') })}
-                 id="register-link">
-                 Register
-               </Link>
-            </div>
-
         </div>
         <hr />
     </div>
