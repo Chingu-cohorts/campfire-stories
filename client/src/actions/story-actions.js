@@ -1,7 +1,7 @@
 /*
  * Imports
  */
-import { getInstance } from '../utils/axios'
+import axios from '../utils/axios'
 import cookie from 'react-cookie'
 import { browserHistory } from 'react-router'
 import { errorHandler } from './utils'
@@ -16,8 +16,6 @@ import {
   HANDLE_STORY_BODY,
   EMPTY_BODY
 } from './types'
-
-const axios = getInstance();
 
 /*
  * Handle Post

@@ -17,6 +17,8 @@ export const setInstance = () => {
 
 setInstance()
 
-export const getInstance = () => axios.create({
+const instance = axios.create({
   baseURL: url
 })
+
+export default instance

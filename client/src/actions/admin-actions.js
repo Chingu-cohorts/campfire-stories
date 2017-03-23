@@ -1,4 +1,4 @@
-import { getInstance } from '../utils/axios'
+import axios from '../utils/axios'
 import { browserHistory } from 'react-router'
 import {
   AUTH_ERROR,
@@ -8,8 +8,6 @@ import {
   REMOVE,
   UPADTE_USER
 } from './types'
-
-const axios = getInstance();
 
 /*
  * Helper
