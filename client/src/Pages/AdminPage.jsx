@@ -19,16 +19,10 @@ class HomePage extends Component {
     this.props.switchView('users')
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log(nextProps)
-    console.log(nextState)
-    return true
-  }
   /*
    * Render
    */
   render (){
-    console.log('rerender')
     if (!this.props.stories) {
       return (
         <div>loading...</div>
