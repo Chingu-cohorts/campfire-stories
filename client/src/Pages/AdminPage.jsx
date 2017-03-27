@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import moment from 'moment'
 import cookie from 'react-cookie'
 
 import { getUsers, switchView, switchRoles, deleteUser } from '../actions/admin-actions'
-import {  getContent } from '../actions/story-actions'
+import {  getContent } from '../actions/story-actions';
+import User from '../components/User';
+import Story from '../components/Story';
  /*
   * Component
   */
@@ -42,45 +43,18 @@ class HomePage extends Component {
     if (view === 'users') {
       const currentUser = cookie.load('user')
       childElements = users.filter(user => (user._id !== currentUser._id))
-      childElements = childElements.map((user,i) => {
-        let adminButtonText = (user.role === 'Admin') ? 'Demote to user' : 'Promote to admin';
-
-        return (
-          <div key={user._id} className="col-md-12 user-list">
-            <h4>{`${user.firstName} ${user.lastName}`}
-              <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">
-                <span className="glyphicon glyphicon-trash"></span>
-              </a>
-              <a href="#" onClick={() => switchRoles(user._id)} className="pull-right card-buttons">
-                {adminButtonText}
-              </a>
-            </h4>
-          </div>
-        )
-      })
+      childElements = childElements.map(user =>
+        <User
+          key={user._id}
+          switchRoles={switchRoles}
+          deleteUser={deleteUser}
+          user={user}
+        />
+      );
     } else if (view === 'stories'){
-      childElements = stories.map((story, i) => {
-        let time = moment(story.created_at, "YYYY-MM-DD").format('LL');
-        return (
-          <div key={i} className="col-md-4">
-            <div className="thumbnail">
-              <img src={story.image} alt="Campfire Story" />
-              <div className="caption no-border-bottom">
-                <div className="card-title">
-                  <h4>{story.title}
-                    <Link to={`/edit/${story._id}`} className="pull-right card-buttons">
-                      <span className="glyphicon glyphicon-eye-open"></span>
-                    </Link>
-                  </h4>
-                  <p className="card-info">
-                    Posted on {time} by {story.postedBy.firstName +" "+ story.postedBy.lastName}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-       )
-      })
+      childElements = stories.map(story =>
+        <Story key={story._id} story={story}/>
+      )
     }
     /*
      *

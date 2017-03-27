@@ -5,27 +5,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import * as actions from '../actions/story-actions'
 import classnames from 'classnames'
-/*
- *
- */
- // $(document).ready(function () {
- //     $('.grid').isotope({
- //         itemSelector: '.grid-item',
- //         percentPosition: true,
- //         masonry: {
- //             columnWidth: '.col-md-6'
- //         }
- //     });
- //
- //     $('.grid-1').isotope({
- //         itemSelector: '.grid-item-1',
- //         percentPosition: true,
- //         masonry: {
- //             columnWidth: '.col-md-4'
- //         }
- //     });
- // })
-
 
  /*
   * Component
