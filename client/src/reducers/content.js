@@ -79,11 +79,6 @@ export default function stories_reducer(state = initialState, action) {
           return x
         })
       }
-    case actions.FETCH_PENDING_STORIES:
-      return {
-        ...state,
-        adminStories: action.payload
-      }
     case actions.FETCH_STORY:
       return {
         ...state,

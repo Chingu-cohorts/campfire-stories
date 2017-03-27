@@ -44,11 +44,10 @@ export function createStoryValidationError(error) {
 /*
  * Handle Get
  */
-export function getContent (page=1, limit=10, status='Approved', type=FETCH_STORIES) {
+export function getContent (page=1, limit=10, type=FETCH_STORIES) {
   return dispatch => {
-    return axios.get(`/api/content/?page=${page}&limit=${limit}&status=${status}`)
+    return axios.get(`/api/content/?page=${page}&limit=${limit}`)
       .then( res => {
-
         dispatch({
           type,
           page: page,

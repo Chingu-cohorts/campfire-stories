@@ -14,12 +14,13 @@ const app = express() // start server
 app.use(cors({
   origin: process.env.ORIGIN,
   credentials: true,
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization', 'User'],
   methods: ['GET', 'PUT', 'POST', 'DELETE']
 }))
 
 app.listen(process.env.PORT) // server listen on 3000 by default
 
+mongoose.Promise = global.Promise;
 const mongodb = process.env.DB;
 
 mongoose.connect(mongodb) // connect to db

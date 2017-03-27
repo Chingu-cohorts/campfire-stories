@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import * as adminActions from '../actions/admin-actions'
-import * as storyActions from '../actions/story-actions'
-import { FETCH_PENDING_STORIES } from '../actions/types'
 import { Link } from 'react-router'
 import moment from 'moment'
 import cookie from 'react-cookie'
+
+import { getUsers, switchView, switchRoles, deleteUser } from '../actions/admin-actions'
+import {  getContent } from '../actions/story-actions'
  /*
   * Component
   */
 class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSelect = this.handleSelect.bind(this);
+  }
+
   componentDidMount(){
-    // get pending stories
-    this.props.getContent(1, 5, 'Pending', FETCH_PENDING_STORIES)
-    // get user
-    this.props.getUsers()
     // show correct view
-    this.props.switchView('users')
+    this.props.switchScreen('users')
+  }
+
+  handleSelect(selectedTab) {
+    this.props.switchScreen(selectedTab);
   }
 
   /*
@@ -31,7 +36,7 @@ class HomePage extends Component {
     // content
     let { stories, users, view } = this.props
     // actions
-    let { switchView, switchRoles, deleteUser  } = this.props
+    let { switchScreen, switchRoles, deleteUser  } = this.props
     // Change the child element format based on if it loads Stories or Users
     let childElements;
     if (view === 'users') {
@@ -86,28 +91,21 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-md-12 bottom-space">
               <div className='tabs-x tabs-below'>
+
+
                 <ul className="nav nav-tabs nav-justified" role="tablist">
                   <li className="active">
-                    <a onClick={() => switchView('stories') } href="#stories" data-toggle="tab">STORIES</a>
+                    <a onClick={() => switchScreen('users') } href="#users" role="tab" data-toggle="tab">USERS</a>
                   </li>
                   <li>
-                    <a onClick={() => switchView('users') } href="#users" role="tab" data-toggle="tab">USERS</a>
+                    <a onClick={() => switchScreen('stories') } href="#stories" data-toggle="tab">STORIES</a>
                   </li>
                 </ul>
 
-                <div className="tab-content">
-
-
-                  <div className="tab-pane" id="users">
-                    <div className="row">
-                      { childElements }
-                    </div>
-                    {view === 'users' &&
-                      <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
-                    }
-                  </div>
-
-                </div>
+                {childElements}
+                {view === 'users' &&
+                  <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
+                }
               </div>
             </div>
           </div>
@@ -120,10 +118,24 @@ class HomePage extends Component {
 const mapStateToProps = (state) => {
   return {
     users: state.content.adminUsers,
-    stories: state.content.adminStories,
+    stories: state.content.current,
     view: state.content.view
   }
 }
 
-const actions = Object.assign({}, adminActions, storyActions)
-export default connect(mapStateToProps, actions)(HomePage)
+const mapDispatchToProps = dispatch => ({
+  switchScreen: view => {
+    dispatch(view === 'users'
+      ? getUsers()
+      : getContent(1, 5)
+    );
+    dispatch(switchView(view));
+  },
+  switchRoles: id => dispatch(switchRoles(id)),
+  deleteUser: id => dispatch(deleteUser(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
