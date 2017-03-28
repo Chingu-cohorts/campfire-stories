@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
@@ -34,31 +35,33 @@ class HomePage extends Component {
         <div>loading...</div>
       )
     }
+
     // content
-    let { stories, users, view } = this.props
+    const { stories, users, view } = this.props
+
     // actions
-    let { switchScreen, switchRoles, deleteUser  } = this.props
+    const { switchScreen, switchRoles, deleteUser  } = this.props
+
     // Change the child element format based on if it loads Stories or Users
     let childElements;
     if (view === 'users') {
       const currentUser = cookie.load('user')
-      childElements = users.filter(user => (user._id !== currentUser._id))
-      childElements = childElements.map(user =>
-        <User
-          key={user._id}
-          switchRoles={switchRoles}
-          deleteUser={deleteUser}
-          user={user}
-        />
-      );
-    } else if (view === 'stories'){
+      childElements = users
+        .filter(user => (user._id !== currentUser._id))
+        .map(user =>
+          <User
+            key={user._id}
+            switchRoles={switchRoles}
+            deleteUser={deleteUser}
+            user={user}
+          />
+        );
+    } else if (view === 'stories') {
       childElements = stories.map(story =>
         <Story key={story._id} story={story}/>
       )
     }
-    /*
-     *
-     */
+
     return (
       <section className="section bg-white top-offset">
         <div className="container">

@@ -353,7 +353,8 @@ p {
 
 .card-description {
   margin: 0;
-  padding: 15px 15px; }
+  padding: 15px 15px;
+  word-wrap: break-word; }
 
 .caption .cs-btn-green {
   margin: 15px 15px; }

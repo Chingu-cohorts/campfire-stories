@@ -1,20 +1,20 @@
 import React from 'react';
 
-const img1 = require('../../../public/img/people-slide/1.jpg');
-const img2 = require('../../../public/img/people-slide/2.jpg');
-const img3 = require('../../../public/img/people-slide/3.jpg');
-const img4 = require('../../../public/img/people-slide/4.jpg');
-const img5 = require('../../../public/img/people-slide/5.jpg');
-const img6 = require('../../../public/img/people-slide/6.jpg');
-const img7 = require('../../../public/img/people-slide/7.jpg');
-const img8 = require('../../../public/img/people-slide/8.jpg');
-const img9 = require('../../../public/img/people-slide/9.jpg');
-const img10 = require('../../../public/img/people-slide/10.jpg');
-const img11 = require('../../../public/img/people-slide/11.jpg');
-const img12 = require('../../../public/img/people-slide/12.jpg');
-const img13 = require('../../../public/img/people-slide/13.jpg');
-const img14 = require('../../../public/img/people-slide/14.jpg');
-const img15 = require('../../../public/img/people-slide/15.jpg');
+import img1 from '../../../public/img/people-slide/1.jpg';
+import img2 from '../../../public/img/people-slide/2.jpg';
+import img3 from '../../../public/img/people-slide/3.jpg';
+import img4 from '../../../public/img/people-slide/4.jpg';
+import img5 from '../../../public/img/people-slide/5.jpg';
+import img6 from '../../../public/img/people-slide/6.jpg';
+import img7 from '../../../public/img/people-slide/7.jpg';
+import img8 from '../../../public/img/people-slide/8.jpg';
+import img9 from '../../../public/img/people-slide/9.jpg';
+import img10 from '../../../public/img/people-slide/10.jpg';
+import img11 from '../../../public/img/people-slide/11.jpg';
+import img12 from '../../../public/img/people-slide/12.jpg';
+import img13 from '../../../public/img/people-slide/13.jpg';
+import img14 from '../../../public/img/people-slide/14.jpg';
+import img15 from '../../../public/img/people-slide/15.jpg';
 
 // preserve original slide order
 // const picSrcNumber = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1, 2, 3, 4, 5];
@@ -36,19 +36,14 @@ const Carousel = () => {
       )
     }
   });
+
   return (
-    <section className="section">
-        <div className="container-fluid">
-            <div className="row">
-              <div id="myCarousel" className="carousel" data-ride="carousel" data-interval="2000">
-                <div className="carousel-inner" role="listbox">
-                  {slides}
-                </div>
-              </div>
-            </div>
-        </div>
+    <section id="myCarousel" className="carousel" data-ride="carousel" data-interval="2000">
+      <div className="carousel-inner" role="listbox">
+        {slides}
+      </div>
     </section>
-  )
-}
+  );
+};
 
 export default Carousel;

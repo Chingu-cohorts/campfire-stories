@@ -1,18 +1,29 @@
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
+import { IndexLink } from 'react-router'
+
 import NavbarLinks from './NavbarLinks'
-import NavbarHeader from './NavbarHeader'
+
 /*
  * Navbar Component
  */
-const Navbar = () => {
+const Navigation = () => {
   return (
-    <div className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
-        <NavbarHeader />
+    <Navbar fixedTop collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          {/* Home Link */}
+          <IndexLink to="/" activeClassName="active" id="home" rel="home">
+            <img alt="logo" style={{"maxHeight":"50px"}} src="/img/cs-logo.svg" />
+          </IndexLink>
+          <Navbar.Toggle />
+        </Navbar.Brand>
+      </Navbar.Header>
+      <Navbar.Collapse style={{paddingLeft: "40px", overflow: "hidden"}}>
         <NavbarLinks />
-    </div>
-  </div>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
-export default Navbar;
+export default Navigation;

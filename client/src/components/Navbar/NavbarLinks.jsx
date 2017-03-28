@@ -1,72 +1,44 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { Nav } from 'react-bootstrap';
 
-/*
- * Navbar Component
- */
+import NavLink from '../../components/NavLink';
+
 const NavbarLinks = ({ role, authenticated }) => {
-  /*
-   * Define Links for User, Guest, or Admin
-   */
+  // Define Links for User, Guest, or Admin
   let links = [];
-  /*
-   * Guest Links
-   */
-  links.push(
-    <li key={7} role="presentation">
-      <Link activeClassName="active" to="/about">About Us</Link>
-    </li>)
 
-  if ( role === 'Guest' ) {
-    links.push(
-      <li key={1} role="presentation">
-        <Link activeClassName="active" to="/login">Login</Link>
-      </li>)
+  links.push(<NavLink eventkey={7} key={7} path="about" text="About Us" />);
+
+  // Guest Links
+  if (role === 'Guest') {
+    links.push(<NavLink key={1} path="login" text="Login" />);
   }
-  /*
-   * User Links
-   */
-   if ( role === 'Admin' || role === 'Writer') {
-     links.push(
-       <li role="presentation" key={3}>
-         <Link activeClassName="active" to="/story">Create</Link>
-       </li>)
-     links.push(
-       <li role="presentation" key={4}>
-         <Link activeClassName="active" to="/mystories">My Stories</Link>
-       </li>)
-     links.push(
-       <li role="presentation" key={5}>
-         <Link activeClassName="active" to="/logout">Logout</Link>
-       </li>)
-    }
-    /*
-    * Admin Links
-    */
-     if ( role === 'Admin' ) {
-       links.push(
-         <li role="presentation" key={6}>
-           <Link activeClassName="active" to="/admin">Admin</Link>
-         </li>)
-      }
+
+  // Logged-in Links
+  if (role === 'Admin' || role === 'Writer') {
+    links.push(<NavLink eventkey={3} key={3} path="story" text="Create" />);
+    links.push(<NavLink eventkey={4} key={4} path="mystories" text="My Stories" />);
+    links.push(<NavLink eventkey={5} key={5} path="logout" text="Logout" />);
+  }
+
+  // Admin Links
+  if (role === 'Admin') {
+    links.push(<NavLink eventkey={6} key={6} path="admin" text="Admin" />);
+  }
 
   return (
-    <div id="navbar" className="collapse navbar-collapse navbar-responsive-collapse">
-        <ul className="nav navbar-nav navbar-right">
-            { links }
-        </ul>
-    </div>
-  )
-}
-/*
- * Redux state
- */
+    <Nav pullRight>
+      { links }
+    </Nav>
+  );
+};
+
 const mapStateToProps = (state) => {
   return {
     authenticated: state.user.authenticated,
     role: state.user.role
   }
-}
+};
 
-export default connect(mapStateToProps, null)(NavbarLinks);
+export default connect(mapStateToProps)(NavbarLinks);
