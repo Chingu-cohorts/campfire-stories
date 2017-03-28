@@ -9,9 +9,9 @@ const Container = ({ children }) => {
       {/* Navbar */}
       <Nav />
       {/* Content */}
-      { children }
+      <div className="top-offset">{ children }</div>
       {/* Footer */}
-      <Footer className='layout-bottom'/>
+      <Footer />
     </div>
   )
 }

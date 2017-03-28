@@ -1,3 +1,6 @@
+.hero-top {
+  margin-top: -140px; }
+
 /*Making full page carousel*/
 .carousel {
   height: 100vh;

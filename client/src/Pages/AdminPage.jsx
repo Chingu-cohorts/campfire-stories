@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
@@ -19,7 +19,7 @@ class HomePage extends Component {
 
   componentDidMount(){
     // show correct view
-    this.props.switchScreen('users')
+    this.handleSelect('users');
   }
 
   handleSelect(selectedTab) {
@@ -33,19 +33,19 @@ class HomePage extends Component {
     if (!this.props.stories) {
       return (
         <div>loading...</div>
-      )
+      );
     }
 
     // content
-    const { stories, users, view } = this.props
+    const { stories, users, view } = this.props;
 
     // actions
-    const { switchScreen, switchRoles, deleteUser  } = this.props
+    const { switchRoles, deleteUser } = this.props;
 
     // Change the child element format based on if it loads Stories or Users
     let childElements;
     if (view === 'users') {
-      const currentUser = cookie.load('user')
+      const currentUser = cookie.load('user');
       childElements = users
         .filter(user => (user._id !== currentUser._id))
         .map(user =>
@@ -59,35 +59,24 @@ class HomePage extends Component {
     } else if (view === 'stories') {
       childElements = stories.map(story =>
         <Story key={story._id} story={story}/>
-      )
+      );
     }
 
     return (
-      <section className="section bg-white top-offset">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 bottom-space">
-              <div className='tabs-x tabs-below'>
-
-
-                <ul className="nav nav-tabs nav-justified" role="tablist">
-                  <li className="active">
-                    <a onClick={() => switchScreen('users') } href="#users" role="tab" data-toggle="tab">USERS</a>
-                  </li>
-                  <li>
-                    <a onClick={() => switchScreen('stories') } href="#stories" data-toggle="tab">STORIES</a>
-                  </li>
-                </ul>
-
-                {childElements}
-                {view === 'users' &&
-                  <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
+      <Grid className="section bg-white">
+        <Row>
+          <Col md={12} className="bottom-space">
+            <Tabs defaultActiveKey="users" onSelect={this.handleSelect.bind(this)} id="tabs" justified>
+              <Tab eventKey="users" title="USERS" bsClass="tab" />
+              <Tab eventKey="stories" title="STORIES" />
+            </Tabs>
+            {childElements}
+            {view === 'users' &&
+              <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
+            }
+          </Col>
+        </Row>
+    </Grid>
     )
   }
 }

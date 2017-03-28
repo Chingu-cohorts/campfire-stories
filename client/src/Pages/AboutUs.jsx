@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 export default () => (
-  <Grid className="top-offset about-me">
+  <Grid className="about-me">
     <Row>
       <Col sm={8} smOffset={2} md={6} mdOffset={3}>
         <h2>About Campfire-Stories</h2>

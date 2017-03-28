@@ -12,27 +12,28 @@ h4 {
 .tab-pane .row .col-md-4 {
     padding-bottom: 15px;
 }
-.nav-tabs.nav-justified > li > a {
+
+#tabs li > a {
     border: none;
     border-bottom: 2px solid rgb(184, 186, 194);
-    color: #4e5166;
+    color: #4e5166!important;
     -webkit-transition: color 0.3s ease-out;
     transition: color 0.3s ease-out;
 }
-.nav-tabs.nav-justified > li > a:hover,
-.nav-tabs.nav-justified > li > a:focus {
+#tabs li > a:hover,
+#tabs li > a:focus {
     border: none;
     border-bottom: 2px solid #7be5a0;
     color: #7be5a0;
     background: transparent;
 }
-.nav-tabs.nav-justified>.active>a {
+#tabs .active a {
     border: none;
     border-bottom: 2px solid #7be5a0;
     color: #7be5a0;
 }
-.nav-tabs.nav-justified>.active>a:focus,
-.nav-tabs.nav-justified>.active>a:hover {
+#tabs .active a:focus,
+#tabs .active a:hover {
     border: none;
     border-bottom: 2px solid #7be5a0;
     color: #7be5a0;

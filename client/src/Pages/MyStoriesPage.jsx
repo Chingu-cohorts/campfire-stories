@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import Masonry from 'react-masonry-component'
-import { connect } from 'react-redux'
-// import moment from 'moment'
-import { Link } from 'react-router'
-import * as actions from '../actions/story-actions'
-import classnames from 'classnames'
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import { Grid, Row, Col } from 'react-bootstrap';
+import * as actions from '../actions/story-actions';
+import classnames from 'classnames';
 
  /*
   * Component
@@ -19,11 +18,11 @@ class MyStoryPage extends Component {
     let childElemenets = [];
     if (submitted.length === 0) {
       childElemenets.push(
-        <div key='orange' className="col-md-4 col-md-offset-4 no-story">
+        <Col md={4} mdOffset={4} key='orange' className="no-story">
           <Link type="button" className="btn btn-primary cs-btn-green" to="/story">
             <h2 key={'title'}>Why not write a story?</h2>
           </Link>
-        </div>
+        </Col>
       )
     } else {
        childElemenets = submitted.map((x,i) => {
@@ -33,7 +32,7 @@ class MyStoryPage extends Component {
            </Link>
          )
         return (
-            <div key={i} className="col-md-4 grid-item-1">
+            <Col md={4} key={i} className="grid-item-1">
                 <div className="thumbnail">
                     <img src={x.image} alt="Campfire Story" />
                     <div className="caption no-border-bottom">
@@ -47,20 +46,16 @@ class MyStoryPage extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Col>
         )
       })
     }
     return (
-      <section className="section bg-white top-offset">
-        <section className="container">
-            <div className="row grid-1 bottom-space">
-
-              { childElemenets }
-
-            </div>
-        </section>
-    </section>
+      <Grid className="section bg-white">
+        <Row className="grid-1 bottom-space">
+          { childElemenets }
+        </Row>
+      </Grid>
     );
   }
 }

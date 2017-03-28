@@ -21,14 +21,10 @@ class HomePage extends Component {
   /** Render */
   render () {
     return (
-      <div className="clearfix">
-        <div>
-          <Hero />
-        </div>
-        <div>
-          <Masonry current={this.props.current}/>
-        </div>
-      </div>
+      <section className="hero-top">
+        <Hero />
+        <Masonry current={this.props.current}/>
+      </section>
     )
   }
 }

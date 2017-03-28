@@ -5,7 +5,7 @@ import Carousel from './BitsAndBobs/Carousel';
 
 const Hero = () => {
   return (
-    <Grid fluid={true} className="hero-top hero-content">
+    <Grid fluid>
       <div id="hero-content">
         <Row id="hero-content-centered">
           <Col md={12} xs={11}>
@@ -20,7 +20,7 @@ const Hero = () => {
         </Row>
       </div>
       <Row><Carousel/></Row>
-      <div id="overlay"></div>
+      <div id="overlay" />
     </Grid>
   )
 }

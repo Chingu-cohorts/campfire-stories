@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import CreateForm from '../components/CreateOrEdit/CreateForm'
-// import Tips from '../components/CreateOrEdit/Tips'
-import { updatePath, emptyBody } from '../actions/story-actions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Grid, Row, Col } from 'react-bootstrap';
+
+import CreateForm from '../components/CreateOrEdit/CreateForm';
+import { updatePath, emptyBody } from '../actions/story-actions';
  /*
   * Component
   */
@@ -16,17 +17,15 @@ class CreateOrEditPage extends Component {
     let path = this.props.location.pathname
     this.props.updatePath(path)
     return (
-      <section className="section bg-white top-offset bottom-space" id="create-page">
-        <div className="container">
-            <div className="row">
-                <div className="col-md-12">
-                    <h2 className="h2">Write a Story</h2>
-                </div>
-                <CreateForm path={path} />
-            </div>
-        </div>
-    </section>
-    )
+      <Grid className="bg-white bottom-space" id="create-page">
+        <Row>
+          <Col md={12}>
+            <h2 className="h2">Write a Story</h2>
+          </Col>
+          <CreateForm path={path} />
+        </Row>
+      </Grid>
+    );
   }
 }
 

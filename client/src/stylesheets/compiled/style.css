@@ -4,9 +4,9 @@ html {
   height: 100%; }
 
 body {
-  position: relative;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  position: relative;
   min-height: 100%; }
 
 h1,
@@ -54,7 +54,7 @@ p {
 /*offset for fixed nav and hero section post etc*/
 .top-offset {
   /*to fix fixed top style of navbar*/
-  margin-top: 140px; }
+  padding-top: 140px; }
 
 .padding-top {
   padding-top: 60px; }
@@ -125,6 +125,9 @@ p {
 /*end of navbar styles*/
 .beta-tag {
   color: #7BE5A0; }
+
+.hero-top {
+  margin-top: -140px; }
 
 /*Making full page carousel*/
 .carousel {
@@ -504,27 +507,27 @@ h4 {
 .tab-pane .row .col-md-4 {
   padding-bottom: 15px; }
 
-.nav-tabs.nav-justified > li > a {
+#tabs li > a {
   border: none;
   border-bottom: 2px solid #b8bac2;
-  color: #4e5166;
+  color: #4e5166 !important;
   -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
-.nav-tabs.nav-justified > li > a:hover,
-.nav-tabs.nav-justified > li > a:focus {
+#tabs li > a:hover,
+#tabs li > a:focus {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
   background: transparent; }
 
-.nav-tabs.nav-justified > .active > a {
+#tabs .active a {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0; }
 
-.nav-tabs.nav-justified > .active > a:focus,
-.nav-tabs.nav-justified > .active > a:hover {
+#tabs .active a:focus,
+#tabs .active a:hover {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
@@ -731,6 +734,7 @@ h4 {
   #full-story .post-image {
     overflow: hidden; }
   #full-story .post-text {
+    word-wrap: break-word;
     margin-top: 18px; }
   #full-story .post-title {
     color: #fff;
