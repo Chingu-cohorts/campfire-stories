@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { Grid, Row, Col } from 'react-bootstrap';
-import * as actions from '../actions/story-actions';
+import * as actions from 'actions/story-actions';
 import classnames from 'classnames';
 
  /*

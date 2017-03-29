@@ -9,47 +9,37 @@ import LogoutPage from './components/utils/LogoutPage'
 /*
  * Views
  */
-import NotFoundPage from './Pages/NotFoundPage'
-import AdminPage from './Pages/AdminPage'
-import CreatePage from './Pages/CreatePage'
-import EditPage from './Pages/EditPage'
-import HomePage from './Pages/HomePage'
-import MyStoriesPage from './Pages/MyStoriesPage'
-import Register from './Pages/Register'
-import Login from './Pages/Login'
-import FullStoryPage from './Pages/FullStoryPage'
-import AboutUs from './Pages/AboutUs'
-//
-import Container from './Container'
+import * as pages from './Pages';
+import Layout from './Layout'
 /*
  * Routes
  */
 const Routes = () => {
   return (
     <Router history={ browserHistory }>
-      <Route path="/" component={ Container }>
+      <Route path="/" component={ Layout }>
         // Home Page
-        <IndexRoute component={ HomePage } />
+        <IndexRoute component={ pages.HomePage } />
         // Sign In
-        <Route path="login" component={ Login } />
+        <Route path="login" component={ pages.Login } />
         // Sign Up
-        <Route path="register" component={ RequireAdmin(Register) } />
+        <Route path="register" component={ RequireAdmin(pages.Register) } />
         // Full Story
-        <Route path="full/:story_id" component={ FullStoryPage } />
+        <Route path="full/:story_id" component={ pages.FullStoryPage } />
         // Make Story
-        <Route path="story" component={ RequireAuth(CreatePage) } />
+        <Route path="story" component={ RequireAuth(pages.CreatePage) } />
         // Edit Story
-        <Route path="edit/:story_id" component={ RequireAuth(EditPage) } />
+        <Route path="edit/:story_id" component={ RequireAuth(pages.EditPage) } />
         // My Stories
-        <Route path="mystories" component={ RequireAuth(MyStoriesPage) } />
+        <Route path="mystories" component={ RequireAuth(pages.MyStoriesPage) } />
         // About Us
-        <Route path="about" component={AboutUs} />
+        <Route path="about" component={pages.AboutUs} />
         // Admin Page
-        <Route path="admin" component={ RequireAdmin(AdminPage) } />
+        <Route path="admin" component={ RequireAdmin(pages.AdminPage) } />
         // Logout
         <Route path="logout" component={ LogoutPage } />
         // handle 404 routes
-        <Route path="*" component={NotFoundPage} />
+        <Route path="*" component={pages.NotFoundPage} />
       </Route>
     </Router>
   )

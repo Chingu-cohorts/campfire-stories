@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from './components/Navbar/Nav';
-import Footer from './components/BitsAndBobs/Footer'
-require('./stylesheets/style.scss')
+import { Footer, Nav } from './components';
+import 'stylesheets/style.scss'
 
 const Container = ({ children }) => {
   return (

@@ -22,6 +22,7 @@
     "validator": "^6.0.0"
   },
   "devDependencies": {
+    "cross-env": "^3.2.4",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
     "eslint-plugin-promise": "^3.5.0",
@@ -34,9 +35,9 @@
   "scripts": {
     "build-css": "node-sass src/stylesheets/style.scss -o src/stylesheets/compiled",
     "watch-css": "npm run build-css && node-sass src/stylesheets/style.scss -o src/stylesheets/compiled --watch --recursive",
-    "start-js": "react-scripts start",
+    "start-js": "cross-env NODE_PATH=src react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "react-scripts build",
+    "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

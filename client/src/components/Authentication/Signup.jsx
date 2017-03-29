@@ -3,8 +3,8 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 import { renderField, renderAlert } from '../utils/formFields'
-import * as actions from '../../actions/authentication-actions'
-import { validateLogin as validate } from '../../utils/validation'
+import * as actions from 'actions/authentication-actions'
+import { validateLogin as validate } from 'utils/validation'
 
 
 class SignupForm extends React.Component {

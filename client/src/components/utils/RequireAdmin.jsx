@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { handleNotAdmin } from '../../actions/admin-actions'
-import { logoutUser } from '../../actions/authentication-actions'
+import { handleNotAdmin } from 'actions/admin-actions'
+import { logoutUser } from 'actions/authentication-actions'
 
 export default function(ComposedComponent) {
   class RequireAdmin extends Component {

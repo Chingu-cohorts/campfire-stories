@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row } from 'react-bootstrap';;
 import Masonry from 'react-masonry-component';
-import * as actions from '../actions/story-actions';
+import * as actions from 'actions/story-actions';
 
 import Brick from './Brick';
 import Controls from './Controls';

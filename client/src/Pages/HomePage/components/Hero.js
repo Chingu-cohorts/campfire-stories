@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 
-import Carousel from './BitsAndBobs/Carousel';
+import Carousel from './CarouselComponent';
 
 const Hero = () => {
   return (

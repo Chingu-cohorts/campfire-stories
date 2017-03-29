@@ -1,4 +1,4 @@
-import AuthPage from './AuthPage'
+import AuthPage from 'components/AuthPage'
 
 const Register = AuthPage()
 

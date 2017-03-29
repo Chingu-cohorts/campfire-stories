@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import CreateForm from '../components/CreateOrEdit/CreateForm';
-import { updatePath, emptyBody } from '../actions/story-actions';
+import CreateForm from './components/CreateForm';
+import { updatePath, emptyBody } from 'actions/story-actions';
  /*
   * Component
   */

@@ -5,11 +5,11 @@ import { Field, reduxForm } from 'redux-form'
 // import moment from 'moment'
 // import classnames from 'classnames'
 // locals
-import * as adminActions from '../../actions/admin-actions'
-import * as storyActions from '../../actions/story-actions'
+import * as adminActions from 'actions/admin-actions'
+import * as storyActions from 'actions/story-actions'
 import { renderField } from '../utils/formFields'
 import { renderTextarea } from '../utils/textareaField'
-import { validatePost as validate } from '../../utils/validation'
+import { validatePost as validate } from 'utils/validation'
 
 
 /*

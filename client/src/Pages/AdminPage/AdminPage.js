@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
 
-import { getUsers, switchView, switchRoles, deleteUser } from '../actions/admin-actions'
-import {  getContent } from '../actions/story-actions';
-import User from '../components/User';
-import Story from '../components/Story';
+import { getUsers, switchView, switchRoles, deleteUser } from 'actions/admin-actions'
+import {  getContent } from 'actions/story-actions';
+import { User, Story } from './components';
+
  /*
   * Component
   */

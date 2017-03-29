@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-// import moment from 'moment'
-import Hero from '../components/Hero.jsx'
-import Masonry from '../components/Masonry.jsx'
-import * as actions from '../actions/story-actions'
+import { connect } from 'react-redux';
+import { Hero, Masonry } from './components';
+import * as actions from 'actions/story-actions'
 
  /** Component */
 class HomePage extends Component {

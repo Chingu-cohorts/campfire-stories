@@ -6,11 +6,11 @@ import { Col } from 'react-bootstrap';
 // import moment from 'moment'
 // import classnames from 'classnames'
 // locals
-import * as adminActions from '../../actions/admin-actions';
-import * as storyActions from '../../actions/story-actions';
-import { renderField } from '../utils/formFields';
-import { renderTextarea } from '../utils/textareaField';
-import { validatePost as validate } from '../../utils/validation';
+import * as adminActions from 'actions/admin-actions';
+import * as storyActions from 'actions/story-actions';
+import { renderField } from 'components/utils/formFields';
+import { renderTextarea } from 'components/utils/textareaField';
+import { validatePost as validate } from 'utils/validation';
 
 /*
  * Component
