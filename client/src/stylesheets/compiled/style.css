@@ -427,10 +427,13 @@ p {
     margin-right: 15px; }
   #login-page form {
     display: block; }
-  #login-page .panel-login input[type="text"], #login-page .panel-login input[type="email"], #login-page .panel-login input[type="password"] {
+  #login-page .panel-login input[type="text"],
+  #login-page .panel-login input[type="email"],
+  #login-page .panel-login input[type="password"] {
     height: 40px;
     font-size: 16px; }
-  #login-page #login-submit, #login-page #register-submit {
+  #login-page #login-submit,
+  #login-page #register-submit {
     background-color: #4E5166;
     text-decoration: none;
     color: #fff !important;

@@ -1,21 +1,17 @@
 import React from 'react'
 import classnames from 'classnames'
 
-exports.renderTextarea = (field) => {
-  //console.log(field)
+export const renderField = (field) => {
   return (
     <div className={classnames('form-group', {'has-error': field.meta.visited && field.meta.invalid})}>
         <label className="control-label " htmlFor="text">{ field.label }</label>
-        <textarea
-          {...field.input} className="form-control" name={field.name} placeholder={field.placeholder} type={field.type}
-          cols="40" id="textarea" rows="10"></textarea>
+        <input {...field.input} className="form-control" id={field.id} name={field.name} placeholder={field.placeholder} type={field.type} />
         {field.meta.touched && field.meta.error && <div className="text-danger"> {field.meta.error} </div>}
     </div>
   )
 }
 
-
-exports.renderAlert = (errorMessage) => {
+export const renderAlert = (errorMessage) => {
   if(errorMessage) {
     return (
       <div className="alert alert-danger">
