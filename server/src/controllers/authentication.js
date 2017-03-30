@@ -49,7 +49,7 @@ export function register (req, res, next) {
     let newUser = new User({ email, password, firstName, lastName })
     // save new user
     newUser.save((err, user) => {
-      if (err) { return next(err); }
+      if (err) return next(err);
       // return user with their token
       res.status(201).json({
         done: true
@@ -105,7 +105,7 @@ export function getUsers(req, res, next) {
     .skip(limit * (page-1))
     .limit(limit)
     .exec((err, users) => {
-      if (err){return next(err); }
+      if (err)return next(err);
       res
         .status(200)
         .json({
@@ -129,7 +129,7 @@ export function roleControl (req, res, next) {
         { $set: { role: newRole }},
         { new: true },
         (err, user) => {
-            if (err){ return next(err); }
+            if (err) return next(err);
             res
               .status(200)
               .json({

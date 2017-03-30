@@ -17,8 +17,7 @@ export function submitContent(req, res, next) {
   }
   let newStory = new Story ({ title, body, image, postedBy })
   newStory.save(newStory, (err, story) => {
-    if (err) { next(err) }
-    //console.log(story)
+    if (err) return next(err);
     res.status(201).json({
       story: story
     })
@@ -40,8 +39,7 @@ export function getContent (req, res, next){
     .limit(limit)
     .populate('postedBy')
     .exec((err, storyArr) => {
-      console.log(storyArr)
-      if (err) { return next(err); }
+      if (err) return next(err);
       res.status(200).json({
         content: storyArr
     });
@@ -55,9 +53,9 @@ export function getStory(req, res, next) {
     .findById(storyId)
     .populate('postedBy')
     .exec((err, story) => {
-      if (err) next(err);
-      else if (!story) next();
-      else res.json({ story });
+      if (err) return next(err);
+      if (!story) return next();
+      res.json({ story });
     });
 }
 
@@ -66,11 +64,11 @@ export function getStory(req, res, next) {
  */
  export function getCount(req, res, next) {
    Story.count({ status: "Approved" }, (err, count) => {
-     if (err) next(err)
+     if (err) return next(err);
      res.json({
        count
-     })
-   })
+     });
+   });
  }
 
 /*
@@ -80,13 +78,13 @@ export function deleteContent (req, res, next){
   let _id = req.query.id;
   // remove story with given ID
   Story.findOne({ _id }, (err, model) => {
-    if (err) { return next(err); }
+    if (err) return next(err);
     model.remove((err) => {
-      if (err) { return next(err); }
+      if (err) return next(err);
       else {
         res.status(200).json({
           delete: 'success'
-        })
+        });
       }
     });
   })
@@ -104,11 +102,12 @@ export function updateContent(req, res, next) {
     { $set: { title, body, image }},
     { new: true },
     (err, story) => {
-      if (err) { return next(err); }
+      if (err) return next(err);
       res
       .status(200)
-      .json({ story })
-    })
+      .json({ story });
+    }
+  );
 }
 
 
@@ -119,9 +118,9 @@ export function getMyStories(req, res, next) {
   let id = req.query.id;
 
   Story.find({ postedBy: id }, (err, story) => {
-    if (err) {return next(err); }
+    if (err) return next(err);
     res
       .status(200)
-      .json({ story })
-  })
+      .json({ story });
+  });
 }
