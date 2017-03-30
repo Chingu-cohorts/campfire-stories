@@ -48,25 +48,18 @@ export function getContent (req, res, next){
   })
 }
 
-/**
- *
- */
- export function getStory(req, res, next) {
-   let storyId = req.params.story_id
+export function getStory(req, res, next) {
+  let storyId = req.params.story_id
 
-   Story.findById(storyId)
-        .populate('postedBy')
-        .exec((err, story) => {
-          console.log(err, story)
-            if (err) next(err)
-            if (!story) {
-              next()
-            }
-            res.json({
-              story
-            })
-        })
- }
+  Story
+    .findById(storyId)
+    .populate('postedBy')
+    .exec((err, story) => {
+      if (err) next(err);
+      else if (!story) next();
+      else res.json({ story });
+    });
+}
 
 /*
  * Get count of stories

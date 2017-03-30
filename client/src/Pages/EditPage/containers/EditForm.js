@@ -27,7 +27,7 @@ class EditForm extends Component {
 
   render() {
     const { handleSubmit, deleteStory, _id } = this.props;
-
+    
     return (
       <Col md={8} sm={8} xs={12}>
         <form onSubmit={handleSubmit(this.onSubmit)} >
