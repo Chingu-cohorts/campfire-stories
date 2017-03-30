@@ -7,17 +7,17 @@ import * as actions from 'actions/story-actions';
 import Brick from './Brick';
 import Controls from './Controls';
 
-const StoryContent = ({ page, updatePath, current, count, getContent }) => {
+const StoryContent = ({ page, current, count, getContent }) => {
   const masonryOptions = {
     transitionDuration: 0
   };
 
   const bricks = current.map(brick =>
-    <Brick key={brick._id} data={brick} updatePath={updatePath}/>
+    <Brick key={brick._id} data={brick} />
   );
 
   const controlRow = (
-    <Controls getContent={getContent} page={page} count={count}/>
+    <Controls getContent={getContent} page={page} count={count} />
   );
 
   return (

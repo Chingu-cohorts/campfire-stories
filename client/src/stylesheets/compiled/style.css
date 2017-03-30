@@ -493,8 +493,7 @@ footer p {
   margin-top: 6px;
   color: #ff1654; }
 
-#create-page .form-group,
-#edit-page .form-group {
+.content-page .form-group {
   padding-bottom: 15px; }
 
 /*end of form styles*/

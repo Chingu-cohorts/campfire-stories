@@ -57,6 +57,7 @@ export function getContent (req, res, next){
    Story.findById(storyId)
         .populate('postedBy')
         .exec((err, story) => {
+          console.log(err, story)
             if (err) next(err)
             if (!story) {
               next()

@@ -12,7 +12,6 @@ import {
   FETCH_STORY,
   REMOVE_CURRENT,
   GET_MY_STORIES,
-  UPDATE_PATH,
   HANDLE_STORY_BODY,
   EMPTY_BODY
 } from './types'
@@ -125,15 +124,6 @@ export function getMyStories () {
           payload: res.data.story
         })
       })
-  }
-}
-/*
- * get path address
- */
-export function updatePath(path) {
-  return {
-    type: UPDATE_PATH,
-    payload: path
   }
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
-const AuthContainer = props => (
+const AuthBox = props => (
   <Grid id="login-page" fluid>
     <Row>
       <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
@@ -11,4 +11,4 @@ const AuthContainer = props => (
   </Grid>
 );
 
-export default AuthContainer
+export default AuthBox;

@@ -3,13 +3,13 @@ import { Link } from 'react-router';
 import { Col } from 'react-bootstrap';
 import moment from 'moment';
 
-const Brick = ({ data, updatePath }) => {
+const Brick = ({ data }) => {
   const time = moment(data.created_at, "YYYY-MM-DD").format('LL');
   const body = (data.body.length >= 400) ? data.body.slice(0,400) + '...' : data.body;
 
   return (
     <Col md={6} className="grid-item">
-      <Link to={`/full/${data._id}`} onClick={()=>{updatePath(data._id)}}>
+      <Link to={`/full/${data._id}`}>
         <div className="thumbnail">
           <img src={data.image} alt="Campfire Story" />
             <div className="caption">

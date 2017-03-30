@@ -39,11 +39,6 @@ export default function stories_reducer(state = initialState, action) {
         ...state,
         submitted: action.payload
       }
-    case actions.UPDATE_PATH:
-      return {
-        ...state,
-        path: action.payload
-      }
     case actions.HANDLE_STORY_BODY:
       return {
         ...state,

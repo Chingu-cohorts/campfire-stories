@@ -1,11 +1,11 @@
 import React from 'react';
-import AuthContainer from 'components/AuthContainer';
+import AuthBox from 'components/AuthBox';
 import Signup from './containers/Signup';
 
 const Register = () => (
-  <AuthContainer>
+  <AuthBox>
     <Signup />
-  </AuthContainer>
+  </AuthBox>
 );
 
 export default Register;

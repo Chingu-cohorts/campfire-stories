@@ -1,11 +1,11 @@
 import React from 'react';
-import AuthContainer from 'components/AuthContainer';
+import AuthBox from 'components/AuthBox';
 import Signin from './containers/Signin';
 
 const Login = () => (
-  <AuthContainer>
+  <AuthBox>
     <Signin />
-  </AuthContainer>
+  </AuthBox>
 );
 
-export default Login
+export default Login;
