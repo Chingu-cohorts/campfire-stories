@@ -38,7 +38,7 @@ export function getContent (req, res, next){
     .sort('-date')
     .skip(limit * (page-1))
     .limit(limit)
-    .populate('postedBy')
+    .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
       if (err) return next(err);
       res.status(200).json({
@@ -52,7 +52,7 @@ export function getStory(req, res, next) {
 
   Story
     .findById(storyId)
-    .populate('postedBy')
+    .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, story) => {
       if (err) return next(err);
       if (!story) return next();
