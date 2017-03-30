@@ -16,8 +16,8 @@ class EditForm extends Component {
   }
 
   componentWillMount()  {
-    const { story, getStory, _id } = this.props;
-    if (!story) getStory(_id);
+    const { getStory, _id } = this.props;
+    getStory(_id);
   }
 
   onSubmit = ({ image, title, body  }) => {
@@ -27,7 +27,6 @@ class EditForm extends Component {
 
   render() {
     const { handleSubmit, deleteStory, _id } = this.props;
-    
     return (
       <Col md={8} sm={8} xs={12}>
         <form onSubmit={handleSubmit(this.onSubmit)} >
@@ -46,6 +45,7 @@ class EditForm extends Component {
 // form
 EditForm = reduxForm({
   form: 'editStory',
+  enableReinitialize: true,
   validate
 })(EditForm)
 
