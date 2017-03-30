@@ -143,6 +143,16 @@ p {
   width: 100%;
   max-width: none; }
 
+@media (max-aspect-ratio: 3 / 4) {
+  .carousel-inner .item img {
+    display: none; } }
+
+@media (max-aspect-ratio: 1 / 1) {
+  .carousel-inner .item img {
+    width: 100%;
+    object-fit: none;
+    object-position: center; } }
+
 /*end of full page carousel*/
 /*style for the hero content*/
 @media (max-width: 767px) {

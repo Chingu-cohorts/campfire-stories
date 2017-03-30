@@ -74,7 +74,6 @@ export function getStory(req, res, next) {
 
 
 export function editStory(_userId, _storyId, fn) {
-  console.log(_userId)
   return User
     // lookup the user role
     .findOne({ _id: _userId })
@@ -82,7 +81,6 @@ export function editStory(_userId, _storyId, fn) {
 
     // if user is not an admin they can only edit their own stories
     .then(user => {
-      console.log(user)
       const query = { _id: _storyId };
       if (user.role !== 'Admin') query.postedBy = _userId;
       return query

@@ -11,7 +11,7 @@ import { validatePost as validate } from 'utils/validation';
 /*
  * Component
  */
-let CreateForm = ({ role, name, body, errorMessage, handleSubmit, addNewStory, updateStory, approveStory, deleteStory, handleStoryBody }) => {
+let CreateForm = ({ handleSubmit, addNewStory }) => {
   // Handle Story Body Change
   const onSubmit = ({ image, title, body }) => {
     addNewStory({ body, image, title })
@@ -44,11 +44,7 @@ CreateForm = reduxForm({
 const actions = Object.assign({}, adminActions, storyActions)
 function mapStateToProps(state) {
   return {
-    name: state.user.name,
-    errorMessage: state.content.error,
-    role: state.user.role,
     initialValues: {},
-    body: state.content.body
   }
 }
 CreateForm = connect(mapStateToProps, actions)(CreateForm)

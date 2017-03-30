@@ -60,10 +60,6 @@ const setInitialValues = (story) => {
 
 function mapStateToProps(state, ownProps) {
   return {
-    name: state.user.name,
-    errorMessage: state.content.error,
-    role: state.user.role,
-    story: state.content.currentStory,
     ...setInitialValues(state.content.currentStory)
   };
 };

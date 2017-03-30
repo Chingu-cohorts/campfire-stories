@@ -18,9 +18,17 @@
     max-width: none;
 }
 
-@media (max-width: 767px) {
+@media (max-aspect-ratio: 3/4) {
     .carousel-inner .item img {
-        //margin-left: -50%;
+      display: none;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) {
+    .carousel-inner .item img {
+        width: 100%;
+        object-fit: none;
+        object-position: center;
     }
 }
 /*end of full page carousel*/
