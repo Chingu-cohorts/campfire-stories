@@ -1,5 +1,4 @@
 import axios from '../utils/axios'
-import { browserHistory } from 'react-router'
 import {
   AUTH_ERROR,
   GET_CONTENT,
@@ -34,16 +33,6 @@ export function handleNotAdmin(errorMessage) {
     payload: errorMessage
   }
 }
-
-export function deleteStory(id) {
-  return dispatch => {
-    return axios.delete(`/api/admin?id=${id}`)
-      .then( () => {
-        browserHistory.push('/admin')
-      })
-  }
-}
-
 
 /*
  * User Control

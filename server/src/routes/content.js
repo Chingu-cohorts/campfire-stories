@@ -27,6 +27,7 @@ export default function (app){
     .get(getContent)
     .post(requireAuth, submitContent)
     .put(requireAuth, updateContent)
+    .delete(requireAuth, deleteContent)
 
   app.use('/api/content', contentRoutes)
 }

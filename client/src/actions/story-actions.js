@@ -110,6 +110,15 @@ export function updateStory(data, id) {
   }
 }
 
+export function deleteStory(id) {
+  return dispatch => {
+    return axios.delete(`/api/content?id=${id}`)
+      .then( () => {
+        browserHistory.push('/')
+      })
+  }
+}
+
 /*
  * Get my Stories
  */

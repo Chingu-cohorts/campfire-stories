@@ -18,7 +18,7 @@ const requireLogin = passport.authenticate('local', {session:  false})
 export function auth(app) {
 	const authRoutes = express.Router()
 
-	authRoutes.post('/register', register)
+	authRoutes.post('/register', requireAuth, authAdmin, register)
 	authRoutes.post('/login', requireLogin, login)
 	authRoutes.route('/user')
 		.delete(requireAuth, authAdmin, deleteUser)
@@ -31,10 +31,6 @@ export function auth(app) {
 export function admin(app) {
 	const adminRoutes = express.Router()
 	adminRoutes.get('/users', requireAuth, authAdmin, getUsers)
-
-  adminRoutes.route('/')
-    .put(requireAuth, authAdmin) // just to approve story by ID
-    .delete(requireAuth, authAdmin, deleteContent) // just to delete story by ID
 
 	app.use('/api/admin', adminRoutes)
 }

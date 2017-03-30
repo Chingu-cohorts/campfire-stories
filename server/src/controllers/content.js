@@ -3,6 +3,7 @@
  */
 import jwt from 'jwt-simple'
 import Story from '../models/PostModel'
+import User from '../models/UserModel'
 import moment from 'moment'
 
 /*
@@ -71,43 +72,77 @@ export function getStory(req, res, next) {
    });
  }
 
+
+export function editStory(_userId, _storyId, fn) {
+  console.log(_userId)
+  return User
+    // lookup the user role
+    .findOne({ _id: _userId })
+    .exec()
+
+    // if user is not an admin they can only edit their own stories
+    .then(user => {
+      console.log(user)
+      const query = { _id: _storyId };
+      if (user.role !== 'Admin') query.postedBy = _userId;
+      return query
+    })
+
+    // edit story if conditions are met
+    .then(query => fn(query))
+}
 /*
  * Remove Story
  */
-export function deleteContent (req, res, next){
-  let _id = req.query.id;
-  // remove story with given ID
-  Story.findOne({ _id }, (err, model) => {
-    if (err) return next(err);
-    model.remove((err) => {
-      if (err) return next(err);
-      else {
-        res.status(200).json({
-          delete: 'success'
-        });
-      }
-    });
-  })
+export function deleteContent(req, res, next){
+  // handle DB
+  editStory(
+    req.headers.user,
+    req.query.id,
+    query => Story.findOneAndRemove(
+      query
+    ))
+
+    // determine server response
+    .then(story => {
+      if (!story) return next(
+        new Error('Story doesn\'t exist or insufficient privileges')
+      );
+
+      res.status(200).json({
+        delete: 'success'
+      });
+    })
+    .catch(next);
 }
 
 /*
  * Update story
  */
 export function updateContent(req, res, next) {
-  let _id = req.query.id;
-  let { title, body, image } = req.body;
+  const { title, body, image } = req.body;
 
-  Story.findOneAndUpdate(
-    { _id },
-    { $set: { title, body, image }},
-    { new: true },
-    (err, story) => {
-      if (err) return next(err);
-      res
-      .status(200)
-      .json({ story });
-    }
-  );
+  // handle db
+  editStory(
+    req.headers.user,
+    req.query.id,
+    query => Story.findOneAndUpdate(
+      query,
+      { $set: { title, body, image }},
+      { new: true }
+    ))
+
+    // determine server response
+    .then(story => {
+      if (!story) return next(
+        new Error('Story doesn\'t exist or insufficient privileges')
+      );
+
+      res.status(200).json({
+        story
+      });
+    })
+    .catch(next);
 }
 
 
