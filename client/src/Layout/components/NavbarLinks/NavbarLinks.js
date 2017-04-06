@@ -4,7 +4,7 @@ import { Nav } from 'react-bootstrap';
 
 import NavLink from '../NavLink';
 
-export const NavbarLinks = ({ role }) => {
+const NavbarLinks = ({ role }) => {
   // Define Links for User, Guest, or Admin
   let links = [];
 
