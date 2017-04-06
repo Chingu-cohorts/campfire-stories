@@ -8,13 +8,13 @@ const Brick = ({ data }) => {
   const body = (data.body.length >= 400) ? data.body.slice(0,400) + '...' : data.body;
 
   return (
-    <Col md={6} className="grid-item">
+    <Col md={4} className="grid-item">
       <Link to={`/full/${data._id}`}>
         <div className="thumbnail">
           <img src={data.image} alt="Campfire Story" />
             <div className="caption">
               <div className="card-title">
-                <h2>{data.title}</h2>
+                <h3>{data.title}</h3>
                 <p className="card-info">
                 Posted on {time} by {data.postedBy.firstName +" "+ data.postedBy.lastName}
                 </p>
