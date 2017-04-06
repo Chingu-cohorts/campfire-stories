@@ -7,7 +7,7 @@ import NavbarLinks from './NavbarLinks'
 /*
  * Navbar Component
  */
-const Navigation = () => {
+const Nav = () => {
   return (
     <Navbar fixedTop collapseOnSelect>
       <Navbar.Header>
@@ -26,4 +26,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation;
+export default Nav;

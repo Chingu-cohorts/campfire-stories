@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Nav } from 'react-bootstrap';
 
-import NavLink from './NavLink';
+import NavLink from '../NavLink';
 
-const NavbarLinks = ({ role, authenticated }) => {
+export const NavbarLinks = ({ role }) => {
   // Define Links for User, Guest, or Admin
   let links = [];
 
@@ -12,7 +12,7 @@ const NavbarLinks = ({ role, authenticated }) => {
 
   // Guest Links
   if (role === 'Guest') {
-    links.push(<NavLink key={1} path="login" text="Login" />);
+    links.push(<NavLink eventKey={1} key={1} path="login" text="Login" />);
   }
 
   // Logged-in Links
@@ -34,9 +34,12 @@ const NavbarLinks = ({ role, authenticated }) => {
   );
 };
 
+NavbarLinks.propTypes = {
+  role: PropTypes.string.isRequired
+}
+
 const mapStateToProps = (state) => {
   return {
-    authenticated: state.user.authenticated,
     role: state.user.role
   }
 };

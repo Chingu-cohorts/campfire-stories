@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { NavItem, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const NavLink = ({ eventkey, path, text }) => (
+const NavLink = ({ path, text }) => (
   <Nav>
     <LinkContainer active={false} to={`/${path}`}>
       <NavItem>
