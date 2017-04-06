@@ -2,7 +2,7 @@ import React from 'react';
 import { Footer, Nav } from './components';
 import 'stylesheets/style.scss'
 
-const Container = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <div>
       {/* Navbar */}
@@ -14,4 +14,4 @@ const Container = ({ children }) => {
     </div>
   )
 }
-export default Container;
+export default Layout;
