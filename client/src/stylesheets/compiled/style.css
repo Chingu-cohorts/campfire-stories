@@ -330,6 +330,9 @@ p {
   .home-controls .right-control {
     right: -10px; } }
 
+section .grid > div {
+  margin: 0 auto; }
+
 /*card styles*/
 .grid-item a {
   text-decoration: none; }
@@ -350,40 +353,43 @@ p {
 .no-border-bottom .card-title {
   border-bottom: 0 !important; }
 
-.thumbnail h2 {
+.thumbnail h3 {
   color: #7BE5A0; }
 
-.thumbnail h2 {
+.thumbnail h3 {
   margin: 0;
-  padding: 15px 15px; }
+  padding: 10px 10px; }
 
 .thumbnail h4 {
   color: #7BE5A0; }
 
 .thumbnail h4 {
   margin: 0;
-  padding: 15px 15px; }
+  padding: 10px 10px; }
 
 .card-description {
   margin: 0;
-  padding: 15px 15px;
-  word-wrap: break-word; }
+  padding: 10px 10px;
+  word-wrap: break-word;
+  font-size: 0.9em;
+  line-height: 1.5; }
 
 .caption .cs-btn-green {
-  margin: 15px 15px; }
+  margin: 10px 10px; }
 
 .thumbnail p {
-  padding-top: 15px; }
+  padding-top: 10px; }
 
 .card-title .card-info {
-  font-size: 0.75em;
+  font-size: 0.65em;
   line-height: 1.35;
-  padding: 0px 15px 15px 15px; }
+  padding: 0px 10px 10px 10px;
+  margin-bottom: 5px; }
 
 .card-title .status {
-  font-size: 0.75em;
+  font-size: 0.65em;
   line-height: 1.35;
-  padding: 0px 15px 15px 15px; }
+  padding: 0px 10px 10px 10px; }
 
 .card-title .status .published {
   color: #7be5a0 !important; }
@@ -410,6 +416,12 @@ p {
 
 .glyphicon-collapse-down {
   color: orange; }
+
+/*bootstrap override*/
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 30%;
+    margin: 1.2em 1.2em; } }
 
 /*end of card styles*/
 #login-page {
