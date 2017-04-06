@@ -23,12 +23,15 @@
   },
   "devDependencies": {
     "cross-env": "^3.2.4",
+    "enzyme": "^2.8.0",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
+    "jest": "^19.0.2",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
+    "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.5"
   },
   "proxy": "http://localhost:3001",
@@ -38,7 +41,7 @@
     "start-js": "cross-env NODE_PATH=src react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "cross-env NODE_PATH=src react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
 }

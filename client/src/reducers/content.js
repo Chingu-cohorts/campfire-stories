@@ -1,5 +1,4 @@
 import * as actions from '../actions/types'
-//import mockData from '../mockData'
 
 let initialState = {
   current: [],
