@@ -3,12 +3,11 @@ import { Link } from 'react-router'
 import moment from 'moment'
 
 const Story = ({ story }) => {
-  const { _id, title, image, postedBy, created_at } = story;
+  const { _id, title, postedBy, created_at } = story;
   const time = moment(created_at, "YYYY-MM-DD").format('LL');
   return (
-    <div className="col-md-4">
+    <div className="col-md-6">
       <div className="thumbnail">
-        <img src={image} alt="Campfire Story" />
         <div className="caption no-border-bottom card-title">
           <h4>{title}
             <Link to={`/edit/${_id}`} className="pull-right card-buttons">

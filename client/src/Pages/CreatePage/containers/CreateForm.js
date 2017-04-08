@@ -19,7 +19,7 @@ let CreateForm = ({ handleSubmit, addNewStory }) => {
 
   return (
     <Col sm={8} xs={12}>
-      <form onSubmit={handleSubmit(onSubmit)} >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <ContentForm />
         <FormGroup>
           <Button type="submit" bsStyle="primary" className="cs-btn-green">

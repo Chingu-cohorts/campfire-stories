@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row } from 'react-bootstrap';;
+import { Grid, Row, Col } from 'react-bootstrap';;
 import Masonry from 'react-masonry-component';
 import * as actions from 'actions/story-actions';
 
@@ -23,18 +23,22 @@ const StoryContent = ({ page, current, count, getContent }) => {
   return (
     <section className="section bg-white padding-top" id="cs-stories">
       <Grid>
-        <Row className="grid">
-          {controlRow}
-          <Masonry
-            options={masonryOptions} // default {}
-            disableImagesLoaded={false} // default false
-            updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-          >
-            {bricks}
-          </Masonry>
-          <div className='bottom-buttons'>
-            {controlRow}
-          </div>
+        <Row>
+          <Col sm={8} lg={12} smOffset={2}>
+            <Row className="grid">
+              {controlRow}
+              <Masonry
+                options={masonryOptions} // default {}
+                disableImagesLoaded={false} // default false
+                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+              >
+                {bricks}
+              </Masonry>
+              <div className='bottom-buttons'>
+                {controlRow}
+              </div>
+            </Row>
+          </Col>
         </Row>
       </Grid>
     </section>

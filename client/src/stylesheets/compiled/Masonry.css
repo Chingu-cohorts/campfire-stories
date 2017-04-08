@@ -52,6 +52,8 @@ section .grid > div {
 
 .thumbnail > img {
   width: 100%;
+  max-height: 1000px;
+  max-height: 100vh;
   display: block; }
 
 .thumbnail .card-title {
@@ -77,7 +79,6 @@ section .grid > div {
 .card-description {
   margin: 0;
   padding: 10px 10px;
-  word-wrap: break-word;
   font-size: 0.9em;
   line-height: 1.5; }
 

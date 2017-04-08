@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
+import { Grid, Row, Col, Tabs, Tab, Pagination } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
@@ -23,7 +23,11 @@ class HomePage extends Component {
   }
 
   handleSelect(selectedTab) {
-    this.props.switchScreen(selectedTab);
+    this.props.updateScreen(selectedTab);
+  }
+
+  handlePagination(page) {
+    this.props.updateScreen(this.props.view, page)
   }
 
   /*
@@ -37,7 +41,7 @@ class HomePage extends Component {
     }
 
     // content
-    const { stories, users, view } = this.props;
+    const { stories, users, view, storyPages, storyPage, userPages, userPage } = this.props;
 
     // actions
     const { switchRoles, deleteUser } = this.props;
@@ -62,17 +66,38 @@ class HomePage extends Component {
       );
     }
 
+    childElements.push(
+      <div key="pagination" className="clearfix">
+        <Pagination
+          prev
+          next
+          first
+          last
+          maxButtons={5}
+          items={view === 'users' ? userPages : storyPages}
+          activePage={view === 'users' ? userPage : storyPage}
+          onSelect={this.handlePagination.bind(this)}
+          className="pull-right"
+        />
+      </div>
+    );
+
     return (
       <Grid className="section bg-white">
         <Row>
           <Col md={12} className="bottom-space">
-            <Tabs defaultActiveKey="users" onSelect={this.handleSelect.bind(this)} id="tabs" justified>
-              <Tab eventKey="users" title="USERS" bsClass="tab" />
+            <Tabs
+              defaultActiveKey="users"
+              onSelect={this.handleSelect.bind(this)}
+              id="tabs"
+              justified
+            >
+              <Tab eventKey="users" title="USERS" />
               <Tab eventKey="stories" title="STORIES" />
             </Tabs>
             {childElements}
             {view === 'users' &&
-              <Link to="/register"><i className="fa fa-user" aria-hidden="true" /></Link>
+              <Link to="/register"><i className="fa fa-user pull-right big" aria-hidden="true" /></Link>
             }
           </Col>
         </Row>
@@ -85,15 +110,19 @@ const mapStateToProps = (state) => {
   return {
     users: state.content.adminUsers,
     stories: state.content.current,
-    view: state.content.view
+    view: state.content.view,
+    storyPages: state.content.storyPages,
+    storyPage: state.content.storyPage,
+    userPages: state.content.userPages,
+    userPage: state.content.userPage
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  switchScreen: view => {
+  updateScreen: (view, page) => {
     dispatch(view === 'users'
-      ? getUsers()
-      : getContent(1, 5)
+      ? getUsers(page)
+      : getContent(page, 10)
     );
     dispatch(switchView(view));
   },

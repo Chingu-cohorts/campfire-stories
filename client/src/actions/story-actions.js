@@ -49,7 +49,8 @@ export function getContent (page=1, limit=10, type=FETCH_STORIES) {
       .then( res => {
         dispatch({
           type,
-          page: page,
+          storyPage: page,
+          storyPages: res.data.pages,
           payload: res.data.content
         })
       } )

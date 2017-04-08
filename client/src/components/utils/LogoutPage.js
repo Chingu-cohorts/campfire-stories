@@ -1,9 +1,9 @@
-import React from 'react'
+import { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { logoutUser } from 'actions/authentication-actions'
 
-class LogoutPage extends React.Component {
+class LogoutPage extends Component {
   componentWillMount() {
     this.props.logoutUser()
   }

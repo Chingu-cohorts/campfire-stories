@@ -18,7 +18,9 @@ export default function makeCreateOrEditContainer(FormComponent) {
         <Grid className="content-page">
           <Row>
             <Col md={12}><h2 className="h2">Write a Story</h2></Col>
-            <FormComponent _id={_id}/>
+          </Row>
+          <Row>
+            <FormComponent _id={_id} />            
           </Row>
         </Grid>
       );

@@ -16,8 +16,8 @@ const Nav = () => {
           <IndexLink to="/" activeClassName="active" id="home" rel="home">
             <img alt="logo" style={{"maxHeight":"50px"}} src="/img/cs-logo.svg" />
           </IndexLink>
-          <Navbar.Toggle />
         </Navbar.Brand>
+        <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse style={{paddingLeft: "40px", overflow: "hidden"}}>
         <NavbarLinks />

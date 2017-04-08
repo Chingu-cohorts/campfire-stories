@@ -101,15 +101,19 @@ export function getUsers(req, res, next) {
   let limit = parseInt(req.query.limit)
 
   User
-    .find({})
-    .skip(limit * (page-1))
-    .limit(limit)
-    .exec((err, users) => {
+    .find()
+    .sort('lastName')
+    .exec((err, usersArr) => {
       if (err)return next(err);
+
+      const pages = Math.ceil(usersArr.length / limit);
+      const users = usersArr.slice((page - 1) * limit, page * limit);
+
       res
         .status(200)
         .json({
-          users
+          users,
+          pages
         })
     })
 }

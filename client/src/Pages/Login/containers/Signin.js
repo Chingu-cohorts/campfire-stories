@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FormGroup } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -14,7 +14,7 @@ const loginForm = reduxForm({
   validate: validate
 })
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
   constructor (props){
     super(props);
 

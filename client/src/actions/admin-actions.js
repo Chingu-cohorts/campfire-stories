@@ -38,12 +38,14 @@ export function handleNotAdmin(errorMessage) {
  * User Control
  */
 
-export function getUsers(page=1) {
+export function getUsers(page=1, limit=10) {
   return dispatch => {
-    return axios.get(`/api/admin/users?page=${page}`, )
+    return axios.get(`/api/admin/users?page=${page}&limit=${limit}`, )
       .then( res => {
         dispatch({
           type: GET_ALL_USERS,
+          userPage: page,
+          userPages: res.data.pages,
           payload: res.data.users
         })
       })

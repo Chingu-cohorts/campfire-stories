@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
       {/* Navbar */}
       <Nav />
       {/* Content */}
-      <div className="top-offset">{ children }</div>
+      <div className="page-padding">{ children }</div>
       {/* Footer */}
       <Footer />
     </div>

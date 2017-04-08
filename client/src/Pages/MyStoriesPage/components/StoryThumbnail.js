@@ -2,10 +2,9 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 import { Link } from 'react-router';
 
-const StoryThumbnail = ({ image, title, _id }) => (
+const StoryThumbnail = ({ title, _id }) => (
   <Col md={4} className="grid-item-1">
     <div className="thumbnail">
-      <img src={image} alt="Campfire Story" />
       <div className="caption no-border-bottom">
         <div className="card-title">
           <h4>

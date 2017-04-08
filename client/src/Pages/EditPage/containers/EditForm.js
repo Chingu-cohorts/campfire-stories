@@ -29,7 +29,7 @@ class EditForm extends Component {
     const { handleSubmit, deleteStory, _id } = this.props;
     return (
       <Col md={8} sm={8} xs={12}>
-        <form onSubmit={handleSubmit(this.onSubmit)} >
+        <form onSubmit={handleSubmit(this.onSubmit)}>
           <ContentForm />
           <FormGroup>
             <Button type="submit" bsStyle="primary" className="cs-btn-green">Update</Button>

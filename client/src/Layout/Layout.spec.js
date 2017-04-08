@@ -9,7 +9,7 @@ test('Layout should have a Nav, a container div, and a Footer', () => {
   expect(component.contains(
     <div>
       <Nav />
-      <div className="top-offset" />
+      <div className="page-padding" />
       <Footer />
     </div>
   ));

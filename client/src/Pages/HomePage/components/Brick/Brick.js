@@ -8,7 +8,7 @@ const Brick = ({ data }) => {
   const body = (data.body.length >= 400) ? data.body.slice(0,400) + '...' : data.body;
 
   return (
-    <Col md={4} className="grid-item">
+    <Col md={6} lg={4} className="grid-item">
       <Link to={`/full/${data._id}`}>
         <div className="thumbnail">
           <img src={data.image} alt="Campfire Story" />

@@ -32,17 +32,21 @@ export function getContent (req, res, next){
   let page = parseInt(req.query.page) || 1
   let limit = parseInt(req.query.limit) || 20
   let status = req.query.status || "Approved"
+  let totalPages;
 
   Story
     .find()
     .sort('-date')
-    .skip(limit * (page-1))
-    .limit(limit)
     .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
       if (err) return next(err);
+
+      const pages = Math.ceil(storyArr.length / limit);
+      const content = storyArr.slice((page - 1) * limit, page * limit);
+
       res.status(200).json({
-        content: storyArr
+        content,
+        pages
     });
   })
 }

@@ -1,16 +1,19 @@
 import * as actions from '../actions/types'
 
-// mockData for development only. 
+// mockData for development only.
 // reset initialState.current to [] and uncomment switch case below
   // when connected to database
-import mockData from '../__mocks__/mockData'
+// import mockData from '../__mocks__/mockData'
 
 let initialState = {
-  current: mockData,
+  current: [],
   submitted: [],
   adminUsers: [],
   adminStories: [],
-  page: 1,
+  storyPages: 1,
+  storyPage: 1,
+  userPages: 1,
+  userPage: 1,
   count: 0,
   error: null,
   path: null,
@@ -25,8 +28,9 @@ export default function stories_reducer(state = initialState, action) {
     case actions.FETCH_STORIES:
       return {
         ...state,
-        page: action.page
-        // current: action.payload
+        storyPage: action.storyPage,
+        current: action.payload,
+        storyPages: action.storyPages
       }
     case actions.GET_COUNT:
       return {
@@ -61,7 +65,9 @@ export default function stories_reducer(state = initialState, action) {
     case actions.GET_ALL_USERS:
       return {
         ...state,
-        adminUsers: action.payload
+        adminUsers: action.payload,
+        userPage: action.userPage,
+        userPages: action.userPages
       }
     case actions.REMOVE:
       return {

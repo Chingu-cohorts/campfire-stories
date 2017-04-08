@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Row, Col, FormGroup } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -9,7 +9,7 @@ import * as actions from 'actions/authentication-actions';
 import { validateLogin as validate } from 'utils/validation';
 
 
-class SignupForm extends React.Component {
+class SignupForm extends Component {
   constructor (props){
     super(props);
     // bind this to our event handlers so we don't have to do it somehwere else

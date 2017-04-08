@@ -52,9 +52,10 @@ p {
 
 /*end of helper classes*/
 /*offset for fixed nav and hero section post etc*/
-.top-offset {
+.page-padding {
   /*to fix fixed top style of navbar*/
-  padding-top: 140px; }
+  padding-top: 140px;
+  padding-bottom: 80px; }
 
 .padding-top {
   padding-top: 60px; }
@@ -345,6 +346,8 @@ section .grid > div {
 
 .thumbnail > img {
   width: 100%;
+  max-height: 1000px;
+  max-height: 100vh;
   display: block; }
 
 .thumbnail .card-title {
@@ -370,7 +373,6 @@ section .grid > div {
 .card-description {
   margin: 0;
   padding: 10px 10px;
-  word-wrap: break-word;
   font-size: 0.9em;
   line-height: 1.5; }
 
@@ -531,27 +533,27 @@ h4 {
 .tab-pane .row .col-md-4 {
   padding-bottom: 15px; }
 
-#tabs li > a {
+#tabs .nav-tabs li > a {
   border: none;
   border-bottom: 2px solid #b8bac2;
   color: #4e5166 !important;
   -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
-#tabs li > a:hover,
-#tabs li > a:focus {
+#tabs .nav-tabs li > a:hover,
+#tabs .nav-tabs li > a:focus {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
   background: transparent; }
 
-#tabs .active a {
+#tabs .nav-tabs .active a {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0; }
 
-#tabs .active a:focus,
-#tabs .active a:hover {
+#tabs .nav-tabs .active a:focus,
+#tabs .nav-tabs .active a:hover {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
@@ -565,6 +567,9 @@ h4 {
 .user-list h4 {
   color: #4e5166;
   margin: 15px; }
+
+.big {
+  font-size: 2em; }
 
 /*end of tab styles*/
 #full-story {

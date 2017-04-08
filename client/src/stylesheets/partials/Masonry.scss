@@ -68,6 +68,7 @@ section {
     margin: 0 auto;
   }
 }
+
 /*card styles*/
 .grid-item a {
   text-decoration: none;
@@ -81,6 +82,8 @@ section {
 }
 .thumbnail>img {
     width: 100%;
+    max-height: 1000px;
+    max-height: 100vh;
     display: block;
 }
 .thumbnail .card-title {
@@ -106,7 +109,6 @@ section {
 .card-description {
     margin: 0;
     padding: 10px 10px;
-    word-wrap: break-word;
     font-size: 0.9em;
     line-height: 1.5;
 }
@@ -155,7 +157,7 @@ section {
 }
 
 /*bootstrap override*/
-@media (min-width: 992px) {  
+@media (min-width: 992px) {
   .col-md-4 {
     width: 30%;
     margin: 1.2em 1.2em;

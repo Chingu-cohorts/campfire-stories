@@ -10,27 +10,27 @@ h4 {
 .tab-pane .row .col-md-4 {
   padding-bottom: 15px; }
 
-#tabs li > a {
+#tabs .nav-tabs li > a {
   border: none;
   border-bottom: 2px solid #b8bac2;
   color: #4e5166 !important;
   -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
-#tabs li > a:hover,
-#tabs li > a:focus {
+#tabs .nav-tabs li > a:hover,
+#tabs .nav-tabs li > a:focus {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
   background: transparent; }
 
-#tabs .active a {
+#tabs .nav-tabs .active a {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0; }
 
-#tabs .active a:focus,
-#tabs .active a:hover {
+#tabs .nav-tabs .active a:focus,
+#tabs .nav-tabs .active a:hover {
   border: none;
   border-bottom: 2px solid #7be5a0;
   color: #7be5a0;
@@ -44,5 +44,8 @@ h4 {
 .user-list h4 {
   color: #4e5166;
   margin: 15px; }
+
+.big {
+  font-size: 2em; }
 
 /*end of tab styles*/
