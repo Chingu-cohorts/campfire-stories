@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../actions/story-actions'
+import { Grid, Row, Col } from 'react-bootstrap';
+import * as actions from 'actions/story-actions'
 import moment from 'moment';
 
 
@@ -19,40 +20,34 @@ class FullStoryPage extends Component {
     // const url= `${window.location.host}${this.props.location.pathname}`
     return (
       <div id="full-story">
-        <div className="section bg-white padding-top">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-8 col-md-offset-2">
-
-                <div className="no-padding-picture full-head">
-                  <div className="post-header">
-                    <h1 className="post-title">{`${firstName} ${lastName}`}</h1>
-                    <p className="post-date">Published on {time}</p>
-                  </div>
-                  <div className="post-image">
-                    <img alt="body" src={image} className="img-responsive" />
-                  </div>
+        <Grid className="full-story section bg-white padding-top padding-bottom">
+          <Row>
+            <Col md={8} mdOffset={2}>
+              <div className="no-padding-picture full-head">
+                <div className="post-header">
+                  <h1 className="post-title">{`${firstName} ${lastName}`}</h1>
+                  <p className="post-date">Published on {time}</p>
                 </div>
-
-                <p className="post-text">{body}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="section bg-white padding-bottom">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 social-buttons">
-
-                  <a href={`http://twitter.com/share?text=This is an awesome story!!!`}
-                    id="share-tw" target="_blank"><i className="fa fa-twitter"></i></a>
-
+                <div className="post-image">
+                  <img alt="body" src={image} className="img-responsive" />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+              <p className="post-text">{body}</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12} className="social-buttons">
+              <a
+                href={`http://twitter.com/share?text=This is an awesome story!!!`}
+                id="share-tw"
+                target="_blank"
+              >
+                <i className="fa fa-twitter" />
+              </a>
+            </Col>
+          </Row>
+        </Grid>
+      </div>
     )
   }
 }

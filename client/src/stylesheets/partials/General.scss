@@ -1,9 +1,13 @@
 
 /*declaring basic style*/
-
+html{
+  height: 100%;
+}
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  position: relative;
+  min-height: 100%;
 }
 h1,
 h2,
@@ -54,9 +58,10 @@ p {
 
 /*offset for fixed nav and hero section post etc*/
 
-.top-offset {
+.page-padding {
     /*to fix fixed top style of navbar*/
-    margin-top: 140px;
+    padding-top: 140px;
+    padding-bottom: 80px;
 }
 .padding-top {
     padding-top: 60px;
@@ -72,4 +77,8 @@ p {
 
 .about-me {
   padding-bottom: 100px;
+}
+
+.size {
+  font-size: 20em;
 }

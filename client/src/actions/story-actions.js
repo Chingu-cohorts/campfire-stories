@@ -12,7 +12,6 @@ import {
   FETCH_STORY,
   REMOVE_CURRENT,
   GET_MY_STORIES,
-  UPDATE_PATH,
   HANDLE_STORY_BODY,
   EMPTY_BODY
 } from './types'
@@ -44,14 +43,14 @@ export function createStoryValidationError(error) {
 /*
  * Handle Get
  */
-export function getContent (page=1, limit=10, status='Approved', type=FETCH_STORIES) {
+export function getContent (page=1, limit=10, type=FETCH_STORIES) {
   return dispatch => {
-    return axios.get(`/api/content/?page=${page}&limit=${limit}&status=${status}`)
+    return axios.get(`/api/content/?page=${page}&limit=${limit}`)
       .then( res => {
-
         dispatch({
           type,
-          page: page,
+          storyPage: page,
+          storyPages: res.data.pages,
           payload: res.data.content
         })
       } )
@@ -112,6 +111,15 @@ export function updateStory(data, id) {
   }
 }
 
+export function deleteStory(id) {
+  return dispatch => {
+    return axios.delete(`/api/content?id=${id}`)
+      .then( () => {
+        browserHistory.push('/')
+      })
+  }
+}
+
 /*
  * Get my Stories
  */
@@ -126,15 +134,6 @@ export function getMyStories () {
           payload: res.data.story
         })
       })
-  }
-}
-/*
- * get path address
- */
-export function updatePath(path) {
-  return {
-    type: UPDATE_PATH,
-    payload: path
   }
 }
 

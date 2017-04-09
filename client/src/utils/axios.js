@@ -10,8 +10,17 @@ const url = (function () {
   }
 })()
 
-const token = cookie.load('token');
-axios.defaults.headers.common['authorization'] = token;
+export const setInstance = () => {
+  const token = cookie.load('token')
+  const user = cookie.load('user')
+
+  if (token && user) {
+    axios.defaults.headers.common['authorization'] = token
+    axios.defaults.headers.common['user'] = user._id    
+  }
+}
+
+setInstance()
 
 const instance = axios.create({
   baseURL: url

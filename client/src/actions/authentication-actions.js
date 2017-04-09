@@ -1,4 +1,4 @@
-import axios from '../utils/axios'
+import { default as axios, setInstance } from '../utils/axios'
 import cookie from "react-cookie"
 import { browserHistory } from "react-router"
 
@@ -8,6 +8,7 @@ import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SET_USER } from './types'
 function authenticateAndSetRole(response, dispatch) {
   cookie.save('token', response.data.token, { path: '/' })
   cookie.save('user', response.data.user, { path: '/'})
+  setInstance()
   dispatch({type: AUTH_USER})
   dispatch({
     type: SET_USER,
@@ -22,7 +23,7 @@ export function registerUser(userData) {
     return axios.post('/api/auth/register', userData)
     .then((resp) => {
       //  this only gets called with 200 codes
-      authenticateAndSetRole(resp, dispatch)
+      browserHistory.push('/admin')
     })
     .catch((err) => {
       errorHandler(dispatch, err, AUTH_ERROR)

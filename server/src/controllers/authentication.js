@@ -1,8 +1,10 @@
 /*
  * Dependencies
  */
-import jwt from 'jwt-simple'
-import User from '../models/UserModel'
+import jwt from 'jwt-simple';
+import mongoose from 'mongoose';
+import User from '../models/UserModel';
+import Story from '../models/PostModel';
 
 /*
  * Helper functions
@@ -47,11 +49,10 @@ export function register (req, res, next) {
     let newUser = new User({ email, password, firstName, lastName })
     // save new user
     newUser.save((err, user) => {
-      if (err) { return next(err); }
+      if (err) return next(err);
       // return user with their token
       res.status(201).json({
-        token: tokenForUser(user),
-        user: setUserInfo(user)
+        done: true
       })
     })
   })
@@ -70,40 +71,49 @@ export function login (req, res, next) {
   });
 }
 
-
-
 /**
  * User Editing
  *
  **/
  // delete
 export function deleteUser (req, res, next) {
-  let _id = req.query.id
+  const _id = req.query.id
+  const _currentUserId = req.headers.user;
 
-  User
-    .findOne({ _id })
-    .remove((err) => {
-      if(err){return next(err)}
-      res
-        .status(200)
-        .json({ "delete":"success" })
-    })
+  Story
+    .update(
+      { postedBy: _id },
+      { $set: { postedBy: _currentUserId } },
+      { multi: true }
+    )
+    .exec()
+    .then(() => User.remove({ _id }))
+    .then(() => res
+      .status(200)
+      .json({ "delete": "success" })
+    )
+    .catch(next);
   }
+
 // get users w/ pagination
 export function getUsers(req, res, next) {
   let page = parseInt(req.query.page)
   let limit = parseInt(req.query.limit)
 
   User
-    .find({})
-    .skip(limit * (page-1))
-    .limit(limit)
-    .exec((err, users) => {
-      if (err){return next(err); }
+    .find()
+    .sort('lastName')
+    .exec((err, usersArr) => {
+      if (err)return next(err);
+
+      const pages = Math.ceil(usersArr.length / limit);
+      const users = usersArr.slice((page - 1) * limit, page * limit);
+
       res
         .status(200)
         .json({
-          users
+          users,
+          pages
         })
     })
 }
@@ -116,14 +126,14 @@ export function roleControl (req, res, next) {
     .findOne({ _id })
     .exec((err, doc) => {
       if (err) { return next(err); }
-      let newRole = (doc.role === 'Admin') ? 'Member': 'Admin';
+      let newRole = (doc.role === 'Admin') ? 'Writer': 'Admin';
 
       User.findOneAndUpdate(
         { _id },
         { $set: { role: newRole }},
         { new: true },
         (err, user) => {
-            if (err){ return next(err); }
+            if (err) return next(err);
             res
               .status(200)
               .json({

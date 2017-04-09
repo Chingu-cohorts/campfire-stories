@@ -40,6 +40,7 @@
     "dotenv": "^4.0.0",
     "env-cmd": "^5.0.0",
     "express": "^4.14.0",
+    "forever": "^0.15.3",
     "jwt-simple": "^0.5.0",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
@@ -51,9 +52,9 @@
     "validator": "^6.0.0"
   },
   "scripts": {
-    "start": "env-cmd development nodemon --watch src/ --exec babel-node -- src/",
+    "start": "env-cmd development nodemon --watch src/ --exec babel-node -- src/server.js",
     "build": "babel src -d dist",
-    "serve": "env-cmd production node dist/",
+    "serve": "env-cmd production forever dist/cluster.js",
     "test": "env-cmd test mocha --compilers js:babel-core/register --recursive ./test"
   }
 }

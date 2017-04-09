@@ -1,0 +1,25 @@
+/*footer styles*/
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+footer p {
+  line-height: 60px;
+  padding: 0;
+  margin: 0; }
+
+.bg-blue a {
+  color: #fff;
+  text-decoration: underline;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out; }
+
+.bg-blue a:hover {
+  color: #7BE5A0; }
+
+@media (max-width: 768px) {
+  footer p {
+    font-size: 12px; } }
+
+/*end of footer styles*/
