@@ -6,20 +6,15 @@ const Story = ({ story }) => {
   const { _id, title, postedBy, created_at } = story;
   const time = moment(created_at, "YYYY-MM-DD").format('LL');
   return (
-    <div className="col-md-6">
-      <div className="thumbnail">
+    <Link to={`/edit/${_id}`} className="thumbnail">      
+      
         <div className="caption no-border-bottom card-title">
-          <h4>{title}
-            <Link to={`/edit/${_id}`} className="pull-right card-buttons">
-              <span className="glyphicon glyphicon-eye-open"></span>
-            </Link>
-          </h4>
+          <h4>{title}</h4>
           <p className="card-info">
             Posted on {time} by {`${postedBy.firstName} ${postedBy.lastName}`}
           </p>
         </div>
-      </div>
-    </div>
+    </Link>
   );
 };
 

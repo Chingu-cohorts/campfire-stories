@@ -133,16 +133,18 @@ p {
 /*Making full page carousel*/
 .carousel {
   height: 100vh;
-  z-index: -100;
   position: relative; }
+
+.carousel-image {
+  background-color: #4E5166;
+  filter: grayscale(1) contrast(1.5); }
 
 .carousel-inner {
   overflow: hidden; }
 
 .carousel-inner .item img {
-  height: 100vh;
   width: 100%;
-  max-width: none; }
+  height: 100vh; }
 
 @media (max-aspect-ratio: 3 / 4) {
   .carousel-inner .item img {
@@ -166,7 +168,9 @@ p {
   position: absolute;
   z-index: 1;
   height: inherit;
-  height: 100vh; }
+  height: 100vh;
+  margin-left: 225px;
+  color: #79F7A5; }
 
 #hero-content-centered {
   display: table-cell;
@@ -175,21 +179,12 @@ p {
 
 .hero-headline {
   font-family: 'Rubik', sans-serif;
-  font-size: 3.142em; }
+  font-size: 3.142em;
+  color: #79F7A5; }
 
 .hero-copy {
   font-family: 'Open Sans', sans-serif;
   padding-bottom: 10px; }
-
-#overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.8;
-  z-index: -99;
-  background: #4E5166; }
 
 #explore-stories {
   font-size: 3.142em;
@@ -475,14 +470,15 @@ footer {
   width: 100%; }
 
 footer p {
-  line-height: 60px;
+  line-height: 30px;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 1px; }
 
 .bg-blue a {
   color: #fff;
   text-decoration: underline;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 .bg-blue a:hover {
@@ -490,7 +486,7 @@ footer p {
 
 @media (max-width: 768px) {
   footer p {
-    font-size: 12px; } }
+    font-size: 10px; } }
 
 /*end of footer styles*/
 /*form styles*/
@@ -537,7 +533,6 @@ h4 {
   border: none;
   border-bottom: 2px solid #b8bac2;
   color: #4e5166 !important;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
@@ -568,8 +563,23 @@ h4 {
   color: #4e5166;
   margin: 15px; }
 
-.big {
-  font-size: 2em; }
+.pagination {
+  margin: 100px 30em 0 30em; }
+
+.add-user,
+.add-story {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; }
+
+.add-story {
+  flex-direction: row-reverse; }
+
+.user-icon {
+  margin-right: 10px; }
+
+.user-story {
+  margin-left: 10px; }
 
 /*end of tab styles*/
 #full-story {

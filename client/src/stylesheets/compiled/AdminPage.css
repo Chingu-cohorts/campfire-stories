@@ -14,7 +14,6 @@ h4 {
   border: none;
   border-bottom: 2px solid #b8bac2;
   color: #4e5166 !important;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
@@ -45,7 +44,22 @@ h4 {
   color: #4e5166;
   margin: 15px; }
 
-.big {
-  font-size: 2em; }
+.pagination {
+  margin: 100px 30em 0 30em; }
+
+.add-user,
+.add-story {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; }
+
+.add-story {
+  flex-direction: row-reverse; }
+
+.user-icon {
+  margin-right: 10px; }
+
+.user-story {
+  margin-left: 10px; }
 
 /*end of tab styles*/

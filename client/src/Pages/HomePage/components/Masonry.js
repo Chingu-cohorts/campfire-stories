@@ -51,7 +51,7 @@ const StoryContent = ({ page, current, count, getContent }) => {
  */
 function mapStateToProps(state) {
   return {
-    page: state.content.page,
+    page: state.content.storyPage,
     count: state.content.count
   }
 };
