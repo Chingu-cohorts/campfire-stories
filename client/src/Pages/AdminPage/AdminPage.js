@@ -100,7 +100,7 @@ class HomePage extends Component {
               </Tab>
               <Tab eventKey="stories" title="STORIES">
                 <div className="add-story">
-                  <Link to="/register">
+                  <Link to="/story">
                     <span>Add a new story</span>
                     <i className="fa fa-user user-story" aria-hidden="true" />
                   </Link>

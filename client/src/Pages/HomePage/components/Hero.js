@@ -13,14 +13,10 @@ const Hero = () => {
             <p className="hero-copy">Place where people from all over the world share their stories while on a quest of learning to code</p>
             <Button className="cs-btn-green-inverted" href="#explore-stories">Explore</Button><span style={{"padding":"12px"}}>or</span>
             <Button className="cs-btn-green-outline" href="https://tropicalchancer.github.io/projectus/" target="_blank">Join Us</Button>
-          </Col>
-          <a href="#explore-stories">
-            <span className="glyphicon glyphicon-menu-down" id="explore-stories"></span>
-          </a>
+          </Col>          
         </Row>
       </div>
       <Row><Carousel/></Row>
-      <div id="overlay" />
     </Grid>
   )
 }
