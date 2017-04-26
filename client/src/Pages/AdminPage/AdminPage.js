@@ -67,38 +67,47 @@ class HomePage extends Component {
     }
 
     childElements.push(
-      <div key="pagination" className="clearfix">
-        <Pagination
-          prev
-          next
-          first
-          last
-          maxButtons={5}
-          items={view === 'users' ? userPages : storyPages}
-          activePage={view === 'users' ? userPage : storyPage}
-          onSelect={this.handlePagination.bind(this)}
-          className="pull-right"
-        />
-      </div>
+      <Pagination
+        prev
+        next
+        first
+        last
+        key='Pagination'
+        maxButtons={5}
+        items={view === 'users' ? userPages : storyPages}
+        activePage={view === 'users' ? userPage : storyPage}
+        onSelect={this.handlePagination.bind(this)}
+        className="pagination"
+      />
     );
 
     return (
       <Grid className="section bg-white">
         <Row>
-          <Col md={12} className="bottom-space">
+          <Col md={12}>
             <Tabs
               defaultActiveKey="users"
               onSelect={this.handleSelect.bind(this)}
               id="tabs"
-              justified
-            >
-              <Tab eventKey="users" title="USERS" />
-              <Tab eventKey="stories" title="STORIES" />
+              justified>
+              <Tab eventKey="users" title="USERS">
+                <div className="add-user">
+                  <Link to="/register" >
+                    <i className="fa fa-user user-icon" aria-hidden="true" />
+                    <span>Add a new user</span>
+                  </Link>
+                </div>
+              </Tab>
+              <Tab eventKey="stories" title="STORIES">
+                <div className="add-story">
+                  <Link to="/register">
+                    <span>Add a new story</span>
+                    <i className="fa fa-user user-story" aria-hidden="true" />
+                  </Link>
+                </div>
+              </Tab>
             </Tabs>
             {childElements}
-            {view === 'users' &&
-              <Link to="/register"><i className="fa fa-user pull-right big" aria-hidden="true" /></Link>
-            }
           </Col>
         </Row>
     </Grid>

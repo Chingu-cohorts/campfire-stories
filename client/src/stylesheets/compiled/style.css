@@ -475,14 +475,15 @@ footer {
   width: 100%; }
 
 footer p {
-  line-height: 60px;
+  line-height: 30px;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 1px; }
 
 .bg-blue a {
   color: #fff;
   text-decoration: underline;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 .bg-blue a:hover {
@@ -490,7 +491,7 @@ footer p {
 
 @media (max-width: 768px) {
   footer p {
-    font-size: 12px; } }
+    font-size: 10px; } }
 
 /*end of footer styles*/
 /*form styles*/
@@ -537,7 +538,6 @@ h4 {
   border: none;
   border-bottom: 2px solid #b8bac2;
   color: #4e5166 !important;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
@@ -568,8 +568,23 @@ h4 {
   color: #4e5166;
   margin: 15px; }
 
-.big {
-  font-size: 2em; }
+.pagination {
+  margin: 100px 30em 0 30em; }
+
+.add-user,
+.add-story {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; }
+
+.add-story {
+  flex-direction: row-reverse; }
+
+.user-icon {
+  margin-right: 10px; }
+
+.user-story {
+  margin-left: 10px; }
 
 /*end of tab styles*/
 #full-story {
