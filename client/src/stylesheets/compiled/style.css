@@ -136,8 +136,8 @@ p {
   position: relative; }
 
 .carousel-image {
-  background-color: #4E5166;
-  filter: grayscale(1) contrast(1.5); }
+  filter: brightness(0.5);
+  background-color: rgba(255, 255, 255, 0.2); }
 
 .carousel-inner {
   overflow: hidden; }
@@ -175,16 +175,22 @@ p {
 #hero-content-centered {
   display: table-cell;
   vertical-align: middle;
-  color: #fff; }
+  color: #fff;
+  width: 800px; }
 
 .hero-headline {
-  font-family: 'Rubik', sans-serif;
-  font-size: 3.142em;
-  color: #79F7A5; }
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-size: 4.25em;
+  font-style: italic;
+  text-shadow: 2px 2px 2px #2E2B2B;
+  color: #79F7A5;
+  letter-spacing: 1px; }
 
 .hero-copy {
   font-family: 'Open Sans', sans-serif;
-  padding-bottom: 10px; }
+  letter-spacing: 1px;
+  font-size: .9em; }
 
 #explore-stories {
   font-size: 3.142em;
