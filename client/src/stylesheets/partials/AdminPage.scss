@@ -1,80 +1,80 @@
-
+@import 'Variables';
 /*tab styles*/
 
 .tab-content {
-    padding-top: 30px;
+  padding-top: 30px;
 }
 
 h4 {
-    color: #4e5166;
-    padding: 15px 0;
-    margin-top: 0;
+  color: $darkblue;
+  padding: 15px 0;
+  margin-top: 0;
 }
 
 .tab-pane .row .col-md-4 {
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 #tabs .nav-tabs li > a {
-    border: none;
-    border-bottom: 2px solid rgb(184, 186, 194);
-    color: #4e5166!important;
-    transition: color 0.3s ease-out;
+  border: none;
+  border-bottom: 2px solid rgb(184, 186, 194);
+  color: $darkblue!important;
+  transition: color 0.3s ease-out;
 }
 
 #tabs .nav-tabs li > a:hover,
 #tabs .nav-tabs li > a:focus {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
-    background: transparent;
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
+  background: transparent;
 }
 
 #tabs .nav-tabs .active a {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
 }
 
 #tabs .nav-tabs .active a:focus,
 #tabs .nav-tabs .active a:hover {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
-    cursor: pointer;
-    background: #fff;
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
+  cursor: pointer;
+  background: $bg-white;
 }
 
 .user-list {
-    box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
-    margin-bottom: 30px;
+  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  margin-bottom: 30px;
 }
 
 .user-list h4 {
-    color: #4e5166;
-    margin: 15px;
+  color: $darkblue;
+  margin: 15px;
 }
 
 .pagination {
-    margin: 100px 30em 0 30em;
+  margin: 100px 30em 0 30em;
 }
 
 .add-user,
 .add-story {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .add-story {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .user-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .user-story {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 /*end of tab styles*/

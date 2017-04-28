@@ -3,22 +3,23 @@
 
 /*Making wrap and video bg*/
 .fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
 }
 
 .fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     height: 300%;
@@ -87,6 +88,7 @@
   -o-transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
 }
+
 #explore-stories:hover{
   -webkit-transform: translateY(10px);
   -moz-transform: translateY(10px);
@@ -111,6 +113,7 @@
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-blue:hover{
   background: #7BE5A0;
   color: #4E5166;
@@ -131,6 +134,7 @@
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-blue-outline:hover{
   background: #4E5166;
   color: #7BE5A0;
@@ -151,6 +155,7 @@
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-green:hover{
   background: #4E5166;
   color: #7BE5A0;
@@ -171,6 +176,7 @@
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-green-outline:hover{
   background: #7BE5A0;
   color: #4E5166;
@@ -191,16 +197,19 @@
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-green-inverted:hover{
   background: #7BE5A0;
   color: #4E5166;
   border: 2px solid #7BE5A0;
 }
+
 .social-buttons{
   margin: 0 auto;
   margin-bottom: 70px;
   text-align: center;
 }
+
 .social-buttons .fa{
   color: #7BE5A0;
   font-size: 1.942em;
@@ -211,6 +220,7 @@
   -o-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
+
 .social-buttons .fa:hover{
   color: #4E5166;
 }
@@ -227,17 +237,21 @@
   -o-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
 }
+
 .full-head {
   position: relative;
 }
+
 .post-image {
   //height: 600px;
   overflow: hidden;
 }
+
 .post-text {
   word-wrap: break-word;
   margin-top: 18px;
 }
+
 .post-title{
   color: #fff;
   font-size: 4em;
@@ -245,6 +259,7 @@
   line-height: 1;
   text-align: center;
 }
+
 .post-date{
   color: #fff;
   font-size: 1em;
@@ -258,12 +273,15 @@
   margin-top: 100vh;
   height: 300px; /*remove line in final*/
 }
+
 .top-offset-small{/*to fix fixed top style of navbar*/
   margin-top: 80px;
 }
+
 .padding-top{
   padding-top: 60px;
 }
+
 .padding-bottom{
   padding-bottom: 60px;
 }

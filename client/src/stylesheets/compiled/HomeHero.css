@@ -1,3 +1,5 @@
+/* Colors */
+/* Font */
 .hero-top {
   margin-top: -140px; }
 
@@ -44,31 +46,31 @@
   height: inherit;
   height: 100vh;
   margin-left: 225px;
-  color: #79F7A5; }
+  color: #7BE5A0; }
 
 #hero-content-centered {
   display: table-cell;
   vertical-align: middle;
-  color: #fff;
+  color: #FFFFFF;
   width: 800px; }
 
 .hero-headline {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: 4.25em;
   font-style: italic;
   text-shadow: 2px 2px 2px #2E2B2B;
-  color: #79F7A5;
+  color: #7BE5A0;
   letter-spacing: 1px; }
 
 .hero-copy {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   letter-spacing: 1px;
   font-size: .9em; }
 
 #explore-stories {
   font-size: 3.142em;
-  color: #fff;
+  color: #FFFFFF;
   position: absolute;
   top: 85%;
   left: 0;
@@ -138,8 +140,8 @@
   border-radius: 0;
   padding: 12px;
   background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
@@ -153,9 +155,9 @@
 .cs-btn-green-inverted {
   border-radius: 0;
   padding: 12px;
-  background: #fff;
+  background: #FFFFFF;
   color: #4E5166;
-  border: 2px solid #fff;
+  border: 2px solid #FFFFFF;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }

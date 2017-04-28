@@ -1,9 +1,11 @@
+/* Colors */
+/* Font */
 /*tab styles*/
 .tab-content {
   padding-top: 30px; }
 
 h4 {
-  color: #4e5166;
+  color: #4E5166;
   padding: 15px 0;
   margin-top: 0; }
 
@@ -13,35 +15,35 @@ h4 {
 #tabs .nav-tabs li > a {
   border: none;
   border-bottom: 2px solid #b8bac2;
-  color: #4e5166 !important;
+  color: #4E5166 !important;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
 #tabs .nav-tabs li > a:focus {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0;
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0;
   background: transparent; }
 
 #tabs .nav-tabs .active a {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0; }
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0; }
 
 #tabs .nav-tabs .active a:focus,
 #tabs .nav-tabs .active a:hover {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0;
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0;
   cursor: pointer;
-  background: #fff; }
+  background: #FFFFFF; }
 
 .user-list {
   box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
   margin-bottom: 30px; }
 
 .user-list h4 {
-  color: #4e5166;
+  color: #4E5166;
   margin: 15px; }
 
 .pagination {

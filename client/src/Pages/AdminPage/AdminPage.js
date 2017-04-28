@@ -15,14 +15,15 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handlePagination = this.handlePagination.bind(this);
   }
 
   componentDidMount(){
     // show correct view
-    this.handleSelect('users');
+    this.props.updateScreen('users');
   }
 
-  handleSelect(selectedTab) {
+  handleSelect(selectedTab) {    
     this.props.updateScreen(selectedTab);
   }
 
@@ -76,18 +77,18 @@ class HomePage extends Component {
         maxButtons={5}
         items={view === 'users' ? userPages : storyPages}
         activePage={view === 'users' ? userPage : storyPage}
-        onSelect={this.handlePagination.bind(this)}
+        onSelect={this.handlePagination}
         className="pagination"
       />
     );
 
     return (
-      <Grid className="section bg-white">
+      <Grid className="bg-white">
         <Row>
           <Col md={12}>
             <Tabs
               defaultActiveKey="users"
-              onSelect={this.handleSelect.bind(this)}
+              onSelect={this.handleSelect}
               id="tabs"
               justified>
               <Tab eventKey="users" title="USERS">

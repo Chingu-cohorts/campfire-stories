@@ -1,21 +1,24 @@
-
+@import 'Variables';
 /*form styles*/
 
 .control-label {
-    font-size: 100%;
-    padding-bottom: 15px;
-    color: #4e5166;
+  font-size: 100%;
+  padding-bottom: 15px;
+  color: $darkblue;
 }
+
 .form-control {
-    border-radius: 0;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    border-color: rgb(184, 186, 194);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-color: rgb(184, 186, 194);
+  font-size: 14px;
 }
+
 .form-control:focus {
-    box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
-    border-color: #fff;
+  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  border-color: $bg-white;
 }
+
 .admin-btn {
   margin-left: 18px;
 }
@@ -23,7 +26,8 @@
 .text-danger {
   margin-left: 6px;
   margin-top: 6px;
-  color: #ff1654;
+  color: $danger;
+  font-size: 12px;
 }
 
 .content-page {
