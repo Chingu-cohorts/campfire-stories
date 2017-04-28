@@ -1,10 +1,13 @@
-/* Vars */
+/* Colors */
+/* Font */
+/* Colors */
+/* Font */
 /*declaring basic style*/
 html {
   height: 100%; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   position: relative;
   min-height: 100%; }
@@ -13,7 +16,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Rubik", sans-serif; }
+  font-family: "Helvetica Neue", sans-serif; }
 
 h1 {
   font-size: 3.142em; }
@@ -22,10 +25,10 @@ h2 {
   font-size: 1.942em; }
 
 .h2 {
-  font-family: "Rubik", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   padding-bottom: 30px;
   margin-top: 0;
-  color: #4e5166; }
+  color: #4E5166; }
 
 p {
   line-height: 1.7;
@@ -34,11 +37,11 @@ p {
 /*end of declaring basic style*/
 /*helper classes*/
 .bg-white {
-  background: #fff; }
+  background: #FFFFFF; }
 
 .bg-blue {
   background: #4E5166;
-  color: #fff; }
+  color: #FFFFFF; }
 
 .bg-pale-blue {
   background: #EDEEF0; }
@@ -73,13 +76,20 @@ p {
 .size {
   font-size: 20em; }
 
+.horizontal-rule {
+  width: 75%;
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
+/* Colors */
+/* Font */
 /*navbar styles*/
 .navbar-fixed-top {
   min-height: 80px;
   border: 0;
-  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75); }
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .navbar-nav > li > a, .navbar-fixed-top .navbar-header {
   padding-top: 0px;
@@ -133,7 +143,10 @@ p {
 /*Making full page carousel*/
 .carousel {
   height: 100vh;
-  position: relative; }
+  position: relative;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .carousel-image {
   filter: brightness(0.5);

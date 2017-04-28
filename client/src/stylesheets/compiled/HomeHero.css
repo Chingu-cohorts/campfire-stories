@@ -4,7 +4,10 @@
 /*Making full page carousel*/
 .carousel {
   height: 100vh;
-  position: relative; }
+  position: relative;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .carousel-image {
   filter: brightness(0.5);

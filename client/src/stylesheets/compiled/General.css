@@ -1,9 +1,11 @@
+/* Colors */
+/* Font */
 /*declaring basic style*/
 html {
   height: 100%; }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 16px;
   position: relative;
   min-height: 100%; }
@@ -12,7 +14,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Rubik", sans-serif; }
+  font-family: "Helvetica Neue", sans-serif; }
 
 h1 {
   font-size: 3.142em; }
@@ -21,10 +23,10 @@ h2 {
   font-size: 1.942em; }
 
 .h2 {
-  font-family: "Rubik", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   padding-bottom: 30px;
   margin-top: 0;
-  color: #4e5166; }
+  color: #4E5166; }
 
 p {
   line-height: 1.7;
@@ -33,11 +35,11 @@ p {
 /*end of declaring basic style*/
 /*helper classes*/
 .bg-white {
-  background: #fff; }
+  background: #FFFFFF; }
 
 .bg-blue {
   background: #4E5166;
-  color: #fff; }
+  color: #FFFFFF; }
 
 .bg-pale-blue {
   background: #EDEEF0; }
@@ -71,3 +73,8 @@ p {
 
 .size {
   font-size: 20em; }
+
+.horizontal-rule {
+  width: 75%;
+  margin-top: 2em;
+  margin-bottom: 2em; }

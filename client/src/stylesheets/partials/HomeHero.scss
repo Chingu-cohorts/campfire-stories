@@ -7,6 +7,9 @@
 .carousel {
     height: 100vh;
     position: relative;
+    -webkit-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
 }
 
 .carousel-image {
@@ -55,7 +58,7 @@
     height: inherit;
     height: 100vh;
     margin-left: 225px;
-    color: #79F7A5;
+    color: #79F7A5;    
 }
 #hero-content-centered {
     display: table-cell;

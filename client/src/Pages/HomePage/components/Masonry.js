@@ -21,7 +21,8 @@ const StoryContent = ({ page, current, count, getContent }) => {
   );
 
   return (
-    <section className="section bg-white padding-top" id="cs-stories">
+    <section className="bg-white" id="cs-stories">
+      <hr className="horizontal-rule" />
       <Grid>
         <Row>
           <Col sm={8} lg={12} smOffset={2}>
