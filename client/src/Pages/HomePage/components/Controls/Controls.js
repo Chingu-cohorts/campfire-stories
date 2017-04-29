@@ -10,19 +10,17 @@ const Controls = ({ page, count, getContent }) =>  {
   if (page === Math.ceil(count/20) ) nextDis = true;
 
   return (
-    <div className=" home-controls">
+    <div className="home-controls">
       <Button
         disabled={dis}
         className="left-control"
-        onClick={fetchStories(page-1)}
-      >
+        onClick={fetchStories(page-1)}>
         &#x02AA6;
       </Button>
       <Button
         disabled={nextDis}
         className="right-control"
-        onClick={fetchStories(page+1)}
-      >
+        onClick={fetchStories(page+1)}>
         &#x02AA7;
       </Button>
     </div>
