@@ -1,6 +1,23 @@
 @import 'Variables';
 /*form styles*/
 
+.content-page {
+  width: 800px;
+  margin: 0 auto;
+  .form-group {
+    padding-bottom: 15px;
+  }
+}
+
+
+.story-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .control-label {
   font-size: 100%;
   padding-bottom: 15px;
@@ -28,12 +45,6 @@
   margin-top: 6px;
   color: $danger;
   font-size: 12px;
-}
-
-.content-page {
-  .form-group {
-    padding-bottom: 15px;
-  }
 }
 
 /*end of form styles*/

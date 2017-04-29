@@ -1,4 +1,7 @@
-#full-story {
+@import 'Variables';
+
+.full-story {
+  background: $bg-white;
 }
 
 .story-title-row,
@@ -9,11 +12,14 @@
   width: 95%;
   height: 80px;
   margin: 0 auto;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px solid $earthygrey;
 }
 
 .full-story-title {
   margin-bottom: 1em;
+  font-family: $content-font;
+  font-weight: bold;
+  color: $darkblue;
 }
 
 .story-writer-row {
@@ -27,6 +33,10 @@
   margin-left: 1em;
 }
 
+.full-story-content-container {
+  display: flex;
+  flex-direction: column;
+}
 /*Social icons row*/
 
 .social-buttons{
@@ -240,7 +250,7 @@
 }
 
 .full-head {
-  position: relative;
+  margin-bottom: 2em;
 }
 
 .post-image {
@@ -250,7 +260,7 @@
 
 .post-text {
   word-wrap: break-word;
-  margin-top: 18px;
+  margin-top: 1em;
 }
 
 .post-text:first-letter {

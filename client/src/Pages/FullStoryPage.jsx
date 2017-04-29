@@ -19,8 +19,8 @@ class FullStoryPage extends Component {
     let time = moment(created_at, "YYYY-MM-DD").format('LL');
     // const url= `${window.location.host}${this.props.location.pathname}`
     return (
-      <div id="full-story">
-        <Grid className="full-story section bg-white padding-top padding-bottom">
+      <div>
+        <Grid className="full-story">
 
           <Row className="story-title-row">
             <h2 className="full-story-title">{title}</h2>
@@ -40,7 +40,7 @@ class FullStoryPage extends Component {
                   <i className="fa fa-twitter" />
               </a>
               <a
-                href={`http://twitter.com/share?text=This is an awesome story!!!`}
+                href=''
                 id="share-tw"
                 className="social-buttons"
                 target="_blank">
@@ -50,12 +50,13 @@ class FullStoryPage extends Component {
           </Row>
 
           <Row>
-            <Col md={8} mdOffset={2}>
+            <Col md={8} mdOffset={2} className="full-story-content-container">
               <div className="no-padding-picture full-head">
                 <div className="post-image">
                   <img alt="body" src={image} className="img-responsive" />
                 </div>
               </div>
+              <span className="horizontal-rule"></span>
               <p className="post-text">{body}</p>
             </Col>
           </Row>

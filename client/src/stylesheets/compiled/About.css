@@ -17,10 +17,7 @@
   width: 60%; }
 
 .about-section-1 {
-  margin-top: 130px; }
-
-.about-section-2 {
-  flex-direction: row-reverse; }
+  margin-top: 1em; }
 
 .heading {
   font-weight: 700;

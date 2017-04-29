@@ -15,14 +15,18 @@ export default function makeCreateOrEditContainer(FormComponent) {
       const _id = this.props.location.pathname.replace(/\/edit\//, '');
 
       return (
-        <Grid className="content-page">
-          <Row>
-            <Col md={12}><h2 className="heading">Write a Story</h2></Col>
-          </Row>
-          <Row>
-            <FormComponent _id={_id} />            
-          </Row>
-        </Grid>
+
+        <div className="content-page">
+          <div className="story-form-container">
+            <Row>
+              <h2 className="heading">Write a Story</h2>
+            </Row>
+            <span className="horizontal-rule"></span>
+            <Row>
+              <FormComponent _id={_id} />
+            </Row>
+          </div>
+        </div>
       );
     }
   }

@@ -59,8 +59,8 @@ p {
 /*offset for fixed nav and hero section post etc*/
 .page-padding {
   /*to fix fixed top style of navbar*/
-  padding-top: 40px;
-  padding-bottom: 80px; }
+  padding-top: 7em;
+  padding-bottom: 3em; }
 
 .padding-top {
   padding-top: 60px; }
@@ -159,7 +159,7 @@ p {
   height: inherit;
   height: 100vh;
   margin-left: 225px;
-  transform: translateY(10%);
+  transform: translateY(8%);
   color: #7BE5A0;
   text-align: center; }
 
@@ -205,10 +205,6 @@ p {
 .carousel-inner .item img {
   width: 100%;
   height: 100vh; }
-
-/* Bootstrap override for left & right arrows on carousel */
-.carousel-control {
-  margin-top: 4em; }
 
 @media (max-aspect-ratio: 3 / 4) {
   .carousel-inner .item img {
@@ -531,6 +527,19 @@ footer p {
 /* Font */
 /* Effects */
 /*form styles*/
+.content-page {
+  width: 800px;
+  margin: 0 auto; }
+  .content-page .form-group {
+    padding-bottom: 15px; }
+
+.story-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto; }
+
 .control-label {
   font-size: 100%;
   padding-bottom: 15px;
@@ -554,9 +563,6 @@ footer p {
   margin-top: 6px;
   color: #FF1654;
   font-size: 12px; }
-
-.content-page .form-group {
-  padding-bottom: 15px; }
 
 /*end of form styles*/
 /* Colors */
@@ -627,6 +633,12 @@ h4 {
   margin-left: 10px; }
 
 /*end of tab styles*/
+/* Colors */
+/* Font */
+/* Effects */
+.full-story {
+  background: #FFFFFF; }
+
 .story-title-row,
 .story-writer-row {
   display: flex;
@@ -635,10 +647,13 @@ h4 {
   width: 95%;
   height: 80px;
   margin: 0 auto;
-  border-bottom: 1px solid lightgrey; }
+  border-bottom: 1px solid #BDC6B8; }
 
 .full-story-title {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  color: #4E5166; }
 
 .story-writer-row {
   justify-content: space-between;
@@ -648,6 +663,10 @@ h4 {
 .full-story-writer {
   font-size: .7em;
   margin-left: 1em; }
+
+.full-story-content-container {
+  display: flex;
+  flex-direction: column; }
 
 /*Social icons row*/
 .social-buttons {
@@ -833,14 +852,14 @@ h4 {
   transform: translate(-50%, -50%); }
 
 .full-head {
-  position: relative; }
+  margin-bottom: 2em; }
 
 .post-image {
   overflow: hidden; }
 
 .post-text {
   word-wrap: break-word;
-  margin-top: 18px; }
+  margin-top: 1em; }
 
 .post-text:first-letter {
   font-size: 4em;
@@ -890,10 +909,7 @@ h4 {
   width: 60%; }
 
 .about-section-1 {
-  margin-top: 130px; }
-
-.about-section-2 {
-  flex-direction: row-reverse; }
+  margin-top: 1em; }
 
 .heading {
   font-weight: 700;

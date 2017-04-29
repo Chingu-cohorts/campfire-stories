@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { Col, Button, FormGroup } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormGroup } from 'react-bootstrap';
 
 import * as adminActions from 'actions/admin-actions';
 import * as storyActions from 'actions/story-actions';
@@ -18,16 +18,18 @@ let CreateForm = ({ handleSubmit, addNewStory }) => {
   }
 
   return (
-    <Col sm={8} xs={12}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ContentForm />
-        <FormGroup>
-          <Button type="submit" bsStyle="primary" className="cs-btn-green">
-            Submit your story
-          </Button>
-        </FormGroup>
-      </form>
-    </Col>
+    <Row>
+      <Col md={12} sm={12} xs={12}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <ContentForm />
+          <FormGroup>
+            <Button type="submit" bsStyle="primary" className="cs-btn-green">
+              Submit your story
+            </Button>
+          </FormGroup>
+        </Form>
+      </Col>
+    </Row>
   );
 };
 /*

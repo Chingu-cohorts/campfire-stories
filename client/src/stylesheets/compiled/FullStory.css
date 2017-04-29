@@ -1,3 +1,9 @@
+/* Colors */
+/* Font */
+/* Effects */
+.full-story {
+  background: #FFFFFF; }
+
 .story-title-row,
 .story-writer-row {
   display: flex;
@@ -6,10 +12,13 @@
   width: 95%;
   height: 80px;
   margin: 0 auto;
-  border-bottom: 1px solid lightgrey; }
+  border-bottom: 1px solid #BDC6B8; }
 
 .full-story-title {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  color: #4E5166; }
 
 .story-writer-row {
   justify-content: space-between;
@@ -19,6 +28,10 @@
 .full-story-writer {
   font-size: .7em;
   margin-left: 1em; }
+
+.full-story-content-container {
+  display: flex;
+  flex-direction: column; }
 
 /*Social icons row*/
 .social-buttons {
@@ -204,14 +217,14 @@
   transform: translate(-50%, -50%); }
 
 .full-head {
-  position: relative; }
+  margin-bottom: 2em; }
 
 .post-image {
   overflow: hidden; }
 
 .post-text {
   word-wrap: break-word;
-  margin-top: 18px; }
+  margin-top: 1em; }
 
 .post-text:first-letter {
   font-size: 4em;
