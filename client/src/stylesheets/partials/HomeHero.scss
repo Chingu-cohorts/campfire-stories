@@ -61,7 +61,9 @@
   height: inherit;
   height: 100vh;
   margin-left: 225px;
-  color: $green;    
+  transform: translateY(10%);
+  color: $green;
+  text-align: center;
 }
 
 #hero-content-centered {
@@ -82,20 +84,13 @@
 }
 
 .hero-copy {
+  width: 100%;
   font-family: $content-font;
-  letter-spacing: 1px;
-  font-size: .9em;
+  letter-spacing: 1.5px;
+  font-size: 1.2em;
+  margin-top: 1em;
 }
-// #overlay {
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     opacity: 0.8;
-//     z-index: -99;
-//     background: #4E5166;
-// }
+
 #explore-stories {
   font-size: 3.142em;
   color: $bg-white;

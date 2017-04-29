@@ -15,19 +15,43 @@ class FullStoryPage extends Component {
     if (!this.props.currentStory) {
       return <div>loading :)...</div>
     }
-    let { image, body, created_at, postedBy: { firstName, lastName } } = this.props.currentStory
+    let { image, body, title, created_at, postedBy: { firstName, lastName } } = this.props.currentStory
     let time = moment(created_at, "YYYY-MM-DD").format('LL');
     // const url= `${window.location.host}${this.props.location.pathname}`
     return (
       <div id="full-story">
         <Grid className="full-story section bg-white padding-top padding-bottom">
+
+          <Row className="story-title-row">
+            <h2 className="full-story-title">{title}</h2>
+          </Row>
+          
+          <Row className="story-writer-row">
+            <div>
+              <span className="full-story-writer">{`Written by ${firstName} ${lastName}`}</span>
+              <span className="full-story-writer">Published on {time}</span>
+            </div>
+            <div>
+              <a
+                href={`http://twitter.com/share?text=This is an awesome story!!!`}
+                id="share-tw"
+                className="social-buttons"
+                target="_blank">
+                  <i className="fa fa-twitter" />
+              </a>
+              <a
+                href={`http://twitter.com/share?text=This is an awesome story!!!`}
+                id="share-tw"
+                className="social-buttons"
+                target="_blank">
+                  <i className="fa fa-facebook" />
+              </a>
+            </div>
+          </Row>
+
           <Row>
             <Col md={8} mdOffset={2}>
               <div className="no-padding-picture full-head">
-                <div className="post-header">
-                  <h1 className="post-title">{`${firstName} ${lastName}`}</h1>
-                  <p className="post-date">Published on {time}</p>
-                </div>
                 <div className="post-image">
                   <img alt="body" src={image} className="img-responsive" />
                 </div>
@@ -35,17 +59,7 @@ class FullStoryPage extends Component {
               <p className="post-text">{body}</p>
             </Col>
           </Row>
-          <Row>
-            <Col md={12} className="social-buttons">
-              <a
-                href={`http://twitter.com/share?text=This is an awesome story!!!`}
-                id="share-tw"
-                target="_blank"
-              >
-                <i className="fa fa-twitter" />
-              </a>
-            </Col>
-          </Row>
+          
         </Grid>
       </div>
     )

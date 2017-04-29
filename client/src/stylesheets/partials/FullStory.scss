@@ -1,5 +1,53 @@
 #full-story {
+}
 
+.story-title-row,
+.story-writer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 80px;
+  margin: 0 auto;
+  border-bottom: 1px solid lightgrey;
+}
+
+.full-story-title {
+  margin-bottom: 1em;
+}
+
+.story-writer-row {
+  justify-content: space-between;   
+  height: 40px;
+  margin-bottom: 3em;
+}
+
+.full-story-writer {
+  font-size: .7em;
+  margin-left: 1em;
+}
+
+/*Social icons row*/
+
+.social-buttons{
+  margin-bottom: 70px;
+  margin-left: 1em;
+}
+
+.social-buttons .fa{
+  color: #7BE5A0;
+  font-size: 1.2em;
+  padding: 0;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -ms-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+
+.social-buttons .fa:hover{
+  color: #4E5166;
+}
 
 /*Making wrap and video bg*/
 .fullscreen-bg {
@@ -46,33 +94,6 @@
 /*end of wrap and video bg*/
 
 /*style for the hero content*/
-#hero-content{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-}
-
-.hero-headline{
-  font-family: 'Rubik', sans-serif;
-  font-size: 3.142em;
-}
-
-.hero-copy{
-  font-family: 'Open Sans', sans-serif;
-  padding-bottom: 10px;
-}
-
-#overlay{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.8;
-  z-index: -99;
-  background: #4E5166;
-}
 
 #explore-stories{
   font-size: 3.142em;
@@ -204,26 +225,6 @@
   border: 2px solid #7BE5A0;
 }
 
-.social-buttons{
-  margin: 0 auto;
-  margin-bottom: 70px;
-  text-align: center;
-}
-
-.social-buttons .fa{
-  color: #7BE5A0;
-  font-size: 1.942em;
-  padding: 0 30px;
-  -webkit-transition: color 0.3s ease-out;
-  -moz-transition: color 0.3s ease-out;
-  -ms-transition: color 0.3s ease-out;
-  -o-transition: color 0.3s ease-out;
-  transition: color 0.3s ease-out;
-}
-
-.social-buttons .fa:hover{
-  color: #4E5166;
-}
 /*end of button styles*/
 
 /*post styles*/
@@ -252,12 +253,10 @@
   margin-top: 18px;
 }
 
-.post-title{
-  color: #fff;
+.post-text:first-letter {
   font-size: 4em;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
   line-height: 1;
-  text-align: center;
+  font-weight: bold;
 }
 
 .post-date{
@@ -286,4 +285,4 @@
   padding-bottom: 60px;
 }
 /*end of offset for fixed nav and hero section*/
-}
+

@@ -46,7 +46,9 @@
   height: inherit;
   height: 100vh;
   margin-left: 225px;
-  color: #7BE5A0; }
+  transform: translateY(10%);
+  color: #7BE5A0;
+  text-align: center; }
 
 #hero-content-centered {
   display: table-cell;
@@ -64,9 +66,11 @@
   letter-spacing: 1px; }
 
 .hero-copy {
+  width: 100%;
   font-family: "Open Sans", sans-serif;
-  letter-spacing: 1px;
-  font-size: .9em; }
+  letter-spacing: 1.5px;
+  font-size: 1.2em;
+  margin-top: 1em; }
 
 #explore-stories {
   font-size: 3.142em;
