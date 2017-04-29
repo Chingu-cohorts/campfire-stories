@@ -1,5 +1,6 @@
 /* Colors */
 /* Font */
+/* Effects */
 /*declaring basic style*/
 html {
   height: 100%; }
@@ -72,6 +73,9 @@ p {
   font-size: 20em; }
 
 .horizontal-rule {
-  width: 75%;
-  margin-top: 2em;
-  margin-bottom: 2em; }
+  width: 550px;
+  height: 1px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: #BDC6B8;
+  align-self: center; }

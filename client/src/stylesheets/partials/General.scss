@@ -93,7 +93,10 @@ p {
 }
 
 .horizontal-rule {
-  width: 75%;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  width: 550px;
+  height: 1px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: $earthygrey;
+  align-self: center;
 }

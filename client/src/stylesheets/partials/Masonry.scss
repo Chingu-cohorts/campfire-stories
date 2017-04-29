@@ -1,3 +1,5 @@
+@import 'Variables';
+
 // btn styles
 .home-controls {
   position: relative;
@@ -61,9 +63,8 @@
 
 //masonry container
 section {
-  .grid > div {
-    //margin-bottom: 70px;
-    margin: 0 auto;
+  .grid > div {    
+    margin: 2em auto;    
   }
 }
 
@@ -76,7 +77,7 @@ section {
   padding: 0;
   border-radius: 0;
   border: 0;
-  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  box-shadow: $box-shadow;
 }
 
 .thumbnail>img {
@@ -95,7 +96,7 @@ section {
 }
 
 .thumbnail h3 {
-  color: #7BE5A0;
+  color: $green;
 }
 
 .thumbnail h3 {
@@ -104,7 +105,7 @@ section {
 }
 
 .thumbnail h4 {
-  color: #7BE5A0;
+  color: $green;
 }
 
 .thumbnail h4 {
@@ -141,7 +142,7 @@ section {
 }
 
 .card-title .status .published {
-  color: #7be5a0 !important;
+  color: $green !important;
 }
 
 .grid-item,
@@ -150,14 +151,14 @@ section {
 }
 
 .card-buttons {
-  color: #7be5a0;
+  color: $green;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
 .card-buttons:hover,
 .card-buttons:focus {
-  color: #4e5166;
+  color: $darkblue;
 }
 
 .glyphicon-trash,
@@ -166,7 +167,7 @@ section {
 }
 
 .glyphicon-trash {
-  color: red;
+  color: $danger;
 }
 
 .glyphicon-collapse-down {

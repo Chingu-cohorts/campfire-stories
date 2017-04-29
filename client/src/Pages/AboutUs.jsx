@@ -5,11 +5,14 @@ export default () => (
   <Grid>
     <Row className="about-row">
       <div className="about-section-1">
+        <img src="img/campfirestories.png" alt="Campfire-Stories" className="img-campfire-banner" />        
+        <span className="horizontal-rule"></span>
         <h2 className="heading">About Campfire-Stories</h2>
         <p>
           Right now, we’re at a time in human history where a large number of people are turning on their computers and learning how to code. Most of us on Free Code Camp are learning to code on the side, or in some way or another are in the middle of a career change. And this is happening all over the world.
           Campfire-Stories is a place that highlights this journey. It’s a place for coders to read and share stories.</p>
       </div>
+      <span className="horizontal-rule"></span>
       <div className="about-section-2">
         <h2 className="heading">About the Team</h2>
         <p>

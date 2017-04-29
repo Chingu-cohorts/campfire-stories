@@ -1,5 +1,6 @@
 /* Colors */
 /* Font */
+/* Effects */
 /*style for the hero content*/
 @media (max-width: 767px) {
   section .grid > div {
@@ -47,6 +48,7 @@
 .carousel {
   height: 100vh;
   position: relative;
+  margin-bottom: 2em;
   -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }

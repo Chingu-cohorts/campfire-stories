@@ -1,13 +1,18 @@
 /* Colors */
 /* Font */
+/* Effects */
 .about-row {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
+.img-campfire-banner {
+  padding-bottom: 2em; }
+
 .about-section-1,
 .about-section-2 {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   width: 60%; }
 

@@ -1,3 +1,6 @@
+/* Colors */
+/* Font */
+/* Effects */
 .home-controls {
   position: relative;
   z-index: 999; }
@@ -38,7 +41,7 @@
     right: -95px; } }
 
 section .grid > div {
-  margin: 0 auto; }
+  margin: 2em auto; }
 
 /*card styles*/
 .grid-item a {
@@ -100,27 +103,27 @@ section .grid > div {
   padding: 0px 10px 10px 10px; }
 
 .card-title .status .published {
-  color: #7be5a0 !important; }
+  color: #7BE5A0 !important; }
 
 .grid-item,
 .grid-item-1 {
   padding-bottom: 15px; }
 
 .card-buttons {
-  color: #7be5a0;
+  color: #7BE5A0;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
 .card-buttons:hover,
 .card-buttons:focus {
-  color: #4e5166; }
+  color: #4E5166; }
 
 .glyphicon-trash,
 .glyphicon-collapse-down {
   padding-left: 12px; }
 
 .glyphicon-trash {
-  color: red; }
+  color: #FF1654; }
 
 .glyphicon-collapse-down {
   color: orange; }
