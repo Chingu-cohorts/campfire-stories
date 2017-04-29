@@ -70,19 +70,8 @@ p {
 .bottom-space {
   margin-bottom: 70px; }
 
-.about-me {
-  padding-bottom: 100px; }
-
 .size {
   font-size: 20em; }
-
-.heading {
-  font-weight: 700;
-  font-style: italic;
-  font-family: "Helvetica Neue", sans-serif;
-  padding-bottom: 30px;
-  margin-top: 0;
-  color: #4E5166; }
 
 .horizontal-rule {
   width: 75%;
@@ -864,3 +853,27 @@ h4 {
   padding-bottom: 60px; }
 
 /*end of offset for fixed nav and hero section*/
+/* Colors */
+/* Font */
+.about-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.about-section-1,
+.about-section-2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%; }
+
+.about-section-1 {
+  margin-top: 130px; }
+
+.about-section-2 {
+  flex-direction: row-reverse; }
+
+.heading {
+  font-weight: 700;
+  font-style: italic;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #4E5166; }
