@@ -25,7 +25,7 @@ const StoryContent = ({ page, current, count, getContent }) => {
       <hr className="horizontal-rule" />
       <Grid>
         <Row>
-          <Col sm={8} lg={12} smOffset={2}>
+          <Col sm={4} lg={10} smOffset={2}>
             <Row className="grid">
               {controlRow}
               <Masonry
