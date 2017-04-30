@@ -10,13 +10,14 @@ import moment from 'moment'
  * Submit Stories
  */
 export function submitContent(req, res, next) {
-  let { title, body, image, postedBy } = req.body;
+  let { title, body, image, description, postedBy } = req.body;
+  console.log("req.body in Controller: ", req.body)
   if (!title || !body || !image || !postedBy){
     return res
       .status(400)
       .json({"error": 'Bad Request'})
   }
-  let newStory = new Story ({ title, body, image, postedBy })
+  let newStory = new Story ({ title, body, image, description, postedBy })
   newStory.save(newStory, (err, story) => {
     if (err) return next(err);
     res.status(201).json({
@@ -122,7 +123,7 @@ export function deleteContent(req, res, next){
  * Update story
  */
 export function updateContent(req, res, next) {
-  const { title, body, image } = req.body;
+  const { title, body, image, description } = req.body;
 
   // handle db
   editStory(
@@ -130,7 +131,7 @@ export function updateContent(req, res, next) {
     req.query.id,
     query => Story.findOneAndUpdate(
       query,
-      { $set: { title, body, image }},
+      { $set: { title, body, image, description }},
       { new: true }
     ))
 

@@ -13,8 +13,8 @@ import { validatePost as validate } from 'utils/validation';
  */
 let CreateForm = ({ handleSubmit, addNewStory }) => {
   // Handle Story Body Change
-  const onSubmit = ({ image, title, body }) => {
-    addNewStory({ body, image, title })
+  const onSubmit = ({ image, title, body, description }) => {
+    addNewStory({ body, image, title, description })
   }
 
   return (

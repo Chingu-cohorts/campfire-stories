@@ -52,38 +52,6 @@ auth(app);
 admin(app);
 content(app);
 
-
-// /** Hot Module Reloading */
-// if (process.env.NODE_ENV === 'dev') {
-//   const webpackConfig = require('../webpack/webpack.config')
-//   const webpackDevMiddleware = require('webpack-dev-middleware')
-//   const webpackHotMiddleware = require('webpack-hot-middleware')
-//
-//   const compiler = webpack(webpackConfig)
-//   app.use(webpackDevMiddleware(compiler, {
-//     publicPath: webpackConfig.output.publicPath,
-//     contentBase: '../client/public'
-//   }))
-//
-//   app.use(webpackHotMiddleware(compiler, {
-//     log: console.log,
-//     path: '/__webpack_hmr',
-//     heartbeat: 10 * 1000
-//   }))
-//   /** Load everything from memory */
-//   app.get('*', (req, res) => {
-//     let memoryFs = compiler.outputFileSystem;
-//     let index = path.join(webpackConfig.output.path, 'index.html')
-//     let html = memoryFs.readFileSync(index)
-//     res.send(html)
-//   })
-// } else {
-//   /** Production */
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client/public/assets', 'index.html'))
-//   })
-// }
-
 /** Error handling */
  // catch 404 and forward to error handler
  app.use(function(req, res, next) {
@@ -91,8 +59,6 @@ content(app);
    err.status = 404;
    next(err);
  });
-
- // error handlers
 
  // development error handler
  // will print stacktrace

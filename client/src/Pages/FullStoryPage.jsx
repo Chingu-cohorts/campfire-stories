@@ -15,7 +15,15 @@ class FullStoryPage extends Component {
     if (!this.props.currentStory) {
       return <div>loading :)...</div>
     }
-    let { image, body, title, created_at, postedBy: { firstName, lastName } } = this.props.currentStory
+    let { 
+      image, 
+      body, 
+      title, 
+      description, 
+      created_at, 
+      postedBy: { firstName, lastName } 
+    } = this.props.currentStory
+
     let time = moment(created_at, "YYYY-MM-DD").format('LL');
     // const url= `${window.location.host}${this.props.location.pathname}`
     return (
@@ -54,6 +62,7 @@ class FullStoryPage extends Component {
               <div className="no-padding-picture full-head">
                 <div className="post-image">
                   <img alt="body" src={image} className="img-responsive" />
+                  <span>{description}</span>
                 </div>
               </div>
               <span className="horizontal-rule"></span>

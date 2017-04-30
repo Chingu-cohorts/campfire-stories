@@ -12,13 +12,17 @@ const ContentForm = () => (
       type="url" label="Image" component={renderField} />
 
     <Field key={2}
-      id="text1" name="title" placeholder="Title" type="text"
-      label="Title" component={renderField}  />
+      id="text1" name="description" placeholder="Briefly describe the image" type="text"
+      label="Description of image" component={renderField} />
 
     <Field key={3}
+      id="text2" name="title" placeholder="Title" type="text"
+      label="Title" component={renderField} />
+
+    <Field key={4}
       cols="40" id="textarea" name="body" rows="10"
       placeholder="Tell people about yourself, how you got started with FCC, and what you hope to achieve. Or something."
-      type="text" label="Story" component={renderTextarea}  />
+      type="text" label="Story" component={renderTextarea} />
   </FormGroup>
 );
 
