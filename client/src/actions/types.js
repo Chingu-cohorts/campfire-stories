@@ -2,6 +2,7 @@
 export const AUTH_USER = 'auth_user'
 export const UNAUTH_USER = 'unauth_user'
 export const AUTH_ERROR = 'auth_error'
+export const CHANGE_PASSWORD = 'change_password';
 
 // ADMIN specific actions
 export const SET_USER_ROLE = 'set_user_role'

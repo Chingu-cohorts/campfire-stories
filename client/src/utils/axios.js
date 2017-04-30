@@ -10,6 +10,11 @@ const url = (function () {
   }
 })();
 
+const instance = axios.create({
+  baseURL: url,
+  timeout: 3000
+});
+
 export const setInstance = () => {
   const token = cookie.load('token')
   const user = cookie.load('user')
@@ -21,13 +26,6 @@ export const setInstance = () => {
   };
 };
 
-
-const instance = axios.create({
-  baseURL: url,
-  timeout: 3000
-});
-
 setInstance();
-console.log(instance)
 
 export default instance;

@@ -54,7 +54,7 @@ const NavbarLinks = ({ role }) => {
   const links = makeLinkList(role).map(linkProps =>
     <NavLink key={linkProps.path} eventKey={linkProps.path} {...linkProps} />
   );
-  console.log(links)
+
   return (
     <Nav pullRight>
       { links }

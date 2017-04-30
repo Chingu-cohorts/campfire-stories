@@ -96,13 +96,24 @@ export function deleteUser(req, res, next) {
 }
 
 export function changePassword(req, res, next) {
-  /*const _id = req.user;
-  const { oldPassword, password} = req.body;
+  const _id = req.user._id;
+  const { oldPassword, newPassword} = req.body;
 
-  User.update(
-    { _id, User.hashPassword(password) },
-    { $set: { _id }}
-  )*/
+  User.findOne({ _id })
+    .then(entry => entry.checkPassword(oldPassword))
+    .then(isCorrect => isCorrect
+      ? User.hashPassword(newPassword)
+      : Promise.reject('Wrong password')
+    )
+    .then(hashedNewPassword => User.update(
+      { _id },
+      { $set: { password: hashedNewPassword } }
+    ).exec())
+    .then(() => res
+      .status(200)
+      .json({ passwordChange: 'success' })
+    )
+    .catch(next);
 }
 
 // get users w/ pagination

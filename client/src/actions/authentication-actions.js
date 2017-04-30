@@ -3,7 +3,7 @@ import cookie from "react-cookie"
 import { browserHistory } from "react-router"
 
 import { errorHandler } from './utils'
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SET_USER } from './types'
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SET_USER, CHANGE_PASSWORD } from './types'
 
 function authenticateAndSetRole(response, dispatch) {
   cookie.save('token', response.data.token, { path: '/' })
@@ -61,4 +61,12 @@ export function logoutUser() {
   }
 
   browserHistory.push('/au/login')
+}
+
+export function changePassword(data) {
+  return dispatch => {
+    return axios.post('/api/auth/change_password', data)
+      .then(browserHistory.push('/'))
+      .catch(console.error);
+  };
 }

@@ -6,16 +6,17 @@ import { connect } from 'react-redux';
 import AuthBox from 'components/AuthBox';
 import { renderField } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
-import { loginUser } from 'actions/authentication-actions';
-import { validateLogin as validate } from 'utils/validation';
+import { changePassword } from 'actions/authentication-actions';
+//import { validateLogin as validate } from 'utils/validation';
+
+const validate = () => ({});
 
 const form = reduxForm({
-  form: 'password'
+  form: 'password-form',
+  validate
 });
 
-const onSubmit = () => console.log('submitted');
-
-const ChangePassword = ({ handleSubmit}) => (
+const ChangePassword = ({ handleSubmit, onSubmit }) => (
   <AuthBox>
     <form id="password-form" onSubmit={handleSubmit(onSubmit)}>
       <FormGroup>
@@ -25,16 +26,16 @@ const ChangePassword = ({ handleSubmit}) => (
           component={renderField}
           label="Old Password"
           id="old-password"
-          tabIndex="2"
+          tabIndex="1"
           className="form-control"
           placeholder="Old Password"
         />
         <Field
           type="password"
-          name="password"
+          name="newPassword"
           component={renderField}
-          label="Password"
-          id="password"
+          label="New Password"
+          id="new-password"
           tabIndex="2"
           className="form-control"
           placeholder="Password"
@@ -45,14 +46,18 @@ const ChangePassword = ({ handleSubmit}) => (
           component={renderField}
           label="Password Confirmation"
           id="confirm-password"
-          tabIndex="2"
+          tabIndex="3"
           className="form-control"
           placeholder="Confirm Password"
         />
-        <SubmitButton>Log in</SubmitButton>
+        <SubmitButton>Change Password</SubmitButton>
       </FormGroup>
     </form>
   </AuthBox>
 );
 
-export default connect(null, { loginUser })(form(ChangePassword));
+const mapDispatchToProps = dispatch => ({
+  onSubmit: ({ newPassword, oldPassword }) => dispatch(changePassword({ newPassword, oldPassword }))
+});
+
+export default connect(null, mapDispatchToProps)(form(ChangePassword));
