@@ -7,6 +7,11 @@
   align-items: center; }
 
 .img-campfire-banner {
+  display: table-cell;
+  max-width: 705px;
+  max-height: 216px;
+  width: 100%;
+  height: auto;
   padding-bottom: 2em; }
 
 .about-section-1,

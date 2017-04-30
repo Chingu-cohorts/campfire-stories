@@ -1,11 +1,11 @@
 import React from 'react';
 import { Grid, Row } from 'react-bootstrap';
 
-export default () => (
+const AboutUs = () => (
   <Grid>
     <Row className="about-row">
       <div className="about-section-1">
-        <img src="img/campfirestories.png" alt="Campfire-Stories" className="img-campfire-banner" />        
+        <img src="img/campfirestories.png" alt="Campfire-Stories" className="img-campfire-banner" />
         <span className="horizontal-rule"></span>
         <h2 className="heading">About Campfire-Stories</h2>
         <p>
@@ -22,4 +22,6 @@ export default () => (
       </div>
     </Row>
   </Grid>
-)
+);
+
+export default AboutUs;
