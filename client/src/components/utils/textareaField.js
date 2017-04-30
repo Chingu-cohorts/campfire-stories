@@ -2,7 +2,6 @@ import React from 'react'
 import classnames from 'classnames'
 
 export const renderTextarea = (field) => {
-  //console.log(field)
   return (
     <div className={classnames('form-group', {'has-error': field.meta.visited && field.meta.invalid})}>
         <label className="control-label " htmlFor="text">{ field.label }</label>

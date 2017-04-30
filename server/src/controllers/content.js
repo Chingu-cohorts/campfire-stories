@@ -10,8 +10,8 @@ import moment from 'moment'
  * Submit Stories
  */
 export function submitContent(req, res, next) {
-  let { title, body, image, description, postedBy } = req.body;
-  console.log("req.body in Controller: ", req.body)
+  const { title, body, image, description, postedBy } = req.body;
+
   if (!title || !body || !image || !postedBy){
     return res
       .status(400)
@@ -41,7 +41,6 @@ export function getContent (req, res, next){
     .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
       if (err) return next(err);
-      console.log(storyArr)
       const pages = Math.ceil(storyArr.length / limit);
       const content = storyArr.slice((page - 1) * limit, page * limit);
 
