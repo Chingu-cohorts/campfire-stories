@@ -37,11 +37,11 @@ export function getContent (req, res, next){
 
   Story
     .find()
-    .sort('-date')
+    .sort('-created_at')
     .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
       if (err) return next(err);
-
+      console.log(storyArr)
       const pages = Math.ceil(storyArr.length / limit);
       const content = storyArr.slice((page - 1) * limit, page * limit);
 

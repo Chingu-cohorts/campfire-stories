@@ -42,6 +42,7 @@ CreateForm = reduxForm({
   validate
 })(CreateForm);
 
+console.log("Create Form:", CreateForm)
 // connect
 const actions = Object.assign({}, adminActions, storyActions)
 function mapStateToProps(state) {

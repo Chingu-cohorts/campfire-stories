@@ -1,6 +1,6 @@
 const emailPattern = /^[-a-z0-9~!$%^&*_=+}{'?]+(\.[-a-z0-9~!$%^&*_=+}{'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(io|xyz|fr|cn|ca|us|dz||aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&-])[A-Za-z\d$@$!%*#?&-]{8,}$/
-const urlPattern = /^((http[s]?|ftp):\/)?\/?([^:\\s]+)((\/\w+)*\/)([\w\-.]+[^#?\s]+)(.*)?(#[\w-]+)?$/
+const urlPattern = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:!%_+.~;[\]()*$#\?&=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:!%_+.~;[\]()*$#\?&//=]*)(?:jpg|jpeg|svg|bmp|gif|png)/gi
 
 exports.validateRegister = (data) => {
     let errors = {};
@@ -52,6 +52,8 @@ exports.validateLogin = (data) => {
 exports.validatePost = (data) => {
 
   let errors = {}
+  // const updatedData = data
+  const urlPassed = urlPattern.test(data.image)
 
   if (!data.title) {
     errors.title = "The title is required. Please provide a title for the story."
@@ -61,16 +63,15 @@ exports.validatePost = (data) => {
 
   if (!data.image) {
     errors.image = "You need to provide a url to where your image is stored"
-  } else if (!urlPattern.test(data.image)) {
+  } else if (!urlPassed || urlPattern.test(data.image)) {
+    // the two conditional checks are necessary 
+    // to handle validation correctly - it's weird
     errors.image = "This needs to be a url (ex: http://findhere.com/image)"
   }
 
   if (!data.body || data.body.length < 100) {
     errors.body = "The story text is too short!"
   }
-
-
-
 
   return errors
 }
