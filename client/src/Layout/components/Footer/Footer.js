@@ -1,5 +1,4 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap';
 
 const Footer = () => {
   const love = (<i className="fa fa-heart"/>);
@@ -9,15 +8,9 @@ const Footer = () => {
 
   return (
     <footer className="section bg-blue">
-      <Grid>
-        <Row>
-          <Col xs={6} xsOffset={3}>
-            <p className="text-center">
-              Built with {love} by {chinguLink} Cohorts
-            </p>
-          </Col>
-        </Row>
-      </Grid>
+      <p className="text-center">
+        Built with {love} by {chinguLink} Cohorts
+      </p>
     </footer>
   );
 };
