@@ -1,12 +1,12 @@
 import React from 'react';
-import { Footer, Nav } from '../components';
+import { Footer, NavbarHeader } from '../components';
 import 'stylesheets/style.scss'
 
 const Layout = ({ children }) => {
   return (
     <div>
       {/* Navbar */}
-      <Nav />
+      <NavbarHeader />
       {/* Content */}
       <div className="page-padding">{ children }</div>
       {/* Footer */}

@@ -2,31 +2,59 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Nav } from 'react-bootstrap';
 
-import { NavLink } from '../../components';
+import NavLink from '../../components/NavLink';
 
-export const NavbarLinks = ({ role }) => {
+const navRole = {
+  base: [
+    {
+      path: 'about',
+      text: 'About Us'
+    }
+  ],
+  Guest: [
+    {
+      path: 'login',
+      text: 'Login'
+    }
+  ],
+  Admin: [
+    {
+      path: 'admin',
+      text: 'Admin'
+    }
+  ],
+  Writer: [
+    {
+      path: 'story',
+      text: 'Create'
+    },
+    {
+      path: 'mystories',
+      text: 'My Stories'
+    },
+    {
+      path: 'change_password',
+      text: 'Account'
+    },
+    {
+      path: 'logout',
+      text: 'Logout'
+    }
+  ]
+};
+
+const makeLinkList = role => [
+  ...navRole.base,
+  ...navRole[role],
+  ...role === 'Admin' && navRole.Writer
+];
+
+const NavbarLinks = ({ role }) => {
   // Define Links for User, Guest, or Admin
-  let links = [];
-
-  links.push(<NavLink eventkey={7} key={7} path="about" text="About Us" />);
-
-  // Guest Links
-  if (role === 'Guest') {
-    links.push(<NavLink eventKey={1} key={1} path="login" text="Login" />);
-  }
-
-  // Logged-in Links
-  if (role === 'Admin' || role === 'Writer') {
-    links.push(<NavLink eventkey={3} key={3} path="story" text="Create" />);
-    links.push(<NavLink eventkey={4} key={4} path="mystories" text="My Stories" />);
-    links.push(<NavLink eventkey={5} key={5} path="logout" text="Logout" />);
-  }
-
-  // Admin Links
-  if (role === 'Admin') {
-    links.push(<NavLink eventkey={6} key={6} path="admin" text="Admin" />);
-  }
-
+  const links = makeLinkList(role).map(linkProps =>
+    <NavLink key={linkProps.path} eventKey={linkProps.path} {...linkProps} />
+  );
+  console.log(links)
   return (
     <Nav pullRight>
       { links }

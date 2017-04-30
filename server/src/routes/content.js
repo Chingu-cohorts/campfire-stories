@@ -23,8 +23,8 @@ export default function (app){
 
   /* User Content */
   contentRoutes.get('/my', getMyStories)
-  contentRoutes.get('/checkImage', getImage)
   contentRoutes.get('/:story_id', getStory)
+  contentRoutes.get('/checkImage', requireAuth, getImage)
   contentRoutes.route('/')
     .get(getContent)
     .post(requireAuth, submitContent)

@@ -96,7 +96,7 @@ SignupForm.propTypes = {
 
 const form = reduxForm({
   form: 'register',
-  validate: validate
+  validate
 })
 
 function mapStateToProps(state) {

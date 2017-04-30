@@ -6,7 +6,8 @@ import {
   login,
   deleteUser,
   getUsers,
-  roleControl
+  roleControl,
+  changePassword
 } from '../controllers/authentication'
 import { authAdmin } from '../services/passport'
 
@@ -20,12 +21,12 @@ export function auth(app) {
 
 	authRoutes.post('/register', requireAuth, authAdmin, register)
 	authRoutes.post('/login', requireLogin, login)
+  authRoutes.post('/change_password', requireAuth, changePassword)
 	authRoutes.route('/user')
 		.delete(requireAuth, authAdmin, deleteUser)
 		.put(requireAuth, authAdmin, roleControl)
 
 	app.use('/api/auth', authRoutes);
-
 }
 
 export function admin(app) {

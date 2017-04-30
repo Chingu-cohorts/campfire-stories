@@ -76,7 +76,7 @@ export function login (req, res, next) {
  *
  **/
  // delete
-export function deleteUser (req, res, next) {
+export function deleteUser(req, res, next) {
   const _id = req.query.id
   const _currentUserId = req.headers.user;
 
@@ -93,7 +93,17 @@ export function deleteUser (req, res, next) {
       .json({ "delete": "success" })
     )
     .catch(next);
-  }
+}
+
+export function changePassword(req, res, next) {
+  /*const _id = req.user;
+  const { oldPassword, password} = req.body;
+
+  User.update(
+    { _id, User.hashPassword(password) },
+    { $set: { _id }}
+  )*/
+}
 
 // get users w/ pagination
 export function getUsers(req, res, next) {

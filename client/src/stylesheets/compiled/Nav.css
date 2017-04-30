@@ -54,3 +54,10 @@
 /*end of navbar styles*/
 .beta-tag {
   color: #7BE5A0; }
+
+.logo {
+  max-height: 50px; }
+
+.menu {
+  padding-left: 40px;
+  overflow: hidden; }
