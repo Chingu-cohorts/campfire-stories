@@ -2,9 +2,12 @@
  * Dependencies
  */
 import jwt from 'jwt-simple'
+import moment from 'moment'
+import fetch from 'node-fetch';
+
 import Story from '../models/PostModel'
 import User from '../models/UserModel'
-import moment from 'moment'
+import typeChecker from '../utils/typeChecker';
 
 /*
  * Submit Stories
@@ -93,6 +96,7 @@ export function editStory(_userId, _storyId, fn) {
     // edit story if conditions are met
     .then(query => fn(query))
 }
+
 /*
  * Remove Story
  */
@@ -152,7 +156,7 @@ export function updateContent(req, res, next) {
  * Get just my submitted stories
  */
 export function getMyStories(req, res, next) {
-  let id = req.query.id;
+  const id = req.query.id;
 
   Story.find({ postedBy: id }, (err, story) => {
     if (err) return next(err);
@@ -160,4 +164,16 @@ export function getMyStories(req, res, next) {
       .status(200)
       .json({ story });
   });
+}
+
+/*
+ * get the image from a thrid party server
+ */
+ export function getImage(req, res, next) {
+   const url = req.query.url;
+
+   fetch(url)
+    .then(response => typeChecker(response.headers._headers['content-type']))
+    .then(checkResult => res.json({ checkResult }))
+    .catch(next);
 }

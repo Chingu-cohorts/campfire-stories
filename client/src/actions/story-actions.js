@@ -59,20 +59,17 @@ export function getContent (page=1, limit=10, type=FETCH_STORIES) {
   }
 }
 
-/**
- *
- */
- export function getStory(storyId) {
-   return dispatch => {
-     return axios.get(`/api/content/${storyId}`)
+export function getStory(storyId) {
+  return dispatch => {
+    return axios.get(`/api/content/${storyId}`)
       .then(res => {
         dispatch({
           type: FETCH_STORY,
           payload: res.data.story
         })
-      })
-   }
- }
+      });
+  };
+}
 
 /*
  * Get the number of stories in the DB

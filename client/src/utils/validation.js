@@ -1,4 +1,5 @@
 import urlRegex from 'url-regex';
+import axios from '../utils/axios'
 
 const emailPattern = /^[-a-z0-9~!$%^&*_=+}{'?]+(\.[-a-z0-9~!$%^&*_=+}{'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(io|xyz|fr|cn|ca|us|dz||aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&-])[A-Za-z\d$@$!%*#?&-]{8,}$/
@@ -63,8 +64,6 @@ exports.validatePost = (data) => {
   if (!data.image) {
     errors.image = "You need to provide a url to where your image is stored"
   } else if (!urlRegex({ exact: true }).test(data.image)) {
-    // the two conditional checks are necessary
-    // to handle validation correctly - it's weird
     errors.image = "This needs to be a url (ex: http://findhere.com/image)"
   }
 
@@ -74,3 +73,8 @@ exports.validatePost = (data) => {
 
   return errors
 }
+
+exports.asyncValidate = (values) =>
+  axios.get(`/api/content/checkImage?url=${values.image}`)
+    .then(check => !check.data.checkResult && { image: 'This url doesn\'t point to an image' })
+    .catch(console.error);

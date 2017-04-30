@@ -6,7 +6,7 @@ import { Row, Col, Button, Form, FormGroup } from 'react-bootstrap';
 import * as adminActions from 'actions/admin-actions';
 import * as storyActions from 'actions/story-actions';
 import ContentForm from 'components/ContentForm';
-import { validatePost as validate } from 'utils/validation';
+import { validatePost as validate, asyncValidate } from 'utils/validation';
 
 /*
  * Component
@@ -39,7 +39,9 @@ let CreateForm = ({ handleSubmit, addNewStory }) => {
 // form
 CreateForm = reduxForm({
   form: 'new-story',
-  validate
+  validate,
+  asyncValidate,
+  asyncBlurFields: [ 'image' ]
 })(CreateForm);
 
 // connect
