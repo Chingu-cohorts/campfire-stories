@@ -35,27 +35,22 @@ function tokenForUser(user) {
  * Register
  */
 export function register (req, res, next) {
-  // trim inputs
-  //req.body = _.mapObj(req.body, (v) => { v.trim(); } )
   // define vars
-  let { email, password, firstName, lastName } = req.body
+  const { email, password, firstName, lastName } = req.body
   // see if user with email already exists
-  User.findOne({email}, (err, existingUser) => {
-    if (err) { return next(err); }
-    if (existingUser) {
-      return res.status(400).json({ error: "Email already exists" })
-    }
-    // make new user
-    let newUser = new User({ email, password, firstName, lastName })
-    // save new user
-    newUser.save((err, user) => {
-      if (err) return next(err);
-      // return user with their token
-      res.status(201).json({
-        done: true
-      })
-    })
-  })
+  User.hashPassword(password)
+    .then(hash => ({ email, firstName, lastName, password: hash }))
+    .then(entryData => User.findOneAndUpdate(
+      { email },
+      { $setOnInsert: entryData },
+      { upsert: true, setDefaultsOnInsert: true }
+    ).exec())
+    // mongoose will only send an object if it found an entry, null otherwise
+    .then(result => result
+      ? res.status(400).json({ error: 'Email already exists' })
+      : res.status(201).json({ done: true })
+    )
+    .catch(next)
 }
 
 /*

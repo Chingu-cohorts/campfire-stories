@@ -31,9 +31,9 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
     // compare passwords
     .then(user => user
       .checkPassword(password)
-      .then(isMatch => isMatch ? user : null)
+      .then(isMatch => isMatch ? user : false)
     )
-    .then(user => done(null, user || false))
+    .then(res => done(null, res))
     .catch(done)
 })
 
