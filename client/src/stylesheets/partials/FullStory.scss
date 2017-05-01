@@ -254,8 +254,17 @@
 }
 
 .post-image {
-  //height: 600px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-description {
+  align-self: center;
+  margin: 5px 0;
+  font-size: .7em;
+  font-style: italic;
+  color: grey;
 }
 
 .post-text {
