@@ -7,7 +7,7 @@ import AuthBox from 'components/AuthBox';
 import { renderField, renderAlert } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
 import * as actions from 'actions/authentication-actions';
-import { validateLogin as validate } from 'utils/validation';
+import { validateRegister as validate } from 'utils/validation';
 
 
 class SignupForm extends Component {

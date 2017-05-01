@@ -7,9 +7,7 @@ import AuthBox from 'components/AuthBox';
 import { renderField } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
 import { changePassword } from 'actions/authentication-actions';
-//import { validateLogin as validate } from 'utils/validation';
-
-const validate = () => ({});
+import { validateChangePassword as validate } from 'utils/validation';
 
 const form = reduxForm({
   form: 'password-form',
