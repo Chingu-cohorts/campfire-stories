@@ -24,7 +24,6 @@ const Routes = () => {
         <Route path="full/:story_id" component={ pages.FullStoryPage } />
         <Route path="story" component={ RequireAuth(pages.CreatePage) } />
         <Route path="edit/:story_id" component={ RequireAuth(pages.EditPage) } />
-        <Route path="mystories" component={ RequireAuth(pages.MyStoriesPage) } />
         <Route path="about" component={pages.AboutUs} />
         <Route path="admin" component={ RequireAdmin(pages.AdminPage) } />
         <Route path="logout" component={ LogoutPage } />

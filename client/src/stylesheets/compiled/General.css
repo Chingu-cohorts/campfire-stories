@@ -88,3 +88,12 @@ p {
   display: table-cell;
   text-align: center;
   vertical-align: middle; }
+
+.cell-child {
+  display: inline-block; }
+
+.icon-left {
+  margin-right: 10px; }
+
+.icon-right {
+  margin-left: 10px; }

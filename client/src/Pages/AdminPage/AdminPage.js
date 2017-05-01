@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Tabs, Tab, Pagination } from 'react-bootstrap';
+import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
@@ -7,6 +7,7 @@ import cookie from 'react-cookie'
 import { getUsers, switchView, switchRoles, deleteUser } from 'actions/admin-actions'
 import {  getContent } from 'actions/story-actions';
 import { User, Story } from './components';
+import PaginationElement from 'components/PaginationElement';
 
  /*
   * Component
@@ -69,21 +70,11 @@ class HomePage extends Component {
     }
 
     childElements.push(
-      <div key="Pagination" className="table">
-        <div className="table-cell">
-          <Pagination
-            prev
-            next
-            first
-            last
-            maxButtons={5}
-            items={view === 'users' ? userPages : storyPages}
-            activePage={view === 'users' ? userPage : storyPage}
-            onSelect={this.handlePagination}
-            className="pagination"
-          />
-        </div>
-      </div>
+      <PaginationElement
+        items={view === 'users' ? userPages : storyPages}
+        page={view === 'users' ? userPage : storyPage}
+        cb={this.handlePagination}
+      />
     );
 
     return (
@@ -99,7 +90,7 @@ class HomePage extends Component {
               <Tab eventKey="users" title="USERS">
                 <div className="add-user">
                   <Link to="/register" >
-                    <i className="fa fa-user-plus user-icon" aria-hidden="true" />
+                    <i className="fa fa-user-plus icon-left" aria-hidden="true" />
                     <span>Add a new user</span>
                   </Link>
                 </div>
@@ -108,7 +99,7 @@ class HomePage extends Component {
                 <div className="add-story clearfix">
                   <Link to="/story" className="pull-right">
                     <span>Add a new story</span>
-                    <i className="fa fa-newspaper-o user-story" aria-hidden="true" />
+                    <i className="fa fa-newspaper-o icon-right" aria-hidden="true" />
                   </Link>
                 </div>
               </Tab>

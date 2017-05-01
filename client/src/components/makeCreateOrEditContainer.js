@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 
 import { emptyBody } from 'actions/story-actions';
 

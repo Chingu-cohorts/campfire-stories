@@ -40,12 +40,12 @@
   .home-controls .right-control {
     right: -95px; } }
 
-section .grid > div {
-  margin: 2em auto; }
-
 /*card styles*/
 .grid-item a {
   text-decoration: none; }
+
+#cs-stories {
+  width: 100%; }
 
 .thumbnail {
   padding: 0;
