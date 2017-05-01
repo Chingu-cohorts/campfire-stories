@@ -32,12 +32,13 @@ function tokenForUser(user) {
 
 
 /*
- * Register
+ * Register a user
+ * NOTE: make sure to use findOneAndUpdate!
+ * If you use find and then save you will be introducing a race condition
  */
 export function register (req, res, next) {
-  // define vars
   const { email, password, firstName, lastName } = req.body
-  // see if user with email already exists
+
   User.hashPassword(password)
     .then(hash => ({ email, firstName, lastName, password: hash }))
     .then(entryData => User.findOneAndUpdate(

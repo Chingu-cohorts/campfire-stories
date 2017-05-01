@@ -79,3 +79,12 @@ p {
   margin-bottom: 1em;
   background-color: #BDC6B8;
   align-self: center; }
+
+.table {
+  display: table;
+  width: 100%; }
+
+.table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }

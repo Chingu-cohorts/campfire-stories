@@ -56,18 +56,8 @@ h4 {
 }
 
 .pagination {
-  margin: 100px 30em 0 30em;
-}
-
-.add-user,
-.add-story {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.add-story {
-  flex-direction: row-reverse;
+  display: inline-block;
+  margin: 50px 0;
 }
 
 .user-icon {
@@ -76,5 +66,11 @@ h4 {
 
 .user-story {
   margin-left: 10px;
+}
+
+.user-icon,
+.user-story {
+  margin-bottom: 50px;
+  font-size: 1.2em;
 }
 /*end of tab styles*/

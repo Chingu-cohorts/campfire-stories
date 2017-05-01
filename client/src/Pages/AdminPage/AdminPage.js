@@ -23,7 +23,7 @@ class HomePage extends Component {
     this.props.updateScreen('users');
   }
 
-  handleSelect(selectedTab) {    
+  handleSelect(selectedTab) {
     this.props.updateScreen(selectedTab);
   }
 
@@ -51,6 +51,7 @@ class HomePage extends Component {
     let childElements;
     if (view === 'users') {
       const currentUser = cookie.load('user');
+
       childElements = users
         .filter(user => (user._id !== currentUser._id))
         .map(user =>
@@ -68,18 +69,22 @@ class HomePage extends Component {
     }
 
     childElements.push(
-      <Pagination
-        prev
-        next
-        first
-        last
-        key='Pagination'
-        maxButtons={5}
-        items={view === 'users' ? userPages : storyPages}
-        activePage={view === 'users' ? userPage : storyPage}
-        onSelect={this.handlePagination}
-        className="pagination"
-      />
+      <div className="table">
+        <div className="table-cell">
+          <Pagination
+            prev
+            next
+            first
+            last
+            key='Pagination'
+            maxButtons={5}
+            items={view === 'users' ? userPages : storyPages}
+            activePage={view === 'users' ? userPage : storyPage}
+            onSelect={this.handlePagination}
+            className="pagination"
+          />
+        </div>
+      </div>
     );
 
     return (
@@ -90,7 +95,8 @@ class HomePage extends Component {
               defaultActiveKey="users"
               onSelect={this.handleSelect}
               id="tabs"
-              justified>
+              justified
+            >
               <Tab eventKey="users" title="USERS">
                 <div className="add-user">
                   <Link to="/register" >
@@ -100,15 +106,15 @@ class HomePage extends Component {
                 </div>
               </Tab>
               <Tab eventKey="stories" title="STORIES">
-                <div className="add-story">
-                  <Link to="/story">
+                <div className="add-story clearfix">
+                  <Link to="/story" className="pull-right">
                     <span>Add a new story</span>
-                    <i className="fa fa-user user-story" aria-hidden="true" />
+                    <i className="fa fa-newspaper-o user-story" aria-hidden="true" />
                   </Link>
                 </div>
               </Tab>
             </Tabs>
-            {childElements}
+              {childElements}
           </Col>
         </Row>
     </Grid>

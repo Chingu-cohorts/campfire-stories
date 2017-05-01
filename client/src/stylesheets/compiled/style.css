@@ -83,6 +83,15 @@ p {
   background-color: #BDC6B8;
   align-self: center; }
 
+.table {
+  display: table;
+  width: 100%; }
+
+.table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+
 /* Colors */
 /* Font */
 /* Effects */
@@ -622,22 +631,19 @@ h4 {
   margin: 15px; }
 
 .pagination {
-  margin: 100px 30em 0 30em; }
-
-.add-user,
-.add-story {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px; }
-
-.add-story {
-  flex-direction: row-reverse; }
+  display: inline-block;
+  margin: 50px 0; }
 
 .user-icon {
   margin-right: 10px; }
 
 .user-story {
   margin-left: 10px; }
+
+.user-icon,
+.user-story {
+  margin-bottom: 50px;
+  font-size: 1.2em; }
 
 /*end of tab styles*/
 /* Colors */
