@@ -99,7 +99,7 @@ class HomePage extends Component {
               <Tab eventKey="users" title="USERS">
                 <div className="add-user">
                   <Link to="/register" >
-                    <i className="fa fa-user user-icon" aria-hidden="true" />
+                    <i className="fa fa-user-plus user-icon" aria-hidden="true" />
                     <span>Add a new user</span>
                   </Link>
                 </div>

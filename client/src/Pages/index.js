@@ -10,3 +10,4 @@ export { default as MyStoriesPage } from './MyStoriesPage';
 export { default as NotFoundPage } from './NotFoundPage';
 export { default as Register } from './Register';
 export { default as ChangePassword } from './ChangePassword';
+export { default as AccountPage } from './AccountPage';

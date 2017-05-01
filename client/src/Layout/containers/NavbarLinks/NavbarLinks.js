@@ -29,11 +29,7 @@ const navRole = {
       text: 'Create'
     },
     {
-      path: 'mystories',
-      text: 'My Stories'
-    },
-    {
-      path: 'change_password',
+      path: 'account',
       text: 'Account'
     },
     {
