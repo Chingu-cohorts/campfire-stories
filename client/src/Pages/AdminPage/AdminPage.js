@@ -69,14 +69,13 @@ class HomePage extends Component {
     }
 
     childElements.push(
-      <div className="table">
+      <div key="Pagination" className="table">
         <div className="table-cell">
           <Pagination
             prev
             next
             first
             last
-            key='Pagination'
             maxButtons={5}
             items={view === 'users' ? userPages : storyPages}
             activePage={view === 'users' ? userPage : storyPage}
@@ -88,7 +87,7 @@ class HomePage extends Component {
     );
 
     return (
-      <Grid className="bg-white">
+      <Grid>
         <Row>
           <Col md={12}>
             <Tabs

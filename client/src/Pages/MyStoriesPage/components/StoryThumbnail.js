@@ -1,22 +1,15 @@
 import React from 'react';
-import { Col } from 'react-bootstrap';
 import { Link } from 'react-router';
 
 const StoryThumbnail = ({ title, _id }) => (
-  <Col md={4} className="grid-item-1">
-    <div className="thumbnail">
-      <div className="caption no-border-bottom">
-        <div className="card-title">
-          <h4>
-            {title}
-            <Link to={`/edit/${_id}`} className="pull-right card-buttons">
-              <span className="glyphicon glyphicon-edit" />
-            </Link>
-          </h4>
-        </div>
-      </div>
+  <Link to={`/edit/${_id}`} className="thumbnail">
+    <div className="caption no-border-bottom">
+      <h4 className="card-buttons">
+        {title}
+        <span className="glyphicon glyphicon-edit pull-right" />
+      </h4>
     </div>
-  </Col>
+  </Link>
 );
 
 export default StoryThumbnail;

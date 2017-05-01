@@ -24,7 +24,7 @@ class MyStoryPage extends Component {
     if (!submitted.length) childElemenets = (<WriteButton />);
 
     return (
-      <Grid className="section bg-white">
+      <Grid className="section">
         <Row className="grid-1 bottom-space">
           { childElemenets }
         </Row>
