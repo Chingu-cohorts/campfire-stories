@@ -4,11 +4,41 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
 import AuthBox from 'components/AuthBox';
-import { renderField, renderAlert } from 'components/utils/formFields';
+import { renderAlert } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
 import * as actions from 'actions/authentication-actions';
+import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateRegister as validate } from 'utils/validation';
 
+const { text, email, password } = defaultFields;
+
+const formFields = [
+  {
+    ...text,
+    name: 'firstName',
+    label: 'First Name',
+    placeholder: 'First'
+  },
+  {
+    ...text,
+    name: 'lastName',
+    label: 'Last Name',
+    placeholder: 'Last'
+  },
+  email,
+  password,
+  {
+    ...password,
+    name: 'passwordConfirmation',
+    label: 'Password Confirmation',
+    placeholder: 'Confirm Password'
+  }
+];
+
+const makeForm = reduxForm({
+  form: 'register',
+  validate
+});
 
 class SignupForm extends Component {
   constructor (props){
@@ -22,6 +52,7 @@ class SignupForm extends Component {
 
   render (){
     const { handleSubmit } = this.props;
+    const otherFields = makeFields(formFields).slice(2);
 
     return (
       <AuthBox>
@@ -30,58 +61,13 @@ class SignupForm extends Component {
           <FormGroup>
             <Row>
               <Col sm={6}>
-                <Field
-                  type="text"
-                  name="firstName"
-                  component={renderField}
-                  label="First Name"
-                  tabIndex="1"
-                  className="form-control"
-                  placeholder="First"
-                />
+                <Field tabIndex={1} {...formFields[0]} />
               </Col>
               <Col sm={6}>
-                <Field
-                  type="text"
-                  name="lastName"
-                  component={renderField}
-                  label="Last Name"
-                  id="lastName"
-                  tabIndex="1"
-                  className="form-control"
-                  placeholder="Last"
-                />
+                <Field tabIndex={2} {...formFields[1]} />
               </Col>
             </Row>
-            <Field
-              name="email"
-              component={renderField}
-              label="Email"
-              id="email"
-              tabIndex="1"
-              className="form-control"
-              placeholder="Email Address"
-            />
-            <Field
-              type="password"
-              name="password"
-              component={renderField}
-              label="Password"
-              id="password"
-              tabIndex="2"
-              className="form-control"
-              placeholder="Password"
-            />
-            <Field
-              type="password"
-              name="passwordConfirmation"
-              component={renderField}
-              label="Password Confirmation"
-              id="confirm-password"
-              tabIndex="2"
-              className="form-control"
-              placeholder="Confirm Password"
-            />
+            {otherFields}
             <SubmitButton>Register</SubmitButton>
           </FormGroup>
         </form>
@@ -94,11 +80,6 @@ SignupForm.propTypes = {
   registerUser: React.PropTypes.func.isRequired
 }
 
-const form = reduxForm({
-  form: 'register',
-  validate
-})
-
 function mapStateToProps(state) {
   return {
     errorMessage: state.user.error,
@@ -106,4 +87,7 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, actions )(form(SignupForm));
+export default connect(
+  mapStateToProps,
+  actions
+)(makeForm(SignupForm));
