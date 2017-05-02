@@ -46,5 +46,13 @@ export default {
     placeholder: 'Email',
     component: renderField,
     className: 'form-control'
+  },
+  name: {
+    name: 'Name',
+    type: 'text',
+    label: 'Name',
+    placeholder: 'Name',
+    component: renderField,
+    className: 'form-control'    
   }
 };

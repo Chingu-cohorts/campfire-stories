@@ -1,23 +1,22 @@
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-dotenv.config();
+import secrets from './gmail_secrets';
 
 // Create a SMTP transporter object
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    secure: true,
-    auth: {
-      type: 'OAuth2',
-      user: 'chingunoreply@gmail.com',
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
-      accessToken: process.env.ACCESS_TOKEN,
-      expires: 1493679856737
-    },
+  service: 'Gmail',
+  secure: true,
+  auth: {
+    type: 'OAuth2',
+    user: 'chingunoreply@gmail.com',
+    clientId: secrets.CLIENT_ID,
+    clientSecret: secrets.CLIENT_SECRET,
+    refreshToken: secrets.REFRESH_TOKEN,
+    accessToken: secrets.ACCESS_TOKEN,
+    expires: parseInt(secrets.EXPIRES)
+  },
 }, {
-    // sender info
-    from: 'chingu <chingunoreply@gmail.com>',
+  // sender info
+  from: 'chingu <chingunoreply@gmail.com>',
 });
 
 export default message => new Promise((resolve, reject) =>

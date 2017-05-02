@@ -7,6 +7,10 @@ node_modules
 #.env files
 *.env
 
+#google secret
+client_secret.json
+gmail_secrets.json
+
 # Mac trash
 DS_STORE
 

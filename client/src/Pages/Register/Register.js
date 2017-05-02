@@ -10,20 +10,18 @@ import * as actions from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateRegister as validate } from 'utils/validation';
 
-const { text, email, password } = defaultFields;
+const { name, email, password } = defaultFields;
 
 const formFields = [
   {
-    ...text,
+    ...name,
     name: 'firstName',
-    label: 'First Name',
-    placeholder: 'First'
+    label: 'First Name'
   },
   {
-    ...text,
+    ...name,
     name: 'lastName',
-    label: 'Last Name',
-    placeholder: 'Last'
+    label: 'Last Name'
   },
   email,
   password,
