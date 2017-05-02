@@ -66,5 +66,3 @@ export const imgUrlHeaderValidate = values =>
   axios.get(`/api/content/checkImage?url=${values.image}`)
     .then(check => !check.data.checkResult && { image: 'This url doesn\'t point to an image' })
     .catch(console.error);
-
-//exports.emailValidate = values =>

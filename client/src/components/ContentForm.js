@@ -3,16 +3,11 @@ import { FormGroup } from 'react-bootstrap';
 
 import defaultFields, { makeFields } from 'utils/defaultFields';
 
-const { image, text, body } = defaultFields;
+const { image, title, body } = defaultFields;
 
 const formFields = [
   image,
-  {
-    ...text,
-    name: 'title',
-    placeholder: 'Title',
-    label: 'Title'
-  },
+  title,
   body
 ];
 

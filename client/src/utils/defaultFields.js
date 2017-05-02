@@ -15,11 +15,11 @@ export default {
     placeholder: 'Include an image URL for your header',
     component: renderField
   },
-  text: {
-    name: 'text',
+  title: {
+    name: 'title',
     type: 'text',
-    label: 'Text',
-    placeholder: 'Text',
+    label: 'Title',
+    placeholder: 'Title',
     component: renderField
   },
   body: {
@@ -53,6 +53,6 @@ export default {
     label: 'Name',
     placeholder: 'Name',
     component: renderField,
-    className: 'form-control'    
+    className: 'form-control'
   }
 };
