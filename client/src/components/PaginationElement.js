@@ -2,7 +2,7 @@ import React from 'react';
 import { Pagination } from 'react-bootstrap';
 
 const PaginationElement = ({ items, page, cb }) => (
-  <div key="Pagination" className="table">
+  <div className="table">
     <div className="table-cell">
       <Pagination
         prev
@@ -13,7 +13,7 @@ const PaginationElement = ({ items, page, cb }) => (
         items={items}
         activePage={page}
         onSelect={cb}
-        className="pagination"
+        className="cell-child"
       />
     </div>
   </div>

@@ -71,6 +71,7 @@ class HomePage extends Component {
 
     childElements.push(
       <PaginationElement
+        key="pagination"
         items={view === 'users' ? userPages : storyPages}
         page={view === 'users' ? userPage : storyPage}
         cb={this.handlePagination}

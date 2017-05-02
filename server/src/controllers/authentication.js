@@ -3,8 +3,11 @@
  */
 import jwt from 'jwt-simple';
 import mongoose from 'mongoose';
+
 import User from '../models/UserModel';
 import Story from '../models/PostModel';
+import mailer from '../services/mailer';
+import messages from '../services/messages';
 
 /*
  * Helper functions
@@ -30,14 +33,19 @@ function tokenForUser(user) {
   return jwt.encode({ sub: user.id, iat: timestamp }, process.env.SECRET)
 }
 
-
-/*
+/**
  * Register a user
  * NOTE: make sure to use findOneAndUpdate!
  * If you use find and then save you will be introducing a race condition
- */
+ **/
 export function register (req, res, next) {
   const { email, password, firstName, lastName } = req.body
+
+  const message = {
+    to: email,
+    subject: messages.newAccount.subject,
+    text: messages.newAccount.text + `email: ${email}\npassword: ${password}`
+  }
 
   User.hashPassword(password)
     .then(hash => ({ email, firstName, lastName, password: hash }))
@@ -48,10 +56,14 @@ export function register (req, res, next) {
     ).exec())
     // mongoose will only send an object if it found an entry, null otherwise
     .then(result => result
-      ? res.status(400).json({ error: 'Email already exists' })
-      : res.status(201).json({ done: true })
+      ? null
+      : mailer(message)
     )
-    .catch(next)
+    .then(result => result === 'success'
+      ? res.status(201).json({ done: true })
+      : res.status(400).json({ error: 'Email already exists' })
+    )
+    .catch(next);
 }
 
 /*

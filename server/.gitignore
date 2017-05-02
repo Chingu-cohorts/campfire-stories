@@ -4,6 +4,9 @@ node_modules
 # Debug logs
 *.log*
 
+#.env files
+*.env
+
 # Mac trash
 DS_STORE
 
