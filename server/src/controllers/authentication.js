@@ -6,7 +6,8 @@ import mongoose from 'mongoose';
 
 import User from '../models/UserModel';
 import Story from '../models/PostModel';
-import mailer, { messanges } from '../services/mailer';
+import mailer from '../services/mailer';
+import messages from '../services/mailer/messages';
 
 /*
  * Helper functions
@@ -45,7 +46,6 @@ export function register (req, res, next) {
     subject: messages.newAccount.subject,
     text: messages.newAccount.text + `email: ${email}\npassword: ${password}`
   }
-
   User.hashPassword(password)
     .then(hash => ({ email, firstName, lastName, password: hash }))
     .then(entryData => User.findOneAndUpdate(

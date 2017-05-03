@@ -1,9 +1,7 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import secrets from './gmail_secrets';
 
-dotenv.config();
-
+console.log(process.env.CLIENT_ID)
 // Create a SMTP transporter object
 let transporter = nodemailer.createTransport({
   service: 'Gmail',

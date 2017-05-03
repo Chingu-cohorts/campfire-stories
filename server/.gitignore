@@ -5,11 +5,11 @@ node_modules
 *.log*
 
 #.env files
-*.env
+*.env*
 
 #google secret
 **/client_secret.json
-**/gmail_secrets.json
+**/gmail-nodejs-quickstart.json
 
 # Mac trash
 DS_STORE

@@ -18,7 +18,6 @@ const requireLogin = passport.authenticate('local', {session:  false})
 
 export function auth(app) {
 	const authRoutes = express.Router()
-
 	authRoutes.post('/register', requireAuth, authAdmin, register)
 	authRoutes.post('/login', requireLogin, login)
   authRoutes.post('/change_password', requireAuth, changePassword)

@@ -39,7 +39,6 @@
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "debug": "~2.2.0",
-    "dotenv": "^4.0.0",
     "env-cmd": "^5.0.0",
     "express": "^4.14.0",
     "forever": "^0.15.3",
