@@ -4,6 +4,13 @@ node_modules
 # Debug logs
 *.log*
 
+#.env files
+*.env
+
+#google secret
+client_secret.json
+gmail_secrets.json
+
 # Mac trash
 DS_STORE
 

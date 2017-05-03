@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { FormGroup } from 'react-bootstrap';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
 import AuthBox from 'components/AuthBox';
-import { renderField, renderAlert } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
+import { renderAlert } from 'components/utils/formFields';
 import { loginUser } from 'actions/authentication-actions';
+import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateLogin as validate } from 'utils/validation';
 
+const { email, password } = defaultFields;
 
-const loginForm = reduxForm({
+const formFields = [
+  email,
+  password
+];
+
+const makeForm = reduxForm({
   form: 'login',
   validate: validate
 })
@@ -30,32 +37,14 @@ class LoginForm extends Component {
   render (){
 
     const { handleSubmit } = this.props
+    const form = makeFields(formFields);
 
     return (
       <AuthBox>
         <form id="login-form" onSubmit={ handleSubmit(this.onSubmit) } >
           {renderAlert(this.props.errorMessage)}
           <FormGroup>
-            <Field
-              type="text"
-              name="email"
-              component={renderField}
-              label="Email"
-              id="username"
-              tabIndex="1"
-              className="form-control"
-              placeholder="Username"
-            />
-            <Field
-              type="password"
-              name="password"
-              component={renderField}
-              label="Password"
-              id="password"
-              tabIndex="2"
-              className="form-control"
-              placeholder="Password"
-            />
+            {form}
             <SubmitButton>Log in</SubmitButton>
           </FormGroup>
         </form>
@@ -70,4 +59,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { loginUser })(loginForm(LoginForm))
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(makeForm(LoginForm));

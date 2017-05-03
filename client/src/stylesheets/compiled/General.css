@@ -80,6 +80,10 @@ p {
   background-color: #BDC6B8;
   align-self: center; }
 
+@media only screen and (max-width: 600px) {
+  .horizontal-rule {
+    width: 300px; } }
+
 .table {
   display: table;
   width: 100%; }

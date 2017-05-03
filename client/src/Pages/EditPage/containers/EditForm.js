@@ -6,8 +6,10 @@ import { reduxForm } from 'redux-form'
 import * as adminActions from 'actions/admin-actions'
 import * as storyActions from 'actions/story-actions'
 import ContentForm from 'components/ContentForm';
-import { validatePost as validate } from 'utils/validation'
-
+import {
+  validatePost as validate,
+  imgUrlHeaderValidate as asyncValidate
+} from 'utils/validation';
 
 class EditForm extends Component {
   constructor(props) {
@@ -46,7 +48,9 @@ class EditForm extends Component {
 EditForm = reduxForm({
   form: 'editStory',
   enableReinitialize: true,
-  validate
+  validate,
+  asyncValidate,
+  asyncBlurFields: [ 'image' ]  
 })(EditForm)
 
 // connect
