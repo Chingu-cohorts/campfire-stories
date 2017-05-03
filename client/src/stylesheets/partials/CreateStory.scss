@@ -1,4 +1,5 @@
 @import 'Variables';
+@import 'MediaQueries';
 /*form styles*/
 
 .content-page {
@@ -7,10 +8,18 @@
   .form-group {
     padding-bottom: 15px;
   }
+  @include x-large {
+    width: 900px;
+  }
+  @include large {
+    width: 80%;
+  }
+  @include medium {
+    width: 90%;
+  }
 }
 
-
-.story-form-container {
+.create-story-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +27,15 @@
   margin: 0 auto;
 }
 
+.create-story-heading {
+  font-weight: 700;
+  font-style: italic;
+  font-family: $heading-font;
+  color: $darkblue;
+}
+
 .control-label {
-  font-size: 100%;
+  font-size: 1em;
   padding-bottom: 15px;
   color: $darkblue;
 }
@@ -29,6 +45,12 @@
   transition: all 0.3s ease-out;
   border-color: rgb(184, 186, 194);
   font-size: 14px;
+  @include x-large {
+    height: 50px;
+  }
+  @include large {
+    height: 50px;
+  }
 }
 
 .form-control:focus {

@@ -1,17 +1,15 @@
 @import 'Variables';
-
-/*style for the hero content*/
-@media (max-width: 767px) {
-  section {
-    .grid > div {
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
-  }
-}
+@import 'MediaQueries';
 
 .hero-top {
   margin-top: -75px;
+
+  @include large {
+    margin-top: -170px;
+  }
+  @include small {
+    margin-top: -115px;
+  }
 }
 
 #hero-content {
@@ -20,10 +18,21 @@
   height: inherit;
   height: 99vh;
   color: $green;
+  @include medium {
+    position: relative;
+    background-color: $darkblue;
+  }
+  @include large {
+    height: 105vh;
+  }
 }
 
 #hero-content-centered {
   color: $bg-white;
+}
+
+.hero-content-group {
+  display: inline-block;
 }
 
 .hero-headline {
@@ -35,6 +44,12 @@
   color: $green;
   letter-spacing: 1px;
   max-width: 800px;
+  @include small {
+    font-size: 2.25em;
+  }
+  @include x-small {
+    font-size: 2em;
+  }
 }
 
 .hero-copy {
@@ -43,19 +58,13 @@
   font-size: 1.1em;
   padding: 1em 20%;
   max-width: 800px;
-}
-
-@media only screen and (max-width: 770px) {
-  #hero-content {
-    position: relative;
-    background-color: #2f3a28;
+  @include small {
+    font-size: .7em;
   }
-
-  .carousel {
-    display: none;
+  @include medium {
+    padding: 1em 10%;
   }
-
-  .hero-copy {
+  @include large {
     padding: 1em 10%;
   }
 }
@@ -66,6 +75,19 @@
   position: relative;
   margin-bottom: 2em;
   box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+  @include medium {
+    display: none;
+  }
+  @include large {
+    height: 89vh;
+  }
+  @include x-large {
+    height: 89vh;
+  }
+}
+
+.carousel a {
+  z-index: 100;
 }
 
 .carousel-image {
@@ -80,15 +102,19 @@
 .carousel-inner .item img {
   width: 100%;
   height: 99vh;
-}
-
-@media (max-aspect-ratio: 1/1) {
-  .carousel-inner .item img {
+  @include monitor {
+    height: 89vh;
+  }
+  @include large {
+    height: 89vh;
+  }
+  @include max-aspect-ratio {
     width: 100%;
     object-fit: none;
     object-position: center;
   }
 }
+
 /*end of full page carousel*/
 
 #explore-stories {

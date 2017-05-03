@@ -1,14 +1,46 @@
 @import 'Variables';
+@import 'MediaQueries';
 /*tab styles*/
 
-.tab-content {
-  padding-top: 30px;
+.admin-container {
+  width: 90%;
 }
 
-h4 {
+.admin-title {
   color: $darkblue;
   padding: 15px 0;
   margin-top: 0;
+}
+
+.add-user {
+  margin-top: 20px;
+  @include x-large {
+    text-align: left;
+  }
+  @include large {
+    text-align: left;
+  }
+}
+
+.add-story {
+  margin-top: 20px;
+  @include x-large {
+    text-align: right;
+  }
+  @include large {
+    text-align: right;
+  }
+}
+
+.add-user,
+.add-story {
+  margin-bottom: 50px;
+  font-size: 1.2em;
+  @include small {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 20px;
+  }
 }
 
 .tab-pane .row .col-md-4 {
@@ -46,18 +78,12 @@ h4 {
 }
 
 .user-list {
-  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  box-shadow: $box-shadow;
   margin-bottom: 30px;
 }
 
 .user-list h4 {
   color: $darkblue;
   margin: 15px;
-}
-
-.add-user,
-.add-story {
-  margin-bottom: 50px;
-  font-size: 1.2em;
 }
 /*end of tab styles*/

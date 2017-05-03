@@ -17,9 +17,9 @@ export default function makeCreateOrEditContainer(FormComponent) {
       return (
 
         <div className="content-page">
-          <div className="story-form-container">
+          <div className="create-story-container">
             <Row>
-              <h2 className="heading">Write a Story</h2>
+              <h2 className="create-story-heading">Write a Story</h2>
             </Row>
             <span className="horizontal-rule"></span>
             <Row>

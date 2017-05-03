@@ -1,5 +1,6 @@
 //
 @import './partials/Variables';
+@import './partials/MediaQueries';
 @import './partials/General';
 // Navbar
 @import './partials/Nav';
@@ -11,9 +12,10 @@
 // Footer
 @import './partials/Footer';
 // Create and edit form
-@import './partials/Form';
+@import './partials/CreateStory';
 // Admin page
 @import './partials/AdminPage';
+@import './partials/AccountPage';
 // Full story page
 @import './partials/FullStory';
 // About us page

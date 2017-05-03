@@ -1,4 +1,5 @@
 @import 'Variables';
+@import 'MediaQueries';
 
 /*declaring basic style*/
 html{
@@ -25,6 +26,18 @@ h1 {
 
 h2 {
   font-size: 1.942em;
+  @include x-large {
+    font-size: 2.3em;
+  }
+  @include large {
+    font-size: 1.942em;
+  } 
+  @include small {
+    font-size: 1.45em;
+  }
+  @include x-small {
+    font-size: 1.3em;
+  }
 }
 
 .h2 {
@@ -37,6 +50,19 @@ h2 {
 p {
   line-height: 1.7;
   padding-bottom: 40px;
+  font-size: 1.2em;
+  @include large {
+    font-size: 1.3em;
+  }  
+  @include medium {
+    font-size: 1.3em;
+  } 
+  @include small {
+    font-size: .9em;
+  }
+  @include x-small {
+    font-size: .83em;
+  }
 }
 
 /*end of declaring basic style*/
@@ -88,22 +114,15 @@ p {
   margin-bottom: 70px;
 }
 
-.size {
-  font-size: 20em;
-}
-
 .horizontal-rule {
-  width: 550px;
+  width: 100%; 
   height: 1px;
   margin-top: 1em;
   margin-bottom: 1em;
   background-color: $earthygrey;
   align-self: center;
-}
-
-@media only screen and (max-width: 600px) {
-  .horizontal-rule {
-    width: 300px;    
+  @include monitor {
+    width: 90%;
   }
 }
 
@@ -116,10 +135,6 @@ p {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-}
-
-.cell-child {
-  display: inline-block;
 }
 
 .icon-left {

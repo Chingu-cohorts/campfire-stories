@@ -62,7 +62,7 @@ class FullStoryPage extends Component {
               <div className="no-padding-picture full-head">
                 <div className="post-image">
                   <img alt="body" src={image} className="img-responsive" />
-                  <span>{description}</span>
+                  <span className="post-description">{description}</span>
                 </div>
               </div>
               <span className="horizontal-rule"></span>
