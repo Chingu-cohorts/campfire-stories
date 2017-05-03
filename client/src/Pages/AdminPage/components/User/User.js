@@ -7,7 +7,7 @@ const User = ({ deleteUser, switchRoles, user }) => {
 
   return (
     <article className="col-md-12 user-list">
-      <h4>{`${user.firstName} ${user.lastName}`}
+      <h4 className="admin-title">{`${user.firstName} ${user.lastName}`}
         <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">
           <span className="glyphicon glyphicon-trash"></span>
         </a>

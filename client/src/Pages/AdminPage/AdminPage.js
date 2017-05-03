@@ -79,7 +79,7 @@ class HomePage extends Component {
     );
 
     return (
-      <Grid>
+      <Grid className="admin-container">
         <Row>
           <Col md={12}>
             <Tabs
@@ -97,8 +97,8 @@ class HomePage extends Component {
                 </div>
               </Tab>
               <Tab eventKey="stories" title="STORIES">
-                <div className="add-story clearfix">
-                  <Link to="/story" className="pull-right">
+                <div className="add-story">
+                  <Link to="/story">
                     <span>Add a new story</span>
                     <i className="fa fa-newspaper-o icon-right" aria-hidden="true" />
                   </Link>

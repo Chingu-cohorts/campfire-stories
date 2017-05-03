@@ -650,14 +650,46 @@ footer p {
 /* Colors */
 /* Font */
 /* Effects */
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
 /*tab styles*/
-.tab-content {
-  padding-top: 30px; }
+.admin-container {
+  width: 90%; }
 
-h4 {
+.admin-title {
   color: #4E5166;
   padding: 15px 0;
   margin-top: 0; }
+
+.add-user {
+  margin-top: 20px; }
+  @media only screen and (max-width: 86em) {
+    .add-user {
+      text-align: left; } }
+  @media only screen and (max-width: 64em) {
+    .add-user {
+      text-align: left; } }
+
+.add-story {
+  margin-top: 20px; }
+  @media only screen and (max-width: 86em) {
+    .add-story {
+      text-align: right; } }
+  @media only screen and (max-width: 64em) {
+    .add-story {
+      text-align: right; } }
+
+.add-user,
+.add-story {
+  margin-bottom: 50px;
+  font-size: 1.2em; }
+  @media only screen and (max-width: 30em) {
+    .add-user,
+    .add-story {
+      font-size: 1em;
+      text-align: center;
+      margin-top: 20px; } }
 
 .tab-pane .row .col-md-4 {
   padding-bottom: 15px; }
@@ -695,11 +727,6 @@ h4 {
 .user-list h4 {
   color: #4E5166;
   margin: 15px; }
-
-.add-user,
-.add-story {
-  margin-bottom: 50px;
-  font-size: 1.2em; }
 
 /*end of tab styles*/
 /* Colors */
