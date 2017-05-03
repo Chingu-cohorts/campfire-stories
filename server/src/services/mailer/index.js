@@ -1,5 +1,4 @@
 import mailer from './mailer';
-import messanges from './messanges';
 
-export messanges;
+export messages from './messages';
 export default mailer;

@@ -1,5 +1,8 @@
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 import secrets from './gmail_secrets';
+
+dotenv.config();
 
 // Create a SMTP transporter object
 let transporter = nodemailer.createTransport({
@@ -8,11 +11,11 @@ let transporter = nodemailer.createTransport({
   auth: {
     type: 'OAuth2',
     user: 'chingunoreply@gmail.com',
-    clientId: secrets.CLIENT_ID,
-    clientSecret: secrets.CLIENT_SECRET,
-    refreshToken: secrets.REFRESH_TOKEN,
-    accessToken: secrets.ACCESS_TOKEN,
-    expires: parseInt(secrets.EXPIRES)
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    refreshToken: process.env.REFRESH_TOKEN,
+    accessToken: process.env.ACCESS_TOKEN,
+    expires: parseInt(process.env.EXPIRES)
   },
 }, {
   // sender info
