@@ -1,0 +1,40 @@
+
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
+
+@mixin x-small {
+  @media only screen and (max-width: 22em) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (max-width: 64em) {
+    @content;
+  }
+}
+
+@mixin x-large {
+  @media only screen and (max-width: 86em) {
+    @content;
+  }
+}
+
+@mixin max-aspect-ratio {
+  @media (max-aspect-ratio: 1/1) {
+    @content;
+  }
+}
