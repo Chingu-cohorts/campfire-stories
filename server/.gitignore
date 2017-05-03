@@ -8,8 +8,8 @@ node_modules
 *.env
 
 #google secret
-client_secret.json
-gmail_secrets.json
+**/client_secret.json
+**/gmail_secrets.json
 
 # Mac trash
 DS_STORE

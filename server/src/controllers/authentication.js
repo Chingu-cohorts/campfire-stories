@@ -6,8 +6,7 @@ import mongoose from 'mongoose';
 
 import User from '../models/UserModel';
 import Story from '../models/PostModel';
-import mailer from '../services/mailer';
-import messages from '../services/messages';
+import mailer, { messanges } from '../services/mailer';
 
 /*
  * Helper functions
