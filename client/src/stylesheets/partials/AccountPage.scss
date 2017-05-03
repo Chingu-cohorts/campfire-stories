@@ -1,0 +1,80 @@
+@import 'Variables';
+@import 'MediaQueries';
+
+.account-page-container {
+  width: 90%;
+}
+
+.write-button-text {
+  font-weight: 700;
+  font-style: italic;
+  font-family: $heading-font;
+  margin-top: 10px;
+  @include small {
+    font-size: 1em;
+  }
+}
+
+.cs-btn-green{
+  display: inline-block;
+  border-radius: 0;
+  padding: 5px 5px;
+  margin: 1em 0;
+  background: $green;
+  color: $darkblue;
+  border: 2px solid $green;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.cs-btn-green:hover{
+  background: $darkblue;
+  color: $green;
+  border: 2px solid $darkblue;
+}
+
+.cs-btn-green-outline{
+  border-radius: 0;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.cs-btn-green-outline:hover{
+  background: $green;
+  color: $darkblue;
+  border: 2px solid $green;
+}
+
+.cs-btn-green-inverted{
+  border-radius: 0;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #fff;
+  color: $darkblue;
+  border: 2px solid #fff;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.cs-btn-green-inverted:hover{
+  background: $green;
+  color: $darkblue;
+  border: 2px solid $green;
+}

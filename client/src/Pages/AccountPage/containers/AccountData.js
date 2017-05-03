@@ -10,7 +10,7 @@ const AccountData = () => {
   const { email, firstName, lastName, role } = cookie.load('user');
 
   return (
-    <AuthBox>
+    <AuthBox >
       <ListGroup>
         <AccountItem icon="user-circle-o" label={`Name: ${firstName} ${lastName}`} />
         <AccountItem icon="location-arrow" label={`Email: ${email}`} />

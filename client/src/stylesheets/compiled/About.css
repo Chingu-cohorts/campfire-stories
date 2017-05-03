@@ -14,11 +14,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 60%; }
-  @media only screen and (max-width: 86em) {
-    .about-section-1,
-    .about-section-2 {
-      width: 85%; } }
+  width: 70%; }
   @media only screen and (max-width: 64em) {
     .about-section-1,
     .about-section-2 {

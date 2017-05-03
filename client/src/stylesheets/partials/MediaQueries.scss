@@ -33,6 +33,12 @@
   }
 }
 
+@mixin monitor {
+  @media only screen and (min-width: 78em) {
+    @content;
+  }
+}
+
 @mixin max-aspect-ratio {
   @media (max-aspect-ratio: 1/1) {
     @content;

@@ -4,7 +4,7 @@ import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import { MyStories, AccountData } from './containers';
 
 const AccountPage = () => (
-  <Grid>
+  <Grid className="account-page-container">
     <Row>
       <Col xs={12}>
         <Tabs
