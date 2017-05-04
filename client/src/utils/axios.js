@@ -26,6 +26,12 @@ export const setInstance = () => {
   };
 };
 
+export const updateAxios = (token, user) => {
+  cookie.save('token', token, { path: '/' });
+  cookie.save('user', user, { path: '/'});
+  setInstance();
+};
+
 setInstance();
 
 export default instance;

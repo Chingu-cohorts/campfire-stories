@@ -15,6 +15,7 @@ export const renderTextarea = (field) => {
 
 
 export const renderAlert = (errorMessage) => {
+  console.log(errorMessage)
   if(errorMessage) {
     return (
       <div className="alert alert-danger">

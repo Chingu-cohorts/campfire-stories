@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import AuthBox from 'components/AuthBox';
 import { renderAlert } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
-import { registerUser } from 'actions/authentication-actions';
+import { registerUser } from 'actions/admin-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateRegister as validate } from 'utils/validation';
 

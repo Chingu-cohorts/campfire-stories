@@ -1,11 +1,15 @@
 import axios from '../utils/axios'
+import { browserHistory } from "react-router";
+
+import { errorHandler } from './utils';
+
 import {
   AUTH_ERROR,
   GET_CONTENT,
   GET_ALL_USERS,
   SWITCH_VIEW,
-  REMOVE,
-  UPADTE_USER
+  REMOVE_USER,
+  UPDATE_USER
 } from './types'
 
 /*
@@ -52,12 +56,25 @@ export function getUsers(page=1, limit=10) {
   }
 }
 
+export function registerUser(userData) {
+  return dispatch => {
+    return axios.post('/api/auth/register', userData)
+    .then((resp) => {
+      //  this only gets called with 200 codes
+      browserHistory.push('/admin')
+    })
+    .catch((err) => {
+      errorHandler(dispatch, err, AUTH_ERROR)
+    })
+  }
+}
+
 export function deleteUser(id) {
   return dispatch => {
     return axios.delete(`/api/auth/user?id=${id}`)
     .then( () => {
           dispatch({
-            type: REMOVE,
+            type: REMOVE_USER,
             payload: id
           })
       })
@@ -65,14 +82,13 @@ export function deleteUser(id) {
 }
 
 export function switchRoles(id) {
-  return dispath => {
+  return dispatch => {
     return axios.put(`/api/auth/user?id=${id}`)
-    .then( (res) => {
-      dispath({
-        type: UPADTE_USER,
-        payload: res.data.user
+      .then( (res) => {
+        dispatch({
+          type: UPDATE_USER,
+          payload: res.data.user
+        })
       })
-    })
-
   }
 }

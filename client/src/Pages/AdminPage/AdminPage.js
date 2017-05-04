@@ -41,7 +41,11 @@ class AdminPage extends Component {
 
   componentDidMount(){
     // show correct view
-    this.props.updateScreen('users');
+    this.handleSelect('users');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.handleSelect(nextProps.view);
   }
 
   handleSelect(selectedTab) {
