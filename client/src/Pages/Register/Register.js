@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col, FormGroup } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -6,7 +7,7 @@ import { connect } from 'react-redux';
 import AuthBox from 'components/AuthBox';
 import { renderAlert } from 'components/utils/formFields';
 import SubmitButton from 'components/SubmitButton';
-import * as actions from 'actions/authentication-actions';
+import { registerUser } from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateRegister as validate } from 'utils/validation';
 
@@ -39,6 +40,10 @@ const makeForm = reduxForm({
 });
 
 class SignupForm extends Component {
+  static propTypes = {
+    registerUser: PropTypes.func.isRequired
+  }
+
   constructor (props){
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -74,18 +79,18 @@ class SignupForm extends Component {
   }
 }
 
-SignupForm.propTypes = {
-  registerUser: React.PropTypes.func.isRequired
-}
-
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     errorMessage: state.user.error,
     isDone: state.user.await
   }
-}
+};
+
+const mapDispatchToProps = dispatch => ({
+  registerUser: data => dispatch(registerUser(data))
+});
 
 export default connect(
   mapStateToProps,
-  actions
+  mapDispatchToProps
 )(makeForm(SignupForm));

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormGroup } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -52,6 +53,10 @@ const ChangePassword = ({ handleSubmit, onSubmit }) => {
   );
 };
 
+ChangePassword.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: ({ newPassword, oldPassword }) => dispatch(changePassword({ newPassword, oldPassword }))

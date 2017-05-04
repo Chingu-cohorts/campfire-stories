@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from 'actions/story-actions';
@@ -25,6 +26,11 @@ class MyStories extends Component {
     );
   }
 }
+
+MyStories.propTypes = {
+  submitted: PropTypes.array.isRequired,
+  getMyStories: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state) => {
   return {

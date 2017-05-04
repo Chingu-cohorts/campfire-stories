@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 
 const StoryThumbnail = ({ title, _id }) => (
@@ -11,5 +12,10 @@ const StoryThumbnail = ({ title, _id }) => (
     </div>
   </Link>
 );
+
+StoryThumbnail.propTypes = {
+  title: PropTypes.string.isRequired,
+  _id: PropTypes.string.isRequired
+};
 
 export default StoryThumbnail;

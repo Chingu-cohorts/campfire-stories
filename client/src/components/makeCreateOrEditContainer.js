@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Row } from 'react-bootstrap';
 
@@ -6,9 +7,16 @@ import { emptyBody } from 'actions/story-actions';
 
 export default function makeCreateOrEditContainer(FormComponent) {
   class CreateOrEditContentContainer extends Component {
+    static propTypes = {
+      emptyBody: PropTypes.func.isRequired,
+      location: PropTypes.shape({
+        pathname: PropTypes.string.isRequired
+      }).isRequired
+    }
+
     componentWillMount () {
       // empty body form Field
-      this.props.emptyBody()
+      this.props.emptyBody();
     }
 
     render () {

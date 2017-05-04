@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
@@ -9,10 +10,29 @@ import {  getContent } from 'actions/story-actions';
 import { User, Story } from './components';
 import PaginationElement from 'components/PaginationElement';
 
- /*
-  * Component
-  */
-class HomePage extends Component {
+class AdminPage extends Component {
+  static propTypes = {
+    users: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    })).isRequired,
+    stories: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    })).isRequired,
+    view: PropTypes.string.isRequired,
+    storyPages: PropTypes.number.isRequired,
+    storyPage: PropTypes.number.isRequired,
+    userPages: PropTypes.number.isRequired,
+    userPage: PropTypes.number.isRequired,
+    updateScreen: PropTypes.func.isRequired,
+    switchRoles: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.handleSelect = this.handleSelect.bind(this);
@@ -32,9 +52,6 @@ class HomePage extends Component {
     this.props.updateScreen(this.props.view, page)
   }
 
-  /*
-   * Render
-   */
   render (){
     if (!this.props.stories) {
       return (
@@ -140,4 +157,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(AdminPage);

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Nav } from 'react-bootstrap';
 
@@ -42,19 +43,16 @@ const navRole = {
 const makeLinkList = role => [
   ...navRole.base,
   ...navRole[role],
-  ...role === 'Admin' && navRole.Writer
-];
+].concat(role === 'Admin' ? navRole.Writer : []);
 
-const NavbarLinks = ({ role }) => {
+export const NavbarLinks = ({ role }) => {
   // Define Links for User, Guest, or Admin
   const links = makeLinkList(role).map(linkProps =>
     <NavLink key={linkProps.path} eventKey={linkProps.path} {...linkProps} />
   );
 
   return (
-    <Nav pullRight>
-      { links }
-    </Nav>
+    <Nav children={links} pullRight />
   );
 };
 

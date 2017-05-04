@@ -20,17 +20,19 @@ import {
  * Handle Post
  */
 export function addNewStory (data) {
-  let user = cookie.load('user')
-  data.postedBy = user._id
+  const user = cookie.load('user');
+  data.postedBy = user._id;
+
   return dispatch => {
     return axios.post('/api/content/', data)
       .then( (resp) => {
+
         browserHistory.push('/')
       })
       .catch( (err) => {
         errorHandler(dispatch, err, STORY_ERROR)
-      })
-  }
+      });
+  };
 }
 
 export function createStoryValidationError(error) {

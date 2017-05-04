@@ -10,9 +10,7 @@ const CarouselContainer = () => {
   );
 
   return (
-    <Carousel interval={2000} className="carousel">
-      {slides}
-    </Carousel>
+    <Carousel interval={2000} className="carousel" children={slides} />
   );
 };
 

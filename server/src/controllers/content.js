@@ -20,13 +20,14 @@ export function submitContent(req, res, next) {
       .status(400)
       .json({"error": 'Bad Request'})
   }
-  let newStory = new Story ({ title, body, image, description, postedBy })
+
+  const newStory = new Story ({ title, body, image, description, postedBy });
   newStory.save(newStory, (err, story) => {
     if (err) return next(err);
     res.status(201).json({
       story: story
-    })
-  })
+    });
+  });
 }
 
 /*

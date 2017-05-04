@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Pagination } from 'react-bootstrap';
 
 const PaginationElement = ({ items, page, cb }) => (
@@ -18,5 +19,11 @@ const PaginationElement = ({ items, page, cb }) => (
     </div>
   </div>
 );
+
+PaginationElement.propTypes = {
+  items: PropTypes.number.isRequired,
+  page: PropTypes.number.isRequired,
+  cb: PropTypes.func
+};
 
 export default PaginationElement;

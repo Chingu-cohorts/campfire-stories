@@ -9,7 +9,7 @@ const validateEmail = email => !email
   : !emailPattern.test(email)
     && 'Email is invalid';
 
-const validateName = (name, type) => (!name || name.length < 2)
+const validateName = (name, type) => (!name || name.length < 1)
   && `${type} name is required and must be at least 1 letter`;
 
 const validatePassword = password => !passwordPattern.test(password)

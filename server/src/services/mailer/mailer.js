@@ -1,7 +1,6 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 
-console.log(process.env.CLIENT_ID)
 // Create a SMTP transporter object
 let transporter = nodemailer.createTransport({
   service: 'Gmail',

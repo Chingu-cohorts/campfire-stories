@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { FormGroup } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -23,6 +24,11 @@ const makeForm = reduxForm({
 })
 
 class LoginForm extends Component {
+  static propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
+  }
+
   constructor (props){
     super(props);
 

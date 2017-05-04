@@ -1,13 +1,28 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap';
-import * as actions from 'actions/story-actions'
+import { getStory } from 'actions/story-actions'
 import moment from 'moment';
 
 
 class FullStoryPage extends Component {
+  static propTypes = {
+    getStory: PropTypes.func.isRequired,
+    location: PropTypes.shape({
+      pathname: PropTypes.string.isRequired
+    }).isRequired,
+    currentStory: PropTypes.shape({
+      image: PropTypes.string.isRequired,
+      body: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      created_at: PropTypes.string.isRequired,
+      description: PropTypes.string
+    })
+  }
+
   componentDidMount () {
-    let id = this.props.location.pathname.slice(6)
+    const id = this.props.location.pathname.slice(6)
     this.props.getStory(id)
   }
 
@@ -15,17 +30,17 @@ class FullStoryPage extends Component {
     if (!this.props.currentStory) {
       return <div>loading :)...</div>
     }
-    let { 
-      image, 
-      body, 
-      title, 
-      description, 
-      created_at, 
-      postedBy: { firstName, lastName } 
+    const {
+      image,
+      body,
+      title,
+      description,
+      created_at,
+      postedBy: { firstName, lastName }
     } = this.props.currentStory
 
-    let time = moment(created_at, "YYYY-MM-DD").format('LL');
-    // const url= `${window.location.host}${this.props.location.pathname}`
+    const time = moment(created_at, "YYYY-MM-DD").format('LL');
+
     return (
       <div>
         <Grid className="full-story">
@@ -33,7 +48,7 @@ class FullStoryPage extends Component {
           <Row className="story-title-row">
             <h2 className="full-story-title">{title}</h2>
           </Row>
-          
+
           <Row className="story-writer-row">
             <div>
               <span className="full-story-writer">{`Written by ${firstName} ${lastName}`}</span>
@@ -69,17 +84,23 @@ class FullStoryPage extends Component {
               <p className="post-text">{body}</p>
             </Col>
           </Row>
-          
         </Grid>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     currentStory: state.content.currentStory
   }
-}
+};
 
-export default connect(mapStateToProps, actions)(FullStoryPage)
+const mapDispatchToProps = dispatch => ({
+  getStory: _id => dispatch(getStory(_id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FullStoryPage);

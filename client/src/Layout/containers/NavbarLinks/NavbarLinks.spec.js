@@ -7,38 +7,38 @@ import { NavLink } from 'Layout';
 const navOptions = {
   Common: [
     {
-      eventkey: 7,
+      eventKey: 'about',
       path: 'about',
       text: 'About Us'
     }
   ],
   Guest: [
     {
-      eventKey: 1,
+      eventKey: 'login',
       path: 'login',
       text: 'Login'
     }
   ],
   Writer: [
     {
-      eventkey: 3,
+      eventKey: 'story',
       path: 'story',
       text: 'Create'
     },
     {
-      eventkey: 4,
-      path: 'mystories',
-      text: 'My Stories'
+      eventKey: 'account',
+      path: 'account',
+      text: 'Account'
     },
     {
-      eventkey: 5,
+      eventKey: 'logout',
       path: 'logout',
       text: 'Logout'
     }
   ],
   Admin: [
     {
-      eventkey: 6,
+      eventKey: 'admin',
       path: 'admin',
       text: 'Admin'
     }
@@ -49,8 +49,8 @@ const makePropObj = (nodes) => nodes.map(node => node.props);
 
 const makeExpected = (role) => [
   ...navOptions.Common,
-  ...role === 'Admin' ? navOptions.Writer : [],
-  ...navOptions[role]
+  ...navOptions[role],
+  ...role === 'Admin' ? navOptions.Writer : []
 ];
 
 const testTemplate = (role) => {
