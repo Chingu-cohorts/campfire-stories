@@ -3,25 +3,24 @@ import { shallow } from 'enzyme';
 import { Grid, Row, Col } from 'react-bootstrap';
 import AboutUs from './AboutUs';
 
+let component;
+
+beforeEach(() => {
+  component = shallow(<AboutUs />);
+})
+
 test('AboutUs should be inside a bootstrap grid', () => {
-  const component = shallow(<AboutUs />);
-
-  const expectedCol = {
-    sm: 8,
-    smOffset: 2,
-    md: 6,
-    mdOffset: 3
-  };
-
   expect(component.type()).toEqual(Grid);
-  expect(component.hasClass('about-me'));
-  expect(component.find(Row).find(Col).props()).toMatchObject(expectedCol);
+  expect(component.find(Row).hasClass('about-row')).toBe(true);
 });
 
 test('About Us should have two sections', () => {
-  const component = shallow(<AboutUs />);
-  const content = component.find(Col);
-
+  const content = component.find(Row).find('article');
+  expect(content.length).toEqual(2);
   expect(content.find('h2').length).toEqual(2);
   expect(content.find('p').length).toEqual(2);
 });
+
+test('About Us should have an image', () => {
+  expect(component.find('img').length).toEqual(1);
+})
