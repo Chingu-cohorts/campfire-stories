@@ -29,9 +29,8 @@ export function addNewStory (data) {
 
         browserHistory.push('/')
       })
-      .catch( (err) => {
-        errorHandler(dispatch, err, STORY_ERROR)
-      });
+      .catch( (err) => errorHandler(dispatch, err, STORY_ERROR))
+      .catch(console.error);
   };
 }
 
@@ -72,22 +71,6 @@ export function getStory(storyId) {
       });
   };
 }
-
-/*
- * Get the number of stories in the DB
- */
- export function getCount() {
-   return dispatch => {
-     return axios.get('/api/content/count')
-          .then((res) => {
-            dispatch({
-              type: GET_COUNT,
-              count: res.data.count
-            })
-          })
-   }
- }
-
 
  /*
   * Empty current story part of state

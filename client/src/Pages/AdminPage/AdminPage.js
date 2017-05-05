@@ -45,7 +45,9 @@ class AdminPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.handleSelect(nextProps.view);
+    if (this.props.users.length === nextProps.users.length) return void 0;
+    if (this.props.userPage !== nextProps.userPage) return void 0;
+    this.handlePagination(nextProps.userPage);
   }
 
   handleSelect(selectedTab) {
@@ -136,13 +138,13 @@ class AdminPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.content.adminUsers,
+    view: state.admin.view,
+    users: state.admin.data,
+    userPages: state.admin.pages,
+    userPage: state.admin.page,
     stories: state.content.current,
-    view: state.content.view,
     storyPages: state.content.storyPages,
-    storyPage: state.content.storyPage,
-    userPages: state.content.userPages,
-    userPage: state.content.userPage
+    storyPage: state.content.storyPage
   }
 }
 

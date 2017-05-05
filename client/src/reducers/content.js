@@ -1,90 +1,57 @@
-import * as actions from '../actions/types'
+import {
+  FETCH_STORIES,
+  FETCH_STORY,
+  STORY_ERROR,
+  GET_MY_STORIES,
+  HANDLE_STORY_BODY,
+  EMPTY_BODY
+} from 'actions/types';
 
 // mockData for development only.
 // reset initialState.current to [] and uncomment switch case below
   // when connected to database
 // import mockData from '../__mocks__/mockData'
 
-let initialState = {
+const initialState = {
   current: [],
+  currentStory: null,
   submitted: [],
-  adminUsers: [],
-  adminStories: [],
   storyPages: 1,
   storyPage: 1,
-  userPages: 1,
-  userPage: 1,
-  count: 0,
   error: null,
-  path: null,
-  body: '',
-  view: 'users',
-  currentStory: null
-}
-// view is either users or stories
+  body: ''
+};
 
 export default function stories_reducer(state = initialState, action) {
   switch(action.type) {
-    case actions.FETCH_STORIES:
+    case FETCH_STORIES:
       return {
         ...state,
-        storyPage: action.storyPage,
         current: action.payload,
+        storyPage: action.storyPage,
         storyPages: action.storyPages
       }
-    case actions.GET_COUNT:
-      return {
-        ...state,
-        count: action.count
-      }
-    case actions.STORY_ERROR:
+    case STORY_ERROR:
       return {
         ...state,
         error: action.payload
       }
-    case actions.GET_MY_STORIES:
+    case GET_MY_STORIES:
       return {
         ...state,
         submitted: action.payload
       }
-    case actions.HANDLE_STORY_BODY:
+    case HANDLE_STORY_BODY:
       return {
         ...state,
         body: action.payload
       }
-    case actions.EMPTY_BODY:
+    case EMPTY_BODY:
       return {
         ...state,
         body: ''
       }
-    case actions.SWITCH_VIEW:
-      return {
-        ...state,
-        view: action.payload
-      }
-    case actions.GET_ALL_USERS:
-      return {
-        ...state,
-        adminUsers: action.payload,
-        userPage: action.userPage,
-        userPages: action.userPages
-      }
-    case actions.REMOVE:
-      return {
-        ...state,
-        adminUsers: state.adminUsers.filter((x) => {
-          return (x._id !== action.payload)
-        })
-      }
-    case actions.UPADTE_USER:
-      return {
-        ...state,
-        adminUsers: state.adminUsers.map((x) => {
-          if (x._id === action.payload._id) x.role = action.payload.role
-          return x
-        })
-      }
-    case actions.FETCH_STORY:
+    case FETCH_STORY:
       return {
         ...state,
         currentStory: action.payload

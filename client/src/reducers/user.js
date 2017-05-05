@@ -2,9 +2,7 @@ import {
   AUTH_USER_SUCCESS,
   AUTH_USER_FAIL,
   AUTH_USER_AWAIT,
-  UNAUTH_USER,
-  SET_USER_ROLE,
-  AUTH_ERROR
+  DEAUTH_USER
 } from '../actions/types';
 
 const initialState = {
@@ -48,19 +46,8 @@ export default function auth_reducer(state = initialState, action) {
           isFetching: true
         }
       };
-    case UNAUTH_USER:
-      return {
-        ...state,
-        role: 'Guest',
-        authenticated: initialState.authenticated,
-      };
-    case SET_USER_ROLE:
-      return {
-        ...state,
-        role: action.payload
-      }
-    case AUTH_ERROR:
-      return { ...state, error: action.payload }
+    case DEAUTH_USER:
+      return initialState;
     default:
       return state
   }
