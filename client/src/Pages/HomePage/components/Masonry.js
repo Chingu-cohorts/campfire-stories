@@ -12,7 +12,7 @@ class StoryContent extends Component {
   static propTypes = {
     storyPages: PropTypes.number.isRequired,
     storyPage: PropTypes.number.isRequired,
-    current: PropTypes.array.isRequired,
+    stories: PropTypes.array.isRequired,
     getContent: PropTypes.func.isRequired
   }
 
@@ -22,13 +22,13 @@ class StoryContent extends Component {
   }
 
   render() {
-    const { storyPage, storyPages, current } = this.props;
+    const { storyPage, storyPages, stories } = this.props;
 
     const masonryOptions = {
       transitionDuration: 0
     };
 
-    const bricks = current.map(brick =>
+    const bricks = stories.map(brick =>
       <Brick key={brick._id} data={brick} />
     );
 
@@ -57,9 +57,9 @@ class StoryContent extends Component {
 
 const mapStateToProps = state => {
   return {
-    storyPages: state.content.storyPages,
-    storyPage: state.content.storyPage,
-    current: state.content.current
+    storyPages: state.content.current.pages,
+    storyPage: state.content.current.page,
+    stories: state.content.current.stories
   }
 };
 

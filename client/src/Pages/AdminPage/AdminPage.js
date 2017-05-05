@@ -139,12 +139,12 @@ class AdminPage extends Component {
 const mapStateToProps = (state) => {
   return {
     view: state.admin.view,
-    users: state.admin.data,
-    userPages: state.admin.pages,
-    userPage: state.admin.page,
-    stories: state.content.current,
-    storyPages: state.content.storyPages,
-    storyPage: state.content.storyPage
+    users: state.admin.users.data,
+    userPages: state.admin.users.pages,
+    userPage: state.admin.users.page,
+    stories: state.content.current.stories,
+    storyPages: state.content.current.pages,
+    storyPage: state.content.current.page
   }
 }
 

@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import * as actions from 'actions/story-actions';
+import { getMyStories } from 'actions/story-actions';
 import { StoryThumbnail, WriteButton } from '../components';
 
 class MyStories extends Component {
+  static propTypes = {
+    submitted: PropTypes.array.isRequired,
+    getMyStories: PropTypes.func.isRequired
+  }
+
   componentWillMount(){
     this.props.getMyStories()
   }
@@ -27,15 +32,17 @@ class MyStories extends Component {
   }
 }
 
-MyStories.propTypes = {
-  submitted: PropTypes.array.isRequired,
-  getMyStories: PropTypes.func.isRequired
-};
-
 const mapStateToProps = (state) => {
   return {
-    submitted: state.content.submitted
+    submitted: state.content.submitted.stories
   }
 };
 
-export default connect(mapStateToProps, actions)(MyStories);
+const mapDispatchToProps = dispatch => ({
+  getMyStories: () => dispatch(getMyStories())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyStories);

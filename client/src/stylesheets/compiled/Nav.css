@@ -5,8 +5,6 @@
 .navbar-fixed-top {
   min-height: 80px;
   border: 0;
-  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
 
 .navbar-nav > li > a, .navbar-fixed-top .navbar-header {
@@ -16,10 +14,6 @@
 
 .navbar-default .navbar-nav > li > a {
   color: #4E5166;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {

@@ -92,7 +92,7 @@ class FullStoryPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentStory: state.content.currentStory
+    currentStory: state.content.currentStory.story
   }
 };
 

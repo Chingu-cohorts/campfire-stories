@@ -4,7 +4,6 @@ import { browserHistory } from "react-router";
 import errorHandler from './utils';
 
 import {
-  AUTH_ERROR,
   GET_CONTENT,
   GET_USERS_AWAIT,
   GET_USERS_FAIL,
@@ -15,7 +14,10 @@ import {
   REMOVE_USER_AWAIT,
   REMOVE_USER_FAIL,
   REMOVE_USER_SUCCESS,
-  SWITCH_VIEW,
+  REGISTER_USER_AWAIT,
+  REGISTER_USER_FAIL,
+  REGISTER_USER_SUCCESS,
+  SWITCH_VIEW
 } from './types'
 
 /*
@@ -35,12 +37,6 @@ export function switchView(payload) {
   return {
     type: SWITCH_VIEW,
     payload
-  }
-}
-export function handleNotAdmin(errorMessage) {
-  return {
-    type: AUTH_ERROR,
-    payload: errorMessage
   }
 }
 
@@ -72,18 +68,24 @@ export function getUsersAxios(dispatch, page, limit) {
 export const getUsers = (page=1, limit=10) =>
   dispatch => getUsersAxios(dispatch, page, limit);
 
-export function registerUser(userData) {
-  return dispatch => {
-    return axios.post('/api/auth/register', userData)
-    .then((resp) => {
-      //  this only gets called with 200 codes
-      browserHistory.push('/admin')
-    })
-    .catch((err) => {
-      errorHandler(dispatch, err, AUTH_ERROR)
-    })
-  }
+export const registerUserAwait = () => ({ type: REGISTER_USER_AWAIT });
+
+export const registerUserSuccess = () => ({ type: REGISTER_USER_SUCCESS });
+
+export const shouldRegisterUser = state => !state.admin.register.isFetching;
+
+export function registerUserAxios(dispatch, userData) {
+  dispatch(registerUserAwait());
+  return axios.post('/api/auth/register', userData)
+    .then(() => dispatch(registerUserSuccess()))
+    .then(() => browserHistory.push('/admin'))
+    .catch(err => errorHandler(dispatch, err, REGISTER_USER_FAIL))
+    .catch(console.error);
 }
+
+export const registerUser = userData => (dispatch, getState) => {
+  if (shouldRegisterUser(getState())) registerUserAxios(dispatch, userData);
+};
 
 export const updateUserAwait = _id => ({ type: UPDATE_USER_AWAIT, _id });
 

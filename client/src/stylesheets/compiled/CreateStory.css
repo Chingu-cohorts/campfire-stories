@@ -39,7 +39,6 @@
   color: #4E5166; }
 
 .form-control {
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   border-color: #b8bac2;
   font-size: 14px; }

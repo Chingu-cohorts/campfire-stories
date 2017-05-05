@@ -127,7 +127,6 @@
   background: #4E5166;
   color: #7BE5A0;
   border: 2px solid #4E5166;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
 
@@ -143,7 +142,6 @@
   background: transparent;
   color: #4E5166;
   border: 2px solid #4E5166;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
 
@@ -159,7 +157,6 @@
   background: #7BE5A0;
   color: #4E5166;
   border: 2px solid #7BE5A0;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
 
@@ -175,7 +172,6 @@
   background: transparent;
   color: #FFFFFF;
   border: 2px solid #FFFFFF;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
 
@@ -191,7 +187,6 @@
   background: #FFFFFF;
   color: #4E5166;
   border: 2px solid #FFFFFF;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase; }
 
