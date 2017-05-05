@@ -92,7 +92,7 @@ export const updateUserAwait = _id => ({ type: UPDATE_USER_AWAIT, _id });
 export const updateUserSuccess = (_id, user) => ({ type: UPDATE_USER_SUCCESS, _id, user });
 
 export const shouldUpdateUser = (state, id) =>
-  state.admin.data.some(user => user._id === id && !user.isFetching);
+  state.admin.users.data.some(user => user._id === id && !user.isFetching);
 
 export function updateUser(dispatch, id) {
   dispatch(updateUserAwait(id));

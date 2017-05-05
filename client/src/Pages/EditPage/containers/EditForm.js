@@ -80,7 +80,7 @@ const setInitialValues = (story) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ...setInitialValues(state.content.currentStory)
+    ...setInitialValues(state.content.currentStory.story)
   };
 };
 

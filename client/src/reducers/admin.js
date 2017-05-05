@@ -93,45 +93,53 @@ export default function usersReducer(state = initialState, action) {
     case REMOVE_USER_AWAIT:
       return {
         ...state,
-        data: updateUser(
-          state.data,
-          action._id,
-          { isFetching: true }
-        )
+        users: {
+          ...state.users,
+          data: updateUser(
+            state.users.data,
+            action._id,
+            { isFetching: true }
+          )
+        }
       };
       case UPDATE_USER_FAIL:
       case REMOVE_USER_FAIL:
         return {
           ...state,
-          error: action.error,
-          data: updateUser(
-            state.data,
-            action._id,
-            {
-              error: action.error,
-              isFetching: false
-            }
-          )
+          users: {
+            ...state.users,
+            data: updateUser(
+              state.users.data,
+              action._id,
+              { error: action.error, isFetching: false }
+            )
+          }
         };
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        data: updateUser(
-          state.data,
-          action._id,
-          { ...action.user, isFetching: false }
-        )
+        users: {
+          ...state.users,
+          data: updateUser(
+            state.users.data,
+            action._id,
+            { ...action.user, isFetching: false }
+          )
+        }
       };
-      case REMOVE_USER_SUCCESS:
-        return {
-          ...state,
-          data: state.data.filter(user => user._id !== action._id)
-        };
-      case SWITCH_VIEW:
-        return {
-          ...state,
-          view: action.payload
-        };
+    case REMOVE_USER_SUCCESS:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          data: state.users.data.filter(user => user._id !== action._id)
+        }
+      };
+    case SWITCH_VIEW:
+      return {
+        ...state,
+        view: action.payload
+      };
     default:
       return state;
   }

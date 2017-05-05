@@ -4,6 +4,7 @@ import path from "path"
 import logger from "morgan"
 import bodyParser from "body-parser"
 import mongoose from "mongoose"
+import mongoSanitize from 'express-mongo-sanitize'
 import compression from 'compression'
 import cors from 'cors'
 /** Local imports, connect db, and start server */
@@ -44,8 +45,7 @@ app.use(compression({ filter: (req, res) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(favicon(path.join(__dirname, '../client/public', 'favicon.ico')));
-// app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(mongoSanitize({ replaceWith: '_' }));
 
 /** Routes */
 auth(app);
