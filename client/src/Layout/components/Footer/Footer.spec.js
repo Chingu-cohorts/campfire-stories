@@ -9,12 +9,12 @@ beforeEach(() => {
 })
 
 test('Footer should be a footer element', () => {
-  expect(component.type()).toEqual('footer');
+  expect(component).toHaveTagName('footer');
 });
 
 test('Footer should have a p element with the footer text', () => {
-  expect(component.text()).toMatch(/Built with.*?by Chingu Cohorts/);
-  expect(component.find('p').find('i').hasClass('fa-heart')).toBe(true);
+  expect(component).toHaveText("Built with  by Chingu Cohorts");
+  expect(component.find('p').find('i')).toHaveClassName('fa-heart');
 });
 
 test('Footer should have a link to the cohorts page', () => {

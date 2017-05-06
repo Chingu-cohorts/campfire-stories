@@ -11,7 +11,7 @@ beforeEach(() => {
 
 test('AboutUs should be inside a bootstrap grid', () => {
   expect(component.type()).toEqual(Grid);
-  expect(component.find(Row).hasClass('about-row')).toBe(true);
+  expect(component.find(Row)).toHaveClassName('about-row');
 });
 
 test('About Us should have two sections', () => {

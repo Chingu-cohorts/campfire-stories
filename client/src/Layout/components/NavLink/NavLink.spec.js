@@ -21,7 +21,7 @@ test('NavLink should contain a Nav component', () => {
 
 test('NavLink should have a LinkContainer that points to the path', () => {
   const link = component.find(LinkContainer);
-  expect(link.prop('to')).toEqual(`/${props.path}`);
+  expect(link).toHaveProp('to', `/${props.path}`);
 });
 
 test('NavLink should have a NavItem that has a text description of the link', () => {

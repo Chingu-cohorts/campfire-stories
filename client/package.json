@@ -31,7 +31,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
     "jest": "^19.0.2",
-    "jest-enzyme": "^3.0.0",
+    "jest-enzyme": "^3.1.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
     "react-addons-test-utils": "^15.4.2",
@@ -47,5 +47,13 @@
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ]
   }
 }
