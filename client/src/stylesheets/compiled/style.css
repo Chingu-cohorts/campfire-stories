@@ -432,8 +432,15 @@ p {
 .grid-item a {
   text-decoration: none; }
 
+/**
+  *the padding and margin here offset the anchor
+  * to adjust for the fixed header
+  * but leave the actual element in its desired place
+  **/
 #cs-stories {
-  width: 100%; }
+  width: 100%;
+  padding-top: 70px;
+  margin-top: -70px; }
 
 .thumbnail {
   padding: 0;

@@ -11,7 +11,7 @@ const Hero = () => {
           <article className="hero-content-group">
             <h1 className="hero-headline">Welcome to the Campfire Stories</h1>
             <p className="hero-copy">Place where people from all over the world share their stories while on a quest of learning to code</p>
-            <Button className="cs-btn-green-inverted" href="#explore-stories">Explore</Button>
+            <Button className="cs-btn-green-inverted" href="#cs-stories">Explore</Button>
             <span className="icon-left icon-right">or</span>
             <Button
               className="cs-btn-green-outline"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Hero, Masonry } from '../components';
+import { Hero } from '../components';
+import { Masonry } from '../containers';
 import HomePage from './HomePage';
 
 let component;

@@ -5,10 +5,10 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-component';
 import { getContent } from 'actions/story-actions';
 
-import Brick from './Brick';
+import Brick from '../../components/Brick';
 import PaginationElement from 'components/PaginationElement';
 
-class StoryContent extends Component {
+export class StoryContent extends Component {
   static propTypes = {
     storyPages: PropTypes.number.isRequired,
     storyPage: PropTypes.number.isRequired,
@@ -37,7 +37,7 @@ class StoryContent extends Component {
         <hr className="horizontal-rule" />
         <Grid>
           <Row>
-            <Col sm={12} lg={10} lgOffset={1}>
+            <Col lg={10} lgOffset={1}>
               <Row className="grid">
                 <Masonry
                   options={masonryOptions} // default {}
@@ -55,7 +55,7 @@ class StoryContent extends Component {
   }
 }
 
-const mapStateToProps = state => {
+export const mapStateToProps = state => {
   return {
     storyPages: state.content.current.pages,
     storyPage: state.content.current.page,
@@ -63,7 +63,7 @@ const mapStateToProps = state => {
   }
 };
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   getContent: () => dispatch(getContent())
 });
 

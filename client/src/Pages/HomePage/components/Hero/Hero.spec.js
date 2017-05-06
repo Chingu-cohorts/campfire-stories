@@ -26,18 +26,18 @@ test('Hero should be centered with a table', () => {
 });
 
 test('Hero should have an h1 title', () => {
-  const title = component.find('article').find('h1');
+  const title = component.find('article').children('h1');
   const expectedText = 'Welcome to the Campfire Stories';
   expect(title).toHaveText(expectedText);
 });
 
 test('Hero should have two buttons', () => {
-  expect(component.find('article').find(Button).length).toEqual(2);
+  expect(component.find('article').children(Button).length).toEqual(2);
 });
 
 test('Hero should have an explore Button', () => {
   const btn = component.find('article').childAt(2);
-  expect(btn).toHaveProp('href', '#explore-stories');
+  expect(btn).toHaveProp('href', '#cs-stories');
 });
 
 test('Hero should have a join us Button', () => {
@@ -46,7 +46,7 @@ test('Hero should have a join us Button', () => {
 });
 
 test('Hero should have a subtitle', () => {
-  const subtitle = component.find('article').find('p');
+  const subtitle = component.find('article').children('p');
   const expectedText = 'Place where people from all over the world share their stories while on a quest of learning to code';
   expect(subtitle).toHaveText(expectedText);
 });

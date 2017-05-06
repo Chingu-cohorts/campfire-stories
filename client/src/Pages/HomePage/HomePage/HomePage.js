@@ -1,5 +1,6 @@
 import React from 'react';
-import { Hero, Masonry } from '../components';
+import { Hero } from '../components';
+import { Masonry } from '../containers';
 
 const HomePage = () => (
   <section className="hero-top">
