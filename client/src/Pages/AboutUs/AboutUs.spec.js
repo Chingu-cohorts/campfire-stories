@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { Grid, Row, Col } from 'react-bootstrap';
 import AboutUs from './AboutUs';
 

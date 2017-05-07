@@ -1,6 +1,3 @@
-import React from 'react';
-import sinon from 'sinon';
-import { shallow, mount } from 'enzyme';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-component';
 import Brick from '../../components/Brick';
