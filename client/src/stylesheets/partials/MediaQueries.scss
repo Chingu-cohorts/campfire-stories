@@ -44,3 +44,15 @@
     @content;
   }
 }
+
+@mixin ipad-pro-portrait {
+  @media (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin ipad-pro-landscape {
+  @media (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1366px) and (max-width: 1366px) {
+    @content;
+  }
+}

@@ -3,7 +3,7 @@ import { Hero } from '../components';
 import { Masonry } from '../containers';
 
 const HomePage = () => (
-  <section className="hero-top">
+  <section className="hero-masonry-container">
     <Hero />
     <Masonry />
   </section>

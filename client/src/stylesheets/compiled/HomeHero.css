@@ -4,14 +4,20 @@
 /* medium - iPads and other similar tablets */
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
-.hero-top {
+.hero-masonry-container {
   margin-top: -75px; }
+  @media only screen and (max-width: 86em) {
+    .hero-masonry-container {
+      margin-top: -35px; } }
   @media only screen and (max-width: 64em) {
-    .hero-top {
-      margin-top: -170px; } }
+    .hero-masonry-container {
+      margin-top: -145px; } }
   @media only screen and (max-width: 30em) {
-    .hero-top {
+    .hero-masonry-container {
       margin-top: -115px; } }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    .hero-masonry-container {
+      margin-top: -30px; } }
 
 #hero-content {
   position: absolute;
@@ -19,35 +25,67 @@
   height: inherit;
   height: 99vh;
   color: #7BE5A0; }
+  @media only screen and (max-width: 86em) {
+    #hero-content {
+      height: 96vh; } }
+  @media only screen and (max-width: 64em) {
+    #hero-content {
+      height: 115vh; } }
   @media only screen and (max-width: 48em) {
     #hero-content {
       position: relative;
+      height: 70vh;
       background-color: #4E5166; } }
-  @media only screen and (max-width: 64em) {
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     #hero-content {
-      height: 105vh; } }
+      height: 103vh; } }
 
 #hero-content-centered {
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  /* overrides a bootstrap style on .table-cell */ }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    #hero-content-centered {
+      vertical-align: initial; } }
 
 .hero-content-group {
   display: inline-block; }
+  @media only screen and (max-width: 48em) {
+    .hero-content-group {
+      margin-top: 10em;
+      margin-bottom: 2em; } }
+  @media only screen and (max-width: 30em) {
+    .hero-content-group {
+      margin-top: 5em;
+      margin-bottom: 0; } }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    .hero-content-group {
+      margin: 8vh 0; } }
 
 .hero-headline {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 700;
   font-size: 4.25em;
   font-style: italic;
+  text-align: center;
   text-shadow: 2px 2px 2px #2E2B2B;
   color: #7BE5A0;
   letter-spacing: 1px;
   max-width: 800px; }
+  @media only screen and (max-width: 48em) {
+    .hero-headline {
+      margin: 0 auto;
+      width: 80%;
+      font-size: 3.1em; } }
   @media only screen and (max-width: 30em) {
     .hero-headline {
-      font-size: 2.25em; } }
+      margin: 0 auto;
+      width: 80%;
+      font-size: 2em; } }
   @media only screen and (max-width: 22em) {
     .hero-headline {
-      font-size: 2em; } }
+      margin: 0 auto;
+      width: 80%;
+      font-size: 1.6em; } }
 
 .hero-copy {
   font-family: "Open Sans", sans-serif;
@@ -67,22 +105,40 @@
 
 /*Making full page carousel*/
 .carousel {
-  height: 99vh;
+  height: 84vh;
   position: relative;
   margin-bottom: 2em;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
-  @media only screen and (max-width: 48em) {
-    .carousel {
-      display: none; } }
-  @media only screen and (max-width: 64em) {
-    .carousel {
-      height: 89vh; } }
   @media only screen and (max-width: 86em) {
     .carousel {
-      height: 89vh; } }
+      height: 103vh; } }
+  @media only screen and (max-width: 64em) {
+    .carousel {
+      height: 103vh; } }
+  @media only screen and (max-width: 48em) {
+    .carousel {
+      height: 90vh; } }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    .carousel {
+      height: 42vh; } }
 
 .carousel a {
   z-index: 100; }
+  @media only screen and (max-width: 86em) {
+    .carousel a {
+      margin-top: 8px; } }
+  @media only screen and (max-width: 64em) {
+    .carousel a {
+      margin-top: 35px; } }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    .carousel a {
+      margin-top: 0;
+      height: 42vh; } }
+
+@media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+  .carousel a > span {
+    margin: 100px auto;
+    top: 69%; } }
 
 .carousel-image {
   filter: brightness(0.5);
@@ -93,18 +149,15 @@
 
 .carousel-inner .item img {
   width: 100%;
-  height: 99vh; }
-  @media only screen and (min-width: 78em) {
-    .carousel-inner .item img {
-      height: 89vh; } }
-  @media only screen and (max-width: 64em) {
-    .carousel-inner .item img {
-      height: 89vh; } }
+  height: 103vh; }
   @media (max-aspect-ratio: 1 / 1) {
     .carousel-inner .item img {
-      width: 100%;
       object-fit: none;
       object-position: center; } }
+  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    .carousel-inner .item img {
+      object-fit: scale-down;
+      object-position: 0 0; } }
 
 /*end of full page carousel*/
 #explore-stories {
