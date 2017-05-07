@@ -9,9 +9,6 @@
   @media only screen and (max-width: 86em) {
     .hero-masonry-container {
       margin-top: -35px; } }
-  @media only screen and (max-width: 64em) {
-    .hero-masonry-container {
-      margin-top: -145px; } }
   @media only screen and (max-width: 30em) {
     .hero-masonry-container {
       margin-top: -115px; } }
@@ -30,18 +27,14 @@
       height: 96vh; } }
   @media only screen and (max-width: 64em) {
     #hero-content {
-      height: 115vh; } }
-  @media only screen and (max-width: 48em) {
-    #hero-content {
-      position: relative;
-      height: 70vh;
-      background-color: #4E5166; } }
+      height: 100%; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     #hero-content {
       height: 103vh; } }
 
 #hero-content-centered {
   color: #FFFFFF;
+  vertical-align: initial;
   /* overrides a bootstrap style on .table-cell */ }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     #hero-content-centered {
@@ -49,10 +42,13 @@
 
 .hero-content-group {
   display: inline-block; }
+  @media only screen and (max-width: 86em) {
+    .hero-content-group {
+      margin: 25vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin-top: 10em;
-      margin-bottom: 2em; } }
+      margin: 8vh 0;
+      width: 80%; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
       margin-top: 5em;
@@ -105,34 +101,32 @@
 
 /*Making full page carousel*/
 .carousel {
-  height: 84vh;
+  height: 100%;
   position: relative;
   margin-bottom: 2em;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
-  @media only screen and (max-width: 86em) {
-    .carousel {
-      height: 103vh; } }
   @media only screen and (max-width: 64em) {
     .carousel {
       height: 103vh; } }
   @media only screen and (max-width: 48em) {
     .carousel {
-      height: 90vh; } }
+      height: inherit; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .carousel {
       height: 42vh; } }
 
 .carousel a {
+  margin-top: 0;
   z-index: 100; }
   @media only screen and (max-width: 86em) {
     .carousel a {
       margin-top: 8px; } }
   @media only screen and (max-width: 64em) {
     .carousel a {
-      margin-top: 35px; } }
+      margin-top: inherit; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .carousel a {
-      margin-top: 0;
+      margin-top: inherit;
       height: 42vh; } }
 
 @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
@@ -148,12 +142,11 @@
   overflow: hidden; }
 
 .carousel-inner .item img {
-  width: 100%;
-  height: 103vh; }
+  width: 100%; }
   @media (max-aspect-ratio: 1 / 1) {
     .carousel-inner .item img {
-      object-fit: none;
-      object-position: center; } }
+      object-fit: scale-down;
+      object-position: 0 0; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .carousel-inner .item img {
       object-fit: scale-down;

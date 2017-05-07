@@ -6,9 +6,6 @@
   @include x-large {
     margin-top: -35px;
   }
-  @include large {
-    margin-top: -145px;
-  }
   @include small {
     margin-top: -115px;
   }
@@ -27,12 +24,7 @@
     height: 96vh;
   }
   @include large {
-    height: 115vh;
-  }
-  @include medium {
-    position: relative;
-    height: 70vh;
-    background-color: $darkblue;
+    height: 100%;
   }
   @include ipad-pro-portrait {
     height: 103vh;
@@ -41,6 +33,7 @@
 
 #hero-content-centered {
   color: $bg-white;
+  vertical-align: initial;
   /* overrides a bootstrap style on .table-cell */
   @include ipad-pro-portrait {
     vertical-align: initial;
@@ -49,9 +42,12 @@
 
 .hero-content-group {
   display: inline-block;
+  @include x-large {
+    margin: 25vh 0;
+  }
   @include medium {
-    margin-top: 10em;
-    margin-bottom: 2em;
+    margin: 8vh 0;
+    width: 80%;
   }
   @include small {
     margin-top: 5em;
@@ -108,18 +104,15 @@
 
 /*Making full page carousel*/
 .carousel {
-  height: 84vh;
+  height: 100%;
   position: relative;
   margin-bottom: 2em;
   box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
-  @include x-large {
-    height: 103vh;
-  }
   @include large {
     height: 103vh;
   }
   @include medium {
-    height: 90vh;
+    height: inherit;
   }
   @include ipad-pro-portrait {
     height: 42vh;
@@ -127,15 +120,16 @@
 }
 
 .carousel a {
+  margin-top: 0;
   z-index: 100;
   @include x-large {
     margin-top: 8px;
   }
   @include large {
-    margin-top: 35px;
+    margin-top: inherit;
   }
   @include ipad-pro-portrait {
-    margin-top: 0;
+    margin-top: inherit;
     height: 42vh;
   }
 }
@@ -158,10 +152,9 @@
 
 .carousel-inner .item img {
   width: 100%;
-  height: 103vh;
   @include max-aspect-ratio {    
-    object-fit: none;
-    object-position: center;
+    object-fit: scale-down;
+    object-position: 0 0;
   }
   @include ipad-pro-portrait { 
     object-fit: scale-down;
