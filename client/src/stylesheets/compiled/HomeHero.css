@@ -5,16 +5,7 @@
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
 .hero-masonry-container {
-  margin-top: -75px; }
-  @media only screen and (max-width: 86em) {
-    .hero-masonry-container {
-      margin-top: -35px; } }
-  @media only screen and (max-width: 30em) {
-    .hero-masonry-container {
-      margin-top: -115px; } }
-  @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
-    .hero-masonry-container {
-      margin-top: -30px; } }
+  margin-top: -31px; }
 
 #hero-content {
   position: absolute;
@@ -41,21 +32,28 @@
       vertical-align: initial; } }
 
 .hero-content-group {
-  display: inline-block; }
+  display: inline-block;
+  width: 76%; }
   @media only screen and (max-width: 86em) {
     .hero-content-group {
-      margin: 25vh 0; } }
+      margin: 28vh 0; } }
+  @media only screen and (max-width: 64em) {
+    .hero-content-group {
+      margin: 20vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin: 8vh 0;
-      width: 80%; } }
+      margin: 15vh 0; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
-      margin-top: 5em;
+      margin-top: 2em;
+      margin-bottom: 0; } }
+  @media only screen and (max-width: 22em) {
+    .hero-content-group {
+      margin-top: 2em;
       margin-bottom: 0; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .hero-content-group {
-      margin: 8vh 0; } }
+      margin: 10vh 0; } }
 
 .hero-headline {
   font-family: "Helvetica Neue", sans-serif;
@@ -66,38 +64,43 @@
   text-shadow: 2px 2px 2px #2E2B2B;
   color: #7BE5A0;
   letter-spacing: 1px;
-  max-width: 800px; }
+  max-width: 800px;
+  margin: 0 auto; }
   @media only screen and (max-width: 48em) {
     .hero-headline {
       margin: 0 auto;
-      width: 80%;
-      font-size: 3.1em; } }
+      font-size: 2.8em; } }
   @media only screen and (max-width: 30em) {
     .hero-headline {
       margin: 0 auto;
-      width: 80%;
-      font-size: 2em; } }
+      font-size: 1.6em; } }
   @media only screen and (max-width: 22em) {
     .hero-headline {
       margin: 0 auto;
-      width: 80%;
-      font-size: 1.6em; } }
+      font-size: 1.4em; } }
 
 .hero-copy {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 1.5px;
   font-size: 1.1em;
   padding: 1em 20%;
-  max-width: 800px; }
-  @media only screen and (max-width: 30em) {
-    .hero-copy {
-      font-size: .7em; } }
-  @media only screen and (max-width: 48em) {
-    .hero-copy {
-      padding: 1em 10%; } }
+  max-width: 800px;
+  margin: 0 auto; }
   @media only screen and (max-width: 64em) {
     .hero-copy {
       padding: 1em 10%; } }
+  @media only screen and (max-width: 48em) {
+    .hero-copy {
+      padding: .8em 8%;
+      font-size: 1em;
+      letter-spacing: 1px; } }
+  @media only screen and (max-width: 30em) {
+    .hero-copy {
+      font-size: .5em; } }
+  @media only screen and (max-width: 22em) {
+    .hero-copy {
+      font-size: .4em;
+      letter-spacing: 1px; } }
 
 /*Making full page carousel*/
 .carousel {
@@ -105,15 +108,12 @@
   position: relative;
   margin-bottom: 2em;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5); }
-  @media only screen and (max-width: 64em) {
-    .carousel {
-      height: 103vh; } }
-  @media only screen and (max-width: 48em) {
-    .carousel {
-      height: inherit; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .carousel {
       height: 42vh; } }
+  @media only screen and (max-width: 30em) {
+    .carousel {
+      margin-bottom: .5em; } }
 
 .carousel a {
   margin-top: 0;
@@ -133,6 +133,36 @@
   .carousel a > span {
     margin: 100px auto;
     top: 69%; } }
+
+/* override bootstrap .carousel-indicators class */
+.carousel-indicators {
+  bottom: 12px;
+  margin-top: .5em;
+  margin-bottom: .5em; }
+  @media only screen and (max-width: 48em) {
+    .carousel-indicators {
+      bottom: 0px; } }
+  @media only screen and (max-width: 30em) {
+    .carousel-indicators {
+      bottom: 0; } }
+
+@media only screen and (max-width: 30em) {
+  .carousel-indicators > li {
+    width: 6px;
+    height: 6px;
+    margin: .5px; } }
+
+@media only screen and (max-width: 22em) {
+  .carousel-indicators > li {
+    width: 6px;
+    height: 6px;
+    margin: .5px; } }
+
+@media only screen and (max-width: 30em) {
+  .carousel-indicators > li.active {
+    width: 9px;
+    height: 9px;
+    margin: .5px; } }
 
 .carousel-image {
   filter: brightness(0.5);
@@ -167,6 +197,81 @@
 
 /*end of hero content styling*/
 /*button styles*/
+.hero-or {
+  margin: 0 10px; }
+  @media only screen and (max-width: 30em) {
+    .hero-or {
+      font-size: .6em; } }
+
+.cs-btn-green {
+  border-radius: 0;
+  padding: 12px;
+  background: #7BE5A0;
+  color: #4E5166;
+  border: 2px solid #7BE5A0;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase; }
+
+.cs-btn-green:hover,
+.cs-btn-green:focus {
+  background: #4E5166;
+  color: #7BE5A0;
+  border: 2px solid #4E5166; }
+
+.cs-btn-green-outline {
+  border-radius: 0;
+  padding: 12px;
+  background: transparent;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase; }
+  @media only screen and (max-width: 48em) {
+    .cs-btn-green-outline {
+      font-size: .6em;
+      padding: .7em; } }
+  @media only screen and (max-width: 30em) {
+    .cs-btn-green-outline {
+      font-size: .6em;
+      padding: .7em; } }
+  @media only screen and (max-width: 22em) {
+    .cs-btn-green-outline {
+      font-size: .5em;
+      padding: .5em; } }
+
+.cs-btn-green-outline:hover,
+.cs-btn-green-outline:focus {
+  background: #7BE5A0;
+  color: #4E5166;
+  border: 2px solid #7BE5A0; }
+
+.cs-btn-green-inverted {
+  border-radius: 0;
+  padding: 12px;
+  background: #FFFFFF;
+  color: #4E5166;
+  border: 1px solid #FFFFFF;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase; }
+  @media only screen and (max-width: 48em) {
+    .cs-btn-green-inverted {
+      font-size: .6em;
+      padding: .7em; } }
+  @media only screen and (max-width: 30em) {
+    .cs-btn-green-inverted {
+      font-size: .6em;
+      padding: .7em; } }
+  @media only screen and (max-width: 22em) {
+    .cs-btn-green-inverted {
+      font-size: .5em;
+      padding: .5em; } }
+
+.cs-btn-green-inverted:hover,
+.cs-btn-green-inverted:focus {
+  background: #7BE5A0;
+  color: #4E5166;
+  border: 1px solid #7BE5A0; }
+
 .cs-btn-blue {
   border-radius: 0;
   padding: 12px;
@@ -196,50 +301,5 @@
   background: #4E5166;
   color: #7BE5A0;
   border: 2px solid #4E5166; }
-
-.cs-btn-green {
-  border-radius: 0;
-  padding: 12px;
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase; }
-
-.cs-btn-green:hover,
-.cs-btn-green:focus {
-  background: #4E5166;
-  color: #7BE5A0;
-  border: 2px solid #4E5166; }
-
-.cs-btn-green-outline {
-  border-radius: 0;
-  padding: 12px;
-  background: transparent;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase; }
-
-.cs-btn-green-outline:hover,
-.cs-btn-green-outline:focus {
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0; }
-
-.cs-btn-green-inverted {
-  border-radius: 0;
-  padding: 12px;
-  background: #FFFFFF;
-  color: #4E5166;
-  border: 2px solid #FFFFFF;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase; }
-
-.cs-btn-green-inverted:hover,
-.cs-btn-green-inverted:focus {
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0; }
 
 /*end of button styles*/

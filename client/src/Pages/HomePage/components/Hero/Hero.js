@@ -12,7 +12,7 @@ const Hero = () => {
             <h1 className="hero-headline">Welcome to the Campfire Stories</h1>
             <p className="hero-copy">Place where people from all over the world share their stories while on a quest of learning to code</p>
             <Button className="cs-btn-green-inverted" href="#cs-stories">Explore</Button>
-            <span className="icon-left icon-right">or</span>
+            <span className="hero-or">or</span>
             <Button
               className="cs-btn-green-outline"
               href="https://tropicalchancer.github.io/projectus/"
