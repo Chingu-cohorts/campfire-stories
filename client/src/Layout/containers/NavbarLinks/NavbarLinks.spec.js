@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { Nav } from 'react-bootstrap';
 import { NavbarLinks } from './NavbarLinks';
 import { NavLink } from 'Layout';

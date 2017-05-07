@@ -1,7 +1,4 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { Carousel } from 'react-bootstrap';
-
 import images from 'publicManifest';
 import CarouselContainer from './CarouselContainer';
 
