@@ -3,7 +3,14 @@ import cookie from "react-cookie";
 import { browserHistory } from "react-router";
 
 import errorHandler from './utils';
-import { AUTH_USER_AWAIT, AUTH_USER_SUCCESS, AUTH_USER_FAIL, DEAUTH_USER } from './types';
+import { 
+  AUTH_USER_AWAIT, 
+  AUTH_USER_SUCCESS, 
+  AUTH_USER_FAIL, 
+  DEAUTH_USER,
+  RESET_PASSWORD_SUCCESS,
+  RESET_PASSWORD_FAIL,
+  RESET_PASSWORD_AWAIT } from './types';
 
 export const authUserAwait = () => ({ type: AUTH_USER_AWAIT });
 
@@ -13,7 +20,22 @@ export const authUserSuccess = ({ firstName, lastName, role}) => ({
   role: role
 });
 
+export const resetPasswordAwait = () => ({ type: RESET_PASSWORD_AWAIT });
+export const resetPasswordSuccess = () => ({ type: RESET_PASSWORD_SUCCESS });
+
 export const shouldAuthUser = state => !state.user.authenticated.isFetching;
+export const shouldRequestPassword = state => !state.user.email.isFetching;
+
+export const sendPasswordReset = (dispatch, data) => {
+  dispatch(resetPasswordAwait());
+  axios.post('/api/auth/reset_password', data)
+    .then(() => {
+      dispatch(resetPasswordSuccess());
+    })
+    .then(() => browserHistory.push('/'))
+    .catch(err => errorHandler(dispatch, err, RESET_PASSWORD_FAIL))
+    .catch(console.error);
+}
 
 export function authUser(dispatch, data) {
   dispatch(authUserAwait());
@@ -33,6 +55,12 @@ export function loginUser(data) {
   if (token) return browserHistory.push('/');
   return (dispatch, getState) => {
     if (shouldAuthUser(getState())) authUser(dispatch, data);
+  }
+}
+
+export function requestPasswordReset(data) {
+  return (dispatch, getState) => {
+    if (shouldRequestPassword(getState())) sendPasswordReset(dispatch, data);
   }
 }
 

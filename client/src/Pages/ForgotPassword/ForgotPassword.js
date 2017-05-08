@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import AuthBox from 'components/AuthBox';
 import SubmitButton from 'components/SubmitButton';
 import { renderAlert } from 'components/utils/formFields';
-import { loginUser } from 'actions/authentication-actions';
+import { requestPasswordReset } from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateLogin as validate } from 'utils/validation';
 
@@ -18,13 +18,14 @@ const formFields = [
 ];
 
 const makeForm = reduxForm({
-  form: 'login',
+  form: 'resetpassword',
   validate: validate
 })
 
 class ForgotPassword extends Component {
   static propTypes = {
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired,
+    requestPasswordReset: PropTypes.func.isRequired
   }
 
   constructor (props){
@@ -33,7 +34,7 @@ class ForgotPassword extends Component {
   }
 
   onSubmit({email}){
-    // this.props.loginUser({email})
+    this.props.requestPasswordReset({email})
   }
 
   render (){
@@ -56,11 +57,17 @@ class ForgotPassword extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    errorMessage: state.user.authenticated.error
+    errorMessage: state.user.email.error
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    requestPasswordReset: (email) => dispatch(requestPasswordReset(email))
   }
 }
 
 export default connect(
   mapStateToProps,
-  { loginUser }
+  mapDispatchToProps
 )(makeForm(ForgotPassword));

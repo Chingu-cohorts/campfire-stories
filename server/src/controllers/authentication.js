@@ -124,6 +124,29 @@ export function changePassword(req, res, next) {
     .catch(next);
 }
 
+export function resetPassword (req, res, next) {
+  const { email } = req.body
+
+  const message = {
+    to: email,
+    subject: messages.resetPassword.subject,
+    text: messages.resetPassword.text + `email: ${email}`
+  }
+
+  User.findOne({email})
+    // mongoose will only send an object if it found an entry, null otherwise
+    .then(entry => entry ? entry.password : null)
+    .then(password => password
+      ? mailer(message)
+      : null
+    )
+    .then(result => result === 'success'
+      ? res.status(201).json({ done: true })
+      : res.status(400).json({ error: 'Email does not exist' })
+    )
+    .catch(next);
+}
+
 // get users w/ pagination
 export function getUsers(req, res, next) {
   let page = parseInt(req.query.page)

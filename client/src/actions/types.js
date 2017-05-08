@@ -3,6 +3,9 @@ export const AUTH_USER_AWAIT = 'auth/AUTH_USER_AWAIT';
 export const AUTH_USER_FAIL = 'auth/AUTH_USER_FAILURE';
 export const AUTH_USER_SUCCESS = 'auth/AUTH_USER_SUCCESS';
 export const DEAUTH_USER = 'auth/DEAUTH_USER';
+export const RESET_PASSWORD_AWAIT = 'auth/RESET_PASSWORD_AWAIT';
+export const RESET_PASSWORD_FAIL = 'auth/RESET_PASSWORD_FAIL';
+export const RESET_PASSWORD_SUCCESS = 'auth/RESET_PASSWORD_SUCCESS';
 
 // ADMIN specific actions
 export const GET_USERS_AWAIT = 'admin/GET_USERS_AWAIT';
