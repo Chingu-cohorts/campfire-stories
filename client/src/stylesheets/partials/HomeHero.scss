@@ -41,15 +41,17 @@
     margin: 20vh 0;
   }
   @include medium {
-    margin: 15vh 0;    
+    margin: 22vh 0;    
   }
   @include small {
-    margin-top: 2em;
-    margin-bottom: 0;
+    margin: 7vh 0; 
   }
   @include x-small {
     margin-top: 2em;
     margin-bottom: 0;
+  }
+  @include ipad-portrait {
+    margin: 10vh 0;
   }
   @include ipad-pro-portrait {
     margin: 10vh 0;
@@ -92,9 +94,9 @@
     padding: 1em 10%;
   }
   @include medium {
-    padding: .8em 8%;
+    padding: 3% 2%;
     font-size: 1em;
-    letter-spacing: 1px;
+    letter-spacing: .8px;
   }
   @include small {
     font-size: .5em;
@@ -253,10 +255,6 @@
     padding: .7em;
   }
   @include small {
-    font-size: .6em;
-    padding: .7em;
-  }
-  @include x-small {
     font-size: .5em;
     padding: .5em;
   }
@@ -282,10 +280,6 @@
     padding: .7em;
   }
   @include small {
-    font-size: .6em;
-    padding: .7em;
-  }
-  @include x-small {
     font-size: .5em;
     padding: .5em;
   }

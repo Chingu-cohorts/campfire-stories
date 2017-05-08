@@ -42,15 +42,17 @@
       margin: 20vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin: 15vh 0; } }
+      margin: 22vh 0; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
-      margin-top: 2em;
-      margin-bottom: 0; } }
+      margin: 7vh 0; } }
   @media only screen and (max-width: 22em) {
     .hero-content-group {
       margin-top: 2em;
       margin-bottom: 0; } }
+  @media (min-device-width: 768px) and (max-device-width: 768px) and (min-device-height: 1024px) and (max-device-height: 1024px) and (min-width: 768px) and (max-width: 768px) {
+    .hero-content-group {
+      margin: 10vh 0; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .hero-content-group {
       margin: 10vh 0; } }
@@ -91,9 +93,9 @@
       padding: 1em 10%; } }
   @media only screen and (max-width: 48em) {
     .hero-copy {
-      padding: .8em 8%;
+      padding: 3% 2%;
       font-size: 1em;
-      letter-spacing: 1px; } }
+      letter-spacing: .8px; } }
   @media only screen and (max-width: 30em) {
     .hero-copy {
       font-size: .5em; } }
@@ -232,10 +234,6 @@
       padding: .7em; } }
   @media only screen and (max-width: 30em) {
     .cs-btn-green-outline {
-      font-size: .6em;
-      padding: .7em; } }
-  @media only screen and (max-width: 22em) {
-    .cs-btn-green-outline {
       font-size: .5em;
       padding: .5em; } }
 
@@ -258,10 +256,6 @@
       font-size: .6em;
       padding: .7em; } }
   @media only screen and (max-width: 30em) {
-    .cs-btn-green-inverted {
-      font-size: .6em;
-      padding: .7em; } }
-  @media only screen and (max-width: 22em) {
     .cs-btn-green-inverted {
       font-size: .5em;
       padding: .5em; } }
