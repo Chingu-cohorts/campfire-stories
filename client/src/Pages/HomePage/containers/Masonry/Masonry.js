@@ -16,9 +16,18 @@ export class StoryContent extends Component {
     getContent: PropTypes.func.isRequired
   }
 
+  constructor(props) {
+    super(props);
+    this.handlePagination = this.handlePagination.bind(this);
+  }
+
   componentWillMount () {
     // get the stories to display
     this.props.getContent();
+  }
+
+  handlePagination(page) {
+    this.props.getContent(page)
   }
 
   render() {
@@ -49,7 +58,11 @@ export class StoryContent extends Component {
             </Col>
           </Row>
         </Grid>
-        <PaginationElement items={storyPages} page={storyPage} />
+        <PaginationElement
+          items={storyPages}
+          page={storyPage}
+          cb={this.handlePagination}
+        />
       </section>
     );
   }
@@ -64,7 +77,7 @@ export const mapStateToProps = state => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  getContent: () => dispatch(getContent())
+  getContent: page => dispatch(getContent(page))
 });
 
 export default connect(

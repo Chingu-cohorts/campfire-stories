@@ -32,9 +32,9 @@ class EditForm extends Component {
     getStory(_id);
   }
 
-  onSubmit = ({ image, title, body  }) => {
+  onSubmit = ({ image, description, title, body  }) => {
     const { _id, updateStory } = this.props;
-    updateStory({ body, image, title }, _id);
+    updateStory({ image, description, title, body }, _id);
   }
 
   render() {
@@ -74,8 +74,8 @@ const makeForm = reduxForm({
 
 const setInitialValues = (story) => {
   if (!story) return {};
-  const { title, image, body } = story;
-  return { initialValues: { title, image, body } };
+  const { image, description, title, body  } = story;
+  return { initialValues: { image, description, title, body  } };
 };
 
 const mapStateToProps = (state, ownProps) => {
