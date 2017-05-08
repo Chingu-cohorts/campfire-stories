@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Col, Button, FormGroup } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 
+import { renderAlert } from 'components/utils/formFields';
 import { getStory, updateStory, deleteStory } from 'actions/story-actions';
 import ContentForm from 'components/ContentForm';
 import {
@@ -19,7 +20,9 @@ class EditForm extends Component {
     ]).isRequired,
     getStory: PropTypes.func.isRequired,
     deleteStory: PropTypes.func.isRequired,
-    updateStory: PropTypes.func.isRequired
+    updateStory: PropTypes.func.isRequired,
+    updateError: PropTypes.string,
+    deleteError: PropTypes.string
   }
 
   constructor(props) {
@@ -42,6 +45,8 @@ class EditForm extends Component {
     return (
       <Col md={8} sm={8} xs={12}>
         <form onSubmit={handleSubmit(this.onSubmit)}>
+          {renderAlert(this.props.updateError)}
+          {renderAlert(this.props.deleteError)}
           <ContentForm />
           <FormGroup>
             <Button
@@ -75,12 +80,14 @@ const makeForm = reduxForm({
 const setInitialValues = (story) => {
   if (!story) return {};
   const { image, description, title, body  } = story;
-  return { initialValues: { image, description, title, body  } };
+  return { initialValues: { image, description, title, body } };
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ...setInitialValues(state.content.currentStory.story)
+    ...setInitialValues(state.content.currentStory.story),
+    updateError: state.content.update.error,
+    deleteError: state.content.delete.error
   };
 };
 

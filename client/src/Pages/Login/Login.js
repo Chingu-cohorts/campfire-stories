@@ -26,8 +26,9 @@ const makeForm = reduxForm({
 
 class LoginForm extends Component {
   static propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
     loginUser: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    loginError: PropTypes.string
   }
 
   constructor (props){
@@ -49,7 +50,7 @@ class LoginForm extends Component {
     return (
       <AuthBox>
         <form id="login-form" onSubmit={ handleSubmit(this.onSubmit) } >
-          {renderAlert(this.props.errorMessage)}
+          {renderAlert(this.props.loginError)}
           <FormGroup>
             {form}
             <Link to="forgot_password">
@@ -65,7 +66,7 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    errorMessage: state.user.authenticated.error
+    loginError: state.user.authenticated.error
   }
 }
 

@@ -41,7 +41,8 @@ const makeForm = reduxForm({
 
 class SignupForm extends Component {
   static propTypes = {
-    registerUser: PropTypes.func.isRequired
+    registerUser: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string
   }
 
   constructor (props){
@@ -60,7 +61,7 @@ class SignupForm extends Component {
     return (
       <AuthBox>
         <form onSubmit={ handleSubmit(this.onSubmit) } role="form" id="register-form">
-          {renderAlert(this.props.errorMessage)}
+          {renderAlert(this.props.registerError)}
           <FormGroup>
             <Row>
               <Col sm={6}>
@@ -81,8 +82,7 @@ class SignupForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    errorMessage: state.user.error,
-    isDone: state.user.await
+    registerError: state.admin.register.error,
   }
 };
 

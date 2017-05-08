@@ -57,7 +57,8 @@ export function getUsersAxios(dispatch, page, limit) {
       ...data,
       users: data.users.map(user => ({
         ...user,
-        isFetching: false
+        isFetching: false,
+        error: null
       }))
     }))
     .then(({ pages, users }) => dispatch(getUsersSuccess(page, pages, users)))
@@ -99,7 +100,7 @@ export function updateUser(dispatch, id) {
   return axios.put(`/api/auth/user?id=${id}`)
     .then(res => res.data.user)
     .then(user => dispatch(updateUserSuccess(id, user)))
-    .catch(err => errorHandler(dispatch, err, UPDATE_USER_FAIL))
+    .catch(err => errorHandler(dispatch, err, UPDATE_USER_FAIL, id))
     .catch(console.error);
 }
 
@@ -115,7 +116,7 @@ export function removeUser(dispatch, id) {
   dispatch(removeUserAwait(id));
   return axios.delete(`/api/auth/user?id=${id}`)
     .then(() => dispatch(removeUserSuccess(id)))
-    .catch(err => errorHandler(dispatch, err, REMOVE_USER_FAIL))
+    .catch(err => errorHandler(dispatch, err, REMOVE_USER_FAIL, id))
     .catch(console.error);
 }
 
