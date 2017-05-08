@@ -12,7 +12,7 @@
   height: 99vh;
   color: $green;
   @include x-large {
-    height: 96vh;
+    height: 100%;
   }
   @include large {
     height: 100%;
@@ -56,6 +56,9 @@
   @include ipad-pro-portrait {
     margin: 10vh 0;
   }
+  @include ipad-pro-landscape {
+    margin: 22vh 0;
+  }
 }
 
 .hero-headline {
@@ -87,11 +90,11 @@
   font-family: $content-font;
   letter-spacing: 1.5px;
   font-size: 1.1em;
-  padding: 1em 20%;
+  padding: 3% 2%;
   max-width: 800px;
   margin: 0 auto;
   @include large {
-    padding: 1em 10%;
+    padding: 4% 10%;
   }
   @include medium {
     padding: 3% 2%;
@@ -104,6 +107,10 @@
   @include x-small {
     font-size: .4em;
     letter-spacing: 1px;
+  }
+  @include ipad-pro-landscape {
+    padding: 4% 0;
+    font-size: 1.6em;
   }
 }
 
@@ -124,14 +131,7 @@
 .carousel a {
   margin-top: 0;
   z-index: 100;
-  @include x-large {
-    margin-top: 8px;
-  }
-  @include large {
-    margin-top: inherit;
-  }
   @include ipad-pro-portrait {
-    margin-top: inherit;
     height: 42vh;
   }
 }

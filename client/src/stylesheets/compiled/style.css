@@ -204,7 +204,7 @@ p {
   color: #7BE5A0; }
   @media only screen and (max-width: 86em) {
     #hero-content {
-      height: 96vh; } }
+      height: 100%; } }
   @media only screen and (max-width: 64em) {
     #hero-content {
       height: 100%; } }
@@ -245,6 +245,9 @@ p {
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .hero-content-group {
       margin: 10vh 0; } }
+  @media (min-device-width: 1366px) and (max-device-width: 1366px) and (min-device-height: 1024px) and (max-device-height: 1024px) and (min-width: 1366px) and (max-width: 1366px) {
+    .hero-content-group {
+      margin: 22vh 0; } }
 
 .hero-headline {
   font-family: "Helvetica Neue", sans-serif;
@@ -274,12 +277,12 @@ p {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 1.5px;
   font-size: 1.1em;
-  padding: 1em 20%;
+  padding: 3% 2%;
   max-width: 800px;
   margin: 0 auto; }
   @media only screen and (max-width: 64em) {
     .hero-copy {
-      padding: 1em 10%; } }
+      padding: 4% 10%; } }
   @media only screen and (max-width: 48em) {
     .hero-copy {
       padding: 3% 2%;
@@ -292,6 +295,10 @@ p {
     .hero-copy {
       font-size: .4em;
       letter-spacing: 1px; } }
+  @media (min-device-width: 1366px) and (max-device-width: 1366px) and (min-device-height: 1024px) and (max-device-height: 1024px) and (min-width: 1366px) and (max-width: 1366px) {
+    .hero-copy {
+      padding: 4% 0;
+      font-size: 1.6em; } }
 
 /*Making full page carousel*/
 .carousel {
@@ -309,15 +316,8 @@ p {
 .carousel a {
   margin-top: 0;
   z-index: 100; }
-  @media only screen and (max-width: 86em) {
-    .carousel a {
-      margin-top: 8px; } }
-  @media only screen and (max-width: 64em) {
-    .carousel a {
-      margin-top: inherit; } }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     .carousel a {
-      margin-top: inherit;
       height: 42vh; } }
 
 @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
