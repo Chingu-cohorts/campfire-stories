@@ -46,6 +46,7 @@ export function register (req, res, next) {
     subject: messages.newAccount.subject,
     text: messages.newAccount.text + `email: ${email}\npassword: ${password}`
   }
+
   User.hashPassword(password)
     .then(hash => ({ email, firstName, lastName, password: hash }))
     .then(entryData => User.findOneAndUpdate(

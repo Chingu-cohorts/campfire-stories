@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import { FormGroup } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -12,11 +11,10 @@ import { loginUser } from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateLogin as validate } from 'utils/validation';
 
-const { email, password } = defaultFields;
+const { email } = defaultFields;
 
 const formFields = [
-  email,
-  password
+  email
 ];
 
 const makeForm = reduxForm({
@@ -24,25 +22,21 @@ const makeForm = reduxForm({
   validate: validate
 })
 
-class LoginForm extends Component {
+class ForgotPassword extends Component {
   static propTypes = {
-    loginUser: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired
   }
 
   constructor (props){
     super(props);
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  //
-  onSubmit({email, password}){
-    this.props.loginUser({email, password})
+  onSubmit({email}){
+    // this.props.loginUser({email})
   }
-  //
-  render (){
 
+  render (){
     const { handleSubmit } = this.props
     const form = makeFields(formFields);
 
@@ -52,10 +46,7 @@ class LoginForm extends Component {
           {renderAlert(this.props.errorMessage)}
           <FormGroup>
             {form}
-            <Link to="forgot_password">
-              <span>Forgot password?</span>
-            </Link>
-            <SubmitButton>Log in</SubmitButton>
+            <SubmitButton>Reset password</SubmitButton>
           </FormGroup>
         </form>
       </AuthBox>
@@ -72,4 +63,4 @@ const mapStateToProps = (state) => {
 export default connect(
   mapStateToProps,
   { loginUser }
-)(makeForm(LoginForm));
+)(makeForm(ForgotPassword));

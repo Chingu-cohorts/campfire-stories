@@ -29,6 +29,7 @@ const Routes = () => {
         <Route path="logout" component={ LogoutPage } />
         <Route path="change_password" component={ pages.ChangePassword } />
         <Route path="account" component={ pages.AccountPage } />
+        <Route path="forgot_password" component={ pages.ForgotPassword } />
         // handle 404 routes
         <Route path="*" component={pages.NotFoundPage} />
       </Route>
