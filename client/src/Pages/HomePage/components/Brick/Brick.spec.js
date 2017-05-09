@@ -36,7 +36,7 @@ beforeEach(() => {
 
 test('Brick should be a bootstrap Col', () => {
   const expectedColProps = {
-    xs: 11,
+    xs: 12,
     sm: 6,
     lg: 4,
     className: 'grid-item'
