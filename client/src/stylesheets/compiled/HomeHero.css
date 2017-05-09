@@ -35,13 +35,13 @@
   width: 76%; }
   @media only screen and (max-width: 86em) {
     .hero-content-group {
-      margin: 28vh 0; } }
+      margin: 20vh 0; } }
   @media only screen and (max-width: 64em) {
     .hero-content-group {
-      margin: 20vh 0; } }
+      margin: 8vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin: 22vh 0; } }
+      margin: 8vh 0; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
       margin: 7vh 0; } }

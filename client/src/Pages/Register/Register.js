@@ -11,7 +11,7 @@ import { registerUser } from 'actions/admin-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateRegister as validate } from 'utils/validation';
 
-const { name, email, password } = defaultFields;
+const { name, email } = defaultFields;
 
 const formFields = [
   {
@@ -24,14 +24,7 @@ const formFields = [
     name: 'lastName',
     label: 'Last Name'
   },
-  email,
-  password,
-  {
-    ...password,
-    name: 'passwordConfirmation',
-    label: 'Password Confirmation',
-    placeholder: 'Confirm Password'
-  }
+  email
 ];
 
 const makeForm = reduxForm({
@@ -50,8 +43,8 @@ class SignupForm extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  onSubmit({firstName, lastName, email, password, passwordConfirmation}){
-    this.props.registerUser({firstName, lastName, email, password, passwordConfirmation})
+  onSubmit({firstName, lastName, email}){
+    this.props.registerUser({ firstName, lastName, email })
   }
 
   render (){

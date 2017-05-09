@@ -34,12 +34,7 @@ const validateBody = body => (!body || body.length < 100)
 export const validateRegister = data => ({
   email: validateEmail(data.email),
   firstName: validateName(data.firstName, 'First'),
-  lastName: validateName(data.lastName, 'Last'),
-  password: validatePassword(data.password),
-  passwordConfirmation: validatePasswordMatch(
-    data.password,
-    data.passwordConfirmation
-  )
+  lastName: validateName(data.lastName, 'Last')
 });
 
 export const validateChangePassword = data => ({

@@ -8,7 +8,7 @@ import User from '../models/UserModel';
 import Story from '../models/PostModel';
 import mailer from '../services/mailer';
 import messages from '../services/mailer/messages';
-import { getPassToken } from '../services/passport';
+import { getPassToken, decodePassToken, makeValidPassword } from '../services/passport';
 
 /*
  * Helper functions
@@ -40,7 +40,8 @@ function tokenForUser(user) {
  * If you use find and then save you will be introducing a race condition
  **/
 export function register (req, res, next) {
-  const { email, password, firstName, lastName } = req.body
+  const { email, firstName, lastName } = req.body
+  const password = makeValidPassword();
 
   const message = {
     to: email,
@@ -57,13 +58,13 @@ export function register (req, res, next) {
     ).exec())
     // mongoose will only send an object if it found an entry, null otherwise
     .then(result => result
-      ? null
+      ? Promise.reject({
+        status: 400,
+        message: 'Email already exists'
+      })
       : mailer(message)
     )
-    .then(result => result === 'success'
-      ? res.status(201).json({ done: true })
-      : res.status(400).json({ error: 'Email already exists' })
-    )
+    .then(result => res.status(201).json({ done: true }))
     .catch(next);
 }
 
@@ -82,9 +83,8 @@ export function login (req, res, next) {
 
 /**
  * User Editing
- *
  **/
- // delete
+
 export function deleteUser(req, res, next) {
   const _id = req.query.id
   const _currentUserId = req.headers.user;
@@ -125,19 +125,31 @@ export function changePassword(req, res, next) {
     .catch(next);
 }
 
+/**
+ * The jwt token stores the old hash
+ * Once a new password is created, that token will no longer contain the current hash
+ * and mongoose therefore will not be able to find a corresponding account
+ **/
 export function makeNewPassword(req, res, next) {
   const { token, newPassword } = req.body;
-  return console.log(`token: ${token}, newPassword: ${newPassword}`)
-  User.findOne({ _id })
-    .then(entry => entry.checkPassword(oldPassword))
-    .then(isCorrect => isCorrect
-      ? User.hashPassword(newPassword)
-      : Promise.reject('Wrong password')
+
+  Promise
+    .all([
+      decodePassToken(token),
+      User.hashPassword(newPassword)
+    ])
+    .then(([{ id, pswd }, hashedNewPassword]) => User
+      .findOneAndUpdate(
+        { _id: id, password: pswd },
+        { $set: { password: hashedNewPassword } }
+      )
+      .exec()
     )
-    .then(hashedNewPassword => User.update(
-      { _id },
-      { $set: { password: hashedNewPassword } }
-    ).exec())
+    // mongoose will send null if nothing was updated
+    .then(entry => entry || Promise.reject({
+      status: 400,
+      message: 'jwt expired'
+    }))
     .then(() => res
       .status(200)
       .json({ passwordChange: 'success' })
@@ -147,27 +159,25 @@ export function makeNewPassword(req, res, next) {
 
 export function resetPassword (req, res, next) {
   const { email } = req.body;
-  console.log(`Email: ${email}`)
+  const message = {
+    to: email,
+    subject: messages.resetPassword.subject
+  };
+
   User.findOne({email})
     // mongoose will only send an object if it found an entry, null otherwise
-    .then(entry => entry ? entry.password : null)
-    .then(password => {
-      if (!password) return null;
-      const token = getPassToken(email, password);
-      console.log(`Token: ${token}`)
-      return {
-        to: email,
-        subject: messages.resetPassword.subject,
-        text: messages.resetPassword.text + `email: ${email}` + `url: ${process.env.ORIGIN}/newpassword?jwt=${token}`
-      }
-    })
-    .then(message => message
-      ? mailer(message)
-      : null
-    )
-    .then(result => result === 'success'
-      ? res.status(201).json({ done: true })
-      : res.status(400).json({ error: 'Email does not exist' })
+    .then(entry => entry || Promise.reject({
+        status: 400,
+        message: 'Email does not exist'
+    }))
+    .then(({ _id, password }) => getPassToken(_id, password))
+    .then(token => `${process.env.ORIGIN}/newpassword?jwt=${token}`)
+    .then(url => messages.resetPassword.text + url)
+    .then(text => ({ ...message, text }))
+    .then(message => mailer(message))
+    .then(result => res
+      .status(201)
+      .json({ done: true })
     )
     .catch(next);
 }
@@ -188,10 +198,7 @@ export function getUsers(req, res, next) {
 
       res
         .status(200)
-        .json({
-          users,
-          pages
-        })
+        .json({ users, pages })
     })
 }
 

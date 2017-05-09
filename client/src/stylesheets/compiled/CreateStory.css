@@ -10,13 +10,13 @@
   margin: 0 auto; }
   .content-page .form-group {
     padding-bottom: 15px; }
-  @media only screen and (max-width: 86em) {
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
     .content-page {
       width: 900px; } }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
     .content-page {
       width: 80%; } }
-  @media only screen and (max-width: 48em) {
+  @media only screen and (min-width: 30em) and (max-width: 48em) {
     .content-page {
       width: 90%; } }
 
@@ -42,10 +42,10 @@
   transition: all 0.3s ease-out;
   border-color: #b8bac2;
   font-size: 14px; }
-  @media only screen and (max-width: 86em) {
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
     .form-control {
       height: 50px; } }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
     .form-control {
       height: 50px; } }
 

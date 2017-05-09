@@ -15,19 +15,19 @@
 
 .add-user {
   margin-top: 20px; }
-  @media only screen and (max-width: 86em) {
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
     .add-user {
       text-align: left; } }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
     .add-user {
       text-align: left; } }
 
 .add-story {
   margin-top: 20px; }
-  @media only screen and (max-width: 86em) {
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
     .add-story {
       text-align: right; } }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
     .add-story {
       text-align: right; } }
 
@@ -35,7 +35,7 @@
 .add-story {
   margin-bottom: 50px;
   font-size: 1.2em; }
-  @media only screen and (max-width: 30em) {
+  @media only screen and (min-width: 22em) and (max-width: 30em) {
     .add-user,
     .add-story {
       font-size: 1em;

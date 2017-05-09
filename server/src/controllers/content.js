@@ -81,7 +81,7 @@ export function getStory(req, res, next) {
  }
 
 
-export function editStory(_userId, _storyId, fn) {
+export function editStory(res, next, _userId, _storyId, fn) {
   return User
     // lookup the user role
     .findOne({ _id: _userId })
@@ -96,31 +96,30 @@ export function editStory(_userId, _storyId, fn) {
 
     // edit story if conditions are met
     .then(query => fn(query))
+    .then(story => story || Promise.reject({
+      status: 400,
+      message: `Story doesn't exist or insufficient privileges`
+    }))
+    .then(story => res
+      .status(200)
+      .json({ story })
+    )
+    .catch(next);
 }
 
 /*
  * Remove Story
  */
 export function deleteContent(req, res, next){
-  // handle DB
   editStory(
+    res,
+    next,
     req.headers.user,
     req.query.id,
     query => Story.findOneAndRemove(
       query
-    ))
-
-    // determine server response
-    .then(story => {
-      if (!story) return next(
-        new Error('Story doesn\'t exist or insufficient privileges')
-      );
-
-      res.status(200).json({
-        delete: 'success'
-      });
-    })
-    .catch(next);
+    )
+  );
 }
 
 /*
@@ -129,27 +128,17 @@ export function deleteContent(req, res, next){
 export function updateContent(req, res, next) {
   const { title, body, image, description } = req.body;
 
-  // handle db
   editStory(
+    res,
+    next,
     req.headers.user,
     req.query.id,
     query => Story.findOneAndUpdate(
       query,
       { $set: { title, body, image, description }},
       { new: true }
-    ))
-
-    // determine server response
-    .then(story => {
-      if (!story) return next(
-        new Error('Story doesn\'t exist or insufficient privileges')
-      );
-
-      res.status(200).json({
-        story
-      });
-    })
-    .catch(next);
+    )
+  );
 }
 
 

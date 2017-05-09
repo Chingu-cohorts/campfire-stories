@@ -6,9 +6,8 @@ import { Strategy } from 'passport-jwt'
 import { ExtractJwt } from 'passport-jwt'
 import LocalStrategy from 'passport-local'
 import jwt from 'jsonwebtoken'
-/*
- * Local imports
- */
+import generatePassword from 'password-generator';
+
 import User from '../models/UserModel'
 
 /*
@@ -37,7 +36,6 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
     .catch(done)
 })
 
-
 /*
  * JWT Strategy (For token authentication)
  */
@@ -56,7 +54,6 @@ const jwtLogin = new Strategy(opts, (payload, done) => {
   })
 })
 
-
 /*
  * Helper function (For admin authentication through token ID)
  */
@@ -68,13 +65,43 @@ export function authAdmin (req, res, next)  {
   })
 }
 
-export function getPassToken(email, hashedPassword) {
-  console.log(`Email: ${email}, Hash: ${hashedPassword}`)
-  return jwt.sign({ mail: email, pswd: hashedPassword }, process.env.SECRET, { expiresIn: 60 * 60 })
-}
-
 /*
  * Add Strategies as middleware
  */
 passport.use(jwtLogin);
 passport.use(localLogin);
+
+/**
+ * Fns that are used to encode and decode a jwt token for password reset
+ * The token contains the id and the hashed password of the user; expires in 1h
+ **/
+export const getPassToken = (id, hashedPassword) => jwt.sign(
+  { id, pswd: hashedPassword },
+  process.env.SECRET,
+  { expiresIn: 60 * 60 }
+);
+
+export const decodePassToken = (token) =>
+  new Promise((resolve, reject) => jwt.verify(
+    token,
+    process.env.SECRET,
+    (err, decoded) => err ? reject(err) : resolve(decoded)
+  ));
+
+/**
+ * This password generator creates random 8 char passwords,
+ * which must have at least one of: lowercase, uppercase, number, symbol
+ * the special char regex uses 3 ranges: $ to /, : to ?, and { to !
+ **/
+
+const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&-])[A-Za-z\d$@$!%*#?&-]{8,}$/
+
+export function makeValidPassword() {
+  let password;
+
+  while (!passwordPattern.test(password)) {
+    password = generatePassword(8, false, /[\w\?\-@#*!%&]/);
+  }
+
+  return password;
+}

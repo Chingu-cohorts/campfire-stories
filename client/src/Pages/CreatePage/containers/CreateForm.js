@@ -12,7 +12,7 @@ import {
   imgUrlHeaderValidate as asyncValidate
 } from 'utils/validation';
 
-const CreateForm = ({ handleSubmit, addNewStory }) => {
+const CreateForm = ({ handleSubmit, addNewStory, createError }) => {
   // Handle Story Body Change
   const onSubmit = ({ image, title, body, description }) => {
     addNewStory({ body, image, title, description })
@@ -22,7 +22,7 @@ const CreateForm = ({ handleSubmit, addNewStory }) => {
     <Row>
       <Col md={12} sm={12} xs={12}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          {renderAlert(this.props.createError)}
+          {renderAlert(createError)}
           <ContentForm />
           <FormGroup>
             <Button type="submit" bsStyle="primary" className="cs-btn-green">
