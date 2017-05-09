@@ -10,7 +10,7 @@ const Brick = ({ data }) => {
   const abridgedBody = (body.length >= 400) ? body.slice(0,400) + '...' : body;
 
   return (
-    <Col xs={11} sm={6} lg={4} className="grid-item">
+    <Col xs={12} sm={6} lg={4} className="grid-item">
       <Link to={`/full/${_id}`}>
         <div className="thumbnail">
           <img src={image} alt="Campfire Story" />
