@@ -11,3 +11,4 @@ export { default as Register } from './Register';
 export { default as ChangePassword } from './ChangePassword';
 export { default as AccountPage } from './AccountPage';
 export { default as ForgotPassword } from './ForgotPassword';
+export { default as ResetPassword } from './ResetPassword';

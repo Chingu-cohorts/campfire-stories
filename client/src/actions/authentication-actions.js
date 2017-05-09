@@ -80,8 +80,9 @@ export function logoutUser() {
 }
 
 export function changePassword(data) {
+  let endpoint = (data.isToken) ? '/api/auth/new_password' : '/api/auth/change_password'
   return dispatch => {
-    return axios.post('/api/auth/change_password', data)
+    return axios.post(endpoint, data)
       .then(browserHistory.push('/'))
       .catch(console.error);
   };

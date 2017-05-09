@@ -1,13 +1,14 @@
 /*
  * Dependencies
  */
-import jwt from 'jwt-simple';
+import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
 
 import User from '../models/UserModel';
 import Story from '../models/PostModel';
 import mailer from '../services/mailer';
 import messages from '../services/mailer/messages';
+import { getPassToken } from '../services/passport';
 
 /*
  * Helper functions
@@ -30,7 +31,7 @@ function tokenForUser(user) {
   const timestamp = new Date().getTime();
   // iat = issued at time
   // sub = identifying characteristic
-  return jwt.encode({ sub: user.id, iat: timestamp }, process.env.SECRET)
+  return jwt.sign({ sub: user.id, iat: timestamp }, process.env.SECRET)
 }
 
 /**
@@ -124,19 +125,43 @@ export function changePassword(req, res, next) {
     .catch(next);
 }
 
+export function makeNewPassword(req, res, next) {
+  const { token, newPassword } = req.body;
+  return console.log(`token: ${token}, newPassword: ${newPassword}`)
+  User.findOne({ _id })
+    .then(entry => entry.checkPassword(oldPassword))
+    .then(isCorrect => isCorrect
+      ? User.hashPassword(newPassword)
+      : Promise.reject('Wrong password')
+    )
+    .then(hashedNewPassword => User.update(
+      { _id },
+      { $set: { password: hashedNewPassword } }
+    ).exec())
+    .then(() => res
+      .status(200)
+      .json({ passwordChange: 'success' })
+    )
+    .catch(next);
+}
+
 export function resetPassword (req, res, next) {
-  const { email } = req.body
-
-  const message = {
-    to: email,
-    subject: messages.resetPassword.subject,
-    text: messages.resetPassword.text + `email: ${email}`
-  }
-
+  const { email } = req.body;
+  console.log(`Email: ${email}`)
   User.findOne({email})
     // mongoose will only send an object if it found an entry, null otherwise
     .then(entry => entry ? entry.password : null)
-    .then(password => password
+    .then(password => {
+      if (!password) return null;
+      const token = getPassToken(email, password);
+      console.log(`Token: ${token}`)
+      return {
+        to: email,
+        subject: messages.resetPassword.subject,
+        text: messages.resetPassword.text + `email: ${email}` + `url: ${process.env.ORIGIN}/newpassword?jwt=${token}`
+      }
+    })
+    .then(message => message
       ? mailer(message)
       : null
     )

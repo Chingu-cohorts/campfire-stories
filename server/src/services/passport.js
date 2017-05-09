@@ -5,7 +5,7 @@ import passport from 'passport'
 import { Strategy } from 'passport-jwt'
 import { ExtractJwt } from 'passport-jwt'
 import LocalStrategy from 'passport-local'
-
+import jwt from 'jsonwebtoken'
 /*
  * Local imports
  */
@@ -66,6 +66,11 @@ export function authAdmin (req, res, next)  {
       if (user.role !== "Admin") { return res.status(403).json({ res: 'Forbidden' }); }
       next();
   })
+}
+
+export function getPassToken(email, hashedPassword) {
+  console.log(`Email: ${email}, Hash: ${hashedPassword}`)
+  return jwt.sign({ mail: email, pswd: hashedPassword }, process.env.SECRET, { expiresIn: 60 * 60 })
 }
 
 /*
