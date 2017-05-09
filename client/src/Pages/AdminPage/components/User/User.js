@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { renderAlert } from 'components/utils/formFields';
 
 const User = ({ deleteUser, switchRoles, user }) => {
   const adminButtonText = user.role === 'Admin'
@@ -8,6 +9,7 @@ const User = ({ deleteUser, switchRoles, user }) => {
 
   return (
     <article className="col-md-12 user-list">
+      {renderAlert(user.error)}
       <h4 className="admin-title">{`${user.firstName} ${user.lastName}`}
         <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">
           <span className="glyphicon glyphicon-trash"></span>
@@ -26,6 +28,7 @@ User.propTypes = {
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
+    error: PropTypes.string
   }).isRequired,
   deleteUser: PropTypes.func.isRequired,
   switchRoles: PropTypes.func.isRequired

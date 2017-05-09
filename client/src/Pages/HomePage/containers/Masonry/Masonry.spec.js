@@ -68,6 +68,7 @@ test('StoryContent should have a PaginationElement', () => {
 
   expect(pagination).toBePresent();
   expect(pagination.props()).toMatchObject(expectedProps);
+  expect(typeof pagination.props().cb).toBe('function');
 });
 
 test('StoryContent should ask for the content before it mounts', () => {
@@ -78,6 +79,16 @@ test('StoryContent should ask for the content before it mounts', () => {
 
   sandbox.restore();
 });
+
+test('Story Content should be able to handle pagination', () => {
+  const sandbox = sinon.sandbox.create();
+  const propsWithSpy = { ...props, getContent: sandbox.spy() }
+  const container = mount(<StoryContent {...propsWithSpy} />);
+  container.node.handlePagination();
+  expect(propsWithSpy.getContent.calledTwice).toBe(true);
+
+  sandbox.restore();
+})
 
 test('StoryContent\'s mapStateToProps should provide the story data', () => {
   const mockState = {

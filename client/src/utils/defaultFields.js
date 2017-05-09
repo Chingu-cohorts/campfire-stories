@@ -15,6 +15,13 @@ export default {
     placeholder: 'Include an image URL for your header',
     component: renderField
   },
+  description: {
+    name: 'description',
+    type: 'text',
+    label: 'Image description',
+    placeholder: 'Provide a description of the image (optional)',
+    component: renderField
+  },
   title: {
     name: 'title',
     type: 'text',

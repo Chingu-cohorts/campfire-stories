@@ -83,7 +83,7 @@ export default function stories_reducer(state = initialState, action) {
       return {
         ...state,
         newStory: {
-          ...state.newStory,
+          isFetching: false,
           error: null
         }
       };

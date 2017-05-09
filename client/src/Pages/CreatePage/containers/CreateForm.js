@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { Row, Col, Button, Form, FormGroup } from 'react-bootstrap';
 
+import { renderAlert } from 'components/utils/formFields';
 import { addNewStory } from 'actions/story-actions';
 import ContentForm from 'components/ContentForm';
 import {
@@ -21,6 +22,7 @@ const CreateForm = ({ handleSubmit, addNewStory }) => {
     <Row>
       <Col md={12} sm={12} xs={12}>
         <Form onSubmit={handleSubmit(onSubmit)}>
+          {renderAlert(this.props.createError)}
           <ContentForm />
           <FormGroup>
             <Button type="submit" bsStyle="primary" className="cs-btn-green">
@@ -36,6 +38,7 @@ const CreateForm = ({ handleSubmit, addNewStory }) => {
 CreateForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   addNewStory: PropTypes.func.isRequired,
+  createError: PropTypes.string
 };
 
 const makeForm = reduxForm({
@@ -48,6 +51,7 @@ const makeForm = reduxForm({
 const mapStateToProps = state => {
   return {
     initialValues: {},
+    createError: state.content.newStory.error
   }
 };
 

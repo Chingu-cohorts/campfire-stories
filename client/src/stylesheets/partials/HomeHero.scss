@@ -24,7 +24,6 @@
 
 #hero-content-centered {
   color: $bg-white;
-  vertical-align: initial;
   /* overrides a bootstrap style on .table-cell */
   @include ipad-pro-portrait {
     vertical-align: initial;
@@ -41,10 +40,10 @@
     margin: 20vh 0;
   }
   @include medium {
-    margin: 22vh 0;    
+    margin: 22vh 0;
   }
   @include small {
-    margin: 7vh 0; 
+    margin: 7vh 0;
   }
   @include x-small {
     margin-top: 2em;
@@ -136,7 +135,7 @@
   }
 }
 
-.carousel a > span {  
+.carousel a > span {
   @include ipad-pro-portrait {
     margin: 100px auto;
     top: 69%;
@@ -188,11 +187,11 @@
 
 .carousel-inner .item img {
   width: 100%;
-  @include max-aspect-ratio {    
+  @include max-aspect-ratio {
     object-fit: scale-down;
     object-position: 0 0;
   }
-  @include ipad-pro-portrait { 
+  @include ipad-pro-portrait {
     object-fit: scale-down;
     object-position: 0 0;
   }
@@ -232,7 +231,7 @@
   color: $darkblue;
   border: 2px solid $green;
   transition: all 0.3s ease-out;
-  text-transform: uppercase;  
+  text-transform: uppercase;
 }
 
 .cs-btn-green:hover,

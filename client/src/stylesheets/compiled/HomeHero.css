@@ -25,7 +25,6 @@
 
 #hero-content-centered {
   color: #FFFFFF;
-  vertical-align: initial;
   /* overrides a bootstrap style on .table-cell */ }
   @media (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
     #hero-content-centered {
