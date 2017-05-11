@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import AuthBox from 'components/AuthBox';
 import SubmitButton from 'components/SubmitButton';
-import { renderAlert } from 'components/utils/formFields';
+import ErrorBox from 'components/ErrorBox';
 import { requestPasswordReset } from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateLogin as validate } from 'utils/validation';
@@ -45,7 +45,7 @@ class ForgotPassword extends Component {
     return (
       <AuthBox>
         <form id="login-form" onSubmit={ handleSubmit(this.onSubmit) } >
-          {renderAlert(this.props.emailError)}
+          <ErrorBox errorMessage={this.props.emailError} />
           <FormGroup>
             {form}
             <SubmitButton>Reset password</SubmitButton>

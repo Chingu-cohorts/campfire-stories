@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { renderAlert } from 'components/utils/formFields';
+import ErrorBox from 'components/ErrorBox';
 
 const User = ({ deleteUser, switchRoles, user }) => {
   const adminButtonText = user.role === 'Admin'
@@ -9,7 +9,7 @@ const User = ({ deleteUser, switchRoles, user }) => {
 
   return (
     <article className="col-md-12 user-list">
-      {renderAlert(user.error)}
+      <ErrorBox errorMessage={user.error} />
       <h4 className="admin-title">{`${user.firstName} ${user.lastName}`}
         <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">
           <span className="glyphicon glyphicon-trash"></span>

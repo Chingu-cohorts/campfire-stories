@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Col, Button, FormGroup } from 'react-bootstrap';
 import { reduxForm } from 'redux-form';
 
-import { renderAlert } from 'components/utils/formFields';
+import ErrorBox from 'components/ErrorBox';
 import { getStory, updateStory, deleteStory } from 'actions/story-actions';
 import ContentForm from 'components/ContentForm';
 import {
@@ -45,8 +45,8 @@ class EditForm extends Component {
     return (
       <Col md={8} sm={8} xs={12}>
         <form onSubmit={handleSubmit(this.onSubmit)}>
-          {renderAlert(this.props.updateError)}
-          {renderAlert(this.props.deleteError)}
+          <ErrorBox errorMessage={this.props.updateError} />
+          <ErrorBox errorMessage={this.props.deleteError} />
           <ContentForm />
           <FormGroup>
             <Button

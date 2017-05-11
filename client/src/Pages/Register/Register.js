@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 
 import AuthBox from 'components/AuthBox';
-import { renderAlert } from 'components/utils/formFields';
+import ErrorBox from 'components/ErrorBox';
 import SubmitButton from 'components/SubmitButton';
 import { registerUser } from 'actions/admin-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
@@ -54,7 +54,7 @@ class SignupForm extends Component {
     return (
       <AuthBox>
         <form onSubmit={ handleSubmit(this.onSubmit) } role="form" id="register-form">
-          {renderAlert(this.props.registerError)}
+          <ErrorBox errorMessage={this.props.registerError} />
           <FormGroup>
             <Row>
               <Col sm={6}>

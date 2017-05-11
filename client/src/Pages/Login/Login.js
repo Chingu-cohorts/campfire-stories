@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import AuthBox from 'components/AuthBox';
 import SubmitButton from 'components/SubmitButton';
-import { renderAlert } from 'components/utils/formFields';
+import { ErrorBox } from 'components/ErrorBox';
 import { loginUser } from 'actions/authentication-actions';
 import defaultFields, { makeFields } from 'utils/defaultFields';
 import { validateLogin as validate } from 'utils/validation';
@@ -24,7 +24,7 @@ const makeForm = reduxForm({
   validate: validate
 })
 
-class LoginForm extends Component {
+export class Login extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     loginUser: PropTypes.func.isRequired,
@@ -33,29 +33,24 @@ class LoginForm extends Component {
 
   constructor (props){
     super(props);
-
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  //
   onSubmit({email, password}){
     this.props.loginUser({email, password})
   }
-  //
-  render (){
 
+  render (){
     const { handleSubmit } = this.props
     const form = makeFields(formFields);
 
     return (
       <AuthBox>
         <form id="login-form" onSubmit={ handleSubmit(this.onSubmit) } >
-          {renderAlert(this.props.loginError)}
+          <ErrorBox errorMessage={this.props.loginError} />
           <FormGroup>
             {form}
-            <Link to="forgot_password">
-              <span>Forgot password?</span>
-            </Link>
+            <Link to="forgot_password">Forgot password?</Link>
             <SubmitButton>Log in</SubmitButton>
           </FormGroup>
         </form>
@@ -64,13 +59,15 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    loginError: state.user.authenticated.error
-  }
-}
+export const mapStateToProps = state => ({
+  loginError: state.user.authenticated.error
+});
+
+export const mapDispatchToProps = dispatch => ({
+  loginUser: credentials => dispatch(loginUser(credentials))
+});
 
 export default connect(
   mapStateToProps,
-  { loginUser }
-)(makeForm(LoginForm));
+  mapDispatchToProps
+)(makeForm(Login));
