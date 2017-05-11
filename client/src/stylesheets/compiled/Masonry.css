@@ -4,7 +4,15 @@
 /* medium - iPads and other similar tablets */
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
-/*card styles*/
+.grid {
+  background-image: url("/img/crossword.png"); }
+
+.grid-item,
+.grid-item-1 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 2px; }
+
 .grid-item a {
   text-decoration: none; }
 
@@ -75,10 +83,6 @@
 
 .card-title .status .published {
   color: #7BE5A0 !important; }
-
-.grid-item,
-.grid-item-1 {
-  padding-bottom: 15px; }
 
 .card-buttons {
   color: #7BE5A0;

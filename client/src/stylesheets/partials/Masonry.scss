@@ -2,8 +2,17 @@
 @import 'MediaQueries';
 
 //masonry container
+.grid {
+  background-image: url('/img/crossword.png')
+}
 
-/*card styles*/
+.grid-item,
+.grid-item-1 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 2px;
+}
+
 .grid-item a {
   text-decoration: none;
 }
@@ -89,11 +98,6 @@
 
 .card-title .status .published {
   color: $green !important;
-}
-
-.grid-item,
-.grid-item-1 {
-  padding-bottom: 15px;
 }
 
 .card-buttons {

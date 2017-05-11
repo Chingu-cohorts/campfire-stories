@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Colors */
 /* Font */
 /* Effects */
@@ -10,8 +11,8 @@
 .write-button-text {
   font-weight: 700;
   font-style: italic;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   margin-top: 10px; }
-  @media only screen and (min-width: 22em) and (max-width: 30em) {
+  @media only screen and (max-width: 30em) {
     .write-button-text {
       font-size: 1em; } }
