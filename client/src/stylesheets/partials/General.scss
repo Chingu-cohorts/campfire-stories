@@ -68,6 +68,9 @@ p {
 /*end of declaring basic style*/
 
 /*helper classes*/
+.subtle-background {
+  background-image: url('/img/crossword.png');
+}
 
 .bg-white {
   background: $bg-white;
@@ -97,7 +100,7 @@ p {
 
 .page-padding {
   /*to fix fixed top style of navbar*/
-  padding-top: 7em;
+  padding-top: 5em;
   padding-bottom: 3em;
 }
 

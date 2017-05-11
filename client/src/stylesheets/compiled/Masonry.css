@@ -4,9 +4,6 @@
 /* medium - iPads and other similar tablets */
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
-.grid {
-  background-image: url("/img/crossword.png"); }
-
 .grid-item,
 .grid-item-1 {
   padding-bottom: 15px;

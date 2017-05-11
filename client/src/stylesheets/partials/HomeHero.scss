@@ -34,13 +34,13 @@
   display: inline-block;
   width: 76%;
   @include x-large {
-    margin: 20vh 0;
+    margin: 30vh 0;
   }
   @include large {
-    margin: 8vh 0;
+    margin: 18vh 0;
   }
   @include medium {
-    margin: 8vh 0;
+    margin: 22vh 0;
   }
   @include small {
     margin: 7vh 0;
@@ -124,6 +124,7 @@
   }
   @include small {
     margin-bottom: .5em;
+    margin-top: 1.5em;
   }
 }
 

@@ -42,8 +42,8 @@ class FullStoryPage extends Component {
     const time = moment(created_at, "YYYY-MM-DD").format('LL');
 
     return (
-      <div>
-        <Grid className="full-story">
+      <div className="subtle-background">
+        <Grid>
 
           <Row className="story-title-row">
             <h2 className="full-story-title">{title}</h2>

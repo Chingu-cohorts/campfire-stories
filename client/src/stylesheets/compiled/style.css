@@ -70,6 +70,9 @@ p {
 
 /*end of declaring basic style*/
 /*helper classes*/
+.subtle-background {
+  background-image: url("/img/crossword.png"); }
+
 .bg-white {
   background: #FFFFFF; }
 
@@ -91,7 +94,7 @@ p {
 /*offset for fixed nav and hero section post etc*/
 .page-padding {
   /*to fix fixed top style of navbar*/
-  padding-top: 7em;
+  padding-top: 5em;
   padding-bottom: 3em; }
 
 .padding-top {
@@ -225,13 +228,13 @@ p {
   width: 76%; }
   @media only screen and (max-width: 86em) {
     .hero-content-group {
-      margin: 20vh 0; } }
+      margin: 30vh 0; } }
   @media only screen and (max-width: 64em) {
     .hero-content-group {
-      margin: 8vh 0; } }
+      margin: 18vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin: 8vh 0; } }
+      margin: 22vh 0; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
       margin: 7vh 0; } }
@@ -311,7 +314,8 @@ p {
       height: 42vh; } }
   @media only screen and (max-width: 30em) {
     .carousel {
-      margin-bottom: .5em; } }
+      margin-bottom: .5em;
+      margin-top: 1.5em; } }
 
 .carousel a {
   margin-top: 0;
@@ -492,9 +496,6 @@ p {
 /* medium - iPads and other similar tablets */
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
-.grid {
-  background-image: url("/img/crossword.png"); }
-
 .grid-item,
 .grid-item-1 {
   padding-bottom: 15px;
@@ -831,9 +832,6 @@ footer p {
 /* Colors */
 /* Font */
 /* Effects */
-.full-story {
-  background: #FFFFFF; }
-
 .story-title-row,
 .story-writer-row {
   display: flex;
