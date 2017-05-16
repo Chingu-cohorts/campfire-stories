@@ -8,7 +8,8 @@ import LocalStrategy from 'passport-local'
 import jwt from 'jsonwebtoken'
 import generatePassword from 'password-generator';
 
-import User from '../models/UserModel'
+import User from '../models/UserModel';
+import { passwordPattern } from '../utils/validatorPatterns';
 
 /*
  * Local Strategy (For validating login)
@@ -92,8 +93,6 @@ export const decodePassToken = (token) =>
  * This password generator creates random 8 char passwords,
  * which must have at least one of: lowercase, uppercase, number, symbol
  **/
-
-export const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&-])[A-Za-z\d$@$!%*#?&-]{8,}$/
 
 export function makeValidPassword() {
   let password;

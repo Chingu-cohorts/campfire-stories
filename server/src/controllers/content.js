@@ -8,6 +8,7 @@ import fetch from 'node-fetch';
 import Story from '../models/PostModel'
 import User from '../models/UserModel'
 import typeChecker from '../utils/typeChecker';
+import urlParser from '../utils/urlParser';
 
 /*
  * Submit Stories
@@ -161,8 +162,9 @@ export function getMyStories(req, res, next) {
  */
  export function getImage(req, res, next) {
    const url = req.query.url;
+   const parsedUrl = urlParser(url);
 
-   fetch(url)
+   fetch(parsedUrl)
     .then(response => typeChecker(response.headers._headers['content-type']))
     .then(checkResult => res.json({ checkResult }))
     .catch(next);
