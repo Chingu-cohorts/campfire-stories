@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 export default function(ComposedComponent) {
@@ -25,7 +26,7 @@ export default function(ComposedComponent) {
   }
 
   RequireAuth.contextTypes = {
-    router: React.PropTypes.object
+    router: PropTypes.object
   }
 
   return connect(mapStateToProps)(RequireAuth);

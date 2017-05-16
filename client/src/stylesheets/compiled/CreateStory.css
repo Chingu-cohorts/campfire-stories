@@ -1,0 +1,65 @@
+/* Colors */
+/* Font */
+/* Effects */
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
+/*form styles*/
+.content-page {
+  width: 800px;
+  margin: 0 auto; }
+  .content-page .form-group {
+    padding-bottom: 15px; }
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
+    .content-page {
+      width: 900px; } }
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
+    .content-page {
+      width: 80%; } }
+  @media only screen and (min-width: 30em) and (max-width: 48em) {
+    .content-page {
+      width: 90%; } }
+
+.create-story-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto; }
+
+.create-story-heading {
+  font-weight: 700;
+  font-style: italic;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #4E5166; }
+
+.control-label {
+  font-size: 1em;
+  padding-bottom: 15px;
+  color: #4E5166; }
+
+.form-control {
+  transition: all 0.3s ease-out;
+  border-color: #b8bac2;
+  font-size: 14px; }
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
+    .form-control {
+      height: 50px; } }
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
+    .form-control {
+      height: 50px; } }
+
+.form-control:focus {
+  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  border-color: #FFFFFF; }
+
+#admin-btn {
+  margin-left: 18px; }
+
+.text-danger {
+  margin-left: 6px;
+  margin-top: 6px;
+  color: #FF1654;
+  font-size: 12px; }
+
+/*end of form styles*/

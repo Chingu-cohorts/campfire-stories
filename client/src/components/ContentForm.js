@@ -1,25 +1,25 @@
 import React from 'react';
 import { FormGroup } from 'react-bootstrap';
-import { Field } from 'redux-form';
 
-import { renderField } from 'components/utils/formFields'
-import { renderTextarea } from 'components/utils/textareaField'
+import defaultFields, { makeFields } from 'utils/defaultFields';
 
-const ContentForm = () => (
-  <FormGroup>
-    <Field key={1}
-      id="text" name="image" placeholder="Include an image URL for your header"
-      type="url" label="Image" component={renderField} />
+const { image, description, title, body } = defaultFields;
 
-    <Field key={2}
-      id="text1" name="title" placeholder="Title" type="text"
-      label="Title" component={renderField}  />
+const formFields = [
+  image,
+  description,
+  title,
+  body
+];
 
-    <Field key={3}
-      cols="40" id="textarea" name="body" rows="10"
-      placeholder="Tell people about yourself, how you got started with FCC, and what you hope to achieve. Or something."
-      type="text" label="Story" component={renderTextarea}  />
-  </FormGroup>
-);
+const ContentForm = () => {
+  const form = makeFields(formFields);
 
-export default ContentForm
+  return (
+    <FormGroup>
+      {form}
+    </FormGroup>
+  );
+};
+
+export default ContentForm;

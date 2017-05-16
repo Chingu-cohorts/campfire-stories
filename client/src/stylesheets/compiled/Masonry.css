@@ -1,48 +1,22 @@
-.home-controls {
-  position: relative;
-  z-index: 999; }
-  .home-controls .left-control {
-    left: -100px; }
-  .home-controls .right-control {
-    right: -100px; }
-  .home-controls .btn {
-    position: absolute;
-    top: 30px;
-    padding: 0 8px;
-    padding-bottom: 12px;
-    margin: 0px 12px;
-    font-size: 48px; }
-
-.bottom-buttons {
-  width: 100%;
-  padding-bottom: 200px; }
-
-@media (max-width: 768px) {
-  .home-controls .left-control {
-    left: -10px; }
-  .home-controls .right-control {
-    right: -10px; } }
-
-@media (max-width: 767px) {
-  .bottom-buttons {
-    display: none; }
-  .home-controls .btn {
-    font-size: 24px;
-    padding-bottom: 6px;
-    top: -10px; } }
-
-@media (max-width: 1280px) {
-  .home-controls .left-control {
-    left: -10px; }
-  .home-controls .right-control {
-    right: -10px; } }
-
-section .grid > div {
-  margin: 0 auto; }
-
+/* Colors */
+/* Font */
+/* Effects */
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
 /*card styles*/
 .grid-item a {
   text-decoration: none; }
+
+/**
+  *the padding and margin here offset the anchor
+  * to adjust for the fixed header
+  * but leave the actual element in its desired place
+  **/
+#cs-stories {
+  width: 100%;
+  padding-top: 70px;
+  margin-top: -70px; }
 
 .thumbnail {
   padding: 0;
@@ -100,27 +74,26 @@ section .grid > div {
   padding: 0px 10px 10px 10px; }
 
 .card-title .status .published {
-  color: #7be5a0 !important; }
+  color: #7BE5A0 !important; }
 
 .grid-item,
 .grid-item-1 {
   padding-bottom: 15px; }
 
 .card-buttons {
-  color: #7be5a0;
-  -webkit-transition: all 0.3s ease-out;
+  color: #7BE5A0;
   transition: all 0.3s ease-out; }
 
 .card-buttons:hover,
 .card-buttons:focus {
-  color: #4e5166; }
+  color: #4E5166; }
 
 .glyphicon-trash,
 .glyphicon-collapse-down {
   padding-left: 12px; }
 
 .glyphicon-trash {
-  color: red; }
+  color: #FF1654; }
 
 .glyphicon-collapse-down {
   color: orange; }

@@ -1,52 +1,65 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { Col, Button, FormGroup } from 'react-bootstrap';
+import { Row, Col, Button, Form, FormGroup } from 'react-bootstrap';
 
-import * as adminActions from 'actions/admin-actions';
-import * as storyActions from 'actions/story-actions';
+import { addNewStory } from 'actions/story-actions';
+import ErrorBox from 'components/ErrorBox';
 import ContentForm from 'components/ContentForm';
-import { validatePost as validate } from 'utils/validation';
+import {
+  validatePost as validate,
+  imgUrlHeaderValidate as asyncValidate
+} from 'utils/validation';
 
-/*
- * Component
- */
-let CreateForm = ({ handleSubmit, addNewStory }) => {
+const CreateForm = ({ handleSubmit, addNewStory, createError }) => {
   // Handle Story Body Change
-  const onSubmit = ({ image, title, body }) => {
-    addNewStory({ body, image, title })
-  }
+  const onSubmit = ({ image, title, body, description }) => {
+    addNewStory({ body, image, title, description })
+  };
 
   return (
-    <Col sm={8} xs={12}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <ContentForm />
-        <FormGroup>
-          <Button type="submit" bsStyle="primary" className="cs-btn-green">
-            Submit your story
-          </Button>
-        </FormGroup>
-      </form>
-    </Col>
+    <Row>
+      <Col md={12} sm={12} xs={12}>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <ErrorBox errorMessage={createError} />
+          <ContentForm />
+          <FormGroup>
+            <Button type="submit" bsStyle="primary" className="cs-btn-green">
+              Submit your story
+            </Button>
+          </FormGroup>
+        </Form>
+      </Col>
+    </Row>
   );
 };
-/*
- * Redux
- */
 
-// form
-CreateForm = reduxForm({
+CreateForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  addNewStory: PropTypes.func.isRequired,
+  createError: PropTypes.string
+};
+
+const makeForm = reduxForm({
   form: 'new-story',
-  validate
-})(CreateForm);
+  validate,
+  asyncValidate,
+  asyncBlurFields: [ 'image' ]
+});
 
-// connect
-const actions = Object.assign({}, adminActions, storyActions)
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     initialValues: {},
+    createError: state.content.newStory.error
   }
-}
-CreateForm = connect(mapStateToProps, actions)(CreateForm)
+};
 
-export default CreateForm
+const mapDispatchToProps = dispatch => ({
+  addNewStory: data => dispatch(addNewStory(data))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(makeForm(CreateForm));

@@ -2,27 +2,33 @@
  * Dependencies
  */
 import jwt from 'jwt-simple'
+import moment from 'moment'
+import fetch from 'node-fetch';
+
 import Story from '../models/PostModel'
 import User from '../models/UserModel'
-import moment from 'moment'
+import typeChecker from '../utils/typeChecker';
+import urlParser from '../utils/urlParser';
 
 /*
  * Submit Stories
  */
 export function submitContent(req, res, next) {
-  let { title, body, image, postedBy } = req.body;
+  const { title, body, image, description, postedBy } = req.body;
+
   if (!title || !body || !image || !postedBy){
     return res
       .status(400)
       .json({"error": 'Bad Request'})
   }
-  let newStory = new Story ({ title, body, image, postedBy })
+
+  const newStory = new Story ({ title, body, image, description, postedBy });
   newStory.save(newStory, (err, story) => {
     if (err) return next(err);
     res.status(201).json({
       story: story
-    })
-  })
+    });
+  });
 }
 
 /*
@@ -36,11 +42,10 @@ export function getContent (req, res, next){
 
   Story
     .find()
-    .sort('-date')
+    .sort('-created_at')
     .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
       if (err) return next(err);
-
       const pages = Math.ceil(storyArr.length / limit);
       const content = storyArr.slice((page - 1) * limit, page * limit);
 
@@ -77,7 +82,7 @@ export function getStory(req, res, next) {
  }
 
 
-export function editStory(_userId, _storyId, fn) {
+export function editStory(res, next, _userId, _storyId, fn) {
   return User
     // lookup the user role
     .findOne({ _id: _userId })
@@ -92,59 +97,49 @@ export function editStory(_userId, _storyId, fn) {
 
     // edit story if conditions are met
     .then(query => fn(query))
+    .then(story => story || Promise.reject({
+      status: 400,
+      message: `Story doesn't exist or insufficient privileges`
+    }))
+    .then(story => res
+      .status(200)
+      .json({ story })
+    )
+    .catch(next);
 }
+
 /*
  * Remove Story
  */
 export function deleteContent(req, res, next){
-  // handle DB
   editStory(
+    res,
+    next,
     req.headers.user,
     req.query.id,
     query => Story.findOneAndRemove(
       query
-    ))
-
-    // determine server response
-    .then(story => {
-      if (!story) return next(
-        new Error('Story doesn\'t exist or insufficient privileges')
-      );
-
-      res.status(200).json({
-        delete: 'success'
-      });
-    })
-    .catch(next);
+    )
+  );
 }
 
 /*
  * Update story
  */
 export function updateContent(req, res, next) {
-  const { title, body, image } = req.body;
+  const { title, body, image, description } = req.body;
 
-  // handle db
   editStory(
+    res,
+    next,
     req.headers.user,
     req.query.id,
     query => Story.findOneAndUpdate(
       query,
-      { $set: { title, body, image }},
+      { $set: { title, body, image, description }},
       { new: true }
-    ))
-
-    // determine server response
-    .then(story => {
-      if (!story) return next(
-        new Error('Story doesn\'t exist or insufficient privileges')
-      );
-
-      res.status(200).json({
-        story
-      });
-    })
-    .catch(next);
+    )
+  );
 }
 
 
@@ -152,7 +147,7 @@ export function updateContent(req, res, next) {
  * Get just my submitted stories
  */
 export function getMyStories(req, res, next) {
-  let id = req.query.id;
+  const id = req.query.id;
 
   Story.find({ postedBy: id }, (err, story) => {
     if (err) return next(err);
@@ -160,4 +155,17 @@ export function getMyStories(req, res, next) {
       .status(200)
       .json({ story });
   });
+}
+
+/*
+ * get the image from a thrid party server
+ */
+ export function getImage(req, res, next) {
+   const url = req.query.url;
+   const parsedUrl = urlParser(url);
+
+   fetch(parsedUrl)
+    .then(response => typeChecker(response.headers._headers['content-type']))
+    .then(checkResult => res.json({ checkResult }))
+    .catch(next);
 }

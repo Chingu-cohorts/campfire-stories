@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, Tabs, Tab, Pagination } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Grid, Row, Col, Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import cookie from 'react-cookie'
@@ -7,19 +8,46 @@ import cookie from 'react-cookie'
 import { getUsers, switchView, switchRoles, deleteUser } from 'actions/admin-actions'
 import {  getContent } from 'actions/story-actions';
 import { User, Story } from './components';
+import PaginationElement from 'components/PaginationElement';
 
- /*
-  * Component
-  */
-class HomePage extends Component {
+class AdminPage extends Component {
+  static propTypes = {
+    users: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    })).isRequired,
+    stories: PropTypes.arrayOf(PropTypes.shape({
+      _id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ])
+    })).isRequired,
+    view: PropTypes.string.isRequired,
+    storyPages: PropTypes.number.isRequired,
+    storyPage: PropTypes.number.isRequired,
+    userPages: PropTypes.number.isRequired,
+    userPage: PropTypes.number.isRequired,
+    updateScreen: PropTypes.func.isRequired,
+    switchRoles: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handlePagination = this.handlePagination.bind(this);
   }
 
   componentDidMount(){
     // show correct view
     this.handleSelect('users');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.users.length === nextProps.users.length) return void 0;
+    if (this.props.userPage !== nextProps.userPage) return void 0;
+    this.handlePagination(nextProps.userPage);
   }
 
   handleSelect(selectedTab) {
@@ -30,9 +58,6 @@ class HomePage extends Component {
     this.props.updateScreen(this.props.view, page)
   }
 
-  /*
-   * Render
-   */
   render (){
     if (!this.props.stories) {
       return (
@@ -50,6 +75,7 @@ class HomePage extends Component {
     let childElements;
     if (view === 'users') {
       const currentUser = cookie.load('user');
+
       childElements = users
         .filter(user => (user._id !== currentUser._id))
         .map(user =>
@@ -67,38 +93,42 @@ class HomePage extends Component {
     }
 
     childElements.push(
-      <div key="pagination" className="clearfix">
-        <Pagination
-          prev
-          next
-          first
-          last
-          maxButtons={5}
-          items={view === 'users' ? userPages : storyPages}
-          activePage={view === 'users' ? userPage : storyPage}
-          onSelect={this.handlePagination.bind(this)}
-          className="pull-right"
-        />
-      </div>
+      <PaginationElement
+        key="pagination"
+        items={view === 'users' ? userPages : storyPages}
+        page={view === 'users' ? userPage : storyPage}
+        cb={this.handlePagination}
+      />
     );
 
     return (
-      <Grid className="section bg-white">
+      <Grid className="admin-container">
         <Row>
-          <Col md={12} className="bottom-space">
+          <Col md={12}>
             <Tabs
               defaultActiveKey="users"
-              onSelect={this.handleSelect.bind(this)}
+              onSelect={this.handleSelect}
               id="tabs"
               justified
             >
-              <Tab eventKey="users" title="USERS" />
-              <Tab eventKey="stories" title="STORIES" />
+              <Tab eventKey="users" title="USERS">
+                <div className="add-user">
+                  <Link to="/register" >
+                    <i className="fa fa-user-plus icon-left" aria-hidden="true" />
+                    <span>Add a new user</span>
+                  </Link>
+                </div>
+              </Tab>
+              <Tab eventKey="stories" title="STORIES">
+                <div className="add-story">
+                  <Link to="/story">
+                    <span>Add a new story</span>
+                    <i className="fa fa-newspaper-o icon-right" aria-hidden="true" />
+                  </Link>
+                </div>
+              </Tab>
             </Tabs>
-            {childElements}
-            {view === 'users' &&
-              <Link to="/register"><i className="fa fa-user pull-right big" aria-hidden="true" /></Link>
-            }
+              {childElements}
           </Col>
         </Row>
     </Grid>
@@ -108,13 +138,13 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.content.adminUsers,
-    stories: state.content.current,
-    view: state.content.view,
-    storyPages: state.content.storyPages,
-    storyPage: state.content.storyPage,
-    userPages: state.content.userPages,
-    userPage: state.content.userPage
+    view: state.admin.view,
+    users: state.admin.users.data,
+    userPages: state.admin.users.pages,
+    userPage: state.admin.users.page,
+    stories: state.content.current.stories,
+    storyPages: state.content.current.pages,
+    storyPage: state.content.current.page
   }
 }
 
@@ -133,4 +163,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomePage);
+)(AdminPage);

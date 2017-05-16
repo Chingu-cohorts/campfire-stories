@@ -1,5 +1,5 @@
-import axios from 'axios'
-import cookie from 'react-cookie'
+import axios from 'axios';
+import cookie from 'react-cookie';
 
 const url = (function () {
   switch (process.env.NODE_ENV) {
@@ -8,22 +8,30 @@ const url = (function () {
     default:
       return 'http://localhost:3001'
   }
-})()
+})();
+
+const instance = axios.create({
+  baseURL: url,
+  timeout: 3000
+});
 
 export const setInstance = () => {
   const token = cookie.load('token')
   const user = cookie.load('user')
 
-  if (token && user) {
-    axios.defaults.headers.common['authorization'] = token
-    axios.defaults.headers.common['user'] = user._id    
-  }
-}
+  if (!token || !user) return void 0;
+  instance.defaults.headers = {
+    authorization: token,
+    user: user._id
+  };
+};
 
-setInstance()
+export const updateAxios = (token, user) => {
+  cookie.save('token', token, { path: '/' });
+  cookie.save('user', user, { path: '/'});
+  setInstance();
+};
 
-const instance = axios.create({
-  baseURL: url
-})
+setInstance();
 
-export default instance
+export default instance;

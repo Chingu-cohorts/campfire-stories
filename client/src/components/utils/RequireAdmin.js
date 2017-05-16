@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { handleNotAdmin } from 'actions/admin-actions'
@@ -38,7 +39,7 @@ export default function(ComposedComponent) {
   }
 
   RequireAdmin.contextTypes = {
-    router: React.PropTypes.object
+    router: PropTypes.object
   }
 
   return connect(mapStateToProps, { handleNotAdmin, logoutUser })(RequireAdmin);

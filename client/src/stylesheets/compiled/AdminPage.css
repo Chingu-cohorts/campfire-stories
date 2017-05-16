@@ -1,11 +1,46 @@
+/* Colors */
+/* Font */
+/* Effects */
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
 /*tab styles*/
-.tab-content {
-  padding-top: 30px; }
+.admin-container {
+  width: 90%; }
 
-h4 {
-  color: #4e5166;
+.admin-title {
+  color: #4E5166;
   padding: 15px 0;
   margin-top: 0; }
+
+.add-user {
+  margin-top: 20px; }
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
+    .add-user {
+      text-align: left; } }
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
+    .add-user {
+      text-align: left; } }
+
+.add-story {
+  margin-top: 20px; }
+  @media only screen and (min-width: 64em) and (max-width: 86em) {
+    .add-story {
+      text-align: right; } }
+  @media only screen and (min-width: 48em) and (max-width: 64em) {
+    .add-story {
+      text-align: right; } }
+
+.add-user,
+.add-story {
+  margin-bottom: 50px;
+  font-size: 1.2em; }
+  @media only screen and (min-width: 22em) and (max-width: 30em) {
+    .add-user,
+    .add-story {
+      font-size: 1em;
+      text-align: center;
+      margin-top: 20px; } }
 
 .tab-pane .row .col-md-4 {
   padding-bottom: 15px; }
@@ -13,39 +48,35 @@ h4 {
 #tabs .nav-tabs li > a {
   border: none;
   border-bottom: 2px solid #b8bac2;
-  color: #4e5166 !important;
-  -webkit-transition: color 0.3s ease-out;
+  color: #4E5166 !important;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
 #tabs .nav-tabs li > a:focus {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0;
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0;
   background: transparent; }
 
 #tabs .nav-tabs .active a {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0; }
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0; }
 
 #tabs .nav-tabs .active a:focus,
 #tabs .nav-tabs .active a:hover {
   border: none;
-  border-bottom: 2px solid #7be5a0;
-  color: #7be5a0;
+  border-bottom: 2px solid #7BE5A0;
+  color: #7BE5A0;
   cursor: pointer;
-  background: #fff; }
+  background: #FFFFFF; }
 
 .user-list {
   box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
   margin-bottom: 30px; }
 
 .user-list h4 {
-  color: #4e5166;
+  color: #4E5166;
   margin: 15px; }
-
-.big {
-  font-size: 2em; }
 
 /*end of tab styles*/

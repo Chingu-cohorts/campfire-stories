@@ -10,7 +10,8 @@ import {
   submitContent,
   getCount,
   updateContent,
-  getMyStories
+  getMyStories,
+  getImage
 } from '../controllers/content'
 
 /* Auth middleware */
@@ -22,6 +23,7 @@ export default function (app){
 
   /* User Content */
   contentRoutes.get('/my', getMyStories)
+  contentRoutes.get('/checkImage', requireAuth, getImage)
   contentRoutes.get('/:story_id', getStory)
   contentRoutes.route('/')
     .get(getContent)

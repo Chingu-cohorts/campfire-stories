@@ -6,7 +6,10 @@ import {
   login,
   deleteUser,
   getUsers,
-  roleControl
+  roleControl,
+  changePassword,
+  makeNewPassword,
+  resetPassword
 } from '../controllers/authentication'
 import { authAdmin } from '../services/passport'
 
@@ -17,15 +20,16 @@ const requireLogin = passport.authenticate('local', {session:  false})
 
 export function auth(app) {
 	const authRoutes = express.Router()
-
 	authRoutes.post('/register', requireAuth, authAdmin, register)
 	authRoutes.post('/login', requireLogin, login)
+  authRoutes.post('/change_password', requireAuth, changePassword)
+  authRoutes.post('/new_password', makeNewPassword)
+  authRoutes.post('/reset_password', resetPassword)
 	authRoutes.route('/user')
 		.delete(requireAuth, authAdmin, deleteUser)
 		.put(requireAuth, authAdmin, roleControl)
 
 	app.use('/api/auth', authRoutes);
-
 }
 
 export function admin(app) {

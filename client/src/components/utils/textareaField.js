@@ -2,7 +2,6 @@ import React from 'react'
 import classnames from 'classnames'
 
 export const renderTextarea = (field) => {
-  //console.log(field)
   return (
     <div className={classnames('form-group', {'has-error': field.meta.visited && field.meta.invalid})}>
         <label className="control-label " htmlFor="text">{ field.label }</label>
@@ -15,12 +14,14 @@ export const renderTextarea = (field) => {
 }
 
 
-export const renderAlert = (errorMessage) => {
+export const RenderAlert = ({ errorMessage }) => {
   if(errorMessage) {
     return (
       <div className="alert alert-danger">
         <span><strong>Error!</strong> {errorMessage}</span>
       </div>
     );
+  } else {
+    return null;
   }
 }

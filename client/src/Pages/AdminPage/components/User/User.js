@@ -1,4 +1,6 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import ErrorBox from 'components/ErrorBox';
 
 const User = ({ deleteUser, switchRoles, user }) => {
   const adminButtonText = user.role === 'Admin'
@@ -6,8 +8,9 @@ const User = ({ deleteUser, switchRoles, user }) => {
     : 'Promote to admin';
 
   return (
-    <article className="col-md-12 user-list">
-      <h4>{`${user.firstName} ${user.lastName}`}
+    <article title={`email: ${user.email}`} className="col-md-12 user-list">
+      <ErrorBox errorMessage={user.error} />
+      <h4 className="admin-title">{`${user.firstName} ${user.lastName}`}
         <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">
           <span className="glyphicon glyphicon-trash"></span>
         </a>
@@ -25,6 +28,7 @@ User.propTypes = {
     firstName: PropTypes.string.isRequired,
     lastName: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
+    error: PropTypes.string
   }).isRequired,
   deleteUser: PropTypes.func.isRequired,
   switchRoles: PropTypes.func.isRequired

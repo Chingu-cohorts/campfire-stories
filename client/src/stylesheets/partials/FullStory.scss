@@ -1,24 +1,79 @@
-#full-story {
+@import 'Variables';
 
+.full-story {
+  background: $bg-white;
+}
+
+.story-title-row,
+.story-writer-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 80px;
+  margin: 0 auto;
+  border-bottom: 1px solid $earthygrey;
+}
+
+.full-story-title {
+  margin-bottom: 1em;
+  font-family: $content-font;
+  font-weight: bold;
+  color: $darkblue;
+}
+
+.story-writer-row {
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 3em;
+}
+
+.full-story-writer {
+  font-size: .7em;
+  margin-left: 1em;
+}
+
+.full-story-content-container {
+  display: flex;
+  flex-direction: column;
+}
+/*Social icons row*/
+
+.social-buttons{
+  margin-bottom: 70px;
+  margin-left: 1em;
+}
+
+.social-buttons .fa{
+  color: #7BE5A0;
+  font-size: 1.2em;
+  padding: 0;
+  transition: color 0.3s ease-out;
+}
+
+.social-buttons .fa:hover{
+  color: #4E5166;
+}
 
 /*Making wrap and video bg*/
 .fullscreen-bg {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: -100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
 }
 
 .fullscreen-bg__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
+
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     height: 300%;
@@ -45,33 +100,6 @@
 /*end of wrap and video bg*/
 
 /*style for the hero content*/
-#hero-content{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-}
-
-.hero-headline{
-  font-family: 'Rubik', sans-serif;
-  font-size: 3.142em;
-}
-
-.hero-copy{
-  font-family: 'Open Sans', sans-serif;
-  padding-bottom: 10px;
-}
-
-#overlay{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.8;
-  z-index: -99;
-  background: #4E5166;
-}
 
 #explore-stories{
   font-size: 3.142em;
@@ -81,17 +109,10 @@
   right:0;
   text-align: center;
   top: 90%;
-  -webkit-transition: transform 0.3s ease-out;
-  -moz-transition: transform 0.3s ease-out;
-  -ms-transition: transform 0.3s ease-out;
-  -o-transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
 }
+
 #explore-stories:hover{
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  -ms-transform: translateY(10px);
-  -o-transform: translateY(10px);
   transform: translateY(10px);
 }
 /*end of hero content styling*/
@@ -104,13 +125,10 @@
   background: #4E5166;
   color: #7BE5A0;
   border: 2px solid #4E5166;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-blue:hover{
   background: #7BE5A0;
   color: #4E5166;
@@ -124,96 +142,16 @@
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   text-transform: uppercase;
 }
+
 .cs-btn-blue-outline:hover{
   background: #4E5166;
   color: #7BE5A0;
   border: 2px solid #4E5166;
 }
 
-.cs-btn-green{
-  border-radius: 0;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase;
-}
-.cs-btn-green:hover{
-  background: #4E5166;
-  color: #7BE5A0;
-  border: 2px solid #4E5166;
-}
-
-.cs-btn-green-outline{
-  border-radius: 0;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase;
-}
-.cs-btn-green-outline:hover{
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0;
-}
-
-.cs-btn-green-inverted{
-  border-radius: 0;
-  padding: 12px;
-  margin-bottom: 12px;
-  background: #fff;
-  color: #4E5166;
-  border: 2px solid #fff;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-  text-transform: uppercase;
-}
-.cs-btn-green-inverted:hover{
-  background: #7BE5A0;
-  color: #4E5166;
-  border: 2px solid #7BE5A0;
-}
-.social-buttons{
-  margin: 0 auto;
-  margin-bottom: 70px;
-  text-align: center;
-}
-.social-buttons .fa{
-  color: #7BE5A0;
-  font-size: 1.942em;
-  padding: 0 30px;
-  -webkit-transition: color 0.3s ease-out;
-  -moz-transition: color 0.3s ease-out;
-  -ms-transition: color 0.3s ease-out;
-  -o-transition: color 0.3s ease-out;
-  transition: color 0.3s ease-out;
-}
-.social-buttons .fa:hover{
-  color: #4E5166;
-}
 /*end of button styles*/
 
 /*post styles*/
@@ -221,30 +159,44 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
 }
+
 .full-head {
-  position: relative;
+  margin-bottom: 2em;
 }
+
 .post-image {
-  //height: 600px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
+.post-description {
+  align-self: center;
+  margin: 5px 0;
+  font-size: .7em;
+  font-style: italic;
+  color: grey;
+}
+
 .post-text {
   word-wrap: break-word;
-  margin-top: 18px;
+  margin-top: 1em;
 }
-.post-title{
-  color: #fff;
+
+.post-text p {
+  font-size: 1em;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.post-text:first-letter {
   font-size: 4em;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.75);
   line-height: 1;
-  text-align: center;
+  font-weight: bold;
 }
+
 .post-date{
   color: #fff;
   font-size: 1em;
@@ -258,14 +210,16 @@
   margin-top: 100vh;
   height: 300px; /*remove line in final*/
 }
+
 .top-offset-small{/*to fix fixed top style of navbar*/
   margin-top: 80px;
 }
+
 .padding-top{
   padding-top: 60px;
 }
+
 .padding-bottom{
   padding-bottom: 60px;
 }
 /*end of offset for fixed nav and hero section*/
-}

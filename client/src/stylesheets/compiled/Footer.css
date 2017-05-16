@@ -5,14 +5,15 @@ footer {
   width: 100%; }
 
 footer p {
-  line-height: 60px;
+  line-height: 30px;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 1px; }
 
 .bg-blue a {
   color: #fff;
   text-decoration: underline;
-  -webkit-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out; }
 
 .bg-blue a:hover {
@@ -20,6 +21,6 @@ footer p {
 
 @media (max-width: 768px) {
   footer p {
-    font-size: 12px; } }
+    font-size: 10px; } }
 
 /*end of footer styles*/

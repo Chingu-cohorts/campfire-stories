@@ -1,15 +1,30 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Col, Button, FormGroup } from 'react-bootstrap';
-import { reduxForm } from 'redux-form'
+import { reduxForm } from 'redux-form';
 
-import * as adminActions from 'actions/admin-actions'
-import * as storyActions from 'actions/story-actions'
+import ErrorBox from 'components/ErrorBox';
+import { getStory, updateStory, deleteStory } from 'actions/story-actions';
 import ContentForm from 'components/ContentForm';
-import { validatePost as validate } from 'utils/validation'
-
+import {
+  validatePost as validate,
+  imgUrlHeaderValidate as asyncValidate
+} from 'utils/validation';
 
 class EditForm extends Component {
+  static propTypes = {
+    _id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]).isRequired,
+    getStory: PropTypes.func.isRequired,
+    deleteStory: PropTypes.func.isRequired,
+    updateStory: PropTypes.func.isRequired,
+    updateError: PropTypes.string,
+    deleteError: PropTypes.string
+  }
+
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -20,9 +35,9 @@ class EditForm extends Component {
     getStory(_id);
   }
 
-  onSubmit = ({ image, title, body  }) => {
+  onSubmit = ({ image, description, title, body  }) => {
     const { _id, updateStory } = this.props;
-    updateStory({ body, image, title }, _id);
+    updateStory({ image, description, title, body }, _id);
   }
 
   render() {
@@ -30,40 +45,59 @@ class EditForm extends Component {
     return (
       <Col md={8} sm={8} xs={12}>
         <form onSubmit={handleSubmit(this.onSubmit)}>
+          <ErrorBox errorMessage={this.props.updateError} />
+          <ErrorBox errorMessage={this.props.deleteError} />
           <ContentForm />
           <FormGroup>
-            <Button type="submit" bsStyle="primary" className="cs-btn-green">Update</Button>
-            <Button onClick={() => deleteStory(_id)} bsStyle="primary" className="cs-btn-green admin-btn">Delete</Button>
+            <Button
+              type="submit"
+              bsStyle="primary"
+              className="cs-btn-green"
+              children={[ 'Update' ]}
+            />
+            <Button
+              onClick={() => deleteStory(_id)}
+              bsStyle="primary"
+              id="admin-btn"
+              className="cs-btn-green"
+              children={[ 'Delete' ]}
+            />
           </FormGroup>
-
         </form>
       </Col>
     );
   }
 }
 
-// form
-EditForm = reduxForm({
+const makeForm = reduxForm({
   form: 'editStory',
   enableReinitialize: true,
-  validate
-})(EditForm)
-
-// connect
-const actions = Object.assign({}, adminActions, storyActions)
+  validate,
+  asyncValidate,
+  asyncBlurFields: [ 'image' ]
+});
 
 const setInitialValues = (story) => {
   if (!story) return {};
-  const { title, image, body } = story;
-  return { initialValues: { title, image, body } };
+  const { image, description, title, body  } = story;
+  return { initialValues: { image, description, title, body } };
 };
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = (state, ownProps) => {
   return {
-    ...setInitialValues(state.content.currentStory)
+    ...setInitialValues(state.content.currentStory.story),
+    updateError: state.content.update.error,
+    deleteError: state.content.delete.error
   };
 };
 
-EditForm = connect(mapStateToProps, actions)(EditForm)
+const mapDispatchToProps = dispatch => ({
+  getStory: _id => dispatch(getStory(_id)),
+  deleteStory: _id => dispatch(deleteStory(_id)),
+  updateStory: (data, _id) => dispatch(updateStory(data, _id))
+})
 
-export default EditForm
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(makeForm(EditForm));
