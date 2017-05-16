@@ -14,13 +14,14 @@ export const renderTextarea = (field) => {
 }
 
 
-export const renderAlert = (errorMessage) => {
-  console.log(errorMessage)
+export const RenderAlert = ({ errorMessage }) => {
   if(errorMessage) {
     return (
       <div className="alert alert-danger">
         <span><strong>Error!</strong> {errorMessage}</span>
       </div>
     );
+  } else {
+    return null;
   }
 }

@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { Row, Col, Button, Form, FormGroup } from 'react-bootstrap';
 
-import { renderAlert } from 'components/utils/formFields';
 import { addNewStory } from 'actions/story-actions';
+import ErrorBox from 'components/ErrorBox';
 import ContentForm from 'components/ContentForm';
 import {
   validatePost as validate,
@@ -22,7 +22,7 @@ const CreateForm = ({ handleSubmit, addNewStory, createError }) => {
     <Row>
       <Col md={12} sm={12} xs={12}>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          {renderAlert(createError)}
+          <ErrorBox errorMessage={createError} />
           <ContentForm />
           <FormGroup>
             <Button type="submit" bsStyle="primary" className="cs-btn-green">

@@ -18,7 +18,8 @@
     "google-auth-library": "^0.10.0",
     "googleapis": "^19.0.0",
     "mocha": "^3.1.2",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "prompt": "^1.0.0"
   },
   "dependencies": {
     "axios": "^0.12.0",
@@ -45,7 +46,6 @@
     "forever": "^0.15.3",
     "generator": "^1.0.1",
     "jsonwebtoken": "^7.4.0",
-    "jwt-simple": "^0.5.0",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
     "mongoose": "^4.6.3",
@@ -63,6 +63,9 @@
     "start": "env-cmd development nodemon --watch src/ --exec babel-node -- src/server.js",
     "build": "babel src -d dist",
     "serve": "env-cmd production forever dist/cluster.js",
-    "test": "env-cmd test mocha --compilers js:babel-core/register --recursive ./test"
+    "test": "env-cmd test mocha --compilers js:babel-core/register --recursive ./test",
+    "create-admin": "babel-node -- src/services/adminCreator.js",
+    "create-admin:dev": "env-cmd development npm run create-admin",
+    "create-admin:prod": "env-cmd production npm run create-admin"
   }
 }

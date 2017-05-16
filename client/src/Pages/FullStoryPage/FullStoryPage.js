@@ -41,6 +41,10 @@ class FullStoryPage extends Component {
 
     const time = moment(created_at, "YYYY-MM-DD").format('LL');
 
+    const parsedBody = body.split(/\r?\n/).map(block =>
+      <p>{block}</p>
+    );
+
     return (
       <div className="subtle-background">
         <Grid >
@@ -62,13 +66,6 @@ class FullStoryPage extends Component {
                 target="_blank">
                   <i className="fa fa-twitter" />
               </a>
-              <a
-                href=''
-                id="share-tw"
-                className="social-buttons"
-                target="_blank">
-                  <i className="fa fa-facebook" />
-              </a>
             </div>
           </Row>
 
@@ -81,7 +78,7 @@ class FullStoryPage extends Component {
                 </div>
               </div>
               <span className="horizontal-rule"></span>
-              <p className="post-text">{body}</p>
+              <p className="post-text">{parsedBody}</p>
             </Col>
           </Row>
         </Grid>
