@@ -11,6 +11,9 @@
   margin: 0 auto;
   border-bottom: 1px solid #BDC6B8; }
 
+.story-title-row {
+  margin-top: 3em; }
+
 .full-story-title {
   margin-bottom: 1em;
   font-family: "Open Sans", sans-serif;
