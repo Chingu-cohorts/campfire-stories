@@ -19,7 +19,7 @@ npm start
 mmhansen  
 codejunky
 
-**Active developers**
+**Active developers** <br />
 mkarabashev <br />
 vientang <br />
 
