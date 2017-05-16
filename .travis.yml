@@ -11,6 +11,13 @@ branches:
   only:
   - master
   - development
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
 script:
 - sleep 5
 before_deploy:
@@ -57,5 +64,6 @@ notifications:
     on_success: always
     on_failure: always
 env:
+  - TRAVIS=travis CXX=g++-4.8
   global:
     secure: dFXDLJC8DWUFclbN9oLZVsayROkI6jCQQjZ8VSr5DFWwKEdhuj/sSfv9IKX+1n6Ayod/02xefsorodBWhHSCPT6iURDtzV81DizxfF14KbcFG2PcpQNVO7QWMiH1wP5VLYtIOiODFptl82cj2xFuWgqCN//iV4g9vLbWanE1wOJS75/RFY1oJTlluxjLl7RVeEGXghlbkjAsWQXo+hE5G068pax0zDX6DNg3ffW+d7/HQf2zSCbsNDm7kNV1x0FVxVOgL1byfNL7bAKtyGZ3aQ8B8qZk3FDznDeK8TrpB0C9EbK/bwte0TEq4UVxwdEr2hr11+69x4W33A2OLQu2wfpW/NKfNPhfp4j2FCkEDkD22R/IvoErkEuvvUtuZdLLGK0Edk2992rceVDjBXuhvtAFk/o46d19o+Iyf67LKdMpr3+HLbd5XykSg5WvtBz2eSJoCmkywzI/th7DHhegbYMlPUgl+Eql12lcnei5Q3CGvbZ3eAP90CMfo/YZBhuunH8C7ODP4BjS1PVJG9rb9H/KlJBDr5EMRtjFE4PxV2Wqd3PyZ1WwXJayCWsDR8cE8z71kvW8S1dV5TPt3ret9sS0kTzTcjXCZY7DpclTMO0v5+Q2TLUEEs+UrIgMB/VXJAJBPpf+2jBE6ex1vr/r19zRgLUROacJRSe6e1Wxhe8=
