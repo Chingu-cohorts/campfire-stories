@@ -19,6 +19,10 @@ npm start
 mmhansen  
 codejunky
 
+**Active developers**
+mkarabashev
+vientang
+
 **This could not be done without the help of many contributors and maintainers. <3**
 
 
@@ -41,7 +45,7 @@ So, you can probably tell this project is a work in progress. It took a lot of w
 
 A huge thank you to all the supporter: L'emi, Sergio, Alicia, Codejunky, TropicalChancer, Dmatt, and everyone else who has worked to find amazing stories of coders to put on the site.
 
-This is a work in progress, so please leave your comments and critisims, or even better, make a pull request.
+This is a work in progress, so please leave your comments and criticisms, or even better, make a pull request.
 
 Please check it out!
 http://campfire-stories.xyz/

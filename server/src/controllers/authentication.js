@@ -189,6 +189,7 @@ export function getUsers(req, res, next) {
 
   User
     .find()
+    .select('-password')
     .sort('lastName')
     .exec((err, usersArr) => {
       if (err)return next(err);

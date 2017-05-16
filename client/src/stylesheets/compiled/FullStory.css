@@ -154,6 +154,11 @@
   word-wrap: break-word;
   margin-top: 1em; }
 
+.post-text p {
+  font-size: 1em;
+  margin: 0;
+  padding: 10px 0; }
+
 .post-text:first-letter {
   font-size: 4em;
   line-height: 1;
