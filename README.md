@@ -21,6 +21,7 @@ codejunky
 
 **Active developers**
 mkarabashev
+
 vientang
 
 **This could not be done without the help of many contributors and maintainers. <3**
