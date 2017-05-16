@@ -20,8 +20,8 @@ mmhansen
 codejunky
 
 **Active developers**
--mkarabashev
--vientang
+mkarabashev <br />
+vientang <br />
 
 **This could not be done without the help of many contributors and maintainers. <3**
 
