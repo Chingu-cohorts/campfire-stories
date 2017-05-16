@@ -1,26 +1,45 @@
 // Authentication specific actions
-export const AUTH_USER = 'auth_user'
-export const UNAUTH_USER = 'unauth_user'
-export const AUTH_ERROR = 'auth_error'
+export const AUTH_USER_AWAIT = 'auth/AUTH_USER_AWAIT';
+export const AUTH_USER_FAIL = 'auth/AUTH_USER_FAILURE';
+export const AUTH_USER_SUCCESS = 'auth/AUTH_USER_SUCCESS';
+export const DEAUTH_USER = 'auth/DEAUTH_USER';
+export const RESET_PASSWORD_AWAIT = 'auth/RESET_PASSWORD_AWAIT';
+export const RESET_PASSWORD_FAIL = 'auth/RESET_PASSWORD_FAIL';
+export const RESET_PASSWORD_SUCCESS = 'auth/RESET_PASSWORD_SUCCESS';
 
 // ADMIN specific actions
-export const SET_USER_ROLE = 'set_user_role'
-export const SET_USER = 'set_user'
-export const GET_ALL_USERS = 'get_all_users'
+export const GET_USERS_AWAIT = 'admin/GET_USERS_AWAIT';
+export const GET_USERS_FAIL = 'admin/GET_USERS_FAIL';
+export const GET_USERS_SUCCESS = 'admin/GET_USERS_SUCCESS';
+export const UPDATE_USER_AWAIT = 'admin/UPDATE_USER_AWAIT';
+export const UPDATE_USER_FAIL = 'admin/UPDATE_USER_FAIL';
+export const UPDATE_USER_SUCCESS = 'admin/UPDATE_USER_SUCCESS';
+export const REMOVE_USER_AWAIT = 'admin/REMOVE_USER_AWAIT';
+export const REMOVE_USER_FAIL = 'admin/REMOVE_USER_FAIL';
+export const REMOVE_USER_SUCCESS = 'admin/REMOVE_USER_SUCCESS';
+export const REGISTER_USER_AWAIT = 'admin/REGISTER_USER_AWAIT';
+export const REGISTER_USER_FAIL = 'admin/REGISTER_USER_FAIL';
+export const REGISTER_USER_SUCCESS = 'admin/REGISTER_USER_SUCCESS';
+export const SWITCH_VIEW = 'admin/SWITCH_VIEW';
 
 // Story management actions
-export const APPROVE_STORY = 'approve_story'
-export const STORY_ERROR = 'story_error'
-export const FETCH_STORIES = 'fetch_stories'
-export const FETCH_STORY = 'fetch_story'
-export const GET_COUNT = 'get_count'
-export const GET_CONTENT = 'get_pending'
-export const SWITCH_VIEW = 'switch_view'
-export const REMOVE = 'remove'
-export const UPADTE_USER = 'update_user'
-export const REMOVE_CURRENT = 'remove_current'
-export const GET_MY_STORIES = 'get_my_stories'
-export const UPDATE_PATH = 'update_path'
-export const HANDLE_STORY_BODY = 'update_story_body'
-export const EMPTY_BODY = 'empty_body'
-export const FETCH_PENDING_STORIES = 'fetch_pending_stories'
+export const ADD_STORY_AWAIT = 'content/ADD_STORY_AWAIT';
+export const ADD_STORY_FAIL = 'content/ADD_STORY_FAIL';
+export const ADD_STORY_SUCCESS = 'content/ADD_STORY_SUCCESS';
+export const FETCH_STORIES_AWAIT = 'content/FETCH_STORIES_AWAIT';
+export const FETCH_STORIES_FAIL = 'content/FETCH_STORIES_FAIL';
+export const FETCH_STORIES_SUCCESS = 'content/FETCH_STORIES_SUCCESS';
+export const FETCH_STORY_AWAIT = 'content/FETCH_STORY_AWAIT';
+export const FETCH_STORY_FAIL = 'content/FETCH_STORY_FAIL';
+export const FETCH_STORY_SUCCESS = 'content/FETCH_STORY_SUCCESS';
+export const UPDATE_STORY_AWAIT = 'content/UPDATE_STORY_AWAIT';
+export const UPDATE_STORY_FAIL = 'content/UPDATE_STORY_FAIL';
+export const UPDATE_STORY_SUCCESS = 'content/UPDATE_STORY_SUCCESS';
+export const DELETE_STORY_AWAIT = 'content/DELETE_STORY_AWAIT';
+export const DELETE_STORY_FAIL = 'content/DELETE_STORY_FAIL';
+export const DELETE_STORY_SUCCESS = 'content/DELETE_STORY_SUCCESS';
+export const GET_MY_STORIES_AWAIT = 'content/GET_MY_STORIES_AWAIT';
+export const GET_MY_STORIES_FAIL = 'content/GET_MY_STORIES_FAIL';
+export const GET_MY_STORIES_SUCCESS = 'content/GET_MY_STORIES_SUCCESS';
+export const HANDLE_STORY_BODY = 'mystery/HANDLE_STORY_BODY';
+export const EMPTY_BODY = 'mystery/EMPTY_BODY';

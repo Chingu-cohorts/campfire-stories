@@ -1,31 +1,68 @@
+@import 'Variables';
+@import 'MediaQueries';
 
 /*declaring basic style*/
+html{
+  height: 100%;
+}
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+  font-family: $content-font;
+  font-size: 16px;
+  position: relative;
+  min-height: 100%;
 }
+
 h1,
 h2,
 h3,
 h4 {
-    font-family: "Rubik", sans-serif;
+  font-family: $heading-font;
 }
+
 h1 {
-    font-size: 3.142em;
+  font-size: 3.142em;
 }
+
 h2 {
+  font-size: 1.942em;
+  @include x-large {
+    font-size: 2.3em;
+  }
+  @include large {
     font-size: 1.942em;
+  } 
+  @include small {
+    font-size: 1.45em;
+  }
+  @include x-small {
+    font-size: 1.3em;
+  }
 }
+
 .h2 {
-    font-family: "Rubik", sans-serif;
-    padding-bottom: 30px;
-    margin-top: 0;
-    color: #4e5166;
+  font-family: $heading-font;
+  padding-bottom: 30px;
+  margin-top: 0;
+  color: $darkblue;
 }
+
 p {
-    line-height: 1.7;
-    padding-bottom: 40px;
+  line-height: 1.7;
+  padding-bottom: 40px;
+  font-size: 1.2em;
+  @include large {
+    font-size: 1.3em;
+  }  
+  @include medium {
+    font-size: 1.3em;
+  } 
+  @include small {
+    font-size: .9em;
+  }
+  @include x-small {
+    font-size: .83em;
+  }
 }
 
 /*end of declaring basic style*/
@@ -33,36 +70,43 @@ p {
 /*helper classes*/
 
 .bg-white {
-    background: #fff;
+  background: $bg-white;
 }
+
 .bg-blue {
-    background: #4E5166;
-    color: #fff;
+  background: $darkblue;
+  color: $bg-white;
 }
+
 .bg-pale-blue {
-    background: #EDEEF0;
+  background: $bg-pale-blue;
 }
+
 .no-padding-picture {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
+
 .img-responsive {
-    width: 100%;
+  width: 100%;
 }
 
 /*end of helper classes*/
 
 /*offset for fixed nav and hero section post etc*/
 
-.top-offset {
-    /*to fix fixed top style of navbar*/
-    margin-top: 140px;
+.page-padding {
+  /*to fix fixed top style of navbar*/
+  padding-top: 7em;
+  padding-bottom: 3em;
 }
+
 .padding-top {
-    padding-top: 60px;
+  padding-top: 60px;
 }
+
 .padding-bottom {
-    padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 /*end of offset for fixed nav and hero section*/
@@ -70,6 +114,33 @@ p {
   margin-bottom: 70px;
 }
 
-.about-me {
-  padding-bottom: 100px;
+.horizontal-rule {
+  width: 100%; 
+  height: 1px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: $earthygrey;
+  align-self: center;
+  @include monitor {
+    width: 90%;
+  }
+}
+
+.table {
+  display:table;
+  width: 100%;
+}
+
+.table-cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.icon-left {
+  margin-right: 10px;
+}
+
+.icon-right {
+  margin-left: 10px;
 }

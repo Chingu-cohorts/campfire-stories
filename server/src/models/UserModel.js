@@ -2,7 +2,7 @@
  * Dependencies
  */
 import mongoose from 'mongoose'
-import bcrypt from 'bcrypt-nodejs'
+import bcrypt from 'bcrypt'
 
 /*
  * Schema
@@ -27,43 +27,43 @@ var userSchema = mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['Member', 'Admin'],
-    default: 'Admin'
+    enum: ['Writer', 'Admin'],
+    default: 'Writer'
   }
 });
 
 /*
  * Password encryption
  */
-let SALT_FACTOR = 10;
+const SALT_FACTOR = 10;
 
-let noop = () => {}
+const noop = () => {};
+
+function hashPassword(password) {
+  return bcrypt.genSalt(SALT_FACTOR)
+    .then(salt => bcrypt.hash(password, salt))
+    .catch('error', console.error);
+};
 
 userSchema.pre("save", function(done){
   var user = this;
   // only hash password if it has been modified
   if (!user.isModified("password")) { return done(); }
   // make the hacker salty
-  bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
-    if (err) { return done(err); }
-    // hash the password
-    bcrypt.hash(user.password, salt, noop, function(err, hashedPassword) {
-      if (err) { return done(err); }
-      user.password = hashedPassword;
-      done();
-    });
-  });
+  hashPassword(user.password)
+    .then(hashedPassword => user.password = hashedPassword)
+    .then(done)
+    .catch(done);
 });
 
 /*
  * Check password method
  */
-userSchema.methods.checkPassword = function(guess, done) {
-  bcrypt.compare(guess, this.password, function(err, isMatch) {
-    if (err) { return done(err); }
-    done(null, isMatch); // match -> respond with no errs
-  });
+userSchema.methods.checkPassword = function(guess) {
+  return bcrypt.compare(guess, this.password)
 };
+
+userSchema.statics.hashPassword = hashPassword;
 
 /*
  * Export User

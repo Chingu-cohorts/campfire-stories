@@ -5,11 +5,11 @@ import passport from 'passport'
 import { Strategy } from 'passport-jwt'
 import { ExtractJwt } from 'passport-jwt'
 import LocalStrategy from 'passport-local'
+import jwt from 'jsonwebtoken'
+import generatePassword from 'password-generator';
 
-/*
- * Local imports
- */
-import User from '../models/UserModel'
+import User from '../models/UserModel';
+import { passwordPattern } from '../utils/validatorPatterns';
 
 /*
  * Local Strategy (For validating login)
@@ -19,22 +19,23 @@ import User from '../models/UserModel'
 const localOptions = { usernameField: 'email' }
 
 const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
-  email = email.trim() // trim inputs
-  password = password.trim() // trim inputs
-  // try to find user based on given email
-  User.findOne({ email: email }, (err, user) => {
-    if (err) { return done(err); } // catch db err
-    if(!user) { return done(null, false) } // couldn't find user by email
-    // compare passwords
-    user.checkPassword(password, (err, isMatch) => {
-      if (err) { return done(err); } // catch func err
-      if (!isMatch) { return done(null, false) } // passwords don't match
-      // all good, forward on the user
-      return done(null, user)
-    })
-  })
-})
+  email = email.trim();
+  password = password.trim();
 
+  User.findOne({ email })
+    .exec((err, user) => {
+      if (err) return done(err);
+      if(!user) return done(null, false); // couldn't find user by email
+      return user
+    })
+    // compare passwords
+    .then(user => user
+      .checkPassword(password)
+      .then(isMatch => isMatch ? user : false)
+    )
+    .then(res => done(null, res))
+    .catch(done)
+})
 
 /*
  * JWT Strategy (For token authentication)
@@ -54,7 +55,6 @@ const jwtLogin = new Strategy(opts, (payload, done) => {
   })
 })
 
-
 /*
  * Helper function (For admin authentication through token ID)
  */
@@ -71,3 +71,35 @@ export function authAdmin (req, res, next)  {
  */
 passport.use(jwtLogin);
 passport.use(localLogin);
+
+/**
+ * Fns that are used to encode and decode a jwt token for password reset
+ * The token contains the id and the hashed password of the user; expires in 1h
+ **/
+export const getPassToken = (id, hashedPassword) => jwt.sign(
+  { id, pswd: hashedPassword },
+  process.env.SECRET,
+  { expiresIn: 60 * 60 }
+);
+
+export const decodePassToken = (token) =>
+  new Promise((resolve, reject) => jwt.verify(
+    token,
+    process.env.SECRET,
+    (err, decoded) => err ? reject(err) : resolve(decoded)
+  ));
+
+/**
+ * This password generator creates random 8 char passwords,
+ * which must have at least one of: lowercase, uppercase, number, symbol
+ **/
+
+export function makeValidPassword() {
+  let password;
+
+  while (!passwordPattern.test(password)) {
+    password = generatePassword(8, false, /[\w\?\-@#*!%&]/);
+  }
+
+  return password;
+}

@@ -17,14 +17,13 @@ const StorySchema = new Schema({
     type: String,
     required: true
   },
+  description: {
+    type: String,
+    required: false
+  },
   postedBy: {
     type: Schema.Types.ObjectId,
     ref: 'User'
-  },
-  status: {
-    type: String,
-    enum: ['Pending', 'Approved'],
-    default: 'Pending'
   },
   created_at: {
     type: Date,

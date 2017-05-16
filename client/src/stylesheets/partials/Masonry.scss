@@ -1,152 +1,129 @@
-// btn styles
-.home-controls {
-  position: relative;
-  z-index: 999;
-  .left-control{
-    left: -100px;
-  }
-  .right-control{
-    right: -100px;
-  }
-  .btn {
-    position: absolute;
-    top: 30px;
-    padding: 0 8px;
-    padding-bottom: 12px;
-    margin: 0px 12px;
-    font-size: 48px;
-  }
-}
-.bottom-buttons {
-  width: 100%;
-  padding-bottom: 200px;
-}
-@media (max-width: 768px) {
-  .home-controls {
-    .left-control{
-      left: -10px;
-    }
-    .right-control{
-      right: -10px;
-    }
-  }
-}
-@media (max-width: 767px) {
-  .bottom-buttons {
-    display: none;
-  }
-  .home-controls {
+@import 'Variables';
+@import 'MediaQueries';
 
-    .btn {
-      font-size: 24px;
-      padding-bottom: 6px;
-      top: -10px;
-    }
-  }
-}
-
-@media (max-width: 1280px) {
-  .home-controls {
-    .left-control{
-      left: -10px;
-    }
-    .right-control{
-      right: -10px;
-    }
-  }
-}
-// .bottom {
-//   position: relative;
-//   bottom: -100em;
-//   .btn {
-//   }
-// }
 //masonry container
-section {
-  .grid > div {
-    //margin-bottom: 70px;    
-  }
-}
+
 /*card styles*/
 .grid-item a {
   text-decoration: none;
 }
 
-.thumbnail {
-    padding: 0;
-    border-radius: 0;
-    border: 0;
-    box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
-}
-.thumbnail>img {
-    width: 100%;
-    display: block;
-}
-.thumbnail .card-title {
-    border-bottom: solid 1px #eee;
-}
-.no-border-bottom .card-title {
-    border-bottom: 0 !important;
-}
-.thumbnail h2 {
-    color: #7BE5A0;
-}
-.thumbnail h2 {
-    margin: 0;
-    padding: 15px 15px;
-}
-.thumbnail h4 {
-    color: #7BE5A0;
-}
-.thumbnail h4 {
-    margin: 0;
-    padding: 15px 15px;
-}
-.card-description {
-    margin: 0;
-    padding: 15px 15px;
-}
-.caption .cs-btn-green {
-    margin: 15px 15px;
-}
-.thumbnail p {
-    padding-top: 15px;
-}
-.card-title .card-info {
-    font-size: 0.75em;
-    line-height: 1.35;
-    padding: 0px 15px 15px 15px;
-}
-.card-title .status {
-    font-size: 0.75em;
-    line-height: 1.35;
-    padding: 0px 15px 15px 15px;
-}
-.card-title .status .published {
-    color: #7be5a0 !important;
-}
-.grid-item,
-.grid-item-1 {
-    padding-bottom: 15px;    
-}
-.card-buttons {
-    color: #7be5a0;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-}
-.card-buttons:hover,
-.card-buttons:focus {
-    color: #4e5166;
-}
-.glyphicon-trash,
-.glyphicon-collapse-down {
-    padding-left: 12px;
-}
-.glyphicon-trash {
-    color: red;
-}
-.glyphicon-collapse-down {
-    color: orange;
+ /**
+  *the padding and margin here offset the anchor
+  * to adjust for the fixed header
+  * but leave the actual element in its desired place
+  **/
+#cs-stories {
+  width: 100%;
+  padding-top: 70px;
+  margin-top: -70px;
 }
 
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  border: 0;
+  box-shadow: $box-shadow;
+}
+
+.thumbnail>img {
+  width: 100%;
+  max-height: 1000px;
+  max-height: 100vh;
+  display: block;
+}
+
+.thumbnail .card-title {
+  border-bottom: solid 1px #eee;
+}
+
+.no-border-bottom .card-title {
+  border-bottom: 0 !important;
+}
+
+.thumbnail h3 {
+  color: $green;
+}
+
+.thumbnail h3 {
+  margin: 0;
+  padding: 10px 10px;
+}
+
+.thumbnail h4 {
+  color: $green;
+}
+
+.thumbnail h4 {
+  margin: 0;
+  padding: 10px 10px;
+}
+
+.card-description {
+  margin: 0;
+  padding: 10px 10px;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.caption .cs-btn-green {
+  margin: 10px 10px;
+}
+
+.thumbnail p {
+  padding-top: 10px;
+}
+
+.card-title .card-info {
+  font-size: 0.65em;
+  line-height: 1.35;
+  padding: 0px 10px 10px 10px;
+  margin-bottom: 5px;
+}
+
+.card-title .status {
+  font-size: 0.65em;
+  line-height: 1.35;
+  padding: 0px 10px 10px 10px;
+}
+
+.card-title .status .published {
+  color: $green !important;
+}
+
+.grid-item,
+.grid-item-1 {
+  padding-bottom: 15px;
+}
+
+.card-buttons {
+  color: $green;
+  transition: all 0.3s ease-out;
+}
+
+.card-buttons:hover,
+.card-buttons:focus {
+  color: $darkblue;
+}
+
+.glyphicon-trash,
+.glyphicon-collapse-down {
+  padding-left: 12px;
+}
+
+.glyphicon-trash {
+  color: $danger;
+}
+
+.glyphicon-collapse-down {
+  color: orange;
+}
+
+/*bootstrap override*/
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 30%;
+    margin: 1.2em 1.2em;
+  }
+}
 /*end of card styles*/

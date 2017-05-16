@@ -1,0 +1,107 @@
+/* Colors */
+/* Font */
+/* Effects */
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
+/*card styles*/
+.grid-item a {
+  text-decoration: none; }
+
+/**
+  *the padding and margin here offset the anchor
+  * to adjust for the fixed header
+  * but leave the actual element in its desired place
+  **/
+#cs-stories {
+  width: 100%;
+  padding-top: 70px;
+  margin-top: -70px; }
+
+.thumbnail {
+  padding: 0;
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75); }
+
+.thumbnail > img {
+  width: 100%;
+  max-height: 1000px;
+  max-height: 100vh;
+  display: block; }
+
+.thumbnail .card-title {
+  border-bottom: solid 1px #eee; }
+
+.no-border-bottom .card-title {
+  border-bottom: 0 !important; }
+
+.thumbnail h3 {
+  color: #7BE5A0; }
+
+.thumbnail h3 {
+  margin: 0;
+  padding: 10px 10px; }
+
+.thumbnail h4 {
+  color: #7BE5A0; }
+
+.thumbnail h4 {
+  margin: 0;
+  padding: 10px 10px; }
+
+.card-description {
+  margin: 0;
+  padding: 10px 10px;
+  font-size: 0.9em;
+  line-height: 1.5; }
+
+.caption .cs-btn-green {
+  margin: 10px 10px; }
+
+.thumbnail p {
+  padding-top: 10px; }
+
+.card-title .card-info {
+  font-size: 0.65em;
+  line-height: 1.35;
+  padding: 0px 10px 10px 10px;
+  margin-bottom: 5px; }
+
+.card-title .status {
+  font-size: 0.65em;
+  line-height: 1.35;
+  padding: 0px 10px 10px 10px; }
+
+.card-title .status .published {
+  color: #7BE5A0 !important; }
+
+.grid-item,
+.grid-item-1 {
+  padding-bottom: 15px; }
+
+.card-buttons {
+  color: #7BE5A0;
+  transition: all 0.3s ease-out; }
+
+.card-buttons:hover,
+.card-buttons:focus {
+  color: #4E5166; }
+
+.glyphicon-trash,
+.glyphicon-collapse-down {
+  padding-left: 12px; }
+
+.glyphicon-trash {
+  color: #FF1654; }
+
+.glyphicon-collapse-down {
+  color: orange; }
+
+/*bootstrap override*/
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 30%;
+    margin: 1.2em 1.2em; } }
+
+/*end of card styles*/

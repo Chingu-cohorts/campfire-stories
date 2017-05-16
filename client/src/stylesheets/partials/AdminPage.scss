@@ -1,51 +1,89 @@
-
+@import 'Variables';
+@import 'MediaQueries';
 /*tab styles*/
 
-.tab-content {
-    padding-top: 30px;
-}
-h4 {
-    color: #4e5166;
-    padding: 15px 0;
-    margin-top: 0;
-}
-.tab-pane .row .col-md-4 {
-    padding-bottom: 15px;
-}
-.nav-tabs.nav-justified > li > a {
-    border: none;
-    border-bottom: 2px solid rgb(184, 186, 194);
-    color: #4e5166;
-    -webkit-transition: color 0.3s ease-out;
-    transition: color 0.3s ease-out;
-}
-.nav-tabs.nav-justified > li > a:hover,
-.nav-tabs.nav-justified > li > a:focus {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
-    background: transparent;
-}
-.nav-tabs.nav-justified>.active>a {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
-}
-.nav-tabs.nav-justified>.active>a:focus,
-.nav-tabs.nav-justified>.active>a:hover {
-    border: none;
-    border-bottom: 2px solid #7be5a0;
-    color: #7be5a0;
-    cursor: pointer;
-    background: #fff;
-}
-.user-list {
-    box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
-    margin-bottom: 30px;
-}
-.user-list h4 {
-    color: #4e5166;
-    margin: 15px;
+.admin-container {
+  width: 90%;
 }
 
+.admin-title {
+  color: $darkblue;
+  padding: 15px 0;
+  margin-top: 0;
+}
+
+.add-user {
+  margin-top: 20px;
+  @include x-large {
+    text-align: left;
+  }
+  @include large {
+    text-align: left;
+  }
+}
+
+.add-story {
+  margin-top: 20px;
+  @include x-large {
+    text-align: right;
+  }
+  @include large {
+    text-align: right;
+  }
+}
+
+.add-user,
+.add-story {
+  margin-bottom: 50px;
+  font-size: 1.2em;
+  @include small {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+.tab-pane .row .col-md-4 {
+  padding-bottom: 15px;
+}
+
+#tabs .nav-tabs li > a {
+  border: none;
+  border-bottom: 2px solid rgb(184, 186, 194);
+  color: $darkblue!important;
+  transition: color 0.3s ease-out;
+}
+
+#tabs .nav-tabs li > a:hover,
+#tabs .nav-tabs li > a:focus {
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
+  background: transparent;
+}
+
+#tabs .nav-tabs .active a {
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
+}
+
+#tabs .nav-tabs .active a:focus,
+#tabs .nav-tabs .active a:hover {
+  border: none;
+  border-bottom: 2px solid $green;
+  color: $green;
+  cursor: pointer;
+  background: $bg-white;
+}
+
+.user-list {
+  box-shadow: $box-shadow;
+  margin-bottom: 30px;
+}
+
+.user-list h4 {
+  color: $darkblue;
+  margin: 15px;
+}
 /*end of tab styles*/

@@ -1,0 +1,64 @@
+
+/* medium - iPads and other similar tablets */
+/* large - iPad Pro Portrait */
+/* xlarge - iPad Pro Landscape */
+
+@mixin x-small {
+  @media only screen and (max-width: 22em) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media only screen and (max-width: 30em) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (max-width: 48em) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (max-width: 64em) {
+    @content;
+  }
+}
+
+@mixin x-large {
+  @media only screen and (max-width: 86em) {
+    @content;
+  }
+}
+
+@mixin monitor {
+  @media only screen and (min-width: 78em) {
+    @content;
+  }
+}
+
+@mixin max-aspect-ratio {
+  @media (max-aspect-ratio: 1/1) {
+    @content;
+  }
+}
+
+@mixin ipad-portrait {
+  @media (min-device-width : 768px) and (max-device-width : 768px) and (min-device-height : 1024px) and (max-device-height : 1024px) and (min-width: 768px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin ipad-pro-portrait {
+  @media (min-device-width : 1024px) and (max-device-width : 1024px) and (min-device-height : 1366px) and (max-device-height : 1366px) and (min-width: 1024px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin ipad-pro-landscape {
+  @media (min-device-width : 1366px) and (max-device-width : 1366px) and (min-device-height : 1024px) and (max-device-height : 1024px) and (min-width: 1366px) and (max-width: 1366px) {
+    @content;
+  }
+}

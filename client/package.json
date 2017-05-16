@@ -7,35 +7,51 @@
     "classnames": "^2.2.5",
     "lodash": "^4.16.4",
     "moment": "^2.15.1",
+    "prop-types": "^15.5.8",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.8",
     "react-cookie": "^0.4.8",
     "react-dom": "^15.3.2",
-    "react-masonry-component": "^4.2.2",
-    "react-medium-editor": "^1.8.1",
+    "react-masonry-component": "^4.4.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-router-bootstrap": "^0.23.1",
     "redux": "^3.6.0",
     "redux-form": "^6.1.0",
-    "redux-thunk": "^2.1.0",
-    "validator": "^6.0.0"
+    "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
+    "cross-env": "^3.2.4",
+    "enzyme": "^2.8.0",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
+    "jest": "^19.0.2",
+    "jest-enzyme": "^3.1.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
-    "react-scripts": "0.9.5"
+    "react-addons-test-utils": "^15.4.2",
+    "react-scripts": "0.9.5",
+    "react-test-renderer": "^15.5.4",
+    "sinon": "^2.2.0"
   },
   "proxy": "http://localhost:3001",
   "scripts": {
     "build-css": "node-sass src/stylesheets/style.scss -o src/stylesheets/compiled",
     "watch-css": "npm run build-css && node-sass src/stylesheets/style.scss -o src/stylesheets/compiled --watch --recursive",
-    "start-js": "react-scripts start",
+    "start-js": "cross-env NODE_PATH=src react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+    "unmockedModulePathPatterns": [
+      "react",
+      "enzyme",
+      "jest-enzyme"
+    ]
   }
 }

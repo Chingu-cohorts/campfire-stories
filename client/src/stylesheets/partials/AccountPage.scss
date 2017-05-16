@@ -1,0 +1,16 @@
+@import 'Variables';
+@import 'MediaQueries';
+
+.account-page-container {
+  width: 90%;
+}
+
+.write-button-text {
+  font-weight: 700;
+  font-style: italic;
+  font-family: $heading-font;
+  margin-top: 10px;
+  @include small {
+    font-size: 1em;
+  }
+}

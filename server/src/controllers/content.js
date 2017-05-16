@@ -2,27 +2,33 @@
  * Dependencies
  */
 import jwt from 'jwt-simple'
-import Story from '../models/PostModel'
 import moment from 'moment'
+import fetch from 'node-fetch';
+
+import Story from '../models/PostModel'
+import User from '../models/UserModel'
+import typeChecker from '../utils/typeChecker';
+import urlParser from '../utils/urlParser';
 
 /*
  * Submit Stories
  */
 export function submitContent(req, res, next) {
-  let { title, body, image, postedBy } = req.body;
+  const { title, body, image, description, postedBy } = req.body;
+
   if (!title || !body || !image || !postedBy){
     return res
       .status(400)
       .json({"error": 'Bad Request'})
   }
-  let newStory = new Story ({ title, body, image, postedBy })
+
+  const newStory = new Story ({ title, body, image, description, postedBy });
   newStory.save(newStory, (err, story) => {
-    if (err) { next(err) }
-    //console.log(story)
+    if (err) return next(err);
     res.status(201).json({
       story: story
-    })
-  })
+    });
+  });
 }
 
 /*
@@ -32,106 +38,108 @@ export function getContent (req, res, next){
   let page = parseInt(req.query.page) || 1
   let limit = parseInt(req.query.limit) || 20
   let status = req.query.status || "Approved"
+  let totalPages;
 
   Story
-    .find({ status })
-    .sort('-date')
-    .skip(limit * (page-1))
-    .limit(limit)
-    .populate('postedBy')
+    .find()
+    .sort('-created_at')
+    .populate('postedBy', [ 'firstName', 'lastName' ])
     .exec((err, storyArr) => {
-      //console.log(storyArr)
-    if (err) { return next(err); }
-    res.status(200).json({
-      content: storyArr
+      if (err) return next(err);
+      const pages = Math.ceil(storyArr.length / limit);
+      const content = storyArr.slice((page - 1) * limit, page * limit);
+
+      res.status(200).json({
+        content,
+        pages
     });
   })
 }
 
-/**
- *
- */
- export function getStory(req, res, next) {
-   let storyId = req.params.story_id
+export function getStory(req, res, next) {
+  let storyId = req.params.story_id
 
-   Story.findById(storyId)
-        .populate('postedBy')
-        .exec((err, story) => {
-            if (err) next(err)
-            if (!story) {
-              next()
-            }
-            res.json({
-              story
-            })
-        })
- }
+  Story
+    .findById(storyId)
+    .populate('postedBy', [ 'firstName', 'lastName' ])
+    .exec((err, story) => {
+      if (err) return next(err);
+      if (!story) return next();
+      res.json({ story });
+    });
+}
 
 /*
  * Get count of stories
  */
  export function getCount(req, res, next) {
    Story.count({ status: "Approved" }, (err, count) => {
-     if (err) next(err)
+     if (err) return next(err);
      res.json({
        count
-     })
-   })
+     });
+   });
  }
 
 
-/*
- * Approve Story
- */
-export function approveContent (req, res, next){
-  let story = req.query.id;
-  // approve story with given ID
-  Story.update({ _id: story }, { $set: { status: 'Approved' }}, { new: true }, (err, updatedStory) => {
-    if (err) { return next(err); }
-    else {
-      res.status(200).json({
-        update: 'success'
-      })
-    }
-  })
+export function editStory(res, next, _userId, _storyId, fn) {
+  return User
+    // lookup the user role
+    .findOne({ _id: _userId })
+    .exec()
+
+    // if user is not an admin they can only edit their own stories
+    .then(user => {
+      const query = { _id: _storyId };
+      if (user.role !== 'Admin') query.postedBy = _userId;
+      return query
+    })
+
+    // edit story if conditions are met
+    .then(query => fn(query))
+    .then(story => story || Promise.reject({
+      status: 400,
+      message: `Story doesn't exist or insufficient privileges`
+    }))
+    .then(story => res
+      .status(200)
+      .json({ story })
+    )
+    .catch(next);
 }
 
 /*
  * Remove Story
  */
-export function deleteContent (req, res, next){
-  let _id = req.query.id;
-  // remove story with given ID
-  Story.findOne({ _id }, (err, model) => {
-    if (err) { return next(err); }
-    model.remove((err) => {
-      if (err) { return next(err); }
-      else {
-        res.status(200).json({
-          delete: 'success'
-        })
-      }
-    });
-  })
+export function deleteContent(req, res, next){
+  editStory(
+    res,
+    next,
+    req.headers.user,
+    req.query.id,
+    query => Story.findOneAndRemove(
+      query
+    )
+  );
 }
 
 /*
  * Update story
  */
 export function updateContent(req, res, next) {
-  let _id = req.query.id;
-  let { title, body, image } = req.body;
+  const { title, body, image, description } = req.body;
 
-  Story.findOneAndUpdate(
-    { _id },
-    { $set: { title, body, image }},
-    { new: true },
-    (err, story) => {
-      if (err) { return next(err); }
-      res
-      .status(200)
-      .json({ story })
-    })
+  editStory(
+    res,
+    next,
+    req.headers.user,
+    req.query.id,
+    query => Story.findOneAndUpdate(
+      query,
+      { $set: { title, body, image, description }},
+      { new: true }
+    )
+  );
 }
 
 
@@ -139,12 +147,25 @@ export function updateContent(req, res, next) {
  * Get just my submitted stories
  */
 export function getMyStories(req, res, next) {
-  let id = req.query.id;
+  const id = req.query.id;
 
   Story.find({ postedBy: id }, (err, story) => {
-    if (err) {return next(err); }
+    if (err) return next(err);
     res
       .status(200)
-      .json({ story })
-  })
+      .json({ story });
+  });
+}
+
+/*
+ * get the image from a thrid party server
+ */
+ export function getImage(req, res, next) {
+   const url = req.query.url;
+   const parsedUrl = urlParser(url);
+
+   fetch(parsedUrl)
+    .then(response => typeChecker(response.headers._headers['content-type']))
+    .then(checkResult => res.json({ checkResult }))
+    .catch(next);
 }

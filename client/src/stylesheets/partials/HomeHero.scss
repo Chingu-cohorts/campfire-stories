@@ -1,171 +1,330 @@
+@import 'Variables';
+@import 'MediaQueries';
 
-
-/*Making full page carousel*/
-
-.carousel {
-    height: 100vh;
-    z-index: -100;
-    position: relative;
-}
-.carousel-inner {
-    overflow: hidden;
-}
-.carousel-inner .item img {
-    height: 100vh;
-    width: 100%;
-    max-width: none;
+.hero-masonry-container {
+  margin-top: -31px;
 }
 
-@media (max-width: 767px) {
-    .carousel-inner .item img {
-        //margin-left: -50%;
-    }
-}
-/*end of full page carousel*/
-
-
-/*style for the hero content*/
-@media (max-width: 767px) {
-  section {
-    .grid > div {
-      margin-top: 60px;
-      margin-bottom: 100px;
-    }
+#hero-content {
+  position: absolute;
+  z-index: 1;
+  height: inherit;
+  height: 99vh;
+  color: $green;
+  @include x-large {
+    height: 100%;
+  }
+  @include large {
+    height: 100%;
+  }
+  @include ipad-pro-portrait {
+    height: 103vh;
   }
 }
-#hero-content {
-    display: table;
-    position: absolute;
-    z-index: 1;
-    height: inherit;
-    height: 100vh;
-}
+
 #hero-content-centered {
-    display: table-cell;
-    vertical-align: middle;
-    color: #fff;
+  color: $bg-white;
+  /* overrides a bootstrap style on .table-cell */
+  @include ipad-pro-portrait {
+    vertical-align: initial;
+  }
 }
+
+.hero-content-group {
+  display: inline-block;
+  width: 76%;
+  @include x-large {
+    margin: 20vh 0;
+  }
+  @include large {
+    margin: 8vh 0;
+  }
+  @include medium {
+    margin: 8vh 0;
+  }
+  @include small {
+    margin: 7vh 0;
+  }
+  @include x-small {
+    margin-top: 2em;
+    margin-bottom: 0;
+  }
+  @include ipad-portrait {
+    margin: 10vh 0;
+  }
+  @include ipad-pro-portrait {
+    margin: 10vh 0;
+  }
+  @include ipad-pro-landscape {
+    margin: 22vh 0;
+  }
+}
+
 .hero-headline {
-    font-family: 'Rubik', sans-serif;
-    font-size: 3.142em;
+  font-family: $heading-font;
+  font-weight: 700;
+  font-size: 4.25em;
+  font-style: italic;
+  text-align: center;
+  text-shadow: 2px 2px 2px #2E2B2B;
+  color: $green;
+  letter-spacing: 1px;
+  max-width: 800px;
+  margin: 0 auto;
+  @include medium {
+    margin: 0 auto;
+    font-size: 2.8em;
+  }
+  @include small {
+    margin: 0 auto;
+    font-size: 1.6em;
+  }
+  @include x-small {
+    margin: 0 auto;
+    font-size: 1.4em;
+  }
 }
+
 .hero-copy {
-    font-family: 'Open Sans', sans-serif;
-    padding-bottom: 10px;
+  font-family: $content-font;
+  letter-spacing: 1.5px;
+  font-size: 1.1em;
+  padding: 3% 2%;
+  max-width: 800px;
+  margin: 0 auto;
+  @include large {
+    padding: 4% 10%;
+  }
+  @include medium {
+    padding: 3% 2%;
+    font-size: 1em;
+    letter-spacing: .8px;
+  }
+  @include small {
+    font-size: .5em;
+  }
+  @include x-small {
+    font-size: .4em;
+    letter-spacing: 1px;
+  }
+  @include ipad-pro-landscape {
+    padding: 4% 0;
+    font-size: 1.6em;
+  }
 }
-#overlay {
-    position: absolute;
-    top: 0;
+
+/*Making full page carousel*/
+.carousel {
+  height: 100%;
+  position: relative;
+  margin-bottom: 2em;
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+  @include ipad-pro-portrait {
+    height: 42vh;
+  }
+  @include small {
+    margin-bottom: .5em;
+  }
+}
+
+.carousel a {
+  margin-top: 0;
+  z-index: 100;
+  @include ipad-pro-portrait {
+    height: 42vh;
+  }
+}
+
+.carousel a > span {
+  @include ipad-pro-portrait {
+    margin: 100px auto;
+    top: 69%;
+  }
+}
+
+/* override bootstrap .carousel-indicators class */
+.carousel-indicators {
+  bottom: 12px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  @include medium {
+    bottom: 0px;
+  }
+  @include small {
     bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.8;
-    z-index: -99;
-    background: #4E5166;
+  }
 }
+
+.carousel-indicators > li {
+  @include small {
+    width: 6px;
+    height: 6px;
+    margin: .5px;
+  }
+  @include x-small {
+    width: 6px;
+    height: 6px;
+    margin: .5px;
+  }
+}
+
+.carousel-indicators > li.active {
+  @include small {
+    width: 9px;
+    height: 9px;
+    margin: .5px;
+  }
+}
+
+.carousel-image {
+  filter: brightness(0.5);
+  background-color: rgba(255,255,255,.2);
+}
+
+.carousel-inner {
+  overflow: hidden;
+}
+
+.carousel-inner .item img {
+  width: 100%;
+  @include max-aspect-ratio {
+    object-fit: scale-down;
+    object-position: 0 0;
+  }
+  @include ipad-pro-portrait {
+    object-fit: scale-down;
+    object-position: 0 0;
+  }
+}
+
+/*end of full page carousel*/
+
 #explore-stories {
-    font-size: 3.142em;
-    color: #fff;
-    position: absolute;
-    top: 85%;
-    left: 0;
-    z-index: 1;
-    -webkit-transition: transform 0.3s ease-out;
-    -webkit-transition: transform 0.3s ease-out;
-    transition: -webkit-transform 0.3s ease-out;
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  font-size: 3.142em;
+  color: $bg-white;
+  position: absolute;
+  top: 85%;
+  left: 0;
+  z-index: 1;
+  transition: transform 0.3s ease-out;
 }
+
 #explore-stories:hover {
-    -webkit-transform: translateY(10px);
-    transform: translateY(10px);
+  transform: translateY(10px);
 }
 
 /*end of hero content styling*/
 
 
 /*button styles*/
+.hero-or {
+  margin: 0 10px;
+  @include small {
+    font-size: .6em;
+  }
+}
 
-.cs-btn-blue {
-    border-radius: 0;
-    padding: 12px;
-    background: #4E5166;
-    color: #7BE5A0;
-    border: 2px solid #4E5166;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    text-transform: uppercase;
-}
-.cs-btn-blue:hover,
-.cs-btn-blue:focus {
-    background: #7BE5A0;
-    color: #4E5166;
-    border: 2px solid #7BE5A0;
-}
-.cs-btn-blue-outline {
-    border-radius: 0;
-    padding: 12px;
-    background: transparent;
-    color: #4E5166;
-    border: 2px solid #4E5166;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    text-transform: uppercase;
-}
-.cs-btn-blue-outline:hover,
-.cs-btn-blue-outline:focus {
-    background: #4E5166;
-    color: #7BE5A0;
-    border: 2px solid #4E5166;
-}
 .cs-btn-green {
-    border-radius: 0;
-    padding: 12px;
-    background: #7BE5A0;
-    color: #4E5166;
-    border: 2px solid #7BE5A0;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    text-transform: uppercase;
+  border-radius: 0;
+  padding: 12px;
+  background: $green;
+  color: $darkblue;
+  border: 2px solid $green;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
 }
+
 .cs-btn-green:hover,
 .cs-btn-green:focus {
-    background: #4E5166;
-    color: #7BE5A0;
-    border: 2px solid #4E5166;
+  background: $darkblue;
+  color: $green;
+  border: 2px solid $darkblue;
 }
+
 .cs-btn-green-outline {
-    border-radius: 0;
-    padding: 12px;
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    text-transform: uppercase;
+  border-radius: 0;
+  padding: 12px;
+  background: transparent;
+  color: $bg-white;
+  border: 2px solid $bg-white;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  @include medium {
+    font-size: .6em;
+    padding: .7em;
+  }
+  @include small {
+    font-size: .5em;
+    padding: .5em;
+  }
 }
+
 .cs-btn-green-outline:hover,
 .cs-btn-green-outline:focus {
-    background: #7BE5A0;
-    color: #4E5166;
-    border: 2px solid #7BE5A0;
+  background: $green;
+  color: $darkblue;
+  border: 2px solid $green;
 }
+
 .cs-btn-green-inverted {
-    border-radius: 0;
-    padding: 12px;
-    background: #fff;
-    color: #4E5166;
-    border: 2px solid #fff;
-    -webkit-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-    text-transform: uppercase;
+  border-radius: 0;
+  padding: 12px;
+  background: $bg-white;
+  color: $darkblue;
+  border: 1px solid $bg-white;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  @include medium {
+    font-size: .6em;
+    padding: .7em;
+  }
+  @include small {
+    font-size: .5em;
+    padding: .5em;
+  }
 }
+
 .cs-btn-green-inverted:hover,
 .cs-btn-green-inverted:focus {
-    background: #7BE5A0;
-    color: #4E5166;
-    border: 2px solid #7BE5A0;
+  background: $green;
+  color: $darkblue;
+  border: 1px solid $green;
 }
+
+.cs-btn-blue {
+  border-radius: 0;
+  padding: 12px;
+  background: $darkblue;
+  color: $green;
+  border: 2px solid $darkblue;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.cs-btn-blue:hover,
+.cs-btn-blue:focus {
+  background: $green;
+  color: #4E5166;
+  border: 2px solid $green;
+}
+
+.cs-btn-blue-outline {
+  border-radius: 0;
+  padding: 12px;
+  background: transparent;
+  color: $darkblue;
+  border: 2px solid $darkblue;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.cs-btn-blue-outline:hover,
+.cs-btn-blue-outline:focus {
+  background: $darkblue;
+  color: $green;
+  border: 2px solid $darkblue;
+}
+
+
 
 /*end of button styles*/
