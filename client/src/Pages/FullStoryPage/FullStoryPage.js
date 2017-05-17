@@ -46,7 +46,7 @@ class FullStoryPage extends Component {
     );
 
     return (
-      <div className="subtle-background">
+      <div>
         <Grid >
 
           <Row className="story-title-row">

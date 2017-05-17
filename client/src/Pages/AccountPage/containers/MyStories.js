@@ -18,15 +18,15 @@ class MyStories extends Component {
   render () {
     const { submitted } = this.props;
 
-    let childElemenets = submitted.map(story =>
+    let childElements = submitted.map(story =>
       <StoryThumbnail key={story._id} {...story} />
     );
 
-    if (!submitted.length) childElemenets = (<WriteButton />);
+    if (!submitted.length) childElements = (<WriteButton />);
 
     return (
       <section>
-        { childElemenets }
+        { childElements }
       </section>
     );
   }

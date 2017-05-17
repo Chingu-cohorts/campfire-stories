@@ -24,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
 }
 
 .create-story-heading {
@@ -32,6 +32,13 @@
   font-style: italic;
   font-family: $heading-font;
   color: $darkblue;
+  border-bottom: 4px solid $green;
+  padding-bottom: 15px;
+}
+
+.create-story-inputs {
+  box-shadow: $box-shadow;
+  border: none;
 }
 
 .control-label {

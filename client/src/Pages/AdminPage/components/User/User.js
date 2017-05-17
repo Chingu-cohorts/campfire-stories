@@ -8,7 +8,7 @@ const User = ({ deleteUser, switchRoles, user }) => {
     : 'Promote to admin';
 
   return (
-    <article title={`email: ${user.email}`} className="col-md-12 user-list">
+    <article title={`email: ${user.email}`} className="col-md-12 user-list thumbnail">
       <ErrorBox errorMessage={user.error} />
       <h4 className="admin-title">{`${user.firstName} ${user.lastName}`}
         <a href="#" onClick={() => deleteUser(user._id)} className="pull-right card-buttons">

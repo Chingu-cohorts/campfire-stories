@@ -42,7 +42,7 @@ export class StoryContent extends Component {
     );
 
     return (
-      <section id="cs-stories" className="subtle-background">
+      <section id="cs-stories">
         <hr className="horizontal-rule" />
         <Grid>
           <Row>

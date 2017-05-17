@@ -6,12 +6,13 @@
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
 .account-page-container {
-  width: 90%; }
+  width: 90%;
+  margin-top: 1em; }
 
 .write-button-text {
   font-weight: 700;
   font-style: italic;
-  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   margin-top: 10px; }
   @media only screen and (max-width: 30em) {
     .write-button-text {
