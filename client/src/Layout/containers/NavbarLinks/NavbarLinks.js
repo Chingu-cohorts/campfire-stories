@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Nav } from 'react-bootstrap';
 
-import NavLink from '../../components/NavLink';
+import NavLink from 'Layout/components/NavLink';
 
 const navRole = {
   base: [

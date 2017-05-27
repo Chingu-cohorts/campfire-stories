@@ -6,7 +6,7 @@ import {
   RESET_PASSWORD_SUCCESS,
   RESET_PASSWORD_FAIL,
   RESET_PASSWORD_AWAIT
-} from '../actions/types';
+} from 'actions/types';
 
 const initialState = {
   name: null,
