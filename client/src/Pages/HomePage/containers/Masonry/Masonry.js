@@ -5,7 +5,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import Masonry from 'react-masonry-component';
 import { getContent } from 'actions/story-actions';
 
-import Brick from '../../components/Brick';
+import Brick from 'Pages/HomePage/components/Brick';
 import PaginationElement from 'components/PaginationElement';
 
 export class StoryContent extends Component {

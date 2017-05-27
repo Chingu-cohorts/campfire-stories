@@ -47,7 +47,7 @@ class FullStoryPage extends Component {
 
     return (
       <div>
-        <Grid className="full-story">
+        <Grid >
 
           <Row className="story-title-row">
             <h2 className="full-story-title">{title}</h2>

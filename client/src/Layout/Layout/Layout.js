@@ -1,5 +1,5 @@
 import React from 'react';
-import { Footer, NavbarHeader } from '../components';
+import { Footer, NavbarHeader } from 'Layout/components';
 import 'stylesheets/style.scss'
 
 const Layout = ({ children }) => {

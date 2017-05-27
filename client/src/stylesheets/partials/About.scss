@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2em 0;
 }
 
 .about-section-1,
@@ -46,4 +47,11 @@
   font-style: italic;
   font-family: $heading-font;
   color: $darkblue;
+  border-top: 4px solid $green;
+  padding-top: 15px;
+}
+
+.about-content {
+  padding: 5px 0;
+  margin-bottom: 0;
 }

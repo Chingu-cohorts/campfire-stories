@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Colors */
 /* Font */
 /* Effects */
@@ -18,13 +19,14 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   position: relative;
-  min-height: 100%; }
+  min-height: 100%;
+  background-image: url("/img/crossword.png"); }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Helvetica Neue", sans-serif; }
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif; }
 
 h1 {
   font-size: 3.142em; }
@@ -33,7 +35,7 @@ h2 {
   font-size: 1.942em; }
   @media only screen and (max-width: 86em) {
     h2 {
-      font-size: 2.3em; } }
+      font-size: 1.8em; } }
   @media only screen and (max-width: 64em) {
     h2 {
       font-size: 1.942em; } }
@@ -45,7 +47,7 @@ h2 {
       font-size: 1.3em; } }
 
 .h2 {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   padding-bottom: 30px;
   margin-top: 0;
   color: #4E5166; }
@@ -90,7 +92,7 @@ p {
 /*offset for fixed nav and hero section post etc*/
 .page-padding {
   /*to fix fixed top style of navbar*/
-  padding-top: 7em;
+  padding-top: 5em;
   padding-bottom: 3em; }
 
 .padding-top {
@@ -224,13 +226,13 @@ p {
   width: 76%; }
   @media only screen and (max-width: 86em) {
     .hero-content-group {
-      margin: 20vh 0; } }
+      margin: 30vh 0; } }
   @media only screen and (max-width: 64em) {
     .hero-content-group {
-      margin: 8vh 0; } }
+      margin: 18vh 0; } }
   @media only screen and (max-width: 48em) {
     .hero-content-group {
-      margin: 8vh 0; } }
+      margin: 22vh 0; } }
   @media only screen and (max-width: 30em) {
     .hero-content-group {
       margin: 7vh 0; } }
@@ -249,7 +251,7 @@ p {
       margin: 22vh 0; } }
 
 .hero-headline {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 4.25em;
   font-style: italic;
@@ -310,7 +312,8 @@ p {
       height: 42vh; } }
   @media only screen and (max-width: 30em) {
     .carousel {
-      margin-bottom: .5em; } }
+      margin-bottom: .5em;
+      margin-top: 1.5em; } }
 
 .carousel a {
   margin-top: 0;
@@ -491,7 +494,12 @@ p {
 /* medium - iPads and other similar tablets */
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
-/*card styles*/
+.grid-item,
+.grid-item-1 {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-radius: 2px; }
+
 .grid-item a {
   text-decoration: none; }
 
@@ -562,10 +570,6 @@ p {
 
 .card-title .status .published {
   color: #7BE5A0 !important; }
-
-.grid-item,
-.grid-item-1 {
-  padding-bottom: 15px; }
 
 .card-buttons {
   color: #7BE5A0;
@@ -685,13 +689,19 @@ footer p {
   flex-direction: column;
   justify-content: center;
   width: 80%;
-  margin: 0 auto; }
+  margin: 1em auto 0 auto; }
 
 .create-story-heading {
   font-weight: 700;
   font-style: italic;
-  font-family: "Helvetica Neue", sans-serif;
-  color: #4E5166; }
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: #4E5166;
+  border-bottom: 4px solid #7BE5A0;
+  padding-bottom: 15px; }
+
+.create-story-inputs {
+  box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
+  border: none; }
 
 .control-label {
   font-size: 1em;
@@ -731,7 +741,8 @@ footer p {
 /* xlarge - iPad Pro Landscape */
 /*tab styles*/
 .admin-container {
-  width: 90%; }
+  width: 90%;
+  margin-top: 1em; }
 
 .admin-title {
   color: #4E5166;
@@ -771,30 +782,34 @@ footer p {
   padding-bottom: 15px; }
 
 #tabs .nav-tabs li > a {
+  font-weight: 700;
+  font-style: italic;
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.8em;
   border: none;
-  border-bottom: 2px solid #b8bac2;
+  border-bottom: 4px solid #b8bac2;
   color: #4E5166 !important;
   transition: color 0.3s ease-out; }
 
 #tabs .nav-tabs li > a:hover,
 #tabs .nav-tabs li > a:focus {
   border: none;
-  border-bottom: 2px solid #7BE5A0;
+  border-bottom: 4px solid #7BE5A0;
   color: #7BE5A0;
   background: transparent; }
 
 #tabs .nav-tabs .active a {
   border: none;
-  border-bottom: 2px solid #7BE5A0;
-  color: #7BE5A0; }
+  border-bottom: 4px solid #7BE5A0;
+  color: #7BE5A0;
+  background: transparent; }
 
 #tabs .nav-tabs .active a:focus,
 #tabs .nav-tabs .active a:hover {
   border: none;
-  border-bottom: 2px solid #7BE5A0;
+  border-bottom: 4px solid #7BE5A0;
   color: #7BE5A0;
-  cursor: pointer;
-  background: #FFFFFF; }
+  cursor: pointer; }
 
 .user-list {
   box-shadow: 0px 0px 30px -5px rgba(184, 186, 194, 0.75);
@@ -812,12 +827,13 @@ footer p {
 /* large - iPad Pro Portrait */
 /* xlarge - iPad Pro Landscape */
 .account-page-container {
-  width: 90%; }
+  width: 90%;
+  margin-top: 1em; }
 
 .write-button-text {
   font-weight: 700;
   font-style: italic;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
   margin-top: 10px; }
   @media only screen and (max-width: 30em) {
     .write-button-text {
@@ -826,9 +842,6 @@ footer p {
 /* Colors */
 /* Font */
 /* Effects */
-.full-story {
-  background: #FFFFFF; }
-
 .story-title-row,
 .story-writer-row {
   display: flex;
@@ -838,6 +851,9 @@ footer p {
   height: 80px;
   margin: 0 auto;
   border-bottom: 1px solid #BDC6B8; }
+
+.story-title-row {
+  margin-top: 1em; }
 
 .full-story-title {
   margin-bottom: 1em;
@@ -1022,7 +1038,8 @@ footer p {
 .about-row {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  margin: 2em 0; }
 
 .about-section-1,
 .about-section-2 {
@@ -1062,5 +1079,11 @@ footer p {
 .about-heading {
   font-weight: 700;
   font-style: italic;
-  font-family: "Helvetica Neue", sans-serif;
-  color: #4E5166; }
+  font-family: "-apple-system", BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+  color: #4E5166;
+  border-top: 4px solid #7BE5A0;
+  padding-top: 15px; }
+
+.about-content {
+  padding: 5px 0;
+  margin-bottom: 0; }

@@ -1,7 +1,7 @@
 import { Navbar } from 'react-bootstrap';
 import { IndexLink } from 'react-router';
 
-import { NavbarLinks } from '../../containers';
+import { NavbarLinks } from 'Layout/containers';
 import NavbarHeader from './NavbarHeader';
 
 let component;

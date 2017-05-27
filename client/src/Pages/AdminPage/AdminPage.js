@@ -50,7 +50,7 @@ class AdminPage extends Component {
     this.handlePagination(nextProps.userPage);
   }
 
-  handleSelect(selectedTab) {
+  handleSelect(selectedTab) {    
     this.props.updateScreen(selectedTab);
   }
 
@@ -111,15 +111,15 @@ class AdminPage extends Component {
               id="tabs"
               justified
             >
-              <Tab eventKey="users" title="USERS">
+              <Tab eventKey="users" title="Users">
                 <div className="add-user">
-                  <Link to="/register" >
+                  <Link to="/register">
                     <i className="fa fa-user-plus icon-left" aria-hidden="true" />
                     <span>Add a new user</span>
                   </Link>
                 </div>
               </Tab>
-              <Tab eventKey="stories" title="STORIES">
+              <Tab eventKey="stories" title="Stories">
                 <div className="add-story">
                   <Link to="/story">
                     <span>Add a new story</span>

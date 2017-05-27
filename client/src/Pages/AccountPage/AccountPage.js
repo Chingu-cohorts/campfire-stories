@@ -12,10 +12,10 @@ const AccountPage = () => (
           id="tabs"
           justified
         >
-          <Tab eventKey="my-stories" title="MY STORIES" unmountOnExit>
+          <Tab eventKey="my-stories" title="My Stories" unmountOnExit>
             <MyStories />
           </Tab>
-          <Tab eventKey="account-data" title="ACCOUNT DATA">
+          <Tab eventKey="account-data" title="Account Data">
             <AccountData />
           </Tab>
         </Tabs>

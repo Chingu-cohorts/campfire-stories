@@ -1,9 +1,6 @@
 /* Colors */
 /* Font */
 /* Effects */
-.full-story {
-  background: #FFFFFF; }
-
 .story-title-row,
 .story-writer-row {
   display: flex;
@@ -13,6 +10,9 @@
   height: 80px;
   margin: 0 auto;
   border-bottom: 1px solid #BDC6B8; }
+
+.story-title-row {
+  margin-top: 1em; }
 
 .full-story-title {
   margin-bottom: 1em;

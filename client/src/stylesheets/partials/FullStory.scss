@@ -1,18 +1,18 @@
 @import 'Variables';
 
-.full-story {
-  background: $bg-white;
-}
-
 .story-title-row,
 .story-writer-row {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 95%;
-  height: 80px;
-  margin: 0 auto;
+  height: 80px; 
+  margin: 0 auto; 
   border-bottom: 1px solid $earthygrey;
+}
+
+.story-title-row {
+  margin-top: 1em;
 }
 
 .full-story-title {

@@ -4,6 +4,7 @@
 
 .admin-container {
   width: 90%;
+  margin-top: 1em;
 }
 
 .admin-title {
@@ -48,8 +49,12 @@
 }
 
 #tabs .nav-tabs li > a {
+  font-weight: 700;
+  font-style: italic;
+  font-family: $heading-font;
+  font-size: 1.8em;
   border: none;
-  border-bottom: 2px solid rgb(184, 186, 194);
+  border-bottom: 4px solid rgb(184, 186, 194);
   color: $darkblue!important;
   transition: color 0.3s ease-out;
 }
@@ -57,24 +62,24 @@
 #tabs .nav-tabs li > a:hover,
 #tabs .nav-tabs li > a:focus {
   border: none;
-  border-bottom: 2px solid $green;
+  border-bottom: 4px solid $green;
   color: $green;
   background: transparent;
 }
 
 #tabs .nav-tabs .active a {
   border: none;
-  border-bottom: 2px solid $green;
+  border-bottom: 4px solid $green;
   color: $green;
+  background: transparent;
 }
 
 #tabs .nav-tabs .active a:focus,
 #tabs .nav-tabs .active a:hover {
   border: none;
-  border-bottom: 2px solid $green;
+  border-bottom: 4px solid $green;
   color: $green;
   cursor: pointer;
-  background: $bg-white;
 }
 
 .user-list {
